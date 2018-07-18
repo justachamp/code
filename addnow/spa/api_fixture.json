@@ -1,0 +1,316 @@
+[
+{
+  "fields": {
+    "email_is_verified": false,
+    "is_active": true,
+    "dsp_pixel_url": "",
+    "last_login": "2016-02-08T17:04:23.087Z",
+    "is_reminders_muted": false,
+    "offset": 0,
+    "is_admin": true,
+    "password": "pbkdf2_sha256$20000$VmL95Lmoucgr$Yv+srHNVmiqsOCPhyI70ff2dibKcy1qczRPJDSGsd9o=",
+    "email": "vagrant@vagrant.com",
+    "has_analytics": false,
+    "date_joined": "2016-02-08T16:49:54.298Z"
+  },
+  "model": "accounts.user",
+  "pk": 1
+},
+{
+  "fields": {
+    "email_is_verified": true,
+    "is_active": true,
+    "dsp_pixel_url": "",
+    "last_login": "2014-12-09T12:08:14.917Z",
+    "is_reminders_muted": false,
+    "offset": 60,
+    "is_admin": false,
+    "password": "pbkdf2_sha256$20000$Tb8ZrrZMKYwn$6pBmQuQB55r9MKqcZuEjOw/XcpiCdW0rN3/CDhd7E1w=",
+    "email": "test@test.pl",
+    "has_analytics": false,
+    "date_joined": "2016-02-08T16:49:54.301Z"
+  },
+  "model": "accounts.user",
+  "pk": 2
+},
+{
+  "fields": {
+    "email_is_verified": true,
+    "is_active": true,
+    "dsp_pixel_url": "",
+    "last_login": "2014-12-09T12:34:56Z",
+    "is_reminders_muted": false,
+    "offset": 0,
+    "is_admin": false,
+    "password": "pbkdf2_sha256$12000$fI00FICKhi7y$1ij2FdFJkGuQhTTt2h3BgbREgEPongWaFyIekryChog=",
+    "email": "verified@test.pl",
+    "has_analytics": false,
+    "date_joined": "2016-02-08T16:49:54.302Z"
+  },
+  "model": "accounts.user",
+  "pk": 3
+},
+{
+  "fields": {
+    "email_is_verified": false,
+    "is_active": true,
+    "dsp_pixel_url": "",
+    "last_login": "2014-12-09T12:34:56Z",
+    "is_reminders_muted": false,
+    "offset": 0,
+    "is_admin": false,
+    "password": "pbkdf2_sha256$12000$p3LwjXP10FEZ$PH8RyuRpFtJmyyotK32crrtXp5muTZKSI/a+FmQjRfo=",
+    "email": "not_verified@test.pl",
+    "has_analytics": false,
+    "date_joined": "2016-02-08T16:49:54.304Z"
+  },
+  "model": "accounts.user",
+  "pk": 4
+},
+{
+  "fields": {
+    "domain": "test.pl.domain.com",
+    "widget_configurations": [
+      1,
+      2,
+      3
+    ],
+    "copy_paste_sharing": false,
+    "analytics_account": "",
+    "thank_you_message": "",
+    "analytics_profile": "",
+    "dmp_execute_code": false,
+    "address_bar_sharing": false,
+    "has_short_urls": true,
+    "vanity_domain": "",
+    "user": 2,
+    "thank_you_advert_url": "",
+    "analytics_property": "",
+    "thank_you_advert_title": "",
+    "trim_api_key": "",
+    "thank_you_advert_image_url": ""
+  },
+  "model": "accounts.site",
+  "pk": 1
+},
+{
+  "fields": {
+    "domain": "test.pl.domain.with.social.urls.com",
+    "widget_configurations": [
+      1
+    ],
+    "copy_paste_sharing": true,
+    "analytics_account": "",
+    "thank_you_message": "thank you msg",
+    "analytics_profile": "",
+    "dmp_execute_code": false,
+    "address_bar_sharing": true,
+    "has_short_urls": true,
+    "vanity_domain": "",
+    "user": 2,
+    "thank_you_advert_url": "",
+    "analytics_property": "",
+    "thank_you_advert_title": "",
+    "trim_api_key": "",
+    "thank_you_advert_image_url": ""
+  },
+  "model": "accounts.site",
+  "pk": 2
+},
+{
+  "fields": {
+    "extra_button_animation": false,
+    "has_link_share_button": false,
+    "page_title": "",
+    "orientation": "horizontal",
+    "media_url": "",
+    "button_style": "icon",
+    "button_size": "medium",
+    "is_active": true,
+    "site": 1,
+    "counter_position": "right",
+    "vanity_domain": "",
+    "min_width": 0,
+    "position": "",
+    "page_url": "",
+    "type": "sharing-buttons",
+    "name": "default"
+  },
+  "model": "accounts.widgetconfiguration",
+  "pk": 1
+},
+{
+  "fields": {
+    "extra_button_animation": false,
+    "has_link_share_button": false,
+    "page_title": "",
+    "orientation": "vertical",
+    "media_url": "",
+    "button_style": "label",
+    "button_size": "small",
+    "is_active": true,
+    "site": 1,
+    "counter_position": "top",
+    "vanity_domain": "",
+    "min_width": 0,
+    "position": "",
+    "page_url": "",
+    "type": "sharing-buttons",
+    "name": "custom widget config"
+  },
+  "model": "accounts.widgetconfiguration",
+  "pk": 2
+},
+{
+  "fields": {
+    "extra_button_animation": false,
+    "has_link_share_button": false,
+    "page_title": "test",
+    "orientation": "horizontal",
+    "media_url": "test media url",
+    "button_style": "label",
+    "button_size": "small",
+    "is_active": true,
+    "site": 1,
+    "counter_position": "top",
+    "vanity_domain": "",
+    "min_width": 0,
+    "position": "",
+    "page_url": "test page url",
+    "type": "newsletter",
+    "name": "newsletter widget"
+  },
+  "model": "accounts.widgetconfiguration",
+  "pk": 3
+},
+{
+  "fields": {
+    "extra_button_animation": false,
+    "has_link_share_button": false,
+    "page_title": "",
+    "orientation": "horizontal",
+    "media_url": "",
+    "button_style": "icon",
+    "button_size": "medium",
+    "is_active": true,
+    "site": 2,
+    "counter_position": "",
+    "vanity_domain": "",
+    "min_width": 0,
+    "position": "",
+    "page_url": "",
+    "type": "sharing-buttons",
+    "name": "default"
+  },
+  "model": "accounts.widgetconfiguration",
+  "pk": 4
+},
+{
+  "fields": {
+    "is_extra_button": false,
+    "configuration": 1,
+    "order": 0,
+    "service": "facebook",
+    "follow_url": ""
+  },
+  "model": "accounts.widgetbutton",
+  "pk": 1
+},
+{
+  "fields": {
+    "is_extra_button": false,
+    "configuration": 1,
+    "order": 1,
+    "service": "twitter",
+    "follow_url": ""
+  },
+  "model": "accounts.widgetbutton",
+  "pk": 2
+},
+{
+  "fields": {
+    "is_extra_button": false,
+    "configuration": 2,
+    "order": 0,
+    "service": "googlePlus",
+    "follow_url": ""
+  },
+  "model": "accounts.widgetbutton",
+  "pk": 3
+},
+{
+  "fields": {
+    "is_extra_button": false,
+    "configuration": 2,
+    "order": 1,
+    "service": "linkedin",
+    "follow_url": ""
+  },
+  "model": "accounts.widgetbutton",
+  "pk": 4
+},
+{
+  "fields": {
+    "is_extra_button": false,
+    "configuration": 2,
+    "order": 2,
+    "service": "facebook",
+    "follow_url": ""
+  },
+  "model": "accounts.widgetbutton",
+  "pk": 5
+},
+{
+  "fields": {
+    "is_extra_button": false,
+    "configuration": 3,
+    "order": 0,
+    "service": "facebook",
+    "follow_url": ""
+  },
+  "model": "accounts.widgetbutton",
+  "pk": 6
+},
+{
+  "fields": {
+    "is_extra_button": false,
+    "configuration": 3,
+    "order": 1,
+    "service": "twitter",
+    "follow_url": ""
+  },
+  "model": "accounts.widgetbutton",
+  "pk": 7
+},
+{
+  "fields": {
+    "is_extra_button": false,
+    "configuration": 4,
+    "order": 0,
+    "service": "facebook",
+    "follow_url": ""
+  },
+  "model": "accounts.widgetbutton",
+  "pk": 8
+},
+{
+  "fields": {
+    "is_extra_button": false,
+    "configuration": 4,
+    "order": 1,
+    "service": "twitter",
+    "follow_url": ""
+  },
+  "model": "accounts.widgetbutton",
+  "pk": 9
+},
+{
+  "fields": {
+    "url": "http://facebook.com/url",
+    "site": 2,
+    "service": "facebook"
+  },
+  "model": "accounts.socialurl",
+  "pk": 1
+}
+]

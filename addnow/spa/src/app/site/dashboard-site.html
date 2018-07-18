@@ -1,0 +1,46 @@
+<div ng-include="'app/navbar/navbar.html'"></div>
+
+<div class="app-sidebar" ng-class="{'sidebar-expanded': showSideBar}" ng-include="'app/site/side-bar-nav.html'"></div>
+
+<div class="app-body">
+    <div class="app-content">
+        <div class="dashboard-datepicker">
+            <input date-range-picker class="form-control date-picker" type="text" ng-model="dateRange" options="pickerOpts"/>
+        </div>
+        <section data-scrollspy-broadcast data-scrollspy-offset="100"
+                 class="stats-section" id="overview"
+                 ng-include="'app/site/chart-sections/overview.html'"></section>
+
+        <section data-scrollspy-broadcast data-scrollspy-offset="100"
+                 class="stats-section flex-section" id="summary"
+                 ng-include="'app/site/chart-sections/shares-clicks-tool.html'"></section>
+
+        <section data-scrollspy-broadcast data-scrollspy-offset="100"
+                 class="stats-section" id="external-shares"
+                 ng-include="'app/site/chart-sections/external-shares.html'"></section>
+
+        <section data-scrollspy-broadcast data-scrollspy-offset="100"
+                 class="stats-section" id="top-content"
+                 ng-include="'app/site/chart-sections/top-content.html'"></section>
+
+        <section data-scrollspy-broadcast data-scrollspy-offset="100"
+                 class="stats-section flex-section" id="keywords"
+                 ng-include="'app/site/chart-sections/frequent-keyword.html'"></section>
+
+        <section data-scrollspy-broadcast data-scrollspy-offset="100"
+                 class="stats-section" id="search-terms"
+                 ng-include="'app/site/chart-sections/search-terms.html'"></section>
+
+        <section data-scrollspy-broadcast data-scrollspy-offset="100"
+                 class="stats-section" id="geo"
+                 ng-include="'app/site/chart-sections/geo.html'"></section>
+
+        <!--<section data-scrollspy-broadcast data-scrollspy-offset="100"
+                 class="stats-section" id="followers"
+                 ng-include="'app/site/chart-sections/followers.html'"></section>-->
+        <span us-spinner="{radius:18, width:6, length: 12, scale: 1.0, color:'#CECECE', position:'fixed', top:'50vh' }" spinner-key="reportSpinner"></span>
+
+    </div>
+</div>
+
+<div ng-include="'assets/views/footer.html'"></div>

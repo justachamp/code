@@ -1,0 +1,320 @@
+.target-block {
+    .clearfix();
+
+    background: @white;
+    border: 1px solid @contentBorder;
+    margin: 0 0 @baseLineHeight/2;
+
+    &-header {
+        position: relative;
+        padding: @baseLineHeight/2 10px @baseLineHeight/2 60px;
+        margin: 0 0 -1px 0;
+        line-height:@baseLineHeight/2;
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 42px;
+            background: @contentBlackLight;
+            top: 0;
+            bottom: 1px;
+            left: 0;
+        }
+
+        & > [class^="icon-"] {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin: -9px 0 0 13px;
+        }
+
+        & [class^="icon-metric-"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+        }
+
+        & > .controls {
+            float: right;
+
+            & > [class^="icon-"],
+            & > span [class^="icon-"] {
+                margin: 0 5px;
+            }
+
+            & > span {
+                &.collapsed {
+                    .collapsed-hidden {
+                        display: none
+                    }
+                    a {
+                        display: inline-block
+                    }
+                }
+                .collapsed-hidden {
+                    display: inline-block
+                }
+                a {
+                    display: none
+                }
+
+            }
+        }
+
+        h4 {
+            font-size: 12px;
+            line-height: @baseLineHeight + 6;
+
+            strong {
+                font-size: 12px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    &-content {
+
+        &.in {
+            border-top: 1px solid @contentBorder;
+            padding: @baseLineHeight/2 @baseLineHeight/2 0;
+        }
+
+        label {
+            font-size: 12px;
+            min-height: @baseLineHeight + 8 !important;
+        }
+
+    }
+}
+
+.notification-box {
+    margin: 40px 0 30px;
+    h2 {
+        font: 700 12px/16px Arial;
+        text-transform: uppercase;
+    }
+
+    p {
+        text-align: left;
+    }
+
+    > div {
+        text-align: left;
+        p {
+            width: 80%;
+            vertical-align: top;
+            margin-left: 2%;
+            display: inline-block;
+        }
+    }
+}
+
+.storage-template{
+
+    margin:30px 0 @baseLineHeight/2;
+    padding: 10px;
+
+    &:first-of-type{
+        margin-top: 10px;
+    }
+
+    &.light{
+        border: 1px solid #bbb;
+        background-color: #fff;
+    }
+
+    &.dark{
+        border: 1px solid #111;
+        background-color: #151515;
+        color:#fff;
+
+        h4{
+            color:#fff !important;
+        }
+    }
+
+    &.navy-blue{
+        border: 1px solid #0d1a30;
+        background-color: #122645;
+        color:#97a9c4;
+
+        h4{
+            color:#fff !important;
+        }
+    }
+
+    h4{
+        font:bold 16px Arial;
+        padding: 0 0 6px 0;
+    }
+
+    .img-placeholder{
+        margin: 0;
+        min-height: 44px;
+    }
+}
+
+.protection-box{
+
+    height: 60px;
+    line-height: 60px;
+    background-color: #1b1d1d;
+    color:#fff;
+    padding:10px;
+    text-align:center;
+    border-bottom:1px solid #fff;
+    cursor:pointer;
+
+    & > div.protection-content{
+        padding:0 0 0 76px;
+        text-align:left;
+
+       strong{
+           display: inline-block;
+           vertical-align: middle;
+           line-height: 16px;
+       }
+    }
+
+    & > span{
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 16px;
+    }
+    .maturity{
+        display: inline-block;
+        font:600 36px/64px Ciutadella;
+        text-align: center;
+        height: 60px;
+        width:60px;
+        border: 1px solid #fff;
+        float:left;
+
+        &.small{
+            font:600 18px/64px Ciutadella;
+        }
+    }
+
+    &.active{
+        background-color: @mainAccent;
+        color: #000;
+
+        .maturity{
+            border:1px solid #000;
+        }
+    }
+}
+
+.text-block{
+    max-width:770px !important;
+
+    p{
+        font: 13px/16px Arial;
+        color: #999;
+        padding: 0 0 15px 0;
+
+        img{
+            margin: 0 auto 10px auto;
+            max-width: 100%;
+            display: block;
+        }
+
+        .icon-help {
+            position: relative;
+            top: -2px;
+        }
+    }
+}
+
+a.app-block{
+    &:active{
+        top:1px;
+    }
+}
+
+.app-block{
+
+    background: #1c1e1e;
+    position:relative;
+    text-align: center;
+    margin-bottom: 2%;
+    padding:8% 0;
+
+    &.connected{
+        background: @mainAccent;
+
+        span{
+            color: #1c1e1e;
+        }
+    }
+
+
+    &.connected{
+        &:after{
+            content: 'CONNECTED';
+            position: absolute;
+            color: white;
+            text-transform: uppercase;
+            font-size:10px;
+            top:10px;
+            left:10px;
+            font-weight: bold;
+        }
+    }
+
+    &:before{
+        content: '';
+        display: inline-block;
+        max-width: 230px;
+        width: 100%;
+        height: 70px;
+        vertical-align: middle;
+        #sprites > .sprite('apps');
+    }
+
+    span{
+        position: absolute;
+        font-size: 11px;
+        color: #bbbcbc;
+        bottom:5px;
+        left:10px;
+    }
+
+    &.trim:before{
+        background-repeat: no-repeat;
+        background-image: url("../images/content/apps/trim.png");
+    }
+
+    &.addnow:before{
+        background-repeat: no-repeat;
+        background-image: url("../images/content/apps/addnow.png");
+    }
+
+    &.delieverme:before{
+        background-repeat: no-repeat;
+        background-image: url("../images/content/apps/deliver_me.png");
+    }
+
+    &.reachme:before{
+        background-repeat: no-repeat;
+        background-image: url("../images/content/apps/reach_me.png");
+    }
+
+    &.unify-analytics:before{
+        background-repeat: no-repeat;
+        background-image: url("../images/content/apps/unify_analytics.png");
+    }
+
+    &.unify-enterprise:before{
+        background-repeat: no-repeat;
+        background-image: url("../images/content/apps/unify_enterprise.png");
+    }
+
+
+}
+
+.apps-list.items-list > li {
+    cursor: auto;
+}

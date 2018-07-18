@@ -1,0 +1,160 @@
+<div class="content-container -t-creative-details">
+    <!-- ko if: fields.id -->
+    <h2 class="-t-title" data-bind="text: fields.name"></h2>
+    <!-- /ko -->
+    <!-- ko ifnot: fields.id -->
+    <h2 class="-t-title">New creative</h2>
+    <!-- /ko -->
+
+    <form class="form-horizontal">
+
+        <div class="control-group row-fluid">
+
+            <div class="controls">
+                <strong class="input-inline-text text-small -t-creative-status"
+                        data-bind="css: 'status-creative-' + fields.status(), text: ' REVIEW ' + status_description()"></strong>
+                <!-- ko if: fields.is_auditable() -->
+                    <button class="-t-force-audit btn" data-bind="click: send_to_audit, disable: fields.to_audit()">Send to audit</button>
+                <!-- /ko -->
+            </div>
+        </div>
+
+        <div class="control-group row-fluid">
+            <label class="control-label">Creative name</label>
+
+            <div class="controls">
+                <input class="input-block-level -t-input-creative-name" type="text" data-bind="value: fields.name"/>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid" data-bind="if: fields.type() === 'Html'">
+
+            <label class="control-label">HTML code</label>
+
+            <div class="controls">
+                <textarea rows="10" disabled class="input-block-level" data-bind="value: fields.api_data">
+                </textarea>
+            </div>
+
+        </div>
+        
+        <div class="control-group row-fluid">
+            <label class="control-label">Creative type</label>
+
+            <div class="controls ">
+                <select name="creative-type" data-bind="value: fields.destination, click: destinationChange">
+                    <option value="default">Default</option>
+                    <option value="facebook_sidebar">Facebook sidebar</option>
+                    <option value="facebook_newsfeed">Facebook news feed</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid" data-bind="if: _.contains(['Image', 'Flash'], fields.type())">
+            <label class="control-label">Choose file</label>
+
+            <div class="controls ">
+                <!-- ko if: isCreativeTypeFB() -->
+                    <div class="btn -t-creative-upload"
+                         data-bind="imageUploader: {callback: setImageFromqqUploader}">Upload file
+                    </div>
+                <!-- /ko -->
+                <!-- ko ifnot: isCreativeTypeFB() -->
+                    <div class="btn -t-creative-upload"
+                         data-bind="fileUploader: {callback: setImageFromqqUploader}">Upload file
+                    </div>
+                <!-- /ko -->
+            </div>
+        </div>
+        
+        <div class="control-group row-fluid control-with-hint" data-bind="visible: fields.destination()=='facebook_newsfeed'">
+            <i class="icon-help fb-hint" data-bind="tooltip: {title: 'You may choose only FB page with confirmed access status', placement: 'right'}, style: {right: '220px'}"></i>
+            <label class="control-label">Facebook page</label>
+            <div class="controls ">
+                <select name="fb-page" data-bind="value: fields.fb_brand_page, foreach: available_brands">
+                    <option data-bind="text: fields.page_name, attr: {value: fields.id}"></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid control-with-hint" data-bind="visible: isCreativeTypeFB()">
+            <i class="icon-help fb-hint" data-bind="tooltip: {title: 'These fields can not contain the following characters:<br>\ ^ ~ _ = { } [ ] | < ><br>International Phonetic Alphabet (IPA) Symbols, e.g., θ, ð, ʃ, ʒ, etc.<br>Superscript and subscript characters with the exception of TM and SM', html: true, placement: 'left'}"></i>
+            <label class="control-label">Title</label>
+            <div class="controls ">
+                <input class="input-block-level" type="text"
+                       data-bind="value: fields.fb_title, 
+                       attr: {maxlength: (fields.destination()=='facebook_sidebar')?'25':'90'}"/>
+            </div>
+        </div>
+        
+        <div class="control-group row-fluid" data-bind="visible: isCreativeTypeFB()">
+            <label class="control-label">Body</label>
+            <div class="controls ">
+                <textarea class="input-block-level" rows="2" data-bind="value: fields.fb_body,
+                          attr: {maxlength: (fields.destination()=='facebook_sidebar')?'90':'145'}">
+                </textarea>
+            </div>
+        </div>
+        
+        <div class="control-group row-fluid" data-bind="visible: fields.destination()=='facebook_newsfeed'">
+            <label class="control-label">Message</label>
+            <div class="controls ">
+                <textarea class="input-block-level" rows="3" data-bind="value: fields.fb_message" maxlength="500"></textarea>
+            </div>
+        </div>
+        
+        <div class="control-group row-fluid" data-bind="visible: fields.destination()=='facebook_newsfeed'">
+            <label class="control-label">Domain</label>
+            <div class="controls ">
+                <input class="input-block-level" type="text" data-bind="value: fields.fb_domain">
+            </div>
+        </div>
+
+        <!-- ko if: is_preview_visible -->
+        <div class="control-group row-fluid">
+            <label class="control-label">Preview: </label>
+
+            <div class="controls">
+                <div data-bind="template: { name: 'display-' + fields.type(), data: $data }"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+
+        <div class="control-group row-fluid">
+            <div class="controls">
+                <button class="-t-button-save btn" data-bind="click: save">Save</button>
+                <!-- ko if: fields.id -->
+                <button class="-t-button-delete btn" data-bind="click: remove">Delete</button>
+                <!-- /ko -->
+            </div>
+        </div>
+    </form>
+
+    <script type="text/html" id="display-Image">
+        <div class="img-placeholder"><img class="-creative-preview" data-bind="attr: { src: fields.api_data }"/></div>
+    </script>
+
+    <script type="text/html" id="display-Flash">
+        <div class="img-placeholder" data-bind="style: {width: fields.width() + 'px'}">
+            <object type="application/x-shockwave-flash" width="0" height="0"
+                    data-bind="attr: { data: fields.api_data, width: fields.width, height: fields.height}">
+                <param name="movie" data-bind="value: fields.api_data"/>
+                <param name="quality" value="high"/>
+            </object>
+        </div>
+    </script>
+
+    <script type="text/html" id="display-Video">
+        <video id="video-preview" class="-vast-preview video-js vjs-default-skin" autoplay controls preload="auto"
+            poster="/static/assets/images/logo.png"
+            data-setup='{}'
+            width='640'
+            height='480'
+            >
+            <source data-bind="staticImg: 'assets/video/g4branding.mp4'" type="video/mp4">
+            <source data-bind="staticImg: 'assets/video/g4branding.webm'" type="video/webm">
+            <source data-bind="staticImg: 'assets/video/g4branding.ogv'" type="video/ogg">
+        </video>
+    </script>
+
+</div>

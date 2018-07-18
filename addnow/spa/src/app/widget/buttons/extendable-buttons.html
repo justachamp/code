@@ -1,0 +1,52 @@
+<div class="clearfix">
+    <h3 class="half">Select social icons</h3>
+    <span class="drag-drop-instructions half">Move items to reorder</span>
+</div>
+
+<div class="half services-pool available-icons">
+    <ul class="sortable-row clearfix" ui-sortable="sortableOptions" ng-model="nonSelectedButtons" id="availableItems">
+        <li class="sortable-item" ng-repeat="item in nonSelectedButtons">
+            <span class="addnow-icon-{{item.service}}">
+                <span class="addnow-service-icon _show-label ng-binding">{{item.service}}</span>
+            </span>
+        </li>
+        <li class="sortable-item drop-zone" ng-show="nonSelectedButtons.length === 0"></li>
+    </ul>
+</div>
+
+<div class="half">
+
+    <div class="services-pool selected-icons">
+        <ul class="sortable-row clearfix" ui-sortable="sortableOptions" ng-model="mainButtons" id="selectedItems">
+            <li class="sortable-item" ng-repeat="item in mainButtons">
+            <span class="addnow-icon-{{item.service}}">
+                <span class="addnow-service-icon _show-label ng-binding">{{item.service}}</span>
+            </span>
+            </li>
+            <li ng-if="showDropZone()" class="sortable-item drop-zone"></li>
+        </ul>
+    </div>
+
+    <p ng-if="maxMainItems > 0 && minMainItems > 0">
+      You can only select between {{minMainItems}} and {{maxMainItems}} buttons.
+    </p>
+    <p ng-if="maxMainItems > 0 && minMainItems === 0 && maxMainItems < availableButtons.length">
+      You can only select {{maxMainItems}} buttons.
+    </p>
+    <p ng-if="maxMainItems === -1 && minMainItems > 0">
+      You can only select at least {{minMainItems}} buttons.
+    </p>
+
+    <div class="services-pool selected-plus">
+        <ul class="sortable-row clearfix" ui-sortable="sortableOptions" ng-model="extraButtons" id="selectedItemsPlus">
+            <li class="sortable-item" ng-repeat="item in extraButtons">
+            <span class="addnow-icon-{{item.service}}">
+                <span class="addnow-service-icon _show-label ng-binding">{{item.service}}</span>
+            </span>
+            </li>
+            <li class="sortable-item drop-zone"></li>
+        </ul>
+        <span class="fake-plus"></span>
+    </div>
+
+</div>

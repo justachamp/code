@@ -1,0 +1,84 @@
+{% load raven %}
+{% load static_version %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+        <link rel="stylesheet" href="{% static_bust "assets/css/style.css"%}"/>
+        <link rel="stylesheet" href="{% static_bust "assets/css/responsive.css"%}"/>
+        <link rel="stylesheet" href="{% static_bust "libs/morris/morris.css"%}"/>
+        <link rel="stylesheet" href="{% static_bust "libs/video-js/video-js/video-js.css"%}"/>
+        <link rel="stylesheet" href="{% static_bust "libs/video-js/plugins/videojs.ads.css"%}"/>
+        <link rel="shortcut icon" href="{% static_bust "assets/images/icons/favicon.ico"%}"/>
+
+        {% block js_config %}
+        {% endblock %}
+
+        <!-- sentry client -->
+        <script src="//d3nslu0hdya83q.cloudfront.net/dist/1.0/raven.min.js"></script>
+        <script type="text/javascript">
+            Raven.config('{% sentry_public_dsn %}').install();
+            Raven.updateUser = function(user) {
+                user = user || {};
+                if (! user.hasOwnProperty('id')) {
+                    user.id = '{{ user.pk }}';
+                };
+                if (! user.hasOwnProperty('email')) {
+                    user.email = '{{ user.email }}';
+                };
+                if (! user.hasOwnProperty('path')) {
+                    user.path = '';
+                };
+                Raven.setUser(user);
+            };
+            Raven.updateUser();
+        </script>
+
+        {% block head_scripts %}
+        {% endblock %}
+
+    </head>
+
+    <body>
+
+        {% block header %}
+        {% endblock %}
+
+        <section id="left-menu">
+            {% block left_menu %}
+            {% endblock %}
+        </section>
+        <section id="sidebar">
+            {% block sidebar %}
+            {% endblock %}
+        </section>
+        <section id="content">
+            {% block content %}
+            {% endblock %}
+        </section>
+
+        {% block trays %}
+        {% endblock %}
+
+        {% block livereload %}
+        {% endblock %}
+
+        {% block preloader %}
+        {% endblock %}
+
+        {% block body_scripts %}
+        {% endblock %}
+
+    </body>
+
+</html>

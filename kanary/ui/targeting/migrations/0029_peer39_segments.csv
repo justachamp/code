@@ -1,0 +1,254 @@
+AppNexus ID;Account Category Id;Parent account category ID;Main category;Sub category;Subsub category
+46915;4031;;Arts and Entertainment
+1320020;20751;4031;Arts and Entertainment;Award Shows
+46919;4035;4031;Arts and Entertainment;Books and Literature
+46918;4034;4031;Arts and Entertainment;Celebrities
+639126;17037;4034;Arts and Entertainment;Celebrities;Royal Baby
+59152;5038;4031;Arts and Entertainment;Comics and Animation
+46881;3996;4031;Arts and Entertainment;Dining Out
+46880;3995;4031;Arts and Entertainment;Movies and Videos
+46917;4033;4031;Arts and Entertainment;Music
+46882;3997;4031;Arts and Entertainment;VisualArts
+46906;4021;;Automotive
+52643;4381;4021;Automotive;Buying and Selling
+57768;5009;4021;Automotive;Insurance
+46909;4024;4021;Automotive;Maintenance
+52641;4400;4021;Automotive;Manufacturers
+336229;13251;4400;Automotive;Manufacturers;Acura
+336231;13252;4400;Automotive;Manufacturers;Audi
+115752;6327;4400;Automotive;Manufacturers;BMW
+450274;15363;4400;Automotive;Manufacturers;Buick
+336242;13253;4400;Automotive;Manufacturers;Cadillac
+220060;10469;4400;Automotive;Manufacturers;Chrysler
+115753;6323;4400;Automotive;Manufacturers;Dodge
+115754;6320;4400;Automotive;Manufacturers;Ford
+450276;15364;4400;Automotive;Manufacturers;GMC
+115755;6324;4400;Automotive;Manufacturers;Honda
+336244;13254;4400;Automotive;Manufacturers;Infiniti
+450278;15365;4400;Automotive;Manufacturers;Jaguar
+450287;15366;4400;Automotive;Manufacturers;Kia
+336245;13255;4400;Automotive;Manufacturers;LandRover
+336246;13256;4400;Automotive;Manufacturers;Lexus
+450289;15367;4400;Automotive;Manufacturers;Lincoln
+450290;15368;4400;Automotive;Manufacturers;Mazda
+115756;6325;4400;Automotive;Manufacturers;Mercedes-Benz
+115757;6328;4400;Automotive;Manufacturers;Mitsubishi
+115758;6322;4400;Automotive;Manufacturers;Nissan
+336247;13257;4400;Automotive;Manufacturers;Porsche
+450291;15369;4400;Automotive;Manufacturers;Scion
+450292;15370;4400;Automotive;Manufacturers;Smart
+115759;6329;4400;Automotive;Manufacturers;Subaru
+115760;6321;4400;Automotive;Manufacturers;Toyota
+115761;6326;4400;Automotive;Manufacturers;Volkswagen
+336248;13258;4400;Automotive;Manufacturers;Volvo
+46907;4022;4021;Automotive;Vehicles
+1068803;19990;4022;Automotive;Vehicles;Hybrids
+530936;16500;4022;Automotive;Vehicles;Luxury Cars
+220061;10467;4022;Automotive;Vehicles;Minivans
+46908;4023;4022;Automotive;Vehicles;Motorcycles
+222083;10536;4022;Automotive;Vehicles;Passenger Cars
+220064;10468;4022;Automotive;Vehicles;Sports Cars
+222082;10535;4022;Automotive;Vehicles;SUVs
+46874;3988;;Business
+1540973;22032;3988;Business;Agriculture
+235338;12359;3988;Business;Economic Crisis
+46875;3989;3988;Business;Economics
+46876;3990;3988;Business;Small Business
+46914;4030;;Careers
+46920;4036;;Education
+46883;3998;4036;Education;College and University
+46921;4037;;Environment
+46884;3999;4037;Environment;Conservation
+46922;4038;4037;Environment;Energy
+46885;4000;4037;Environment;Global Warming
+46923;4039;4037;Environment;Green Living
+46928;4044;;Food and Beverage
+46848;4045;4044;Food and Beverage;Alcoholic Drinks
+155695;6942;4044;Food and Beverage;Baking
+46890;4005;4044;Food and Beverage;Cooking
+159133;7041;4044;Food and Beverage;Healthy Eating
+177707;8804;4044;Food and Beverage;Recipes
+235337;12358;4044;Food and Beverage;Vegetarian
+46826;4046;;Health
+46832;4049;4046;Health;Conditions and Diseases
+46891;4006;4046;Health;Dental
+46827;4047;4046;Health;Diet and Fitness
+91795;5581;4046;Health;Men
+46892;4007;4046;Health;Mental
+46828;4048;4046;Health;Optical
+81586;5365;4046;Health;Sexual Health
+46893;4008;4046;Health;Treatment
+52645;4382;4046;Health;Women
+46834;4051;;Home and Garden
+46896;4011;4051;Home and Garden;Cleaning and Laundry
+159135;7044;4051;Home and Garden;Decorating
+229931;10632;4051;Home and Garden;Do It Yourself
+46835;4052;4051;Home and Garden;Lawn and Garden
+1230666;20420;;Interest
+1230758;20430;20420;Interest;Business Professionals
+1230822;20426;20420;Interest;Health Conscience
+1230870;20421;20420;Interest;High-End Luxury Spenders
+1230873;20427;20420;Interest;Home Owners
+1230874;20424;20420;Interest;Men
+1230877;20423;20420;Interest;Moms
+1230881;20422;20420;Interest;Retirees
+1230890;20429;20420;Interest;Students
+1230905;20428;20420;Interest;Trending Topics
+1230907;20425;20420;Interest;Women
+46864;3978;;Internet
+101242;6122;3978;Internet;Apps and Toolbars
+316232;12925;3978;Internet;Blind Inventory
+839975;18164;3978;Internet;Bot Sites Non-Human traffic
+342617;13413;3978;Internet;Comments
+46929;4206;3978;Internet;Graphics and Design
+177708;8805;3978;Internet;Maps
+101231;6118;3978;Internet;Moderated UGC
+1612065;17195;3978;Internet;Parked Domains
+46849;4860;3978;Internet;Recreation and Games
+46866;3980;3978;Internet;Search and Info
+101229;6117;3978;Internet;UGC
+235723;10339;6117;Internet;UGC;Forums
+46869;10338;6117;Internet;UGC;Social Networks
+1612071;17223;6117;Internet;UGC;Social Networks;Facebook
+46865;10340;6117;Internet;UGC;Video Photo Sharing
+220059;10470;3978;Internet;Webmail
+604032;16877;10470;Internet;Webmail;Premium Webmail
+46836;4053;;Negative
+175826;8807;4053;Negative;9/11
+101235;6006;4053;Negative;Accidents
+283477;12779;4053;Negative;Alcohol
+46898;4013;4053;Negative;Crime
+101228;6061;4053;Negative;Death
+46838;4055;4053;Negative;Disasters
+58628;5026;4053;Negative;Drugs
+486893;15833;4053;Negative;Firearms
+1108168;20388;4053;Negative;Gambling
+46897;4012;4053;Negative;Mature
+235336;12357;4053;Negative;Negative News
+57206;5000;4053;Negative;Profanity and Hate Speech
+46837;4054;4053;Negative;Terror
+283476;12778;4053;Negative;Tobacco
+77642;5301;4053;Negative;Torrent
+46839;4056;;News
+46842;4059;4056;News;Africa and Middle East
+46901;4016;4056;News;AsiaPacific
+46902;4017;4056;News;Australia and New Zealand
+159136;7045;4056;News;Commuting
+46841;4058;4056;News;Europe
+159138;7047;4056;News;Government
+1570679;22179;4056;News;HealthCare
+46843;4060;4056;News;LatinAmerica
+177709;8806;4056;News;Local
+46899;4014;4056;News;Politics
+159137;7046;4056;News;Transportation
+46900;4015;4056;News;US and Canada
+46840;4057;4056;News;Weather
+46903;4018;;Parenting and Kids
+46904;4019;4018;Parenting and Kids;Babies
+46845;4062;4018;Parenting and Kids;Pregnancy
+46877;3992;;Personal Finance
+51471;4960;3992;Personal Finance; Credit and Loans
+159134;7042;4960;Personal Finance; Credit and Loans;Automotive
+170632;7043;4960;Personal Finance; Credit and Loans;Education
+153882;6941;4960;Personal Finance; Credit and Loans;Home
+867626;18399;3992;Personal Finance; Insurance
+867629;18400;18399;Personal Finance; Insurance;Health Insurance
+1028283;19309;18399;Personal Finance; Insurance;Life Insurance
+210817;5540;3992;Personal Finance; Investing
+84871;5541;5540;Personal Finance; Investing;ETFs
+132413;6766;5540;Personal Finance; Investing;Forex
+86329;5580;5540;Personal Finance; Investing;Retirement Planning
+119371;6523;5540;Personal Finance; Investing;Stocks
+80911;5340;3992;Personal Finance; Taxes
+46862;3976;;Pets
+46912;4380;;RealEstate
+405585;14473;4380;RealEstate;Commercial
+486895;15834;4380;RealEstate;Rental
+486925;15835;4380;RealEstate;Residential
+405586;14474;4380;RealEstate;Sales
+52647;3962;;Recreation and Games
+46850;3963;3962;Recreation and Games;Gambling
+101234;6121;3962;Recreation and Games;Hobbies and Interests
+46852;3965;3962;Recreation and Games;Outdoor Recreation
+46886;4001;;Relationships
+46924;4040;4001;Relationships;Singles and Dating
+209350;10306;4001;Relationships;Weddings
+46863;3977;;Sciences
+1611611;10290;;Seasonal
+1082688;20030;10290;Seasonal;3 Kings
+382049;13937;10290;Seasonal;Back to School
+475347;15790;10290;Seasonal;BlackFriday CyberMonday
+216099;10373;10290;Seasonal;Christmas
+639134;17012;10290;Seasonal;Easter
+329131;12992;10290;Seasonal;Fathers Day
+1456626;21365;10290;Seasonal;French Open
+431571;14797;10290;Seasonal;Halloween
+1611738;22322;10290;Seasonal;Jewish Holidays
+1516762;21884;10290;Seasonal;March Madness
+292356;12837;10290;Seasonal;Mothers Day
+486928;15836;10290;Seasonal;New Years
+948838;18905;10290;Seasonal;Sailing Events
+218474;10425;10290;Seasonal;Super Bowl
+202334;10291;10290;Seasonal;Thanksgiving
+220065;10471;10290;Seasonal;Valentines Day
+1422554;21182;10290;Seasonal;Wimbledon
+1173962;20445;10290;Seasonal;Winter Olympics
+1422555;21191;10290;Seasonal;World Cup
+46930;4207;;Shopping
+162039;7069;4207;Shopping;Coupons
+52649;4383;;Society
+81588;5364;4383;Society;Holidays and Celebrations
+116410;6521;4383;Society;Law and Ethics
+101232;6119;4383;Society;Religion and Spirituality
+46851;3964;;Sports
+46855;3969;3964;Sports;Baseball
+46856;3970;3964;Sports;Basketball
+46857;3971;3964;Sports;Boxing
+338592;13399;3964;Sports;Cricket
+1579219;22221;3964;Sports;Cycling
+46846;3960;3964;Sports;Football
+46858;3972;3964;Sports;Golf
+46847;3961;3964;Sports;Hockey
+46861;3975;3964;Sports;HorseRacing
+52653;4560;3964;Sports;Motorsports
+290106;12817;3964;Sports;Olympics
+46860;3974;3964;Sports;Soccer
+436256;15043;3964;Sports;Surfing
+46859;3973;3964;Sports;Tennis
+46868;3982;3964;Sports;WinterSports
+101233;6120;3982;Sports;WinterSports;Skiing
+46870;3984;;Style and Fashion
+52655;4561;3984;Style and Fashion;BodyArt
+46871;3985;3984;Style and Fashion;Clothing and Accessories
+46910;4025;3984;Style and Fashion;Cosmetics
+46872;3986;3984;Style and Fashion;HairCare
+46873;3987;3984;Style and Fashion;SkinCare
+46879;3994;;Technology
+177710;9408;3994;Technology;Apple
+1473387;21665;3994;Technology;Cloud Computing
+46916;4032;3994;Technology;Computers
+46887;4002;4032;Technology;Computers;Hardware
+46925;4041;4032;Technology;Computers;Software
+1435869;21276;4041;Technology;Enterprise Computing
+1320019;20752;4041;Technology;Green Tech
+46888;4003;4041;Technology;HomeEntertainment
+46926;4042;4041;Technology;Mobile
+46927;4043;4041;Technology;Video Games
+1182670;20489;4041;Technology;Web and Graphic Design
+46853;3966;;Travel
+46854;3967;3966;Travel;Air
+1353694;20842;3966;Travel;Car Rental
+52639;4968;3966;Travel;Cruise
+356640;13437;3966;Travel;Destinations
+913425;18494;13437;Travel;Destinations;Europe
+356641;13438;13437;Travel;Destinations;Florida
+399917;14437;13437;Travel;Destinations;Hawaii
+559661;16539;13437;Travel;Destinations;Las Vegas
+486931;15838;13437;Travel;Destinations;Southern California
+1237395;20681;3966;Travel;Hotels and Accommodation
+81589;5382;3966;Travel;Theme
+114457;6500;5382;Travel;Theme;Adventure
+106472;6200;5382;Travel;Theme;Beach
+991199;19222;5382;Travel;Theme;Family Travel
+81590;5383;5382;Travel;Theme;Winter
+649179;17056;3966;Travel;Theme Parks

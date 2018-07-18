@@ -1,0 +1,107 @@
+<div ng-include="'app/navbar/navbar.html'"></div>
+
+
+<div class="app-body addsite-view">
+    <div class="app-content">
+
+        <section class="settings-view">
+            <h1 class="settings-section-title">Account Settings</h1>
+
+            <form name="form" novalidate ng-submit="submitAccChanges()" class="inputW2" autocomplete="off" ng-model-options="{ debounce: { 'default': 750, 'blur': 0 }}">
+                <section class="settings-section clearfix panel">
+                    <div class="_half">
+                        <div class="form-group" ng-if="!hasAnalytics">
+                            <div>
+                                <label>Integrate with Google Analytics</label>
+                                <button class="g4-button" type='button' ng-click="auth()"><span>ACTIVATE</span></button>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="hasAnalytics">
+                            <div>
+                                <label>Integrate with Google Analytics</label>
+                                <button class="g4-button" type='button' ng-click="removeauth()"><span>DEACTIVATE</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="settings-section clearfix panel">
+                    <div class="_half">
+                        <h3>Account</h3>
+
+                        <div class="form-group">
+                            <errors data="errors.nonFieldServerErrors"></errors>
+                        </div>
+
+                        <div class="form-group">
+                            <div>
+                                <label>Email</label>
+                                <input type="email" class="form-control domain" name="email" ng-model="formData.email"
+                                       ng-model-options="{ debounce: { 'default': 750, 'blur': 0 }}" required/>
+                            </div>
+                            <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.email.$error" class="form-group soft-top msg-error">
+                                <div ng-message="required">You did not enter a field</div>
+                                <div ng-message="email">You must enter valid email</div>
+                                <div ng-if="form.email.$error.serverError === 'User with this email already exists.'" ng-message="serverError">{{form.email.$error.serverError[0]}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <label>Timezone</label>
+                                <select class="form-control domain" name="time" ng-model="formData.timeZone" ng-options="date.value as date.name for date in dates"></select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="settings-section clearfix panel">
+                    <div class="_half">
+                        <h3>Password</h3>
+                        <div class="form-group">
+                            <div>
+                                <label class="text-left">Current Password</label>
+                                <input type="password" class="form-control domain" name="password" ng-model="formData.password" ng-required="formData.newPassword1" validate-server/>
+                            </div>
+                            <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.password.$error" ng-messages-multiple
+                                 class="msg-error"
+                                 ng-messages-include="app/common/validation/default-messages.html" cc-server-messages></div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <label>New Password</label>
+                                <input type="password" class="form-control domain" name="pw1" ng-model="formData.newPassword1" ng-minlength="4" ng-required="formData.password"/>
+                            </div>
+                        </div>
+                        <div ng-class="{notSubmitted: !form.$submitted}" ng-if="form.pw1.$dirty || form.$submitted" ng-messages="form.pw1.$error"
+                             class="form-group soft-top msg-error"
+                             ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+                            <div ng-message="minlength">Password must contain at least 4 chars.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <div>
+                                <label>Confirm Password</label>
+                                <input type="password" class="form-control domain" name="pw2" ng-model="formData.newPassword2" password-match="formData.newPassword1"/>
+                            </div>
+                        </div>
+                        <div ng-class="{notSubmitted: !form.$submitted}" ng-if="form.pw2.$dirty || form.$submitted" ng-messages="form.pw2.$error"
+                             class="form-group soft-top msg-error"
+                             ng-messages-include="app/common/validation/default-messages.html" cc-server-messages></div>
+
+                        <div class="forgot-password">
+                            <a href="/passforgot">Don‘t know your password?</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="save-bar settings-section">
+                    <div>
+                        <button class="g4-button" type="submit"><span>SAVE CHANGES</span></button>
+                    </div>
+                </section>
+
+            </form>
+        </section>
+    </div>
+</div>
+
+<div ng-include="'assets/views/footer.html'"></div>

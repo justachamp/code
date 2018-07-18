@@ -1,0 +1,42 @@
+#grid > .fluid(@fluidGridColumnWidth, @fluidGridGutterWidth);
+
+[class*="span"].hide,
+.row-fluid [class*="span"].hide {
+	display: none;
+}
+
+[class*="span"].pull-right,
+.row-fluid [class*="span"].pull-right {
+	float: right;
+}
+
+.row-fluid,
+.row{
+	.clearfix();
+}
+
+.row-fluid textarea[class*="span"]{
+	resize: vertical;
+}
+
+//
+//  Helper classes for sizing inline elements
+//
+.span6 {
+  min-width: 48.717948717948715%;
+}
+.span5 {
+  min-width: 40.17094017094017%;
+}
+.span4 {
+  min-width: 31.623931623931625%;
+}
+.span3 {
+  min-width: 23.076923076923077%;
+}
+.span2 {
+  min-width: 14.52991452991453%;
+}
+.span1 {
+  min-width: 5.982905982905983%;
+}

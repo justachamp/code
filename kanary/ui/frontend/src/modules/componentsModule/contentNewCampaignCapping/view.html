@@ -1,0 +1,96 @@
+<div class="content-container">
+
+    <h2 class="-t-title">Capping
+      <a class="icon-help"
+         data-bind="tooltip: {title: 'Limiting how often given Ad/Strategy/Campaign is served to a User. Example: serve maximum 8 times per 24 hours.', placement: 'right'}"></a>
+    </h2>
+
+
+    <form class="form-horizontal ">
+
+        <div class="control-group row-fluid -t-campaign-checkbox">
+
+            <div class="controls">
+
+                <input type="checkbox" data-bind="fancyCheckbox: { value: fields().cap_campaign_selected }" />Activate campaign cap
+
+            </div>
+        </div>
+
+        <div class="control-group row-fluid -t-campaign-capping">
+            <label class="control-label -t-campaign-capping-label" for="capCampaignAt">Cap campaign at</label>
+
+            <div class="controls">
+
+                <input type="text" data-bind="formatBudget: fields().cap_campaign_presented, displayError: errors.cap_campaign_period_presented" class="-t-cap-value span5" id="capCampaignAt"/>
+
+                <span class="span4 input-inline-text">impression(s) in a</span>
+
+                <select data-bind="options: cappingOptions,
+                                   value: fields().cap_campaign_period_presented" class="span3 -t-select">
+
+                </select>
+
+            </div>
+        </div>
+
+        <div class="control-group row-fluid -t-strategy-checkbox">
+
+            <div class="controls">
+
+                <input type="checkbox" data-bind="fancyCheckbox: { value: fields().cap_strategy_selected }"/>Activate strategy cap
+
+            </div>
+        </div>
+
+        <div class="control-group row-fluid -t-strategy-capping">
+            <label class="control-label  -t-strategy-capping-label" for="capStrategyAt">Cap strategy at</label>
+
+            <div class="controls">
+
+                <input type="text" data-bind="formatBudget: fields().cap_strategy_presented,
+                       displayError: errors.cap_strategy_presented" class="span5 -t-cap-value" id="capStrategyAt"/>
+
+                <span class="span4 input-inline-text">impression(s) in a</span>
+
+                <select data-bind="options: cappingOptions,
+                                   value: fields().cap_strategy_period_presented" class="span3 -t-select"></select>
+
+            </div>
+        </div>
+
+        <div class="control-group row-fluid -t-creative-checkbox">
+
+            <div class="controls">
+
+                <input type="checkbox" data-bind="fancyCheckbox: { value: fields().cap_creative_selected }"/>Activate creative cap
+
+            </div>
+        </div>
+
+        <div class="control-group row-fluid -t-creative-capping">
+            <label class="control-label -t-creative-capping-label" for="capCreativeAt">Creative cap at</label>
+
+            <div class="controls">
+
+                <input type="text" data-bind="formatBudget: fields().cap_creative_presented,
+                       displayError: errors.cap_creative_presented" class="span5 -t-cap-value" id="capCreativeAt"/>
+
+                <span class="span4 input-inline-text">impression(s) in a</span>
+
+                <select data-bind="options: cappingOptions,
+                                   value: fields().cap_creative_period_presented" class="span3 -t-select"></select>
+
+            </div>
+        </div>
+
+        <div class="control-group row-fluid">
+            <label class="control-label"></label>
+            <div class="controls">
+                <a class="btn icon-ok -t-button-save" href="#" data-bind="click: submit">Save changes</a>
+            </div>
+        </div>
+
+    </form>
+
+</div>

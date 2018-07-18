@@ -1,0 +1,297 @@
+[class^="addnow-icon"] {
+    display: inline-block;
+    text-decoration: none !important;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+[class^="addnow-icon"] .addnow-service-icon {
+    display: block;
+    position: relative;
+    transform-origin: 50%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    text-indent: -9999em;
+    top: 6px;
+    height: 12px;
+    width: 100%;
+    &.show-label {
+        text-indent: 32px;
+        color: inherit;
+        font-size: 12px;
+        white-space: nowrap;
+        font-weight: inherit;
+    }
+}
+
+.extra-shares {
+    a {
+        background-image: none !important;
+        min-height: 16px;
+    }
+    [class^="addnow-icon"] {
+        display: inline-block;
+        text-decoration: none !important;
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+    }
+}
+
+.addnow-icon-delicious {
+    background-color: #f7f7f7;
+}
+
+.addnow-icon-delicious .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/delicious.svg);
+}
+
+.addnow-icon-digg {
+    background-color: #333333;
+}
+
+.addnow-icon-digg .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/digg.svg);
+}
+
+.addnow-icon-facebook, .addnow-icon-facebook-like {
+    background-color: #3b5998;
+}
+
+.addnow-icon-facebook .addnow-service-icon, .addnow-icon-facebook-like .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/facebook.svg);
+}
+
+.addnow-icon-facebook-square {
+    background-color: #3b5998;
+}
+
+.addnow-icon-facebook-square .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/fb-square.svg);
+}
+
+.addnow-icon-gmail {
+    background-color: #e75a4d;
+}
+
+.addnow-icon-gmail .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/gmail.svg);
+}
+
+.addnow-icon-googlePlus-square {
+    background-color: #dc4a38;
+}
+
+.addnow-icon-googlePlus-square .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/gplus-square.svg);
+}
+
+.addnow-icon-googlePlus-square2 {
+    background-color: #dc4a38;
+}
+
+.addnow-icon-googlePlus-square2 .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/gplus-square2.svg);
+}
+
+.addnow-icon-googlePlus {
+    background-color: #dc4a38;
+}
+
+.addnow-icon-googlePlus .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/google-plus.svg);
+}
+
+.addnow-icon-linkedin {
+    background-color: #0077b5;
+}
+
+.addnow-icon-linkedin .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/linkedin.svg);
+}
+
+.addnow-icon-linkedin-square {
+    background-color: #0077b5;
+}
+
+.addnow-icon-linkedin-square .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/linkedin-square.svg);
+}
+
+.addnow-icon-email {
+    background-color: #142c41;
+}
+
+.addnow-icon-email .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/mail.svg);
+}
+
+.addnow-icon-pinterest {
+    background-color: #bd081c;
+}
+
+.addnow-icon-pinterest .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/pinterest.svg);
+}
+
+.addnow-icon-reddit {
+    background-color: #FF4500;
+}
+
+.addnow-icon-reddit .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/reddit.svg);
+}
+
+.addnow-icon-stumbleupon-su {
+    background-color: #eb4823;
+}
+
+.addnow-icon-stumbleupon-su .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/stumbleupon-su.svg);
+}
+
+.addnow-icon-stumbleupon {
+    background-color: #eb4823;
+}
+
+.addnow-icon-stumbleupon .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/stumbleupon.svg);
+}
+
+.addnow-icon-tumblr {
+    background-color: #35465c;
+}
+
+.addnow-icon-tumblr .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/tumblr.svg);
+}
+
+.addnow-icon-twitter {
+    background-color: #55acee;
+}
+
+.addnow-icon-twitter .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/twitter.svg);
+}
+
+.addnow-icon-facebook-messenger {
+    background-color: #0084FF;
+}
+
+.addnow-icon-facebook-messenger .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/facebook-messenger.svg);
+}
+
+.addnow-icon-whatsapp {
+    background-color: #34af23;
+}
+
+.addnow-icon-whatsapp .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/whatsapp.svg);
+}
+
+.addnow-icon-addnow-plus {
+    background-color: #0075d6;
+}
+
+.addnow-icon-addnow-plus .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/plus.svg);
+}
+
+.addnow-icon-instagram {
+    background-color: #2e5c7f;
+}
+
+.addnow-icon-instagram .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/instagram.svg);
+}
+
+.addnow-icon-sharing-buttons {
+    background-color: $blueBrand;
+}
+
+.addnow-icon-sharing-buttons .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/icon-sharing.svg);
+}
+
+.addnow-icon-copy-paste {
+    background-color: $blueBrand;
+}
+
+.addnow-icon-copy-paste .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/icon-copy-paste.svg);
+}
+
+.addnow-icon-address-bar {
+    background-color: $blueBrand;
+}
+
+.addnow-icon-address-bar .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/icon-address.svg);
+}
+
+.addnow-icon-others {
+    background-color: $blueBrand;
+}
+
+.addnow-icon-others .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/icon-other.svg);
+}
+
+.addnow-icon-sms {
+    background-color: $blueBrand;
+}
+
+.addnow-icon-sms .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/icon-sms.svg);
+}
+
+.addnow-icon-darkSocial {
+    background-color: #131313;
+}
+
+.addnow-icon-darkSocial .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/icon-dark-social.svg);
+}
+
+.addnow-icon-youtube {
+    background-color: #cd201f;
+}
+
+.addnow-icon-youtube .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/youtube.svg);
+}
+
+.addnow-icon-line {
+    background-color: #00c300;
+}
+
+.addnow-icon-line .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/line.svg);
+}
+
+.addnow-icon-wechat {
+    background-color: #7dd43b;
+}
+
+.addnow-icon-wechat .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/wechat.svg);
+}
+
+.addnow-icon-weibo {
+    background-color: #e6162d;
+}
+
+.addnow-icon-weibo .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/weibo.svg);
+}
+
+.addnow-icon-copyLink {
+    background-color: #f5f5f5;
+}
+
+.addnow-icon-copyLink .addnow-service-icon {
+    background-image: url(../../../../common/icons-svg/icon-link.svg);
+}

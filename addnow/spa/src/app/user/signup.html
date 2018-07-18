@@ -1,0 +1,56 @@
+<div class="website signin">
+    <div ng-include="'assets/views/site-header.html'"></div>
+    <div class="site-container">
+        <div class="half center-me">
+            <h2>Sign up on AddNow</h2>
+            <form class="signin-form panel" name="forms.form" novalidate ng-submit="submitSignUp()"">
+
+                <div class="form-group">
+                    <errors data="errors.nonFieldServerErrors"></errors>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" ng-model="registration.email" ng-model-options="{ debounce: { 'default': 750, 'blur': 0 }}" required validate-server/>
+                    </div>
+                    <div ng-class="{notSubmitted: !forms.form.$submitted}" ng-if="forms.form.email.$dirty || forms.form.$submitted" ng-messages="forms.form.email.$error" ng-messages-multiple
+                         class="msg-error" ng-messages-include="app/common/validation/default-messages.html"
+                         cc-server-messages></div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" ng-model="registration.password" ng-model-options="{ debounce: { 'default': 750, 'blur': 0 }}" validate-server required
+                               ng-minlength="4"/>
+                    </div>
+                    <div ng-class="{notSubmitted: !forms.form.$submitted}" ng-if="forms.form.password.$dirty || forms.form.$submitted" ng-messages="forms.form.password.$error" ng-messages-multiple
+                         class="msg-error" ng-messages-include="app/common/validation/default-messages.html"
+                         cc-server-messages>
+                        <div ng-message="minlength">Password must contain at least 4 chars.</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="password2">Confirm Password</label>
+                        <input type="password" name="password2" ng-model="registration.password2" password-match="registration.password" ng-model-options="{ debounce: { 'default': 750, 'blur': 0 }}" required validate-server/>
+                    </div>
+                    <div ng-class="{notSubmitted: !forms.form.$submitted}" ng-if="forms.form.password2.$dirty || forms.form.$submitted" ng-messages="forms.form.password2.$error" ng-messages-multiple
+                         class="msg-error" ng-messages-include="app/common/validation/default-messages.html"
+                         cc-server-messages></div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="g4-button" type="submit"><span>Sign Up</span></button>
+                </div>
+            </form>
+
+            <div class="signup-links">
+                By signing up, you agree to our <a href="/#page/terms/">terms of use.</a> and <a href="/#page/privacy/">privacy policy</a>.
+            </div>
+        </div>
+
+    </div>
+    <div class="site-footer" ng-include="'assets/views/site-footer.html'"></div>
+</div>

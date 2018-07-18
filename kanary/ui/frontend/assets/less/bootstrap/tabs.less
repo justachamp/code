@@ -1,0 +1,148 @@
+// COMMON STYLES
+// -------------
+
+// Clear any floats
+.tabbable {
+  .clearfix();
+}
+.tab-content {
+}
+
+// Remove border on bottom, left, right
+.tabs-below > .nav-tabs,
+.tabs-right > .nav-tabs,
+.tabs-left > .nav-tabs {
+  border-bottom: 0;
+}
+
+// Show/hide tabbable areas
+.tab-pane,
+.pill-content > .pill-pane {
+  display: none;
+}
+.active,
+.pill-content > .active {
+  display: block;
+}
+
+
+
+
+.sidebar .tabs-nav {
+    padding: 0 @sidebarPadding;
+    margin: -5px 0 30px 0;
+    text-align: center;
+
+    &:last-child {
+        margin: -5px 0 -5px 0;
+    }
+
+    li {
+        .inline-block;
+
+        min-width: 20%;
+        padding: 0 2%;
+        height: @baseControlsHeight - 2 ;
+        text-align: center;
+
+        &.active {
+            .border-radius(13px);
+
+            background-color: #606a80;
+        }
+
+        a {
+            display: block;
+            outline: none !important;
+            color: @white;
+            text-shadow: 0 1px 0 #171717;
+
+        }
+    }
+    &.stretch-two{
+        li { width: 44%}
+    }
+}
+
+.nav-tabs {
+
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    > li {
+        float: left;
+    }
+    > li > a {
+        display: block;
+    }
+    &.tabs-buttons {
+        > li.active > .btn {
+            color: @contentTextColor;
+            border: 1px solid @contentBtnBorder;
+            background-color: @contentBtnBg;
+        }
+        /* Remove rounded corners between tabs */
+        > li:not(:first-child):not(:last-child) > .btn {
+            border-radius: 0;
+        }
+        > li:first-child > .btn {
+            .border-right-radius(0);
+        }
+        > li:last-child > .btn {
+            .border-left-radius(0);
+        }
+        &.two-up > li {
+            width: 50%;
+            > a {
+                text-align: center;
+            }
+        }
+    }
+
+    &.tabs-flat {
+        @tabStep: 5px;
+        @tabLineHeight: @baseControlsHeight - 2px;
+        border-bottom: 1px solid @contentGray;
+        > li {
+            float: left;
+            // Make the list-items overlay the bottom border
+            margin-bottom: -1px;
+            position: relative;
+
+            // Actual tabs (as links)
+            > a {
+                position: relative;
+                padding: 5px 15px;
+                margin-top: @tabStep;
+                margin-right: -1px;
+                line-height: @tabLineHeight;
+                border: 1px solid transparent;
+                color: @gray;
+                font-weight: bold;
+                background-color: @bodyBackground;
+                border: 1px solid @contentGray;
+                background-color: @tableAccent;
+                &:hover {
+                    color: @contentBlackLight;
+                    background-color: @bodyBackground;
+                }
+            }
+
+            // Active state, and it's :hover to override normal :hover
+            &.active > a {
+                &,
+                &:hover,
+                &:focus {
+                    font-size: 14px;
+                    margin-top: 0;
+                    background-color: @bodyBackground;
+                    border-bottom-color: transparent;
+                    color: @contentBlackLight;
+                    cursor: default;
+                    line-height: @tabLineHeight + @tabStep;
+                }
+            }
+        }
+    }
+    .clearfix();
+}

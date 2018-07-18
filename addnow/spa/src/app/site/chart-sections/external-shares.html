@@ -1,0 +1,47 @@
+<div class="panel">
+    <div class="panel-header">
+        <h3 class="panel-title">Total External Shares</h3>
+    </div>
+    <div class="panel-content clearfix">
+        <div class="half">
+            <am-chart class="g4-chart" data-config="charts.totalExternalShares" data-provider="totalExternalShares"></am-chart>
+        </div>
+        <div class="half">
+            <div class="g4-table">
+                <table ng-table="totalExternalSharesTableParams" class="table table-striped" export-csv="totalExternalSharesCSV">
+                    <thead>
+                    <tr>
+                        <th data-title="Social channel">Social Channel</th>
+                        <th data-title="Shares">Shares</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="totalExternalSharesItem in totalExternalShares">
+                        <td>
+                        <span class="addnow-icon-{{ totalExternalSharesItem.source }} _color-{{ colors[totalExternalSharesItem.source] }}">
+                            <span class="addnow-service-icon show-label">{{ totalExternalSharesItem.prettyName }}</span>
+                        </span>
+                        </td>
+                        <td>
+                            <div class="compound-value">
+                                <span class="value-number">{{ totalExternalSharesItem.shares | number }}</span>
+                                <span class="value-percent">{{ totalExternalSharesItem.sharesPercent | number }}%</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr ng-show="!totalExternalShares || totalExternalShares.length === 0" class="ng-table-filters">
+                        <td class="no-data-msg" colspan="2">No external shares activity tracked.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a class="export-graph-button g4-button outline-button"
+           ng-if="totalExternalShares.length > 0"
+           ng-mousedown="totalExternalSharesCSV.generate()"
+           ng-href="{{ totalExternalSharesCSV.link() }}"
+           download="total-external-shares.csv"><span>export csv</span></a>
+    </div>
+</div>

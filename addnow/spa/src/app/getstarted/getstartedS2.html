@@ -1,0 +1,30 @@
+<div class="website get-started-2">
+    <div ng-include="'assets/views/site-header.html'"></div>
+    <div class="site-container">
+        <h1>Add New Site</h1>
+        <div class="content-wrapper">
+            <form class="addsite-form panel" name="form" novalidate ng-submit="submitform()">
+                <div class="form-group">
+                    <div>
+                        <label for="domain">Domain Name</label>
+                        <input type="text" name="website" value="" ng-model="data.website"
+                               class="ng-pristine"
+                               placeholder="Enter your website URL" required
+                               ng-pattern="/^(https?\:\/\/)?([a-z0-9][a-z0-9\-]*\.)+[a-z0-9][a-z0-9\-]*$/">
+                    </div>
+                </div>
+            </form>
+            <div ng-if="data.website">
+                <div class="panel">
+                    <h3>Grab your tracking code below and paste it on {{data.website}}</h3>
+                    <p>Place the tracking code on every page of the site where you would like the addnow widget to be visible</p>
+                    <div class="trackingCode text-center">
+                        <p class="codeText">Please <a ng-click="redirect('/signin')" class="g4-button outline-button small-button"><span>Login</span></a>
+                            or <a ng-click="redirect('/signup')" class="g4-button outline-button small-button"><span>Create</span></a> an account to grab the code</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-include="'assets/views/footer.html'"></div>
+</div>

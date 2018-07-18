@@ -1,0 +1,403 @@
+p{
+    margin-top: 0;
+    padding-top: 0;
+    line-height: 1.45;
+}
+
+.g4-button{
+    cursor: pointer;
+    display: inline-block;
+    background: $blueBrand;
+    vertical-align: middle;
+    border-radius: $borderRadius;
+    text-decoration: none;
+    box-shadow: none;
+    line-height: 1;
+    padding: 0;
+    border: 1px solid transparent;
+    span{
+        display: block;
+        height: 35px;
+        line-height: 35px;
+        color: #fff;
+        padding: 0 26px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+		white-space: nowrap;
+    }
+    &:hover{
+        background: $blueDark;
+	    text-decoration: none;
+    }
+    //&:focus,
+    &:active{
+        box-shadow: inset 0px 2px 0px 0px rgba(0,0,0,0.13);
+    }
+    &.outline-button{
+        background: none;
+        border-color:$blueBrand;
+        span{
+            color: $blueBrand;
+        }
+        &:hover{
+            background: $blueBrand;
+            span{
+                color: #fff;
+            }
+        }
+        &:active, &:focus{
+            background: $blueBrand;
+            color: #fff;
+            box-shadow: inset 0px 2px 0px 0px rgba(0,0,0,0.14);
+            span{
+                color: #fff;
+            }
+        }
+    }
+    &.small-button{
+        span{
+            height: 26px;
+            line-height: 26px;
+            padding: 0 18px;
+        }
+    }
+    &.no-line{
+        background: none;
+        border-color:transparent;
+        span{
+            color: $blueBrand;
+        }
+    }
+    &.pill-button{
+        border-radius: 20px;
+    }
+}
+
+.grey-button{
+	&.outline-button{
+		border-color: #bebebe;
+		span{
+			color: #4E585C;
+		}
+		&:hover{
+			background: #e7e7e7;
+			border-color: #ababab;
+			span{
+				color: #4E585C;
+			}
+		}
+	}
+}
+
+.g4-table{
+    table{
+        //table-layout: fixed;
+        width: 100%;
+        vertical-align: middle;
+    }
+    thead{
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        color: #4E585C;
+    }
+    tbody{
+        td:first-child{
+            color: #333333;
+            font-weight: 400;
+            text-align: left;
+            width: 100%;
+        }
+        td{
+            color:#9B9B9B;
+        }
+    }
+    td, th{
+        padding-top: 18px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid #DADADA;
+        &:last-child{
+            text-align: right;
+        }
+    }
+    .cell-right{
+        text-align: right;
+        padding-left: 18px;
+    }
+}
+
+.form-group{
+    display: flex;
+    flex-flow: column;
+    + .form-group{
+        margin-top: 18px;
+    }
+    > div:not(.msg-error){
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+		justify-content: space-between;
+    }
+    .label-container{
+        display: inline-block;
+        width: 40%;
+		label,
+		.tooltip-container{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.tooltip-container{
+			margin-left: 8px;
+		}
+    }
+    .label-container.label-with-tooltip{
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        label{
+            width: auto !important;
+        }
+    }
+	.label-container + div,
+    input, textarea, select{
+        width: 60%;
+    }
+    + h3{
+        margin-top: 30px !important;
+    }
+    select{
+        -webkit-appearance: none;
+		-moz-appearance:none;
+        border: 1px solid #cccccc;
+        color: #777777;
+        height: 35px;
+        padding: 0 8px 0 8px;
+        border-radius: $borderRadius;
+        font-size: 12px;
+        font-weight: 600;
+        //box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.21);
+        background:#fff url(../assets/images/caret.svg) 96% 50% no-repeat;
+    }
+}
+
+.localhost{
+  .form-group{
+    select{
+      background:#fff url(../assets/images/caret.svg) 96% 50% no-repeat;
+    }
+  }
+}
+
+.msg-error{
+    text-align: left;
+    display: none;
+    padding: 5px 0 5px 40%;
+    color: #DC7C7C;
+    clear: both;
+    .widget-available-services &{
+        padding-left: 0;
+    }
+    &.ng-active{
+        display: block;
+    }
+    div ~ div{
+        margin-top: 5px;
+    }
+}
+
+.ng-invalid-pattern{
+    .msg-error{
+        //display: block;
+    }
+}
+
+.ng-pristine:not(.ng-submitted){
+     .msg-error{
+        display: none;
+    }
+}
+
+input {
+	&[type="number"],
+    &[type="email"],
+    &[type="text"],
+    &[type="password"],
+    &[type="url"]{
+        height: 35px;
+        line-height: 35px;
+        display: inline-block;
+        padding: 0 16px;
+        background: #FFFFFF;
+        border: 1px solid #CCCCCC;
+        box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.21);
+        border-radius: $borderRadius;
+        &:focus{
+            background: #FAFAFA;
+            border: 1px solid #B0B0B0;
+            box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.21);
+            -webkit-appearance: none;
+            -moz-appearance:none;
+            appearance:none;
+        }
+    }
+}
+
+::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.toggle-switch {
+	border: 1px solid #CBCDD3;
+	border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: left;
+    overflow: hidden;
+    line-height: 8px;
+	min-width: 0;
+	span{
+		line-height: 1;
+		width: 0;
+	}
+    .switch-right, .switch-left {
+        visibility: hidden;
+        color: rgba(255, 255, 255, 0);
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: transparent;
+    }
+    .knob {
+		width: 14px;
+		height: 14px;
+        border-radius: 50%;
+        background-color: $blueBrand;
+        border-color: $blueBrand;
+		padding: 0;
+		margin: 0 6px;
+		z-index: 1;
+    }
+}
+
+.switch-off{
+    .knob{
+        background-color: #979797;
+        border-color: #979797;
+    }
+}
+
+.notification-default{
+    background: #EBF4FE;
+    border: 1px solid #BDCBDB;
+    border-radius: $borderRadius;
+    padding: 15px;
+    line-height: 1;
+    color: #5884B5;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    a{
+        color: $blueBrand;
+    }
+}
+
+.form-instruction{
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+/*Tooltip*/
+@keyframes showTooltip {
+	100%{
+		opacity: 1;
+		transform: translateY(8px);
+	}
+}
+
+
+
+.tooltip-container {
+	position: relative;
+	cursor: help;
+	width: 14px !important;
+	&:hover{
+		.tooltip-button{
+			background-color: $blueBrand;
+		}
+		.tooltip-content{
+			display: block;
+			animation-duration: .13s;
+			animation-iteration-count: 1;
+			animation-timing-function: ease-out;
+			animation-fill-mode: forwards;
+			animation-name: showTooltip;
+		}
+	}
+}
+
+.tooltip-button {
+	width: 14px;
+	height: 14px;
+	display: block;
+	border-radius: 50%;
+	background:#ccc url(../assets/images/i.svg) 50% 50% no-repeat;
+	transition:opacity 0.5s 1s cubic-bezier(0.25,0.1,0.25,1);
+}
+
+.tooltip-content{
+	//transition:opacity 0.5s 1s cubic-bezier(0.25,0.1,0.25,1), transform 0.5s 1s cubic-bezier(0.25,0.1,0.25,1);
+	transform: translateY(16px);
+	opacity: .5;
+	display: none;
+	position: absolute;
+	bottom: 220%;
+	left: -15px;
+	max-width: 200px;
+	min-width: 175px;
+	padding: 15px;
+	border-radius: $borderRadius;
+	background: #FFFFFF;
+	border: 1px solid rgba(0,0,0,0.25);
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.11);
+	p{
+		padding: 0;
+		margin: 0;
+		line-height: 1.3;
+		font-size: 12px;
+		color: #877E8D;
+	}
+	.arrow{
+		position: absolute;
+		display: block;
+		width: 0;
+		height: 0;
+		border-color: transparent;
+		border-style: solid;
+
+		bottom: -7px;
+		left: 15px;
+
+		border-width: 6px;
+		border-bottom-width: 0;
+		border-top-color: #bfbfbf !important;
+		//border-top-color: rgba(0,0,0,0.29) !important;
+		&:after{
+			border-width: 6px;
+			position: absolute;
+			display: block;
+			width: 0;
+			height: 0;
+			border-color: transparent;
+			border-style: solid;
+
+			bottom: 2px;
+			left: -6px;
+
+			content: " ";
+			border-bottom-width: 0;
+			border-top-color: #fff;
+		}
+	}
+}
+
+

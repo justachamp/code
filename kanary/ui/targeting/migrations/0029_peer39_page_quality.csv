@@ -1,0 +1,41 @@
+AppNexus ID;Account Category Id;Parent account category ID;Main category;Sub category
+12965;12965;;Ad Viewability Index ALL Ad Sizes
+324038;12966;12965;Ad Viewability Index ALL Ad Sizes;High
+324040;12968;12965;Ad Viewability Index ALL Ad Sizes;Low
+324039;12967;12965;Ad Viewability Index ALL Ad Sizes;Medium
+1612276;10034;;Ad Viewability Index High
+200554;10043;10034;Ad Viewability Index High;160x600
+200551;10037;10034;Ad Viewability Index High;300x250
+200553;10040;10034;Ad Viewability Index High;728x90
+1612291;10036;;Ad Viewability Index Low
+200561;10045;10036;Ad Viewability Index Low;160x600
+200559;10039;10036;Ad Viewability Index Low;300x250
+200560;10042;10036;Ad Viewability Index Low;728x90
+1612295;10035;;Ad Viewability Index Medium
+200558;10044;10035;Ad Viewability Index Medium;160x600
+200556;10038;10035;Ad Viewability Index Medium;300x250
+200557;10041;10035;Ad Viewability Index Medium;728x90
+1612075;10030;;Ad Count
+200550;10033;10030;Ad Count;High 7+
+200548;10031;10030;Ad Count;Low 1-3
+200549;10032;10030;Ad Count;Medium 4-6
+97644;5840;;CRE
+116302;6124;;Free from Apps and Toolbars
+699624;17164;;Free From Parked Domains
+98567;5842;;Free from UGC
+833332;18139;;Free from UGC Facebook OK
+116301;6123;;Free from Unmoderated UGC
+284089;12781;;Home Index Page
+1097376;20075;;Mobile Web Page
+316233;12926;;Transparent Inventory
+1612083;18123;;Video Location
+831371;18124;18123;Video Location;ATF Center
+831377;18125;18123;Video Location;ATF Side
+831382;18126;18123;Video Location;BTF
+1612079;18119;;Video Size
+831389;18120;18119;Video Size;Large
+831391;18121;18119;Video Size;Medium
+831393;18122;18119;Video Size;Small
+1445798;21331;18119;Video Size;X-Large
+1201298;20531;;Video Autoplay
+831409;18127;;Video Multiple Players

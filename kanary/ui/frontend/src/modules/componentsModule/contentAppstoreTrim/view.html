@@ -1,0 +1,48 @@
+<section>
+  <div class="full-width text-block">
+    <h2>/Social Apps</h2>
+
+
+    <p>
+        <img
+           data-bind="staticImg: 'assets/images/content/trim.png'"
+           src="/static/assets/images/content/trim.png">
+    </p>
+
+    <br>
+
+    <p class="text-center">
+      Collect target audiences who engage with your marketing content to measure, predict and message customers at opportune times.
+    </p>
+
+    <p>
+      <img data-bind="staticImg: 'assets/images/content/kanary-trim.png'"
+           src="/static/assets/images/content/kanary-trim.png">
+    </p>
+
+    <p>
+        Tr.im allows customers to shorten links and add custom URL’s to circulate amongst marketing content in social media, blog posts, sponsored content and more!  The Tr.im connector allows you to tag users that engage with this content outside your sphere of influence to target leads with relevant
+        messages.  Understand how, when, and where users show intent and create custom tailored messaging to move them down the sales funnel.
+    </p>
+
+    <p><button class="btn" href="" data-bind="click: modal">
+        Connect Tr.im Now
+    </button></p>
+
+    <script type="text/html" id="trimModal">
+        <form class="form-horizontal modal-form">
+            <p>Enter your credentials to Tr.im</p>
+            <div class="control-group row-fluid">
+                <input type="text" class="input-block-level" placeholder="Tr.im username">
+            </div>
+            <div class="control-group row-fluid">
+                <input type="password" class="input-block-level" placeholder="Password">
+            </div>
+            <a href="#" class="btn -t-button-modal-save" data-bind="click: function(){connect('trim'); $parent.modalVM.reject();} ">Connect</a>
+            <a href="#" class="btn -t-button-modal-cancel" data-bind="click: $parent.modalVM.reject">Cancel</a>
+        </form>
+    </script>
+
+    <br><br><br>
+  </div>
+</section>

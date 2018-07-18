@@ -1,0 +1,262 @@
+article{
+    .jqtree-container
+    {
+        &:last-of-type{margin:0 0 -20px;}
+        &:first-of-type{margin:-15px 0 0;}
+
+        &.tab-pane.active{
+            margin:-15px 0 0;
+        }
+    }
+}
+
+.jqtree-tree{
+    .jqtree-toggler{display:none}
+
+    li{
+        font:bold 13px "Arial";
+        display: block;
+
+        & > div{
+            .noselect();
+
+            padding: 13px 5px 12px;
+            position: relative;
+            &:before{
+                margin:0 8px -2px 0;
+                vertical-align: text-top !important;
+            }
+
+            &:hover{
+                .controls{.opacity(100);}
+            }
+
+            .controls{
+                position: absolute;
+                top:50%;
+                margin:-12px 0 -2px 10px;
+            }
+        }
+
+        &.jqtree_common {
+            & > div:before              {#sprites > .position(0,2,16px);}
+        }
+
+        &.creative-graphic {
+            & > div:before              {#sprites > .position(0,2,16px);}
+        }
+
+        &.creative-html {
+            & > div:before              {#sprites > .position(0,3,16px);}
+        }
+
+        &.creative-facebook {
+            & > div:before              {#sprites > .position(0,4,16px);}
+        }
+
+        &.creative-site {
+            & > div:before              {#sprites > .position(0,5,16px);}
+        }
+
+        &.creative-trigger {
+            & > div:before              {#sprites > .position(0,6,16px);}
+        }
+
+        &.creative-video {
+            & > div:before              {#sprites > .position(7,8,16px);}
+        }
+
+
+        & > ul > li{
+            & > div{padding:11px 23px 12px 15px;}
+        }
+
+        & > ul > li li{
+            & > div{padding:11px 23px 12px 30px;}
+        }
+
+        ul {
+            margin:0 0 -1px 0;
+        }
+    }
+}
+
+#content .jqtree-tree{
+    margin:0 0 @baseLineHeight/2;
+
+    .jqtree-toggler{
+        position: absolute;
+        display: block;
+        left:0;
+        color:@black;
+
+        &:before{
+            margin-top:4px;
+        }
+    }
+
+
+
+    li > div{
+        padding: 0 0 0 20px;
+    }
+
+    li li div{
+        padding: 0 0 0 40px;
+    }
+
+    label{
+        margin: 0;
+    }
+}
+
+#sidebar .jqtree-tree{
+    border-top: 1px solid #343838;
+    li{
+        color:#a8afaf;
+        border-bottom: 1px solid #343838;
+
+        & > div{
+            padding: 13px 23px 12px;
+            cursor:pointer;
+            &:before{
+                #sprites > .set-size(16px);
+                #sprites > .sprite('icons');
+
+            }
+            .controls{
+            }
+        }
+        &.jqtree-folder {
+            & > div{
+                background: #272929;
+
+
+                &:hover{background: #2e3030;}
+                &:before{#sprites > .position(0,0,16px);}
+            }
+            &.jqtree-closed{
+                & > ul{display:none;}
+                & > div:before{#sprites > .position(0,1,16px);}
+            }
+        }
+
+
+        &.creative-graphic {
+            &:hover > div:before        {#sprites > .position(1,2,16px);}
+            &.selected > div:before     {#sprites > .position(2,2,16px);}
+        }
+
+        &.creative-html {
+            &:hover > div:before        {#sprites > .position(1,3,16px);}
+            &.selected > div:before     {#sprites > .position(2,3,16px);}
+        }
+
+        &.creative-facebook {
+            &:hover > div:before        {#sprites > .position(1,4,16px);}
+            &.selected > div:before     {#sprites > .position(2,4,16px);}
+        }
+
+        &.creative-site {
+            &:hover > div:before        {#sprites > .position(1,5,16px);}
+            &.selected > div:before     {#sprites > .position(2,5,16px);}
+        }
+
+        &.creative-trigger {
+            &:hover > div:before        {#sprites > .position(1,6,16px);}
+            &.selected > div:before     {#sprites > .position(2,6,16px);}
+        }
+
+        &.creative-video {
+            &:hover > div:before        {#sprites > .position(7,9,16px);}
+            &.selected > div:before     {#sprites > .position(6,8,16px);}
+        }
+
+        & > ul > li{
+            & > div{padding:11px 23px 12px 46px;}
+        }
+
+        & > ul > li li{
+            & > div{padding:11px 23px 12px 69px;}
+        }
+
+        ul {
+            border-top: 1px solid #343838;
+            li{
+                background: #1c1e1e;
+                color:@sidebarGray;
+
+                &:hover{
+                    color:#999;
+                }
+
+                &.selected{
+                    background: #121313;
+                    color:@mainYellow;
+                }
+            }
+        }
+    }
+}
+
+.tray .jqtree-tree{
+
+    li{
+        color:@gray;
+        border-bottom: 1px solid #e4e4e4;
+        font-weight:normal;
+
+        ul{
+            margin: 4px 0 -7px 0;
+        }
+
+        &.jqtree_common{
+            padding: 6px 0;
+        }
+
+        &:hover > div{
+            background: #e3e3e3;
+            color:#666;
+            border:1px solid #bbb;
+            font-weight: bold;
+            margin: -1px 0 -1px -1px;
+        }
+
+        & > div{
+            padding: 6px 23px 6px 15px;
+
+            &:before{
+                margin:-1px 4px -2px 0;
+                #sprites > .set-size(16px);
+                #sprites > .sprite('icons');
+            }
+        }
+
+        & > ul > li{
+            & > div{padding:6px 23px 6px 30px;}
+        }
+
+        & > ul > li li{
+            & > div{padding:6px 23px 6px 45px;}
+        }
+
+        &.jqtree-folder {
+            & > div{
+                &:before{#sprites > .position(3,0,16px);}
+            }
+            &.jqtree-closed{
+                & > ul{display:none;}
+                & > div:before{#sprites > .position(3,1,16px);}
+            }
+        }
+        ul {
+            border-top: 1px solid #e4e4e4;
+            li{
+                color:@gray;
+                &:hover{
+                    color:#999;
+                }
+            }
+        }
+    }
+}

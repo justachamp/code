@@ -1,0 +1,50 @@
+{% extends 'admin/index.html' %}
+
+{% block footer %}
+    <div class="module" id="recent-actions-module" style="width: 500px; margin: 10px 15px;">
+        <h2>Email template previews</h2>
+        <h3>Signup</h3>
+        <ul>
+            <li>
+                <a href="welcome">Welcome</a>
+            </li>
+            <li>
+                <a href="reset_password">Reset password</a>
+            </li>
+        </ul>
+        <h3>Billing</h3>
+        <ul>
+            <li>
+                <a href="new_invoice">New invoice</a>
+            </li>
+            <li>
+                <a href="no_sufficient_funds">No sufficient funds</a>
+            </li>
+            <li>
+                <a href="no_sufficient_funds_reminder">No sufficient funds reminder</a>
+            </li>
+            <li>
+                <a href="payment_successful">Payment succesful</a>
+            </li>
+        </ul>
+        <h3>Audit</h3>
+        <ul>
+            <li>
+                <a href="creative_sent_for_audit">Creative sent for audit</a>
+            </li>
+            <li>
+                <a href="creative_audit_rejected">Creative audit rejected</a>
+            </li>
+        </ul>
+        <h3>Lotame report email</h3>
+        <ul>
+            <li>
+                <a href="lotame_report_with_csv">Lotame report email with csv file</a>
+            </li>
+            <li>
+                <a href="lotame_report_without_csv">Lotame report email without csv file</a>
+            </li>
+        </ul>
+    </div>
+    {{ block.super }}
+{% endblock %}

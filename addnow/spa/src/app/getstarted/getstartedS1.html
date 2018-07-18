@@ -1,0 +1,52 @@
+<div class="website home">
+
+    <div particles>
+        <div ng-include="'assets/views/site-header.html'"></div>
+        <form class="login-form" name="form" novalidate ng-submit="submitform(form.$valid);">
+            <h1>The Next Generation Social Sharing Platform</h1>
+            <h2>Boost your audience, target new visitors, and track shared content across all social mediums.</h2>
+            <div class="clearfix">
+                <input type="text" class="form-control domain2" value="" name="website" ng-model="data.website" placeholder="Enter your website URL" required ng-pattern="/^(https?\:\/\/)?([a-z0-9][a-z0-9\-]*\.)+[a-z0-9][a-z0-9\-]*$/">
+                <button type="submit">Get Code</button>
+            </div>
+            <span ng-if="form.website.$invalid && form.$submitted" class="msg-error red" ng-class="{notSubmitted: !form.$submitted}">You must enter a valid URL!</span>
+        </form>
+    </div>
+
+
+    <div class="main-features">
+        <div class="inner clearfix">
+            <h2>More than just share buttons</h2>
+            <p> AddNow is a next-generation unified sharing that enables publishers to grow their readership beyond what can be achieved with sharing buttons alone. It gives publishers the tools to re​-​target specific visitors and entice them back to their site, or advertise to an entirely new audience. AddNow is part of the Gravity4 Marketing Cloud, which gives publishers​ ​unparalleled access to the world’s top ad exchanges​ to drive audience back to their sites​ (including FBX).</p>
+            <div class="third first-third">
+                <div class="icon-wrapper"><img src="assets/images/social-equity.svg" alt="" /></div>
+                <h3>Social Taxonomy</h3>
+                <p>Get insight into what readers are copy-pasting from your site through AddNow's proprietary technology.</p>
+            </div>
+            <div class="third">
+                <div class="icon-wrapper"><img src="assets/images/dark-social.svg" alt="" /></div>
+                <h3>Real-time Analytics</h3>
+                <p>Get geo-breakdowns and virality reports to see exactly what content is being shared and where and know what "buzzy" content to produce.</p>
+            </div>
+            <div class="third last-third">
+                <div class="icon-wrapper"><img src="assets/images/content-insights.svg" alt="" /></div>
+                <h3>Build Your Following</h3>
+                <p>AddNow gives you a VIP pass to promote your content to the people who have already shown interest in your site through its exclusive Facebook partnerships.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-screenshot">
+        <div class="inner clearfix">
+            <img src="assets/images/addnow-ipad.png" class="addnow-ipad" width="" />
+        </div>
+    </div>
+
+    <div class="cta-bar">
+        <div class="inner clearfix">
+            <h3>Are you ready to get your business on AddNow?</h3><a href="/signup" class="g4-button"><span>Sign up today!</span></a>
+        </div>
+    </div>
+
+    <div class="site-footer" ng-include="'assets/views/site-footer.html'"></div>
+</div>

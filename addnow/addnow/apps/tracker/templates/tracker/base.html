@@ -1,0 +1,11 @@
+{% load recaptcha2 %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="//cdn.{{ frontend_url }}/widget/styles/mail-form.css" type="text/css" media="screen" title="" charset="utf-8"/>
+        {% recaptcha_init %}
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+</html>

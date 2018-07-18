@@ -1,0 +1,26 @@
+{
+    "active_campaigns_number": 19,
+    "date": "October 19th, 2012",
+	"notifications":[
+		{
+			"message":"<strong>Ad 2</strong> just met your <a href='#'>CocaCola Summer Campaign</a> milestone",
+			"type":"reminder"
+		},
+		{
+			"message":"You need to top up funds. Please visit your account fund before proceeding.",
+			"type":"system"
+		},
+		{
+			"message":"Your <a href='#'>Bid Exchange settings</a> need updating.",
+			"type":"reminder"
+		},
+		{
+			"message":"You need to top up funds. Please visit your account fund before proceeding.",
+			"type":"system"
+		},
+		{
+			"message":"You need to top up funds. Please visit your account fund before proceeding.",
+			"type":"money"
+		}
+	]
+}

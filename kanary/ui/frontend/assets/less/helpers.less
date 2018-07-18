@@ -1,0 +1,90 @@
+//
+// Utility classes
+// --------------------------------------------------
+
+.clearfix {
+	zoom: 1;
+	&:after {
+		display: block;
+		visibility: hidden;
+		height: 0;
+		clear: both;
+		content: ".";
+	}
+}
+
+.container{
+    .clearfix();
+}
+
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.text-small{
+    font-size:10px !important;
+    padding: 0 !important;
+
+    &:before{
+        margin-right: 3px !important;
+        margin-top: -3px !important;
+    }
+
+}
+
+.text-left {
+	text-align: left !important;
+}
+
+.text-right {
+	text-align: right !important;
+}
+
+.text-center {
+	text-align: center !important;
+}
+
+.text-italic {
+	font-style: italic !important;
+}
+
+.text-bold{
+    font-weight: bold !important;
+}
+
+.text-upper {
+	text-transform: uppercase;
+}
+
+// Quick floats
+.pull-right {
+	float: right;
+}
+
+.pull-left {
+	float: left;
+}
+
+// Toggling content
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+// Visibility
+.invisible {
+	visibility: hidden;
+}
+
+// For Affix plugin
+.affix {
+	position: fixed;
+}

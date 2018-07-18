@@ -1,0 +1,107 @@
+<div class="panel half">
+    <div class="panel-header">
+        <h3 class="panel-title">Shares and Clicks by Tool</h3>
+    </div>
+    <div class="panel-content clearfix">
+        <!--charts-->
+        <div class="row">
+            <div class="half">
+                <am-chart class="g4-chart" data-config="charts.sharesByTool" data-provider="sharesAndClicksByTool"></am-chart>
+            </div>
+            <div class="half">
+                <am-chart class="g4-chart" data-config="charts.clicksByTool" data-provider="sharesAndClicksByTool"></am-chart>
+            </div>
+        </div>
+
+        <div class="g4-table">
+            <table ng-table="sharesAndClicksByToolTableParams" export-csv="sharesAndClicksByToolCSV">
+                <thead>
+                <tr>
+                    <th data-title="Tool">Tool</th>
+                    <th data-title="Shares" class="cell-right">Shares</th>
+                    <th data-title="Clicks" class="cell-right">Clicks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="sharesAndClicksByToolItem in sharesAndClicksByTool | limitTo:5">
+                    <td>
+                        <span class="addnow-icon-{{ sharesAndClicksByToolItem.tool }} color-{{ colors[sharesAndClicksByToolItem.tool] }}">
+                            <span class="addnow-service-icon show-label">{{ sharesAndClicksByToolItem.prettyName }}</span>
+                        </span>
+                    </td>
+                    <td class="cell-right">
+                        <div class="compound-value">
+                            <span class="value-number">{{ sharesAndClicksByToolItem.shares | number }}</span>
+                            <span class="value-percent">{{ sharesAndClicksByToolItem.sharesPercent | number }}%</span>
+                        </div>
+                    </td>
+                    <td class="cell-right">
+                        <div class="compound-value">
+                            <span class="value-number">{{ sharesAndClicksByToolItem.clicks | number }}</span>
+                            <span class="value-percent">{{ sharesAndClicksByToolItem.clicksPercent | number }}%</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-show="!sharesAndClicksByTool || sharesAndClicksByTool.length === 0" class="ng-table-filters">
+                    <td class="no-data-msg" colspan="3">No tools activity tracked.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a class="export-graph-button g4-button outline-button" ng-mousedown="sharesAndClicksByToolCSV.generate()"
+           ng-if="sharesAndClicksByTool.length > 0"
+           ng-href="{{ sharesAndClicksByToolCSV.link() }}"
+           download="shares-and-clicks-by-tool.csv"><span>export csv</span></a>
+    </div>
+</div>
+
+<div class="panel half">
+    <div class="panel-header">
+        <h3 class="panel-title">Top social channels</h3>
+    </div>
+    <div class="panel-content">
+        <div class="g4-table">
+            <table ng-table="topSocialChannelsTableParams" class="table table-striped" export-csv="topSocialChannelsCSV">
+                <thead>
+                <tr>
+                    <th data-title="Social channel">Channel</th>
+                    <th data-title="Shares" class="cell-right">Shares</th>
+                    <th data-title="Clicks" class="cell-right">Clicks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="topSocialChannelsItem in topSocialChannels | limitTo:5">
+                    <td>
+                        <span class="addnow-icon-{{ topSocialChannelsItem.source }}" data-channel-color="{{ topSocialChannelsItem.color }}">
+                            <span class="addnow-service-icon show-label">{{ topSocialChannelsItem.prettyName }}</span>
+                        </span>
+                    </td>
+                    <td class="cell-right">
+                        <div class="compound-value">
+                            <span class="value-number">{{ topSocialChannelsItem.shares | number }}</span>
+                            <span class="value-percent">{{ topSocialChannelsItem.sharesPercent | number }}%</span>
+                        </div>
+                    </td>
+                    <td class="cell-right">
+                        <div class="compound-value">
+                            <span class="value-number">{{ topSocialChannelsItem.clicks | number }}</span>
+                            <span class="value-percent">{{ topSocialChannelsItem.clicksPercent | number }}%</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-show="!topSocialChannels || topSocialChannels.length === 0" class="ng-table-filters">
+                    <td class="no-data-msg" colspan="3">No social channels activity tracked.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a class="export-graph-button g4-button outline-button" ng-mousedown="topSocialChannelsCSV.generate()"
+           ng-if="topSocialChannels.length > 0"
+           ng-href="{{ topSocialChannelsCSV.link() }}"
+           download="top-social-channels.csv"><span>export csv</span></a>
+    </div>
+</div>

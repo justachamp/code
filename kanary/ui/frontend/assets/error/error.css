@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'Ciutadella';
+  font-weight: bold;
+  src: url('../fonts/ciutadella-bold.eot');
+  src: url('../fonts/ciutadella-bold.eot?#iefix') format('embedded-opentype'), url('../fonts/ciutadella-bold.woff') format('woff'), url('../fonts/ciutadella-bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Ciutadella';
+  font-weight: normal;
+  src: url('../fonts/ciutadella.eot');
+  src: url('../fonts/ciutadella.eot?#iefix') format('embedded-opentype'), url('../fonts/ciutadella.woff') format('woff'), url('../fonts/ciutadella.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Ciutadella';
+  font-weight: 600;
+  src: url('../fonts/2359A9_4_0.eot');
+  src: url('../fonts/2359A9_4_0.eot?#iefix') format('embedded-opentype'), url('../fonts/2359A9_4_0.woff') format('woff'), url('../fonts/2359A9_4_0.ttf') format('truetype');
+}
+.ciutadella {
+  font-family: 'Ciutadella';
+}
+.error {
+  background: #e3e3e3;
+  text-align: center;
+}
+.error .icon {
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+.error p {
+  font: 13px/18px Arial, serif;
+}
+.error p.bottom-nav {
+  margin-top: 50px;
+}
+.error p a {
+  color: #000000;
+  margin: 0 5px;
+  display: inline-block;
+}
+.error h1 {
+  font-family: 'Ciutadella';
+  font-size: 156px;
+  font-weight: bold;
+  color: #000000;
+}
+.error h3 {
+  font-family: 'Ciutadella';
+  font-size: 32px;
+  font-weight: 300;
+  margin-bottom: 40px;
+}
+
+/*# sourceMappingURL=error.css.map */

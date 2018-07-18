@@ -1,0 +1,85 @@
+<section class="sidebar appstore has-back">
+
+  <header>
+    <a href="#" class="back" data-bind="tooltip: {title: 'Back', placement: 'right'}"></a>
+
+    <nav>
+      <a>appstore</a>
+    </nav>
+  </header>
+
+  <div class="sidebar-viewport">
+      <div class="sidebar-content">
+        <h2>AppPlatform</h2>
+
+        <p>
+          There is  <strong>1 applications</strong> currently available.
+        </p>
+
+        <article>
+
+          <header>
+            available applications
+          </header>
+
+          <ul class="items-list apps-list">
+            <li class="selected">
+                <div class="list-item-container">
+                    <div class="controls">
+                      <span data-bind="click: toggleEnabled.bind($data, 'trim'), tooltip: {placement: 'left', 'title': 'Toggle app integration'}, css: {on: appStates.trim}" class="switcher on" data-original-title="" title=""></span>
+                    </div>
+                    <a href="#" data-bind="linkTo: {route: 'appstore_trim'}">Tr.im</a>
+                </div>
+            </li>
+            <li>
+                <div class="list-item-container">
+                    <div class="controls">
+                      <span data-bind="click: toggleEnabled.bind($data, 'addnow'), tooltip: {placement: 'left', 'title': 'Toggle app integration'}, css: {on: appStates.addnow}" class="switcher on" data-original-title="" title=""></span>
+                    </div>
+                    <span>AddNow</span>
+                </div>
+            </li>
+            <li>
+                <div class="list-item-container">
+                    <div class="controls">
+                      <span data-bind="click: toggleEnabled.bind($data, 'delieverme'), tooltip: {placement: 'left', 'title': 'Toggle app integration'}, css: {on: appStates.delieverme}" class="switcher on" data-original-title="" title=""></span>
+                    </div>
+                    <span>Deliver.me</span>
+                </div>
+            </li>
+            <li>
+                <div class="list-item-container">
+                    <div class="controls">
+                      <span data-bind="click: toggleEnabled.bind($data, 'reachme'), tooltip: {placement: 'left', 'title': 'Toggle app integration'}, css: {on: appStates.reachme}" class="switcher on" data-original-title="" title=""></span>
+                    </div>
+                    <span>Reach.me</span>
+                </div>
+            </li>
+
+            <li>
+                <div class="list-item-container">
+                    <div class="controls">
+                      <span data-bind="click: toggleEnabled.bind($data, 'unifyenterprise'), tooltip: {placement: 'left', 'title': 'Toggle app integration'}, css: {on: appStates.unifyenterprise}" class="switcher on" data-original-title="" title=""></span>
+                    </div>
+                    <span>Unify Enterprise</span>
+                </div>
+            </li>
+
+            <li>
+                <div class="list-item-container">
+                    <div class="controls">
+                      <span data-bind="click: toggleEnabled.bind($data, 'unifyanalytics'), tooltip: {placement: 'left', 'title': 'Toggle app integration'}, css: {on: appStates.unifyanalytics}" class="switcher on" data-original-title="" title=""></span>
+                    </div>
+                    <span>Unify Analytics</span>
+                </div>
+            </li>
+
+
+          </ul>
+
+        </article>
+
+      </div>
+  </div>
+
+</section>

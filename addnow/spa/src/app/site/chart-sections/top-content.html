@@ -1,0 +1,79 @@
+<div class="panel half">
+    <div class="panel-header">
+        <h3 class="panel-title">Top Content by Shares</h3>
+    </div>
+    <div class="panel-content">
+        <div class="g4-table">
+            <table ng-table="topContentBySharesTableParams" class="table table-striped" export-csv="topContentBySharesCSV">
+                <thead>
+                    <tr>
+                        <th data-title="URL">URL</th>
+                        <th data-title="Shares">Shares</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="topContentBySharesItem in topContentByShares | limitTo:5">
+                        <td>
+                            <span class="content-item-title">{{ topContentBySharesItem.title }}</span>
+                            <span class="content-item-url">{{ topContentBySharesItem.url | decodeURI }}</span>
+                        </td>
+                        <td>
+                            <div class="compound-value">
+                                <span class="value-number">{{ topContentBySharesItem.shares | number }}</span>
+                                <span class="value-percent">{{ topContentBySharesItem.sharesPercent | number }}%</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr ng-show="!topContentByShares || topContentByShares.length === 0" class="ng-table-filters">
+                        <td class="no-data-msg" colspan="2">No shares tracked.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer" ng-if="topContentByShares.length > 0">
+        <a class="export-graph-button g4-button outline-button" ng-mousedown="topContentBySharesCSV.generate()"
+           ng-href="{{ topContentBySharesCSV.link() }}"
+           download="top-shared-content.csv"><span>export csv</span></a>
+    </div>
+</div>
+
+<div class="panel half">
+    <div class="panel-header">
+        <h3 class="panel-title">Top Content by clicks</h3>
+    </div>
+    <div class="panel-content">
+        <div class="g4-table">
+            <table ng-table="topContentByClicksTableParams" class="table table-striped" export-csv="topContentByClicksCSV">
+                <thead>
+                <tr>
+                    <th data-title="URL">URL</th>
+                    <th data-title="Clicks">Clicks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="topContentByClicksItem in topContentByClicks | limitTo:5">
+                    <td>
+                        <span class="content-item-title">{{ topContentByClicksItem.title }}</span>
+                        <span class="content-item-url">{{ topContentByClicksItem.url | decodeURI }}</span>
+                    </td>
+                    <td>
+                        <div class="compound-value">
+                            <span class="value-number">{{ topContentByClicksItem.clicks | number }}</span>
+                            <span class="value-percent">{{ topContentByClicksItem.clicksPercent | number }}%</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-show="!topContentByClicks || topContentByClicks.length === 0" class="ng-table-filters">
+                    <td class="no-data-msg" colspan="2">No clicks tracked.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer" ng-if="topContentByClicks.length > 0">
+        <a class="export-graph-button g4-button outline-button" ng-mousedown="topContentByClicksCSV.generate()"
+           ng-href="{{ topContentByClicksCSV.link() }}"
+           download="top-clicked-content.csv"><span>export csv</span></a>
+    </div>
+</div>

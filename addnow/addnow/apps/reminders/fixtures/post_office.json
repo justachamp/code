@@ -1,0 +1,62 @@
+[
+{
+  "fields": {
+    "last_updated": "2015-09-17T15:59:12.953Z",
+    "name": "encouraging_email",
+    "language": "",
+    "created": "2015-09-10T10:37:24.699Z",
+    "html_content": "{% extends \"emails/base.html\" %}\r\n{% block content %}\r\n<p>Hi!</p>\r\n<p>We've noticed that you're still not using AddNow's cool sharing buttons.</p>\r\n<p>We really want to help you build your audience and drive traffic to your site. So, come back to <a href=\"{{base_url}}{{path}}{{token}}\">AddNow</a> and customize sharing buttons that have the exact \"look and feel\" you want.</p>\r\n<p>Use our simple, easy-to-follow instructions to get AddNow buttons posted and sharing content on your site. If you need help, or have any questions or feedback, please feel free to contact us directly at <a href=\"http://grvty.fr/Help\">grvty.fr/Help</a>.<p>\r\n<p>Sincerely,</p>\r\n<p>The AddNow Team</p>\r\n<p>\r\n<small>\r\nNote: If you no longer want to receive emails from us, unsubscribe from our mailing list using this link: <a href=\"{{base_url}}{{path}}{{token}}\">{{base_url}}{{path}}{{token}}</a>\r\n</small>\r\n</p>\r\n{% endblock %}",
+    "description": "Encouraging email for when the user has not yeat created any widget",
+    "content": "Hi!\r\nWe've noticed that you're still not using AddNow's cool sharing buttons.\r\nWe really want to help you build your audience and drive traffic to your site. So, come back to AddNow and customize sharing buttons that have the exact \"look and feel\" you want.\r\nUse our simple, easy-to-follow instructions to get AddNow buttons posted and sharing content on your site. If you need help, or have any questions or feedback, please feel free to contact us directly at grvty.fr/Help.\r\nSincerely,\r\nThe AddNow Team\r\n-----\r\nNote: If you no longer want to receive emails from us, unsubscribe from our mailing list using this link: {{base_url}}{{path}}{{token}}",
+    "default_template": null,
+    "subject": "Create customizable ADDNOW buttons"
+  },
+  "model": "post_office.emailtemplate",
+  "pk": 1
+},
+{
+  "fields": {
+    "last_updated": "2015-09-17T16:01:02.355Z",
+    "name": "confirmation_email",
+    "language": "",
+    "created": "2015-09-15T11:06:24.469Z",
+    "html_content": "{% extends \"emails/base.html\" %}\r\n\r\n{% block content %}\r\n    <p>Hello,</p>\r\n    <p>Welcome to AddNow!</p>\r\n\r\n    <p>\r\n Please click <a href=\"{{ base_url }}{{ path }}{{ token }}\">this link</a>\r\n to verify your email address.\r\n    </p>\r\n\r\n    <p>\r\n    <small>\r\n If you are not able to click the verification link above or if the link does not work,\r\n please copy and paste the URL below directly into your browser.<br/>\r\n        {{ base_url }}{{ path }}{{ token }}\r\n    </small>\r\n    </p>\r\n    <br/>\r\n<p>Sincerely,</p>\r\n<p>The AddNow Team</p>\r\n{% endblock %}",
+    "description": "Template used for email confirmations.",
+    "content": "Hello,\r\n\r\nWelcome to AddNow!\r\n\r\nPlease click this link to verify your email address.\r\n\r\nIf you are not able to click the verification link above or if the link does not work, please copy and paste the URL below directly into your browser.\r\n{{ base_url }}/confirm/{{ token }}\r\n\r\n\r\nSincerely,\r\nThe AddNow Team",
+    "default_template": null,
+    "subject": "Email verification on addnow.com"
+  },
+  "model": "post_office.emailtemplate",
+  "pk": 2
+},
+{
+  "fields": {
+    "last_updated": "2015-09-17T16:06:38.117Z",
+    "name": "password_reset",
+    "language": "",
+    "created": "2015-09-15T12:39:27.164Z",
+    "html_content": "{% extends \"emails/base.html\" %}\r\n\r\n{% block content %}\r\n    <p>Hi!</p>\r\n\r\n    <p>We've received a request to reset your password.</p>\r\n\r\n    <p>You can change your password by following\r\n        <a href=\"{{ base_url }}{{path}}{{ user.pk }}|{{ token }}\">this link</a></p>\r\n\r\n    <p>If you don't want to change your password, simply ignore this email and nothing will be changed.</p>\r\n\r\n    <p>\r\n        <small>\r\n            If clicking on the verification link doesn't work,\r\n  please copy and paste the entire URL into your browser's address bar and press Enter.\r\n            <br/>\r\n            {{ base_url }}{{path}}{{ user.pk }}|{{ token }}\r\n        </small>\r\n    </p>\r\n\r\n{% endblock %}",
+    "description": "Password reset email template",
+    "content": "",
+    "default_template": null,
+    "subject": "Password recovery on addnow.com"
+  },
+  "model": "post_office.emailtemplate",
+  "pk": 3
+},
+{
+  "fields": {
+    "last_updated": "2015-10-05T13:43:37.750Z",
+    "name": "trim_fail",
+    "language": "",
+    "created": "2015-10-05T13:10:49.213Z",
+    "html_content": "{% extends \"emails/base.html\" %}\r\n\r\n{% block content %}\r\n    <p>Hello,</p>\r\n    <p>\r\n        Please check trim setup for site {{site}}. When connecting to tr.im we got this error: {{error}}.\r\n    </p>\r\n    <br/>\r\n<p>Sincerely,</p>\r\n<p>The AddNow Team</p>\r\n{% endblock %}",
+    "description": "Template used for user notification about problems with trim service usage.",
+    "content": "Hello,\r\n\r\nPlease check trim setup for site {{site}}. When connecting to tr.im we got this error: {{error}}.\r\n\r\n\r\nSincerely,\r\nThe AddNow Team",
+    "default_template": null,
+    "subject": "A problem with tr.im"
+  },
+  "model": "post_office.emailtemplate",
+  "pk": 4
+}
+]

@@ -1,0 +1,55 @@
+#!/bin/bash
+# Drops database, syncdb, make initial schemamigration, migrate
+
+set -e
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $DIR
+
+
+echo
+echo './manage.py reset_db --router=default'
+./manage.py reset_db --router=default
+echo
+echo './manage.py syncdb --noinput'
+./manage.py syncdb --noinput
+
+echo
+echo 'rm account/migrations/????_*.py* -f'
+rm account/migrations/????_*.py* -f
+echo
+echo './manage.py schemamigration account --initial'
+./manage.py schemamigration account --initial
+
+echo
+echo 'rm storage/migrations/????_*.py* -f'
+rm storage/migrations/????_*.py* -f
+echo
+echo './manage.py schemamigration storage --initial'
+./manage.py schemamigration storage --initial
+
+echo
+echo 'rm targeting/migrations/????_*.py* -f'
+rm targeting/migrations/????_*.py* -f
+echo
+echo './manage.py schemamigration targeting --initial'
+./manage.py schemamigration targeting --initial
+
+echo
+echo 'rm campaign/migrations/????_*.py* -f'
+rm campaign/migrations/????_*.py* -f
+echo
+echo './manage.py schemamigration campaign --initial --freeze account --freeze storage --freeze targeting'
+./manage.py schemamigration campaign --initial --freeze account --freeze storage --freeze targeting
+
+echo
+echo 'rm bidding_spendings/migrations/????_*.py* -f'
+rm bidding_spendings/migrations/????_*.py* -f
+echo
+echo './manage.py schemamigration bidding_spendings --initial'
+./manage.py schemamigration bidding_spendings --initial
+
+
+echo
+echo './manage.py migrate'
+./manage.py migrate

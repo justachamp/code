@@ -1,0 +1,131 @@
+{% extends 'signup/base_signup.html' %}
+
+{% block title %}Gravity4 - setup account{% endblock %}
+
+{% block head_scripts %}
+<script src="{% url 'js_reverse' %}" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}libs/jquery/jquery-1.9.0.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{% block content %}
+<div class="content-container">
+
+    <div class="teaser fixed no-icon">
+        <h2>Create your profile</h2>
+        <p>
+            To establish Gravity4 account we need few information from you.<br>
+            Please complete this form to proceed.
+        </p>
+    </div>
+
+    <div class="section-block">
+        <form action="{{ request.path }}" method="POST" class="form-horizontal -t-create-profile-form create-profile-form">
+        {% csrf_token %}
+            <div class="control-group row-fluid">
+                <div class="controls">
+                    <label class="-t-is-agency checkbox {% if form.is_agency.value %}checked{% endif %}">
+                        <input name="is_agency" type="checkbox">This is an Agency account
+                    </label>
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">Company Name</label>
+                <div class="controls">
+                    <input name="company_name" type="text" value="{{ form.company_name.value|default_if_none:'' }}"
+                           class="-t-company-name input-block-level {% if form.errors.company_name %}input-error{% endif %}">
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">First Name</label>
+                <div class="controls">
+                    <input name="first_name" type="text" value="{{ form.first_name.value|default_if_none:'' }}"
+                           class="-t-first-name input-block-level {% if form.errors.first_name %}input-error{% endif %}">
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">Last Name</label>
+                <div class="controls">
+                    <input name="last_name" type="text" value="{{ form.last_name.value|default_if_none:'' }}"
+                           class="-t-last-name input-block-level {% if form.errors.last_name %}input-error{% endif %}">
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">Address</label>
+                <div class="controls">
+                    <input name="address" type="text" value="{{ form.address.value|default_if_none:'' }}"
+                           class="-t-address input-block-level {% if form.errors.address %}input-error{% endif %}">
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">City</label>
+                <div class="controls">
+                    <input name="city" type="text" value="{{ form.city.value|default_if_none:'' }}"
+                           class="-t-city input-block-level {% if form.errors.city %}input-error{% endif %}">
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">Zip code</label>
+                <div class="controls">
+                    <input name="zip_code" type="text" value="{{ form.zip_code.value|default_if_none:'' }}"
+                           class="-t-zip-code input-block-level {% if form.errors.zip_code %}input-error{% endif %}">
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">Country</label>
+                <div class="controls">
+                    <select class="-t-country" name="country">
+                    {% for country, code in countries %}
+						<option {% if form.country.value == code %}selected{% endif %} value="{{ code }}">{{ country }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">State / Province</label>
+                <div class="controls">
+                    <select class="-t-province" name="province">
+                    {% for state, code in default_states %}
+                        <option {% if form.province.value == code %}selected{% endif %} value="{{ code }}">{{ state }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">Phone Number</label>
+                <div class="controls">
+                    <input name="phone" type="text" value="{{ form.phone.value|default_if_none:'' }}"
+                           class="-t-phone input-block-level {% if form.errors.phone %}input-error{% endif %}">
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">Vat (EU Only)</label>
+                <div class="controls">
+                    <input name="vat" type="text" value="{{ form.vat.value|default_if_none:'' }}"
+                           class="-t-vat input-block-level {% if form.errors.vat %}input-error{% endif %}">
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <div class="controls">
+                    <input class="-t-submit btn btn-yellow" type="submit" value="Next step">
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block body_scripts %}
+<script type="text/javascript" src="{{ STATIC_URL }}src/js/signup.js"></script>
+{% endblock %}

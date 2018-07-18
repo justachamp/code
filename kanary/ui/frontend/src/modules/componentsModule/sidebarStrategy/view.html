@@ -1,0 +1,123 @@
+<section class="sidebar strategies has-back">
+    <header>
+        <a data-bind="linkTo: 'back', tooltip: {title: 'Back', placement: 'right'}" class="back"></a>
+    </header>
+    <div class="sidebar-viewport">
+        <div class="sidebar-content -t-strategy-sidebar">
+            <h2 class='-t-name' data-bind="text: strategy.fields().name() || 'New Strategy'"></h2>
+
+            <div class="sub-header">
+                <div data-bind="with: strategy.fields">
+                    <label data-bind=" click: $root.strategy.activeToggle">
+                        <span class="switcher" data-bind="css: {on: !paused()}, tooltip: {title: $root.strategy.toggleText}"></span>
+                        <span data-bind="ifnot: paused">strategy active</span>
+                        <span data-bind="if: paused">strategy not active</span>
+                    </label>
+                </div>
+                <dl>
+                    <!-- ko if: strategy.fields().is_automatically_bidded()  -->
+                    <dt>
+                        Bid price:&nbsp;
+                    </dt>
+                    <dd>
+                        <span class='-t-bid' data-bind="text: strategy.fields().optimized_metric"></span> optimized
+                    </dd>
+                    <!-- /ko -->
+                    <!-- ko ifnot: strategy.fields().is_automatically_bidded()  -->
+                    <dt>
+                        Default CPM Bid:&nbsp;
+                    </dt>
+                    <dd>
+                        $<span class='-t-bid' data-bind="text: strategy.fields().budget_bid_CPM"></span>
+                    </dd>
+                    <!-- /ko -->
+
+                    <div data-bind="visible: strategy.fields().capping_total() !== null">
+                        <dt>
+                            Impression cap state:&nbsp;
+                        </dt>
+                        <dd>
+                        <span data-bind="text: strategy.fields().capping_total_spent"></span>
+                        <span data-bind="text: '(' + strategy.capping_total_spent_percent() + '%)'"></span>
+                        <span> of
+                            <span data-bind="text: strategy.fields().capping_total"></span>
+                        </span>
+                        </dd>
+                    </div>
+
+                    <div data-bind="visible: strategy.fields().capping_day() !== null">
+                        <dt>
+                            Daily impression cap:&nbsp;
+                        </dt>
+                        <dd>
+                        <span data-bind="text: strategy.fields().capping_day_spent"></span>
+                        <span data-bind="text: '(' + strategy.capping_day_spent_percent() + '%)'"></span>
+                        <span> of
+                            <span data-bind="text: strategy.fields().capping_day"></span>
+                        </span>
+                        </dd>
+                    </div>
+
+                </dl>
+                <a class="btn icon-pencil icon-large -t-edit-strategy" data-bind="linkTo: {route: 'edit_strategy', args: {campaignName: strategy.campaign_slug(), strategyName: strategy.strategy_slug()}}"> edit</a>
+                <span data-bind="with: strategy.fields">
+                    <a href="#" class="btn icon-trash icon-large" data-bind="click: $root.strategy.delete"> delete</a>
+                </span>
+            </div>
+            <article>
+                <header>progress</header>
+
+                <div class="progress-bar-container">
+                    Strategy budget is <strong>$<span class='-t-budget' data-bind="text: strategy.fields().budget_total()"></span></strong>
+
+                    <div class="progress horizontal">
+                        <span class="bar" data-bind="style: { width: strategy.budget_spent_percent() + '%'}"></span>
+                    </div>
+
+                    <span class="spent" data-bind="text: '$' + strategy.budget_spent_and_commission() || 0"></span>
+                    <span class="perc" data-bind="text: strategy.budget_spent_percent() + '%'"></span>
+                </div>
+
+                <div class="progress-bar-container" data-bind="visible: strategy.fields().budget_daily() != null">
+                    Daily budget is <strong>$<span class="-t-budget-daily" data-bind="text: strategy.fields().budget_daily() || 0"></span></strong>
+                    <span class="progress horizontal">
+                        <span class="bar" data-bind="style: { width: strategy.budget_daily_spent_percent() + '%' }"></span>
+                    </span>
+
+                    <span class="spent" data-bind="text: '$' + strategy.fields().budget_daily_spent() || 0"></span>
+                    <span class="perc" data-bind="text: strategy.budget_daily_spent_percent() + '%'"></span>
+                </div>
+
+            </article>
+
+            <!-- ko with: strategy -->
+            <article>
+                <header>creatives</header>
+
+                <ul class="items-list switch-list tab-pane active -t-creatives-list" data-bind="foreach: fields().adverts">
+                    <!-- ko if: is_deleted() -->
+                    <li data-bind="template: {name: 'creative-template', data: $data}">
+                    </li>
+                    <!-- /ko -->
+                    <!-- ko ifnot: is_deleted() -->
+                    <li data-bind="template: {name: 'creative-template', data: $data}, linkTo: { route: 'strategy_creative', args: {campaignName: $root.strategy.campaign_slug(), strategyName: $root.strategy.strategy_slug(), id: creative_id().toString()}}">
+                    </li>
+                    <!-- /ko -->
+                </ul>
+            </article>
+            <!-- /ko -->
+        </div> <!-- .sidebar-content -->
+    </div> <!-- .sidebar-viewport -->
+    <script type="text/html" id="creative-template">
+        <div class="list-item-container -t-creative-item">
+            <div class="controls">
+                <span data-bind="visible: state.audited, tooltip: {title: 'Creative review positive', placement: 'left'}" class="-t-creative-state status-creative-passed"></span>
+                <span data-bind="visible: state.rejected, tooltip: {title: 'Creative rejected', placement: 'left'}" class="-t-creative-state status-creative-rejected"></span>
+                <span data-bind="visible: state.expired, tooltip: {title: 'Creative has expired', placement: 'left'}" class="-t-creative-state status-creative-expired"></span>
+                <span data-bind="visible: state.blocked, tooltip: {title: 'No sufficient funds for audit', placement: 'left'}" class="-t-creative-state status-creative-blocked"></span>
+                <span data-bind="visible: (state.pending() && !state.blocked()), tooltip: {title: 'Creative in review', placement: 'left'}" class="-t-creative-state status-creative-in-review"></span>
+            </div>
+            <span class='-t-creative-name' data-bind="text: creative_name"></span>
+        </div>
+    </script>
+</section>

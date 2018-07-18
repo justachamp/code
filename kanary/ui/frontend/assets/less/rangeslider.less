@@ -1,0 +1,57 @@
+.range-slider {
+	height: 7px;
+	background: #eee;
+	margin: 0 0 25px 0;
+    border-bottom:1px solid #eee;
+
+	.infoBox {
+		position: absolute;
+		width: 70px;
+		text-align: center;
+		left: 50%;
+		margin: 0 0 0 -35px;
+		bottom: -20px;
+		font: bold 13px Arial;
+		color: #262626;
+	}
+}
+
+.noUi-midBar {
+	height: 7px;
+	background: @contentBlack;
+}
+
+.noUi-handle > div {
+	position: absolute;
+	width: 13px;
+	height: 14px;
+	top: -5px;
+	left: 1px;
+	z-index: 5;
+	border: 1px solid @contentBlack;
+	background-color: #fff;
+
+    &:before{
+        #sprites > .sprite("icons");
+        #sprites > .position(36, 0, 8px);
+
+        content:'';
+        position: absolute;
+        width:5px;
+        height:5px;
+        margin:5px 0 0 4px;
+    }
+
+    &.noUi-activeHandle{
+        background-color: @contentBlack;
+
+        &:before{
+            #sprites > .position(37, 0, 8px);
+        }
+    }
+}
+
+.noUi-handle > div:hover,
+.noUi-handle > div.noUi-activeHandle {
+
+}

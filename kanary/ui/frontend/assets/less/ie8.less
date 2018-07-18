@@ -1,0 +1,34 @@
+.lt-ie9{
+    input{
+        outline: none !important;
+     }
+    article {
+        .items-list.tab-pane + .btn{
+            margin:0px 0 0 21px !important;
+        }
+
+        .jqtree-container
+        {
+          margin:-15px 0 -1px;
+        }
+    }
+
+    .fade{
+        *{
+            .opacity(0);
+        }
+        &:hover *{
+            .opacity(100);
+        }
+        &.tooltip *{
+            .opacity(100);
+        }
+    }
+    .overlay{
+        background-color: #000;
+
+        &.in{
+            .opacity(80);
+        }
+    }
+}

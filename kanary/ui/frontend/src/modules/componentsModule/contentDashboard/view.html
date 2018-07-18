@@ -1,0 +1,71 @@
+<div class="content-container">
+  <!-- ko if: liveview.isEnabled() -->
+      <h2>Bidding live preview</h2>
+      <!-- ko if: liveview.rows() === null -->
+        No live data available
+      <!-- /ko -->
+      <div class="-t-liveview">
+          <!-- ko if: liveview.rows() !== null -->
+          <table class="table-responsive sort-col">
+            <thead>
+              <tr>
+                <th class="no-sort">
+                  <select class="-t-liveview-drill" data-bind="options: liveview.drillChoices, selectpicker: liveview.drill, value: liveview.drill"></select>
+                </th>
+                <th class="no-sort">Bids</th>
+                <th class="no-sort">Impresions</th>
+                <th class="no-sort">Win bid %</th>
+              </tr>
+            </thead>
+            <!-- ko if: ! _.isEmpty(liveview.rows()) -->
+            <tbody data-bind="foreach: {data: liveview.rows, as: 'row'}">
+              <tr>
+                <td class="-t-name" data-bind="text: row.name"></td>
+                <td class="-t-bid" data-bind="text: row.bid"></td>
+                <td class="-t-imp" data-bind="text: row.imp"></td>
+                <td class="-t-winbid" data-bind="text: row.winbid_ratio"></td>
+              </tr>
+            </tbody>
+            <!-- /ko -->
+             <!-- ko if: _.isEmpty(liveview.rows()) -->
+            <tbody>
+              <tr>
+                <td colspan="100">
+                  No active elements
+                </td>
+              </tr>
+            </tbody>
+            <!-- /ko -->
+          </table>
+          Displaying data from last minute.
+      <!-- /ko -->
+      </div>
+      <br/>
+      <br/>
+  <!-- /ko --> <!-- /liveview enabled -->
+  <div class="-t-timeline">
+      <h2>Timeline</h2>
+
+      <ul class="timeline">
+        <!-- ko foreach: events.days_filtered -->
+          <li class="rounded-block" data-bind="text: date_formatted"></li>
+          <!-- ko foreach: events_filtered -->
+            <li class="timeline-block">
+            <h4><span data-bind='htmlBind: header'></span></h4>
+               <div class="time" data-bind="text: time"></div>
+               <p data-bind="htmlBind: message"></p>
+            </li>
+          <!-- /ko -->
+        <!-- /ko -->
+
+        <!-- ko if: events.has_more -->
+            <li class="rounded-block">
+                <a href='#' data-bind='click: events.load_more'>load earlier events</a>
+            </li>
+        <!-- /ko -->
+
+      </ul>
+  </div>
+</div>
+
+

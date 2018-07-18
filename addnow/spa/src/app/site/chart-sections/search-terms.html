@@ -1,0 +1,72 @@
+<div class="panel half">
+    <div class="panel-header">
+        <h3 class="panel-title">Most Frequently Search Terms</h3>
+    </div>
+    <div class="panel-content">
+        <div class="g4-table">
+            <table ng-table="searchTermsTableParams" class="table table-striped" export-csv="searchTermsCSV">
+                <thead>
+                <tr>
+                    <th data-title="'SearchTerm'">Search Term</th>
+                    <th data-title="'Count'">Count</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="searchTermsItem in searchTerms | limitTo:10">
+                    <td>{{ searchTermsItem.searchTerm }}</td>
+                    <td class="text-right">
+		                <div class="compound-value">
+                            <span class="value-number">{{ searchTermsItem.count | number }}</span>
+                            <span class="value-percent">{{ searchTermsItem.percentage | number }}%</span>
+                        </div>
+		            </td>
+                </tr>
+                <tr ng-show="!searchTerms || searchTerms.length === 0" class="ng-table-filters">
+                    <td class="no-data-msg" colspan="2">No search terms tracked.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer" ng-if="searchTerms.length > 0">
+        <a class="export-graph-button g4-button outline-button" ng-mousedown="searchTermsCSV.generate()"
+           ng-href="{{ searchTermsCSV.link() }}"
+           download="copied-keyword.csv"><span>export csv</span></a>
+    </div>
+</div>
+<div class="panel half">
+    <div class="panel-header">
+        <h3 class="panel-title">Most Frequently Search Engines</h3>
+    </div>
+    <div class="panel-content">
+        <div class="g4-table">
+            <table ng-table="searchEnginesTableParams" class="table table-striped" export-csv="searchEnginesCSV">
+                <thead>
+                <tr>
+                    <th data-title="'Engine'">Engine</th>
+                    <th data-title="'Count'">Count</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="searchEnginesItem in searchEngines | limitTo:10">
+                    <td>{{ searchEnginesItem.searchEngine | limitTo: 60 }}</td>
+                    <td class="text-right">
+		                <div class="compound-value">
+                            <span class="value-number">{{ searchEnginesItem.count | number }}</span>
+                            <span class="value-percent">{{ searchEnginesItem.percentage | number }}%</span>
+                        </div>
+		            </td>
+                </tr>
+                <tr ng-show="!searchEngines || searchEngines.length === 0" class="ng-table-filters">
+                    <td class="no-data-msg" colspan="2">No search engine tracked.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer" ng-if="searchEngines.length > 0">
+        <a class="export-graph-button g4-button outline-button" ng-mousedown="searchEnginesCSV.generate()"
+           ng-href="{{ searchEnginesCSV.link() }}"
+           download="referring-domains.csv"><span>export csv</span></a>
+    </div>
+</div>

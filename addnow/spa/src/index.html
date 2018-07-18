@@ -1,0 +1,173 @@
+<!doctype html>
+<html class="no-js" ng-app="angulardash">
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <title>AddNow Dashboard</title>
+    <meta name="description" content="">
+    <!--<link rel="stylesheet" href="/assets/stylesheets/icomoon.css">-->
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="addnow-favicon.png">
+                                                                                                                                                                                                                                                                                            <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css({.tmp,.}) styles/vendor.css -->
+    <link rel="stylesheet" href="app/vendor.css">
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-toggle-switch/angular-toggle-switch.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    <link rel="stylesheet" href="bower_components/famfamfam-flags-sprite/src/flags-sprite.min.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,src}) styles/app.css -->
+    <link rel="stylesheet" href="app/addnow.css">
+    <!-- endbuild -->
+
+    <!-- build:js(.) scripts/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+</head>
+<body>
+    <!--[if lt IE 10]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+        your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div ng-view autoscroll="true"></div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-google-analytics/dist/angular-google-analytics.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-toggle-switch/angular-toggle-switch.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="bower_components/angular-daterangepicker/js/angular-daterangepicker.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-capitalize-filter/capitalize.js"></script>
+    <script src="bower_components/angular-gravatar/build/angular-gravatar.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
+    <script src="bower_components/ng-clip/src/ngClip.js"></script>
+    <script src="bower_components/amcharts/amcharts/amcharts.js"></script>
+    <script src="bower_components/amcharts/amcharts/serial.js"></script>
+    <script src="bower_components/amcharts/amcharts/pie.js"></script>
+    <script src="bower_components/amcharts/amcharts/themes/gravity4.js"></script>
+    <script src="bower_components/amcharts/ammap/ammap_amcharts_extension.js"></script>
+    <script src="bower_components/amcharts/ammap/maps/js/worldLow.js"></script>
+    <script src="bower_components/amcharts/ammap/maps/js/worldHigh.js"></script>
+    <script src="bower_components/amcharts/amcharts/plugins/export/export.min.js"></script>
+    <script src="bower_components/amcharts/amcharts/plugins/export/libs/blob.js/blob.js"></script>
+    <script src="bower_components/amcharts/amcharts/plugins/export/libs/fabric.js/fabric.js"></script>
+    <script src="bower_components/amcharts/amcharts/plugins/export/libs/FileSaver.js/FileSaver.js"></script>
+    <script src="bower_components/amcharts/amcharts/plugins/responsive/responsive.js"></script>
+    <script src="bower_components/moment-range/lib/moment-range.js"></script>
+    <script src="bower_components/iso-3166-country-codes-angular/dist/iso-3166-country-codes-angular.min.js"></script>
+    <script src="bower_components/ng-table/dist/ng-table.min.js"></script>
+    <script src="bower_components/ng-table-export/ng-table-export.js"></script>
+    <script src="bower_components/ng-ScrollSpy.js/src/ng-ScrollSpy.js"></script>
+    <script src="bower_components/ngSmoothScroll/angular-smooth-scroll.js"></script>
+    <script src="bower_components/jquery-bridget/jquery-bridget.js"></script>
+    <script src="bower_components/seiyria-bootstrap-slider/js/bootstrap-slider.js"></script>
+    <script src="bower_components/sprintf/dist/sprintf.min.js"></script>
+    <script src="bower_components/sprintf/dist/angular-sprintf.min.js"></script>
+    <script src="bower_components/particles/particles.js"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/angular-spinner/angular-spinner.js"></script>
+    <script src="bower_components/Case/dist/Case.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({src,.tmp}) scripts/app.js -->
+    <!-- angular:js -->
+    <script src="app/configuration/configuration.js"></script>
+    <script src="app/transform-middleware/transform-middleware.js"></script>
+    <script src="app/common/common.js"></script>
+    <script src="app/widget/widget.js"></script>
+    <script src="app/widget/buttons/selectable-buttons.directive.js"></script>
+    <script src="app/widget/buttons/ordered-buttons.directive.js"></script>
+    <script src="app/widget/buttons/extendable-buttons.directive.js"></script>
+    <script src="app/widget/buttons/button-utils.service.js"></script>
+    <script src="app/site/site.js"></script>
+    <script src="app/site/charts/visitors-map.directive.js"></script>
+    <script src="app/site/charts/range-map.directive.js"></script>
+    <script src="app/site/charts/amChart.directive.js"></script>
+    <script src="app/common/socialInput/socialInput.directive.js"></script>
+    <script src="app/common/vanity-domains/vanity-domain.service.js"></script>
+    <script src="app/common/widget-preview/widget-preview.directive.js"></script>
+    <script src="app/common/reports/visitors.service.js"></script>
+    <script src="app/common/validation/trimkey-validator.directive.js"></script>
+    <script src="app/common/validation/password-match.directive.js"></script>
+    <script src="app/common/validation/not-empty-array-validator.directive.js"></script>
+    <script src="app/common/validation/errors.directive.js"></script>
+    <script src="app/common/validation/error-handler.service.js"></script>
+    <script src="app/common/validation/cc-server-messages.directive.js"></script>
+    <script src="app/common/urls/urls.filter.js"></script>
+    <script src="app/common/particles/particles.directive.js"></script>
+    <script src="app/common/angular-bootstrap-slider/slider.js"></script>
+    <script src="app/transform-middleware/transform-utils.service.js"></script>
+    <script src="app/widget/widget.service.js"></script>
+    <script src="app/widget/widget-buttons-size.directive.js"></script>
+    <script src="app/widget/vertical-float-widget-form.directive.js"></script>
+    <script src="app/widget/sharing-buttons-widget-form.directive.js"></script>
+    <script src="app/widget/origin-buttons-widget-form.directive.js"></script>
+    <script src="app/widget/newsletter-widget-form.directive.js"></script>
+    <script src="app/widget/mobile-widget-form.directive.js"></script>
+    <script src="app/widget/follow-buttons-widget-form.directive.js"></script>
+    <script src="app/widget/copy-paste-widget-form.directive.js"></script>
+    <script src="app/navbar/navbar.js"></script>
+    <script src="app/user/user.js"></script>
+    <script src="app/main/main.js"></script>
+    <script src="app/getstarted/getstarted.js"></script>
+    <script src="app/account-settings/account-settings.js"></script>
+    <script src="app/index.js"></script>
+    <script src="app/widget/circular-mobile-widget-form.directive.js"></script>
+    <script src="app/widget/addedit-widget.controller.js"></script>
+    <script src="app/user/user.service.js"></script>
+    <script src="app/user/user.controller.js"></script>
+    <script src="app/user/reminder.controller.js"></script>
+    <script src="app/user/logout.controller.js"></script>
+    <script src="app/user/confirmation.controller.js"></script>
+    <script src="app/user/confirmation-done.controller.js"></script>
+    <script src="app/navbar/navbar.controller.js"></script>
+    <script src="app/site/thank-you-popup.controller.js"></script>
+    <script src="app/site/thank-you-popup-preview.directive.js"></script>
+    <script src="app/site/static-page.controller.js"></script>
+    <script src="app/site/site.service.js"></script>
+    <script src="app/site/site.controller.js"></script>
+    <script src="app/site/menu.service.js"></script>
+    <script src="app/site/dashboard-site.controller.js"></script>
+    <script src="app/main/main.controller.js"></script>
+    <script src="app/getstarted/getstarted.controller.js"></script>
+    <script src="app/common/enum.service.js"></script>
+    <script src="app/account-settings/auth.controller.js"></script>
+    <script src="app/account-settings/analytics.service.js"></script>
+    <script src="app/account-settings/account-settings.service.js"></script>
+    <script src="app/account-settings/account-settings.factory.js"></script>
+    <script src="app/account-settings/account-settings.controller.js"></script>
+    <!-- endinject -->
+    <!-- partials:js -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+    <!-- @exclude -->
+<!--    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="app/e2e-loginBackend.js"></script>
+    <script src="app/e2e-mocks.js"></script>
+    <script src="bower_components/holderjs/holder.js"></script>-->
+    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />-->
+    <!-- @endexclude -->
+</body>
+</html>

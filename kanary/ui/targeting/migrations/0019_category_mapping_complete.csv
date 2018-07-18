@@ -1,0 +1,395 @@
+Category;Category name;AppNexus;AppNexus Category
+IAB1;Arts & Entertainment;Arts & Entertainment;10
+IAB1-1;Books & Literature;Books & Literature;7984
+IAB1-2;Celebrity Fan/Gossip;Celebrity News (Arts & Entertainment);7992
+IAB1-3;Fine Art;Visual Art & Design (Arts & Entertainment);8014
+IAB1-4;Humor;Humor (Arts & Entertainment);8000
+IAB1-5;Movies;Movies (Arts & Entertainment);8002
+IAB1-6;Music;Music (Arts & Entertainment);8004
+IAB1-7;Television;TV & Video (Arts & Entertainment);8012
+IAB2;Automotive;Autos & Vehicles;6
+IAB2-1;Auto Parts;Vehicle Parts & Accessories (Autos & Vehicles);8046
+IAB2-2;Auto Repair;Vehicle Maintenance (Autos & Vehicles);8044
+IAB2-3;Buying/Selling Cars;Car Shopping (Shopping);8520
+IAB2-4;Car Culture;Autos & Vehicles;6
+IAB2-5;Certified Pre-Owned;Car Shopping (Shopping);8520
+IAB2-6;Convertible;Performance Vehicles (Autos & Vehicles);8026
+IAB2-7;Coupe;Performance Vehicles (Autos & Vehicles);8026
+IAB2-8;Crossover;Trucks & SUVs (Autos & Vehicles);8038
+IAB2-9;Diesel;Hybrid & Alternative Vehicles (Autos & Vehicles);8028
+IAB2-10;Electric Vehicle;Hybrid & Alternative Vehicles (Autos & Vehicles);8028
+IAB2-11;Hatchback;Hybrid & Alternative Vehicles (Autos & Vehicles);8028
+IAB2-12;Hybrid;Hybrid & Alternative Vehicles (Autos & Vehicles);8028
+IAB2-13;Luxury;Performance Vehicles (Autos & Vehicles);8026
+IAB2-14;MiniVan;Trucks & SUVs (Autos & Vehicles);8038
+IAB2-15;Mororcycles;Motorcycles (Autos & Vehicles);8030
+IAB2-16;Off-Road Vehicles;Off-Road Vehicles (Autos & Vehicles);8032
+IAB2-17;Performance Vehicles;Performance Vehicles (Autos & Vehicles);8026
+IAB2-18;Pickup;Trucks & SUVs (Autos & Vehicles);8038
+IAB2-19;Road-Side Assistance;Vehicle Maintenance (Autos & Vehicles);8044
+IAB2-20;Sedan;Autos & Vehicles;6
+IAB2-21;Trucks & Accessories;Commercial Vehicles (Autos & Vehicles);8024
+IAB2-22;Vintage Cars;Classic Vehicles (Autos & Vehicles);8022
+IAB2-23;Wagon;Autos & Vehicles;6
+IAB3;Business;Business & Industry;8
+IAB3-1;Advertising;Advertising & Marketing (Business & Industry);8090
+IAB3-2;Agriculture;Agriculture & Forestry (Business & Industry);8094
+IAB3-3;Biotech/Biomedical;Pharmaceuticals & Biotech (Business & Industry);8120
+IAB3-4;Business Software;Business Services (Business & Industry);8104
+IAB3-5;Construction;Property Development (Real Estate);8420
+IAB3-6;Forestry;Agriculture & Forestry (Business & Industry);8094
+IAB3-7;Government;Law & Government;7988
+IAB3-8;Green Solutions;Energy & Utilities (Business & Industry);8110
+IAB3-9;Human Resources;Jobs (Business & Industry);8118
+IAB3-10;Logistics;Transportation & Logistics (Business & Industry);8130
+IAB3-11;Marketing;Advertising & Marketing (Business & Industry);8090
+IAB3-12;Metals;Energy & Utilities (Business & Industry);8110
+IAB4;Careers;Jobs (Business & Industry);8118
+IAB4-1;Career Planning;Jobs (Business & Industry);8118
+IAB4-2;College;College and University (Education);8322
+IAB4-3;Financial Aid;Grants & Financial Assistance (Finance);8166
+IAB4-4;Job Fairs;Jobs (Business & Industry);8118
+IAB4-5;Job Search;Jobs (Business & Industry);8118
+IAB4-6;Resume Writing/Advice;Jobs (Business & Industry);8118
+IAB4-7;Nursing;Health Education & Medical Training (Health);8222
+IAB4-8;Scholarships;Grants & Financial Assistance (Finance);8166
+IAB4-9;Telecommuting;Jobs (Business & Industry);8118
+IAB4-10;U.S. Military;Military (Law & Government);8342
+IAB4-11;Career Advice;Jobs (Business & Industry);8118
+IAB5;Education;Education;7986
+IAB5-1;7-12 Education;Childhood Education (Education);8320
+IAB5-2;Adult Education;Continuing Education (Education);8324
+IAB5-3;Art History;College and University (Education);8322
+IAB5-4;Colledge Administration;Education;7986
+IAB5-5;College Life;College and University (Education);8322
+IAB5-6;Distance Learning;Continuing Education (Education);8324
+IAB5-7;English as a 2nd Language;Continuing Education (Education);8324
+IAB5-8;Language Learning;Continuing Education (Education);8324
+IAB5-9;Graduate School;College and University (Education);8322
+IAB5-10;Homeschooling;Childhood Education (Education);8320
+IAB5-11;Homework/Study Tips;Childhood Education (Education);8320
+IAB5-12;K-6 Educators;Childhood Education (Education);8320
+IAB5-13;Private School;Childhood Education (Education);8320
+IAB5-14;Special Education;Childhood Education (Education);8320
+IAB5-15;Studying Business;Continuing Education (Education);8324
+IAB6;Family & Parenting;Family & Relationships (Lifestyles);8390
+IAB6-1;Adoption;Social Services (Law & Government);8346
+IAB6-2;Babies & Toddlers;Family & Relationships (Lifestyles);8390
+IAB6-3;Daycare/Pre School;Childhood Education (Education);8320
+IAB6-4;Family Internet;Family & Relationships (Lifestyles);8390
+IAB6-5;Parenting - K-6 Kids;Social Services (Law & Government);8346
+IAB6-6;Parenting teens;Social Services (Law & Government);8346
+IAB6-7;Pregnancy;Women's Health (Health);8254
+IAB6-8;Special Needs Kids;Social Services (Law & Government);8346
+IAB6-9;Eldercare;Aging & Geriatrics (Health);8216
+IAB7;Health & Fitness;Fitness (Beauty & Personal Care);8066
+IAB7-1;Exercise;Fitness (Beauty & Personal Care);8066
+IAB7-2;A.D.D.;Health Conditions (Health);8220
+IAB7-3;AIDS/HIV;Health Conditions (Health);8220
+IAB7-4;Allergies;Health Conditions (Health);8220
+IAB7-5;Alternative Medicine;Alternative & Natural Medicine (Health);8218
+IAB7-6;Arthritis;Health Conditions (Health);8220
+IAB7-7;Asthma;Health Conditions (Health);8220
+IAB7-8;Autism/PDD;Health Conditions (Health);8220
+IAB7-9;Bipolar Disorder;Health Conditions (Health);8220
+IAB7-10;Brain Tumor;Health Conditions (Health);8220
+IAB7-11;Cancer;Health Conditions (Health);8220
+IAB7-12;Cholesterol;Health;14
+IAB7-13;Chronic Fatigue Syndrome;Health Conditions (Health);8220
+IAB7-14;Chronic Pain;Health Conditions (Health);8220
+IAB7-15;Cold & Flu;Health;14
+IAB7-16;Deafness;Health Conditions (Health);8220
+IAB7-17;Dental Care;Oral & Dental Care (Health);8240
+IAB7-18;Depression;Mental Health (Health);8234
+IAB7-19;Dermatology;Skin Care (Beauty & Personal Care);8062
+IAB7-20;Diabetes;Health Conditions (Health);8220
+IAB7-21;Epilepsy;Health Conditions (Health);8220
+IAB7-22;GERD/Acid Reflux;Health Conditions (Health);8220
+IAB7-23;Headaches/Migraines;Health Conditions (Health);8220
+IAB7-24;Heart Disease;Health Conditions (Health);8220
+IAB7-25;Herbs for Health;Alternative & Natural Medicine (Health);8218
+IAB7-26;Holistic Healing;Alternative & Natural Medicine (Health);8218
+IAB7-27;IBS/Crohn's Disease;Health Conditions (Health);8220
+IAB7-28;Incest/Abuse Support;Public Health (Health);8246
+IAB7-29;Incontinence;Health Conditions (Health);8220
+IAB7-30;Infertility;Reproductive Health (Health);8248
+IAB7-31;Men's Health;Men's Health (Health);8232
+IAB7-32;Nutrition;Nutrition (Health);8238
+IAB7-33;Orthopedics;Medical Facilities & Services (Health);8228
+IAB7-34;Panic/Anxiety Disorders;Mental Health (Health);8234
+IAB7-35;Pediatrics;Pediatrics (Health);8242
+IAB7-36;Physical Therapy;Medical Facilities & Services (Health);8228
+IAB7-37;Psychology/Psychiatry;Mental Health (Health);8234
+IAB7-38;Senor Health;Aging & Geriatrics (Health);8216
+IAB7-39;Sexuality;Reproductive Health (Health);8248
+IAB7-40;Sleep Disorders;Health Conditions (Health);8220
+IAB7-41;Smoking Cessation;Health Conditions (Health);8220
+IAB7-42;Substance Abuse;Substance Abuse (Health);8250
+IAB7-43;Thyroid Disease;Health Conditions (Health);8220
+IAB7-44;Weight Loss;Weight Loss (Beauty & Personal Care);8072
+IAB7-45;Women's Health;Women's Health (Health);8254
+IAB8;Food & Drink;Food & Drink;12
+IAB8-1;American Cuisine;Restaurants (Food & Drink);8190
+IAB8-2;Barbecues & Grilling;Cooking & Recipes (Food & Drink);8182
+IAB8-3;Cajun/Creole;Cooking & Recipes (Food & Drink);8182
+IAB8-4;Chinese Cuisine;Cooking & Recipes (Food & Drink);8182
+IAB8-5;Cocktails/Beer;Alcoholic Beverages (Food & Drink);8178
+IAB8-6;Coffee/Tea;Non-Alcoholic Beverages (Food & Drink);8188
+IAB8-7;Cuisine-Specific;Cooking & Recipes (Food & Drink);8182
+IAB8-8;Desserts & Baking;Cooking & Recipes (Food & Drink);8182
+IAB8-9;Dining Out;Restaurants (Food & Drink);8190
+IAB8-10;Food Allergies;Cooking & Recipes (Food & Drink);8182
+IAB8-11;French Cuisine;Food & Drink;12
+IAB8-12;Health/Lowfat Cooking;Cooking & Recipes (Food & Drink);8182
+IAB8-13;Italian Cuisine;Food & Drink;12
+IAB8-14;Japanese Cuisine;Food & Drink;12
+IAB8-15;Mexican Cuisine;Food & Drink;12
+IAB8-16;Vegan;Vegetarian, Vegan (Food & Drink);8192
+IAB8-17;Vegetarian;Vegetarian, Vegan (Food & Drink);8192
+IAB8-18;Wine;Alcoholic Beverages (Food & Drink);8178
+IAB9-30;Video & Computer Games;Games;13
+IAB9;Hobbies & Interests;Lifestyles;18
+IAB9-1;Art/Technology;Visual Art & Design (Arts & Entertainment);8014
+IAB9-2;Arts & Crafts;Women's Interests (Lifestyles);8408
+IAB9-3;Beadwork;Crafts (Lifestyles);8260
+IAB9-4;Birdwatching;Seniors & Retirement (Lifestyles);8400
+IAB9-5;Board Games/Puzzles;Board Games (Games);8196
+IAB9-6;Candle & Soap Making;Crafts (Lifestyles);8260
+IAB9-7;Card Games;Card Games (Games);8198
+IAB9-8;Chess;Table Games (Games);8214
+IAB9-9;Cigars;Tobacco Products (Shopping);8516
+IAB9-10;Collecting;Subcultures & Niche Interests (Lifestyles);8406
+IAB9-11;Comic Books;Subcultures & Niche Interests (Lifestyles);8406
+IAB9-12;Drawing/Sketching;Visual Art & Design (Arts & Entertainment);8014
+IAB9-13;Freelance Writing;Writers Resources (Books & Literature);8088
+IAB9-14;Genealogy;Genealogy (Lifestyles);8392
+IAB9-15;Getting Published;Writers Resources (Books & Literature);8088
+IAB9-16;Guitar;Music (Arts & Entertainment);8004
+IAB9-17;Home Recording;Music (Arts & Entertainment);8004
+IAB9-18;Investors & Patents;Intellectual Property (Business & Industry);8108
+IAB9-19;Jewelry Making;Crafts (Lifestyles);8260
+IAB9-20;Magic & Illusion;Subcultures & Niche Interests (Lifestyles);8406
+IAB9-21;Needlework;Crafts (Lifestyles);8260
+IAB9-22;Painting;Visual Art & Design (Arts & Entertainment);8014
+IAB9-23;Photography;Visual Art & Design (Arts & Entertainment);8014
+IAB9-24;Radio;Radio (Arts & Entertainment);8010
+IAB9-25;Roleplaying Games;Roleplaying Games (Games);8212
+IAB9-26;Sci-Fi & Fantasy;Offbeat (Arts & Entertainment);8006
+IAB9-27;Scrapbooking;Crafts (Lifestyles);8260
+IAB9-28;Screenwriting;Writers Resources (Books & Literature);8088
+IAB9-29;Stamps & Coins;Subcultures & Niche Interests (Lifestyles);8406
+IAB9-30;Video & Computer Games;Computer & Video Games (Games);8202
+IAB9-31;Woodworking;Subcultures & Niche Interests (Lifestyles);8406
+IAB10;Home & Garden;Home & Garden;15
+IAB10-1;Appliances;Home Appliances (Home & Garden);8280
+IAB10-2;Entertaining;Kitchen & Dining (Home & Garden);8288
+IAB10-3;Environmental Safety;Gardening & Landscaping (Home & Garden);8278
+IAB10-4;Gardening;Gardening & Landscaping (Home & Garden);8278
+IAB10-5;Home Repair;Home Improvement (Home & Garden);8284
+IAB10-6;Home Theater;Home Theater, TV (Computers & Electronics);8146
+IAB10-7;Interior Decorating;Bed & Bath (Home & Garden);8274
+IAB10-8;Landscaping;Gardening & Landscaping (Home & Garden);8278
+IAB10-9;Remodeling & Construction;Home Improvement (Home & Garden);8284
+IAB11;Law, Gov't & Politics;Law & Government;7988
+IAB11-1;Immigration;Legal (Law & Government);8340
+IAB11-2;Legal Issues;Legal (Law & Government);8340
+IAB11-3;U.S. Government Resources;Law & Government;7988
+IAB11-4;Politics;Politics (News);8360
+IAB11-5;Commentary;Law & Government;7988
+IAB12;News;News;20
+IAB12-1;International News;World News (News);8368
+IAB12-2;National News;Broadcast & Network News (News);8348
+IAB12-3;Local News;News;20
+IAB13;Personal Finance;Finance;11
+IAB13-1;Beginning Investing;Investing (Finance);8170
+IAB13-2;Credit/Debt & Loans;Credit & Lending (Finance);8160
+IAB13-3;Financial News;Business News (News);8350
+IAB13-4;Financial Planning;Financial Planning (Finance);8164
+IAB13-5;Hedge Fund;Investing (Finance);8170
+IAB13-6;Insurance;Insurance (Finance);8168
+IAB13-7;Investing;Investing (Finance);8170
+IAB13-8;Mutual Funds;Investing (Finance);8170
+IAB13-9;Options;Investing (Finance);8170
+IAB13-10;Retirement Planning;Retirement & Pension (Finance);8174
+IAB13-11;Stocks;Investing (Finance);8170
+IAB13-12;Tax Planning;Taxes (Finance);8176
+IAB14;Society;Social Sciences (Lifestyles);8404
+;;Online Communities;21
+IAB14-1;Dating;Dating & Personals (Online Communities);8372
+IAB14-2;Divorce Support;Family & Relationships (Lifestyles);8390
+IAB14-3;Gay Life;Family & Relationships (Lifestyles);8390
+IAB14-4;Marriage;Family & Relationships (Lifestyles);8390
+IAB14-5;Senior Living;Seniors & Retirement (Lifestyles);8400
+IAB14-6;Teens;Kids & Teens (Lifestyles);8394
+IAB14-7;Weddings;;#N/A
+IAB14-8;Ethnic Specific;Ethnic & Identity Groups (Lifestyles);8388
+IAB15;Science;Science;26
+IAB15-1;Astrology;Offbeat (Arts & Entertainment);8006
+IAB15-2;Biology;Biological Sciences (Science);8448
+IAB15-3;Chemistry;Chemistry (Science);8450
+IAB15-4;Geology;Earth Sciences (Science);8454
+IAB15-5;Paranormal Phenomena;Religion & Belief (Lifestyles);8398
+IAB15-6;Physics;Physics (Science);8464
+IAB15-7;Space/Astronomy;Space Science (Science);8468
+IAB15-8;Geography;;#N/A
+IAB15-9;Botany;Gardening & Landscaping (Home & Garden);8278
+IAB15-10;Weather;Weather (News);8366
+IAB16;Pets;Pets & Animals;4
+IAB16-1;Aquariums;Animal Products & Services (Pets & Animals);8410
+IAB16-2;Birds;Pets (Pets & Animals);8412
+IAB16-3;Cats;Pets (Pets & Animals);8412
+IAB16-4;Dogs;Pets (Pets & Animals);8412
+IAB16-5;Large Animals;Pets (Pets & Animals);8412
+IAB16-6;Reptiles;Pets (Pets & Animals);8412
+IAB16-7;Veterinary Medicine;Animal Products & Services (Pets & Animals);8410
+IAB17;Sports;Sports;29
+IAB17-1;Auto Racing;Motor Sports (Sports);8552
+IAB17-2;Baseball;Baseball (Sports);8524
+IAB17-3;Bicycling;Cycling (Sports);8538
+IAB17-4;Bodybuilding;Strength Sports (Sports);8566
+IAB17-5;Boxing;Boxing (Sports);8532
+IAB17-6;Canoeing/Kayaking;Outdoors (Sports);8558
+IAB17-7;Cheerleading;Strength Sports (Sports);8566
+IAB17-8;Climbing;Extreme Sports (Sports);8542
+IAB17-9;Cricket;Cricket (Sports);8536
+IAB17-10;Figure Skating;Winter Sports (Sports);8574
+IAB17-11;Fly Fishing;Outdoors (Sports);8558
+IAB17-12;Football;Football (Sports);8544
+IAB17-13;Freshwater Fishing;Outdoors (Sports);8558
+IAB17-14;Game & Fish;Outdoors (Sports);8558
+IAB17-15;Golf;Golf (Sports);8546
+IAB17-16;Horse Racing;Equestrian (Sports);8540
+IAB17-17;Horses;Equestrian (Sports);8540
+IAB17-18;Hunting/Shooting;Precision Sports (Sports);8560
+IAB17-19;Inline Skating;Extreme Sports (Sports);8542
+IAB17-20;Martial Arts;Martial Arts (Sports);8550
+IAB17-21;Mountain Biking;Extreme Sports (Sports);8542
+IAB17-22;NASCAR Racing;Motor Sports (Sports);8552
+IAB17-23;Olympics;Olympics (Sports);8556
+IAB17-24;Paintball;Precision Sports (Sports);8560
+IAB17-25;Power & Motorcycles;Motor Sports (Sports);8552
+IAB17-26;Pro Basketball;Basketball (Sports);8526
+IAB17-27;Pro Ice Hockey;Hockey (Sports);8548
+IAB17-28;Rodeo;Extreme Sports (Sports);8542
+IAB17-29;Rugby;Sports;29
+IAB17-30;Running/Jogging;Fitness (Beauty & Personal Care);8066
+IAB17-31;Sailing;Water Sports (Sports);8570
+IAB17-32;Saltwater Fishing;Water Sports (Sports);8570
+IAB17-33;Scuba Diving;Water Sports (Sports);8570
+IAB17-34;Skateboarding;Extreme Sports (Sports);8542
+IAB17-35;Skiing;Winter Sports (Sports);8574
+IAB17-36;Snowboarding;Winter Sports (Sports);8574
+IAB17-37;Surfing/Bodyboarding;Water Sports (Sports);8570
+IAB17-38;Swimming;Water Sports (Sports);8570
+IAB17-39;Table Tennis/Ping-Pong;Table Sports (Sports);8568
+IAB17-40;Tennis;Racquet Sports (Sports);8562
+IAB17-41;Volleyball;Sports;29
+IAB17-42;Walking;Fitness (Beauty & Personal Care);8066
+IAB17-43;Waterski/Wakeboard;Water Sports (Sports);8570
+IAB17-44;World Soccer;Soccer (Sports);8564
+IAB18;Style & Fashion;Fashion & Style (Beauty & Personal Care);8064
+IAB18-1;Beauty;Beauty & Personal Care;7
+IAB18-2;Body Art;Body Art & Tattoos (Beauty & Personal Care);8056
+IAB18-3;Fashion;Fashion & Style (Beauty & Personal Care);8064
+IAB18-4;Jewelry;Fashion & Style (Beauty & Personal Care);8064
+IAB18-5;Clothing;Fashion & Style (Beauty & Personal Care);8064
+IAB18-6;Accessories;Fashion & Style (Beauty & Personal Care);8064
+;;Internet & Telecom;17
+IAB19;Technology & Computing;Computers & Electronics;9
+IAB19-1;3-D Graphics;Hardware (Computers & Electronics);8148
+IAB19-2;Animation;Web Design (Internet & Telecom);8314
+IAB19-3;Antivirus Software;Computer Security (Computers & Electronics);8138
+IAB19-4;C/C++;Programming (Computers & Electronics);8152
+IAB19-5;Cameras & Camcorders;Cameras and Camcorders (Computers & Electronics);8132
+IAB19-6;Cell Phones;Cell Phones, PDAs (Computers & Electronics);8136
+IAB19-7;Computer Certification;Programming (Computers & Electronics);8152
+IAB19-8;Computer Networking;Networking (Computers & Electronics);8150
+IAB19-9;Computer Peripherals;Consumer Electronics (Computers & Electronics);30
+IAB19-10;Computer Reviews;Computers & Electronics;9
+IAB19-11;Data Centers;Enterprise Technology (Computers & Electronics);8142
+IAB19-12;Databases;Software (Computers & Electronics);8154
+IAB19-13;Desktop Publishing;Software (Computers & Electronics);8154
+IAB19-14;Desktop Video;Software (Computers & Electronics);8154
+IAB19-15;Email;Email & Messaging (Internet & Telecom);8298
+IAB19-16;Graphics Software;Web Design (Internet & Telecom);8314
+IAB19-17;Home Video/DVD;Home Theater, TV (Computers & Electronics);8146
+IAB19-18;Internet Technology;Service Providers (Internet & Telecom);8304
+IAB19-19;Java;Programming (Computers & Electronics);8152
+IAB19-20;JavaScript;Programming (Computers & Electronics);8152
+IAB19-21;Mac Support;Web Portals (Internet & Telecom);8312
+IAB19-22;MP3/MIDI;Audio Players and Systems (Computers & Electronics);8134
+IAB19-23;Net Conferencing;Teleconferencing (Internet & Telecom);8306
+IAB19-24;Net for Beginners;Computers & Electronics;9
+IAB19-25;Network Security;Computer Security (Computers & Electronics);8138
+IAB19-26;Palmtops/PDAs;Cell Phones, PDAs (Computers & Electronics);8136
+IAB19-27;PC Support;Web Portals (Internet & Telecom);8312
+IAB19-28;Portable;Mobile & Wireless (Internet & Telecom);8300
+IAB19-29;Entertainment;Arts & Entertainment;10
+IAB19-30;Shareware/Freeware;Web Apps & Online Tools (Internet & Telecom);8310
+IAB19-31;Unix;Software (Computers & Electronics);8154
+IAB19-32;Visual Basic;Software (Computers & Electronics);8154
+IAB19-33;Web Clip Art;Software (Computers & Electronics);8154
+IAB19-34;Web Design/HTML;Web Design (Internet & Telecom);8314
+IAB19-35;Web Search;Search Engines (Internet & Telecom);8302
+IAB19-36;Windows;Software (Computers & Electronics);8154
+IAB20;Travel;Travel;31
+IAB20-1;Adventure Travel;Tourist Destinations (Travel);8596
+IAB20-2;Africa;Tourist Destinations (Travel);8596
+IAB20-3;Air Travel;Air Travel (Travel);8578
+IAB20-4;Australia & New Zealand;Tourist Destinations (Travel);8596
+IAB20-5;Bed & Breakfasts;Hotels & Accommodations (Travel);8588
+IAB20-6;Budget Travel;Hotels & Accommodations (Travel);8588
+IAB20-7;Business Travel;Travel;31
+IAB20-8;By US Locale;Travel;31
+IAB20-9;Camping;Hotels & Accommodations (Travel);8588
+IAB20-10;Canada;Tourist Destinations (Travel);8596
+IAB20-11;Caribbean;Tourist Destinations (Travel);8596
+IAB20-12;Cruises;Cruises & Charters (Travel);8586
+IAB20-13;Eastern Europe;Tourist Destinations (Travel);8596
+IAB20-14;Europe;Tourist Destinations (Travel);8596
+IAB20-15;France;Tourist Destinations (Travel);8596
+IAB20-16;Greece;Tourist Destinations (Travel);8596
+IAB20-17;Honeymoons/Getaways;Tourist Destinations (Travel);8596
+IAB20-18;Hotels;Hotels & Accommodations (Travel);8588
+IAB20-19;Italy;Tourist Destinations (Travel);8596
+IAB20-20;Japan;Tourist Destinations (Travel);8596
+IAB20-21;Mexico & Central America;Tourist Destinations (Travel);8596
+IAB20-22;National Parks;Tourist Destinations (Travel);8596
+IAB20-23;South America;Tourist Destinations (Travel);8596
+IAB20-24;Spas;Hotels & Accommodations (Travel);8588
+IAB20-25;Theme Parks;Amusement and Theme Parks (Travel);8580
+IAB20-26;Traveling with Kids;Amusement and Theme Parks (Travel);8580
+IAB20-27;United Kingdom;Tourist Destinations (Travel);8596
+IAB21;Real Estate;Real Estate;23
+IAB21-1;Apartments;Apartments & Residential Rentals (Real Estate);8416
+IAB21-2;Architects;Property Development (Real Estate);8420
+IAB21-3;Buying/Selling Homes;Real Estate Listings (Real Estate);8428
+IAB22;Shopping;Shopping;27
+IAB22-1;Contests & Freebies;Coupons & Discount Offers (Shopping);8482
+IAB22-2;Couponing;Coupons & Discount Offers (Shopping);8482
+IAB22-3;Comparison;Shopping Portals & Search Engines (Shopping);8496
+IAB22-4;Engines;Shopping Portals & Search Engines (Shopping);8496
+IAB23;Religion & Spirituality IAB23-1 Alternative Religions;Religion & Belief (Lifestyles);8398
+IAB23-2;Atheism/Agnosticism;Religion & Belief (Lifestyles);8398
+IAB23-3;Buddhism;Religion & Belief (Lifestyles);8398
+IAB23-4;Catholicism;Religion & Belief (Lifestyles);8398
+IAB23-5;Christianity;Religion & Belief (Lifestyles);8398
+IAB23-6;Hinduism;Religion & Belief (Lifestyles);8398
+IAB23-7;Islam;Religion & Belief (Lifestyles);8398
+IAB23-8;Judaism;Religion & Belief (Lifestyles);8398
+IAB23-9;Latter-Day Saints;Religion & Belief (Lifestyles);8398
+IAB23-10;Pagan/Wiccan;Religion & Belief (Lifestyles);8398
+IAB24;Uncategorized;;#N/A
+IAB25;Non-Standard Content;;#N/A
+IAB25-1;Unmoderated UGC;;#N/A
+IAB25-2;Extreme Graphic/Explicit Violence;;#N/A
+IAB25-3;Pornography;;#N/A
+IAB25-4;Profane Content;;#N/A
+IAB25-5;Hate Content;;#N/A
+IAB25-6;Under Construction;;#N/A
+IAB25-7;Incentivized;;#N/A
+IAB26;Illegal Content;;#N/A
+IAB26-1;Illegal Content;;#N/A
+IAB26-2;Warez;;#N/A
+IAB26-3;Spyware/Malware;;#N/A
+IAB26-4;Copyright Infringement;;#N/A

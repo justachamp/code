@@ -1,0 +1,233 @@
+html {
+	background: @bodyBackground;
+	overflow: hidden;
+}
+
+#IntercomDefaultWidget {
+    display: none #important;
+}
+
+header.body {
+	.box-shadow(~"0 1px 3px rgba(0,0,0,.3)");
+	color: #333;
+	position: fixed;
+	left: @menuWidth + @sidebarWidth;
+	top: 0;
+	right: 0;
+	z-index: 10;
+    line-height: @headerHeight;
+	// height: @headerHeight;
+	background-color: @white;
+    padding: 0 0 0 15px;
+
+    & > * { vertical-align: middle; }
+
+    .avatar-thumb{
+        margin: 0 5px 0 0;
+    }
+
+    .ask-question {
+        color: #666;
+        margin-right: 5px;
+        img {
+            position: relative;
+            top: 1px;
+            margin-right: 5px;
+        }
+    }
+
+    .flipswitch {
+        margin-bottom: 0;
+    }
+
+    .deposit-funds-value {
+        margin-left: 5px;
+        color: @gray;
+        font-weight: 500;
+        vertical-align: top;
+    }
+
+    .deposit-funds-label {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-family: Ciutadella;
+        line-height: 1;
+    }
+
+    .right {
+        float: right;
+    }
+
+    .btn {
+        position: relative;
+        top: -1px;
+    }
+
+    .menu-sections {
+        list-type: none;
+        li {
+            display: inline-block;
+            border-left: 1px solid #d9d9d9;
+            padding: 0 10px;
+            &.first, &:first-child {
+                border: 0;
+            }
+            &.dropdown-li {
+                padding: 0;
+            }
+        }
+    }
+
+
+    &:hover{
+        .fade{
+            .opacity(100);
+        }
+    }
+
+	.search {
+		position: absolute;
+		right: 0;
+		width: 30%;
+		height: @headerHeight;
+		padding: 0 0 0 10px;
+		border-left: 1px solid #e4e4e4;
+
+		input {
+			.box-shadow(none);
+
+            color:@grayLight;
+			outline: none;
+			width: 100%;
+            height: @headerHeight;
+            padding:0;
+            margin:0;
+			outline: none;
+			display: block;
+			border: none;
+			background: none;
+		}
+	}
+
+    .dropdown {
+        margin: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        .dropdown-toggle {
+            color: @grayDark;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 0;
+            &.arrow-down {
+                padding-right: 20px;
+                &:before {
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    margin: -2px 0 0 0;
+                }
+            }
+        }
+
+        .dropdown-menu {
+            .border-radius(0);
+            .box-shadow(0 0 0 rgba(0,0,0,0));
+            left: -1px;
+            right: -1px;
+            border: 1px solid @contentBtnBorder;
+            background-color: #e3e3e3;
+            margin-top: 5px;
+            li {
+                display: block;
+                text-align: left;
+                padding: 0;
+                border-bottom: 1px solid  @contentBtnBorder;
+                a {
+                    padding: 10px 12px;
+                    font: bold 12px 'Arial';
+                    color: @gray;
+                    &:hover {
+                        background: @contentBtnHover;
+                    }
+                }
+            }
+        }
+
+        img {
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -4px;
+        }
+    }
+}
+
+.sidebar {
+	width: @sidebarWidth;
+	height: 100%;
+	position: fixed;
+	z-index: 0;
+	left: @menuWidth;
+	top: 0;
+	bottom: 0;
+}
+
+#menu {
+    width: @menuWidth;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    background: @menuBg;
+}
+
+.tray {
+	right: 0px;
+	bottom: 0px;
+	left: auto;
+	top: @headerHeight;
+	width: @trayWidth;
+	z-index: 6;
+	background: @grayLightest;
+	position: fixed;
+
+}
+
+#content {
+	top: @headerHeight;
+	z-index: 6;
+	right: 0;
+	left: @menuWidth + @sidebarWidth;
+	position: fixed;
+	bottom: 0;
+	background: @bodyBackground;
+	padding: 57px 20px 20px 20px;
+    overflow-y: scroll;
+
+	&.overlay {
+		z-index: 11;
+	}
+
+	.has-tray {
+		padding: 0 320px 40px 0;
+	}
+
+    h2{
+        position:relative;
+    }
+
+    & > div {
+        max-width: 600px;
+    }
+
+    .full-width,
+    &.full-width > div{
+        max-width: 100%;
+    }
+
+}
+
+.new-section {
+  margin-top: 57px;
+}

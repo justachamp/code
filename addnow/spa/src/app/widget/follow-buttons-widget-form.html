@@ -1,0 +1,57 @@
+<div class="half widget-attributes">
+    <h3>Options</h3>
+
+    <div class="form-group">
+        <errors data="errors"></errors>
+    </div>
+    <div class="form-group widget-name-field" ng-class="{error: form.name.$invalid && form.$submitted, success: form.name.$valid && form.$submitted}">
+        <div>
+            <div class="label-container">
+                <label for="name">Name</label>
+            </div>
+            <input ng-model="widget.name" name="name" placeholder="give me a descriptive name, please..."
+                   class="form-control domain" type="text"
+                   required validate-server/>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-if="form.name.$dirty || form.$submitted" ng-messages="form.name.$error" ng-messages-multiple
+             class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{error: form.orientation.$invalid && form.$submitted, success: form.orientation.$valid && form.$submitted}">
+        <div>
+            <div class="label-container">
+                <label for="orientation">Button Orientation</label>
+            </div>
+            <select name="orientation" ng-model="widget.orientation"
+                class="form-control domain">
+                <option value="vertical">Vertical</option>
+                <option value="horizontal">Horizontal</option>
+            </select>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.orientation.$error" ng-messages-multiple
+            class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+
+    <div class="form-group follow-widget-url-fields" ng-class="{error: form.counter_position.$invalid && form.$submitted, success: form.counter_position.$valid && form.$submitted}">
+        <div>
+            <div class="follow_urls">
+                <div class="form-group" ng-repeat="item in buttons">
+                    <social-input class="social-input" placeholder="{{item.placeholder}}" icon="{{item.service}}" url="item.followUrl"></social-input>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="half">
+    <div class=" widget-available-services">
+        <ordered-buttons name="buttons" ng-model="buttonsWithUrl" not-empty-array></ordered-buttons>
+
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-if="form.buttons.$dirty || form.$submitted" ng-messages="form.buttons.$error" ng-messages-multiple
+             class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+            <div ng-message="notEmptyArray">Widget has no buttons.</div>
+        </div>
+    </div>
+</div>

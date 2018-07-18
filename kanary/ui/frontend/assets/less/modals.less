@@ -1,0 +1,132 @@
+.modal {
+    .transition(~"all .8s");
+
+    position: fixed;
+    left: 280px;
+    margin-left:100%;
+    top: 0;
+    right:-100%;
+    bottom: 0;
+    min-width:300px;
+    z-index: 9999;
+    padding:15% 10%;
+    text-align: center;
+    border-bottom:1px solid @grayLight;
+    background: @white;
+    overflow: auto;
+
+    &.large {
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    h2 {
+        margin: @baseLineHeight 0 @baseLineHeight/2 0;
+        padding: 0;
+    }
+
+    p{
+        color:@black;
+        padding:0 0 @baseLineHeight 0;
+    }
+
+    &.in {
+        .box-shadow(~"-5px 0 5px rgba(0,0,0,.5)");
+
+        margin-left:0;
+        right:0;
+    }
+
+    label {
+        color: black;
+    }
+
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"] {
+      border: 1px solid #000000;
+      background: @white;
+      color: #000000;
+      &:focus {
+        background: @white;
+      }
+      &:disabled{
+        &:hover,
+        &:focus {
+            background: @white;
+        }
+      }
+    }
+
+    .modal-form {
+        width: 500px;
+        margin: 0 auto;
+    }
+}
+
+.toast-message{
+    .transition(~"top .3s");
+
+    position: fixed;
+    top:-54px;
+    left:0;
+    right:0;
+    height:52px;
+    line-height: 52px;
+    border-bottom:1px solid @grayLight;
+    z-index: 10000;
+    text-align: center;
+    background:@white;
+
+    &.in {
+        top:0;
+    }
+
+    &.auto-hide{
+
+    }
+}
+
+.overlay{
+    .transition(~"all .5s");
+    .opacity(0);
+
+    z-index: 9999;
+    position: fixed;
+    background: rgba(0,0,0,.9);
+    top:0;
+    left:0;
+    bottom: 0;
+    right:0;
+    margin-left:100%;
+    text-align: center;
+
+    &.in{
+        .opacity(100);
+
+        margin-left: 0;
+    }
+    p{
+        height:30px;
+        font:32px Ciutadella;
+        color: @white;
+        position: absolute;
+        top:50%;
+        left:0;
+        right:0;
+        text-align: center;
+        margin: -15px 0 0 0;
+    }
+}

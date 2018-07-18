@@ -1,0 +1,39 @@
+@import "inc/variables.less";
+@import "fonts.less";
+
+//404, 500 error pages
+.error {
+    background: @contentGray;
+    text-align:center;
+
+    .icon {
+        margin-top:70px;
+        margin-bottom:30px;
+    }
+
+    p {
+        font: 13px/18px Arial, serif;
+        &.bottom-nav {
+            margin-top:50px;
+        }
+        a {
+            color: @black;
+            margin: 0 5px;
+            display: inline-block;
+        }
+    }
+
+    h1 {
+        .ciutadella();
+        font-size:156px;
+        font-weight:bold;
+        color: @black;
+    }
+
+    h3 {
+        .ciutadella();
+        font-size: 32px;
+        font-weight: 300;
+        margin-bottom:40px;
+    }
+}

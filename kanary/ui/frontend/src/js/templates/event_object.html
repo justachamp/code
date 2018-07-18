@@ -1,0 +1,8 @@
+<strong>
+    <!-- ko if: '<%= id %>' -->
+        <a data-bind="linkTo: {route: '<%= url %>', args: { id: '<%= id %>' }, noHashChange: true }"><%= name %></a>
+    <!-- /ko -->
+    <!-- ko ifnot: '<%= id %>' -->
+    <%= name %>
+    <!-- /ko -->
+</strong>

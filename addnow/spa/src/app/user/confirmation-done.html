@@ -1,0 +1,16 @@
+<div class="website signin">
+    <div ng-include="'assets/views/site-header.html'"></div>
+    <div class="site-container">
+        <div class="half center-me">
+            <h2>Account Email confirmation</h2>
+            <div class="signin-form panel">
+                <strong ng-if="backendok">Your email has been successfully verified</strong></strong>
+                <strong ng-if="!backendok">There were some problems with verifying your email, please try again later</strong>
+                <div class="account-verification-button">
+                    <a class="g4-button" href="/signin/"><span>Sign In</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-footer" ng-include="'assets/views/site-footer.html'"></div>
+</div>

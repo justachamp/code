@@ -1,0 +1,46 @@
+{% extends 'signup/base_signup.html' %}
+
+{% block title %}G4 Trader - charge account{% endblock %}
+
+{% block content %}
+<div class="teaser fixed payments">
+    <h2>Charge your account</h2>
+
+    <p>
+        In order to activate a campaign, we require some of your funds to purchase<br>
+        media throughout the course of it upfronts.
+    </p>
+
+    <div class="short-info">
+        <p>
+            <img src="{{ STATIC_URL }}assets/images/paypal-logo.png">
+        </p>
+        <p>
+            You currently can charge your<br>
+            campaign founds only with PayPal.
+        </p>
+    </div>
+
+    <p>
+        <a class="btn btn-yellow span4" href="{% url 'deposit_funds' %}?signup=true">Charge account</a>
+        <a class="btn btn-yellow span4 -t-next" href="{% url 'setup_complete' %}">Next step</a>
+    </p>
+</div>
+
+<div class="footnotes">
+    <h4>Did you know?</h4>
+
+    <figure>
+        <img src="{{ STATIC_URL }}assets/images/deposit-indicator.png">
+    </figure>
+
+    <div class="content">
+        <h3>Deposit indicator</h3>
+        <p>
+            You can check your account state anytime in the left
+            side of the top bar. You can also quicy deposit new
+            funds with one button.
+        </p>
+    </div>
+</div>
+{% endblock %}

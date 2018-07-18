@@ -1,0 +1,17 @@
+{% extends 'emails/base_banner_billing.html' %}
+
+{% block title %}
+    <span style="
+        font-size: 24px;
+        letter-spacing: 6px;
+        line-height: 2;
+    ">This Month's Invoice</span>
+{% endblock %}
+
+{% block message %}
+    <p>Attached invoice number <span style="color:#64696B;">{{ invoice.number }}</span>
+      issued on <span style="color:#64696B;">{{ invoice.datetime|date:'DATE_FORMAT' }}</span>.
+    </p>
+    <p>Log in to the application to pay the invoice.</p>
+{% endblock %}
+

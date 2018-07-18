@@ -1,0 +1,145 @@
+//
+// Popovers
+// --------------------------------------------------
+
+.popover {
+    .border-radius(2px);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: none;
+    max-width: 200px;
+    padding: 1px;
+    background-color: @popoverBackground;
+    border: 1px solid #bbb;
+    background-color: #e3e3e3;
+    white-space: normal;
+    font:12px Arial;
+    padding: 13px 16px;
+    min-width:200px;
+    text-align: left;
+    text-transform:none;
+
+    &.top {
+        margin-top: -10px;
+    }
+    &.right {
+        margin-left: 10px;
+    }
+    &.bottom {
+        margin-top: 10px;
+    }
+    &.left {
+        margin-left: -10px;
+    }
+}
+
+.popover-close{
+    position: absolute;
+    right:10px;
+    cursor: pointer;
+    top:10px;
+
+    width:8px;
+    height:8px;
+
+    #sprites > .sprite('icons');
+    #sprites > .position(36, 1, 8px)
+}
+
+.popover-title {
+    font:bold 12px Arial !important;
+    padding:0 0 5px !important;
+    color:#666;
+
+    &:empty {
+        display: none;
+    }
+}
+
+.popover-content {
+    padding: 0;
+}
+
+
+.popover .arrow,
+.popover .arrow:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.popover .arrow {
+    border-width: @popoverArrowOuterWidth;
+}
+
+.popover .arrow:after {
+    border-width: @popoverArrowWidth;
+    content: "";
+}
+
+.popover {
+    &.top .arrow {
+        left: 50%;
+        margin-left: -@popoverArrowOuterWidth;
+        border-bottom-width: 0;
+        border-top-color: #e3e3e3; // IE8 fallback
+        border-top-color: @popoverArrowOuterColor;
+        bottom: -@popoverArrowOuterWidth;
+        &:after {
+            bottom: 1px;
+            margin-left: -@popoverArrowWidth;
+            border-bottom-width: 0;
+            border-top-color: @popoverArrowColor;
+        }
+    }
+    &.right .arrow {
+        top: 50%;
+        left: -@popoverArrowOuterWidth;
+        margin-top: -@popoverArrowOuterWidth;
+        border-left-width: 0;
+        border-right-color: #e3e3e3; // IE8 fallback
+        border-right-color: @popoverArrowOuterColor;
+        &:after {
+            left: 1px;
+            bottom: -@popoverArrowWidth;
+            border-left-width: 0;
+            border-right-color: @popoverArrowColor;
+        }
+    }
+    &.bottom .arrow {
+        left: 50%;
+        margin-left: -@popoverArrowOuterWidth;
+        border-top-width: 0;
+        border-bottom-color: #e3e3e3; // IE8 fallback
+        border-bottom-color: @popoverArrowOuterColor;
+        top: -@popoverArrowOuterWidth;
+        &:after {
+            top: 1px;
+            margin-left: -@popoverArrowWidth;
+            border-top-width: 0;
+            border-bottom-color: @popoverArrowColor;
+        }
+    }
+
+    &.left .arrow {
+        top: 50%;
+        right: -@popoverArrowOuterWidth;
+        margin-top: -@popoverArrowOuterWidth;
+        border-right-width: 0;
+        border-left-color: #e3e3e3; // IE8 fallback
+        border-left-color: @popoverArrowOuterColor;
+        &:after {
+            right: 1px;
+            border-right-width: 0;
+            border-left-color: @popoverArrowColor;
+            bottom: -@popoverArrowWidth;
+        }
+    }
+
+}

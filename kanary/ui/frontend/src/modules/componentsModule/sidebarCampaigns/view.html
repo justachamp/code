@@ -1,0 +1,86 @@
+<section class="sidebar strategies has-back">
+
+  <header>
+    <a data-bind="linkTo: 'back', tooltip: {title: 'Back', placement: 'right'}" class="back"></a>
+
+    <nav>
+      <a>campaigns</a>
+    </nav>
+
+  </header>
+
+  <div class="sidebar-viewport">
+    <div class="sidebar-content">
+      <h2 class="-t-title">Campaigns</h2>
+
+      <p class="-t-campaigns-counter">You have currently
+        <strong><span data-bind="text: campaignsRunning().length"></span> active <span
+            data-bind="pluralize: {data: campaignsRunning().length, singular: 'campaign', plural: 'campaigns'}"></span></strong>
+        out of <span data-bind="text: campaigns().length"></span> in total.</p>
+      <a class="btn icon-plus -t-new-campaign" data-bind="linkTo: {route: 'new_campaign'}"> Create new campaign</a>
+
+
+      <article>
+
+        <header>campaigns list</header>
+
+        <nav class="tabs-nav clearfix">
+          <ul>
+            <li class="active"><a href="#all" data-toggle="tab">All</a></li>
+            <li><a href="#running" data-toggle="tab">Running</a></li>
+            <li><a href="#onhold" data-toggle="tab">On-hold</a></li>
+            <li><a href="#finished" data-toggle="tab">Finished</a></li>
+          </ul>
+        </nav>
+
+        <ul class="items-list switch-list tab-pane active -t-campaigns-list" id="all"
+            data-bind="template: {name: 'campaign-template', foreach: campaigns}">
+        </ul>
+
+        <ul class="items-list switch-list tab-pane" id="running"
+            data-bind="template: {name: 'campaign-template', foreach: campaignsRunning}">
+        </ul>
+
+        <ul class="items-list switch-list tab-pane" id="onhold"
+            data-bind="template: {name: 'campaign-template', foreach: campaignsOnHold}">
+        </ul>
+
+        <ul class="items-list switch-list tab-pane" id="finished"
+            data-bind="template: {name: 'campaign-template', foreach: campaignsFinished}">
+        </ul>
+
+        <script type="text/html" id="campaign-template">
+          <li data-bind="linkTo: {route: 'campaign', args: {campaignName: slug()}}">
+              <div class="-t-campaign-item list-item-container">
+                <div class="controls">
+                  <span data-bind="visible: state.creativesBrandRejected, tooltip: {'title': state.brandText}" class="status-creative-rejected -t-campaign-state"></span>
+                 
+                  <span data-bind="visible: state.outOfBudget, tooltip: {'title': state.budgetText}" class="status-out-of-budget -t-campaign-state"></span>
+                  <span data-bind="visible: state.creativesExpired, tooltip: {'title': state.expiredText}" class="status-creative-expired -t-campaign-state"></span>
+
+                  <span data-bind="visible: state.creativesRejected, tooltip: {'title': state.rejectedText}" class="status-creative-rejected -t-campaign-state"></span>
+
+                  <span data-bind="visible: state.creativesPending, tooltip: {title: state.pendingText}" class="status-creative-in-review -t-campaign-state"></span>
+
+                  <span data-bind="visible: state.finished, tooltip: {'title': state.finishedText}" class="status-finished -t-campaign-state"></span>
+
+                  <span data-bind="visible: state.scheduled, tooltip: {'title': state.scheduledText}" class="status-scheduled -t-campaign-state"></span>
+
+                  <span data-bind="click: activeToggle, tooltip: {placement: 'left', 'title': toggleText}, css: {on: !paused()}"
+                        class="switcher"></span>
+                  <span data-bind="attr: {class: paused() ? '-t-campaign-deactivated-' + id() : '' }"></span>
+                </div>
+                <span class="-t-campaign" data-bind="linkTo: {route: 'campaign', args: {campaignName: slug()}}, text: name"></span>
+                <span class="inline-buttons">
+                  <a data-bind="linkTo: {route: 'edit_campaign', args: {campaignName: slug()}}"
+                    class="btn btn-small fade icon-pencil -t-campaign-edit"></a>
+                  <a href="#" class="btn btn-small fade icon-delete" data-bind="click: $parent.removeCampaign"></a>
+                </span>
+            </div>
+          </li>
+        </script>
+
+      </article>
+    </div> <!-- .sidebar-content -->
+  </div> <!-- .sidebar-viewport -->
+</section>

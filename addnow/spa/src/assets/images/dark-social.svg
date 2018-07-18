@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="152px" height="88px" viewBox="0 0 152 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Stroke 4829 + Stroke 4830 + Rectangle 5 + Keyword</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="27" width="144" height="32" rx="3"></rect>
+    </defs>
+    <g id="Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Home-Copy" sketch:type="MSArtboardGroup" transform="translate(-644.000000, -704.000000)">
+            <g id="Features-Copy" sketch:type="MSLayerGroup" transform="translate(0.000000, 477.000000)">
+                <g id="Social-Equity-and-Au-+-Implement-elegant-sh-Copy-+-Stroke-4829-+-Stroke-4830-+-Rectangle-5-+-Keyword" transform="translate(565.000000, 228.000000)">
+                    <g id="Stroke-4829-+-Stroke-4830-+-Rectangle-5-+-Keyword" transform="translate(83.000000, 0.000000)">
+                        <g id="Stroke-4829-+-Stroke-4830" transform="translate(26.000000, 0.000000)" stroke="#0075D6" stroke-width="2" sketch:type="MSShapeGroup" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M86,43 C86,66.749087 66.7453478,86 43,86 C19.250913,86 0,66.749087 0,43 C0,19.2527826 19.250913,0 43,0 C66.7453478,0 86,19.2527826 86,43 L86,43 Z" id="Stroke-4829"></path>
+                            <path d="M74.7826087,14.0400609 C74.7826087,14.0400609 72.9130435,24.3039739 65.4347826,28.0431043 C57.9565217,26.1735391 50.4782609,31.7822348 52.3478261,31.7822348 C54.2173913,31.7822348 56.0869565,39.2604957 56.0869565,39.2604957 C57.9565217,41.1300609 61.6956522,39.2604957 61.6956522,39.2604957 C66.3695652,43.9344087 54.2173913,52.3474522 54.2173913,54.2170174 C54.2173913,56.0865826 58.8913043,57.0213652 56.0869565,59.825713 C53.2826087,62.6300609 50.4782609,63.5648435 50.4782609,63.5648435 C50.4782609,72.9126696 41.1304348,72.9126696 39.2608696,72.9126696 C37.3913043,72.9126696 33.6521739,65.4344087 33.6521739,63.5648435 C33.6521739,61.6952783 35.5217391,59.825713 35.5217391,57.9561478 C35.5217391,56.0865826 31.7826087,52.3474522 31.7826087,52.3474522 C31.7826087,44.8691913 26.173913,46.7387565 20.5652174,46.7387565 C14.9565217,46.7387565 14.9565217,39.2604957 14.9565217,39.2604957 C14.9565217,39.2604957 14.9565217,26.1735391 24.3043478,24.3039739 C33.6521739,22.4344087 33.6521739,26.1735391 33.6521739,26.1735391 C37.3913043,29.9126696 44.8695652,26.1735391 48.6086957,26.1735391 C48.6086957,26.1735391 50.4782609,13.0865826 46.7391304,14.9561478 C43,16.825713 39.6478696,15.3805391 39.2608696,11.2170174 C38.7168261,5.37275652 55.5765652,1.8691913 55.5765652,1.8691913" id="Stroke-4830"></path>
+                        </g>
+                        <g id="Rectangle-5">
+                            <use stroke="#FFFFFF" stroke-width="4" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                            <use stroke="#0075D6" stroke-width="2" fill="none" xlink:href="#path-1"></use>
+                        </g>
+                        <text id="Keyword" sketch:type="MSTextLayer" font-family="Helvetica Neue" font-size="11" font-weight="420" fill="#0075D6">
+                            <tspan x="12" y="48">Keyword</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

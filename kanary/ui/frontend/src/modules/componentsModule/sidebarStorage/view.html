@@ -1,0 +1,85 @@
+<section class="sidebar storage has-back">
+
+    <header>
+        <a data-bind="linkTo: 'back', tooltip: {title: 'Back', placement: 'right'}" class="back"></a>
+
+        <nav>
+            <a>storage</a>
+        </nav>
+    </header>
+
+    <div class="sidebar-viewport">
+        <div class="sidebar-content">
+            <h2 class="-t-title">Storage</h2>
+
+            <p data-bind="with: storage.stats">
+                There’s currently <strong>
+                    <span data-bind="text: creatives"></span> <span data-bind="pluralize: {data: creatives, singular: 'creative', plural: 'creatives'}"></span>,
+                    <!--
+                   and
+                    <span data-bind="text: triggers"></span> <span data-bind="pluralize: {data: triggers, singular: 'trigger', plural: 'triggers'}"></span>
+                    -->
+                    <span data-bind="text: audiences"></span> <span data-bind="pluralize: {data: audiences, singular: 'audience', plural: 'audiences'}"></span>
+                    and <span data-bind="text: brands"></span> <span data-bind="pluralize: {data: brands, singular: 'FB Page', plural: 'FB Pages'}"></span>
+                    </strong>
+                in your storage.
+            </p>
+            <!-- <a href="#" data-bind="linkTo: 'new_trigger'" class="btn">new trigger</a> //-->
+            <article>
+
+                <header>
+                    storage browser
+                </header>
+                <nav class="tabs-nav clearfix span8">
+                    <ul>
+                        <li class="active">
+                            <a class="-t-creatives-tab" href="#creatives" data-toggle="tab">Creatives</a>
+                        </li>
+                        <li>
+                            <a class="-t-audiences-tab" href="#audiences" data-toggle="tab">Audiences</a>
+                        </li>
+                        <li>
+                            <a class="-t-brands-tab" href="#brands" data-toggle="tab">FB Pages</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="tab-pane active"
+                    id="creatives">
+                    <ul class="nav nav-stacked items-list tab-pane active -t-creatives-list" data-bind="foreach: creatives">
+                        <li data-bind="click: goToView, css: 'creative-' + fields.type().toLowerCase() + ' -creative-' + fields.id()">
+                            <div class="controls">
+                                <span class="pull-right -t-status" data-bind="visible: !(fields.fb_brand_page_access()=='rejected'), tooltip: {title: 'Creative review ' + fields.status(), placement: 'left'}, css: 'status-creative-' + fields.status()"></span>
+                                <span data-bind="visible: fields.fb_brand_page_access()=='rejected', tooltip: {title: 'Creative has rejected FB page', placement: 'left'}" class="status-creative-rejected"></span>
+                            </div>
+                            <span data-bind="text: fields.name"></span>
+                        </li>
+                    </ul>
+                    <a href="#" data-bind="linkTo: 'new_creative'" class="btn icon-plus -t-new-creative items-list-button">add new creative</a>
+                </div>
+                <div class="tab-pane"
+                    id="audiences">
+                    <ul class="nav nav-stacked items-list -t-audiences-list"
+                        data-bind="foreach: audiences">
+                        <li data-bind="click: goToDetailsView" class="audience">
+                            <span data-bind="text: fields.name"></span>
+                        </li>
+                    </ul>
+                    <a href="#" data-bind="linkTo: 'new_audience'" class="btn icon-plus -t-new-audience items-list-button">add new audience</a>
+                </div>
+                <div class="tab-pane"
+                    id="brands">
+                    <ul class="nav nav-stacked items-list -t-brands-list"
+                        data-bind="foreach: brands">
+                        <li data-bind="click: goToDetailsView" class="brand">
+                            <div class="controls">
+                                <span class="pull-right -t-status" data-bind="tooltip: {title: 'FB page review ' + fields.appnexus_access_status(), placement: 'left'}, css: 'status-brand-' + fields.appnexus_access_status()"></span>
+                            </div>
+                            <span data-bind="text: fields.page_name"></span>
+                        </li>
+                    </ul>
+                    <a href="#" data-bind="linkTo: 'new_brand'" class="btn icon-plus -t-new-audience items-list-button">add new fb page</a>
+                </div>
+            </article>
+        </div> <!-- .sidebar-content -->
+    </div> <!-- .sidebar-viewport -->
+</section>

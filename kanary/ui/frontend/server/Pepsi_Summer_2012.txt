@@ -1,0 +1,39 @@
+{ 
+	"name": "Pepsi Summer 2012",
+	"slug": "Pepsi_Summer_2012",
+	"status": "reviewApproved",
+	"active": true,
+	"start": "2012-11-21T11:00:0Z",
+	"end": "2013-03-10T22:00:0Z",
+	"defaultLandingPage": "www.kanary.com/pepsi_summer_2012",
+	"budget": 40000,
+	"budgetSpent": 4580,
+
+	"goals": [
+	{
+		"name": "Watched Video",
+		"unitGain": 2
+	},
+	{
+		"name": "User Registered",
+		"unitGain": 5
+	},
+	{
+		"name": "Downloaded Product Sheet",
+		"unitGain": 7.5
+	}],
+
+	"strategies" : [
+		{
+			"name": "CA - Media Buyers",
+			"slug": "CA_-_Media Buyers",
+			"active": true
+		},
+
+		{
+			"name": "blah2",
+			"slug": "blah2",
+			"active": false
+		}]
+}
+

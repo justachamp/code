@@ -1,0 +1,101 @@
+<div class="full-width content-container -t-creatives-container">
+
+  <h2>Creatives </h2>
+  <div class="items-table">
+
+    <div class="row-fluid append-remove">
+      <h5 class="span4">name</h5>
+      <h5 class="span4">custom Landing page</h5>
+      
+      <!-- ko if: strategy.isStrategyType('Facebook') -->
+      <h5 class="span2">title</h5>
+      <h5 class="span2">body</h5>
+      <!-- /ko -->
+      <!-- ko ifnot: strategy.isStrategyType('Facebook') -->
+      <h5 class="span2">pixel tracking</h5>
+      <h5 class="span2">custom tracking</h5>
+      <!-- /ko -->
+    </div>
+
+
+    <!-- ko if: strategy.site_validation_ready -->
+      <div class="foreach-container" data-bind="foreach: strategy.fields().adverts()">
+          <div class="row-fluid append-remove -t-creatives-widget">
+                <div class="span4">
+                  <div class="input-inline-text text-center span1">
+                    <span data-bind="visible: (state.audited() && !(creative_fb_brand_page_access()=='rejected')), tooltip: {title: 'Creative review positive', placement: 'right'}" class="status-creative-passed"></span>
+                    <span data-bind="visible: (state.rejected() && !(creative_fb_brand_page_access()=='rejected')), tooltip: {title: 'Creative rejected', placement: 'right'}" class="status-creative-rejected"></span>
+                    <span data-bind="visible: (state.pending() && !state.blocked() && !(creative_fb_brand_page_access()=='rejected')), tooltip: {title: 'Creative in review', placement: 'right'}" class="status-creative-in-review"></span>
+                    <span data-bind="visible: (state.blocked() && !(creative_fb_brand_page_access()=='rejected')), tooltip: {title: 'Review on hold because of lack of funds', placement: 'right'}" class="status-creative-blocked"></span>
+                    <span data-bind="visible: (state.expired() && !(creative_fb_brand_page_access()=='rejected')), tooltip: {title: 'Creative has expired', placement: 'right'}" class="status-creative-expired"></span>
+                    <span data-bind="visible: creative_fb_brand_page_access()=='rejected', tooltip: {title: 'Creative has rejected facebook page', placement: 'right'}" class="status-creative-rejected"></span>
+                  </div>
+                  <div class="input-append input-file with-storage span11">
+                    <input type="text" class="input-block-level -t-input-creative-name" disabled
+                         data-bind="value: creative_name"/>
+                  <!-- ko if: $parent.strategy.isStrategyType('Facebook') -->
+                    <a class="btn btn-mini icon-storage -t-button-creative-storage" href="#" data-bind="click: $parent.showCreativesTray.bind($data, 'f')"></a>
+                  <!-- /ko -->
+                  <!-- ko ifnot: $parent.strategy.isStrategyType('Facebook') -->
+                  <a class="btn btn-mini icon-storage -t-button-creative-storage" href="#" data-bind="click: $parent.showCreativesTray.bind($data, 'd')"></a>
+                  <!-- /ko -->
+                  </div>
+                </div>
+                
+
+                <div class="input-prepend span4">
+                  <input type="text" class="input-block-level -t-input-landing-site" data-bind="value: landing_page_url,  valueUpdate: 'afterkeydown', displayError: $parent.strategy.errors.landing_page_url, typeahead: {cache_key: 'landing_page', target: landing_page_url, value: 'url', resource_name: 'site'}"/>
+                  <span class="add-on icon-planet"></span>
+                </div>
+                
+                <!-- ko if: $parent.strategy.isStrategyType('Facebook') -->
+                <div class="span2" data-bind="text: creative_fb_title()"></div>
+                <div class="span2" data-bind="text: creative_fb_body()"></div>
+                <!-- /ko -->
+                <!-- ko ifnot: $parent.strategy.isStrategyType('Facebook') -->
+                <div class="span2">
+                  <span
+                    data-bind="click: custom_pixel_click,
+                               css: { disabled: custom_pixel_disabled() },
+                               text: custom_pixel_label"
+                    class="-t-show-custom-pixel-input expand-details collapsed">
+                  </span>
+                  </div>
+                <div class="span2">
+                  <span
+                    data-bind="click: js_code_click,
+                               css: { disabled: js_code_disabled() },
+                               text: js_code_label"
+                    class="-t-show-js-code-input expand-details collapsed">
+                  </span>
+                </div>
+              <div class="row-fluid" data-bind="attr: {id: 'pixel-tracker-' + $index()}, visible: custom_pixel_input_shown">
+                <div class="span9">
+                    <p>Paste here tracking URL you wish to attach to this creative</p>
+                    <textarea class="input-code input-block-level -t-input-custom-pixel" rows="3" data-bind="value: custom_pixel, valueUpdate: 'afterkeydown',
+                    displayError: $parent.strategy.errors.custom_pixel"></textarea>
+                </div>
+              </div>
+              <div class="row-fluid" data-bind="attr: {id: 'custom-tracker-' + $index()}, visible: js_code_input_shown">
+                <div class="span9">
+                    <p>Paste here JavaScript code you wish to attach to this creative</p>
+                    <textarea class="input-code input-block-level -t-input-js-code" rows="3" data-bind="value: js_code, valueUpdate: 'afterkeydown'"></textarea>
+                </div>
+              </div>
+                <!-- /ko -->
+ 
+                <a class="remove -t-remove-ad" href="#" data-bind="click: $parent.strategy.removeCreative"></a>
+
+          </div>
+
+      </div>
+    <!-- /ko -->
+
+    <div>
+      <a href="#" class="btn btn-yellow -t-button-add" data-bind="click: strategy.addAdvert">Add Creative</a> &nbsp;
+    </div>
+    <a class="btn btn-next -t-button-next" href="#" data-bind="click: function(){ strategy.visitStep('bidding') }">
+      Next step
+    </a>
+  </div>
+</div>

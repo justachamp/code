@@ -1,0 +1,35 @@
+<section class="sidebar dashboard has-back">
+	<header>
+		<a data-bind="linkTo: 'back', tooltip: {title: 'Back', placement: 'right'}" class="back"></a>
+
+		<nav>
+			<a>dashboard</a>
+		</nav>
+
+	</header>
+
+	<div class="sidebar-viewport">
+        <div class="sidebar-content">
+			<h2 class="-t-title">Dashboard</h2>
+
+			<p>
+	            Timeline is currently displaying <span data-bind="text: categories_active().length"></span>
+	            out of <span data-bind="text: categoriesArray().length"></span> categories in total.
+			</p>
+
+			<article>
+				<header>Timeline filter</header>
+
+	            <ul class="items-list with-icons tab-pane active" data-bind="foreach: categoriesArray">
+	                <li data-bind="click: toggle_active">
+	                    <div class="controls">
+	                        <span class="switcher" data-bind="css: {on: is_active}, tooltip: {placement: 'left', 'title': 'Deactivates Category'}"></span>
+	                    </div>
+	                    <a data-bind="text: name"></a>
+					</li>
+				</ul>
+
+			</article>
+	    </div> <!-- .sidebar-content -->
+    </div> <!-- .sidebar-viewport -->
+</section>

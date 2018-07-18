@@ -1,0 +1,384 @@
+.switcher {
+    .inline-block;
+
+    cursor: pointer;
+    width: 64px;
+    height: @baseControlsHeight - 4;
+    border-radius: 4px;
+
+    #sprites > .sprite("ui");
+
+    #content &{
+                 #sprites > .position(2, 1, 32px);
+        &.on    {#sprites > .position(2, 0, 32px)}
+    }
+
+    .sidebar &{
+                 #sprites > .position(4, 1, 32px);
+        &.on    {#sprites > .position(4, 0, 32px)}
+    }
+}
+
+.switcher-tabs {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: @baseLineHeight + 2;
+
+    li {
+        display: table-cell;
+        cursor: pointer;
+        text-align: center;
+        line-height: @headerHeight - 3px;
+        font-weight: bold;
+        border: 1px solid @contentBtnBorder;
+        background-color: @contentBtnBg;
+    }
+
+    li:hover,
+    li.active {
+        background-color: @contentBtnHover;
+    }
+
+    .switcher-inline-text:before{
+        content: '';
+        display: inline-block;
+        padding-right: 3px;
+        width: 15px;
+        height: 15px;
+        margin-top: 4px;
+        #sprites > .sprite('ui');
+        #sprites > .position-notsq(7px, 92px);
+        opacity: 0.5;
+    }
+
+    .active .switcher-inline-text:before {
+        #sprites > .position-notsq(172px, 92px);
+    }
+}
+
+.flipswitch {
+    .noselect();
+    .inline-block();
+
+    margin: 0 0 @baseLineHeight/2;
+    position: relative;
+    width: 64px;
+    height: @baseControlsHeight - 4;
+
+}
+
+.flipswitch-checkbox {
+    display: none;
+
+    &:checked + .flipswitch-label {
+        border: 1px solid #e4c91a !important;
+    }
+
+    &:checked + .flipswitch-label .flipswitch-state {
+        margin-left: -100%;
+    }
+
+    &:checked + .flipswitch-label .flipswitch-handler {
+        right: 28px;
+        .gradient(~"linear-gradient(bottom, #eef3f3 0%, #fff 100%)");
+
+    }
+}
+
+.flipswitch-label {
+    .border-radius(~"3px / 3px 3px 3px 3px");
+    .transition(~"border 0.3s ease-in 0s");
+
+    height: @baseControlsHeight - 6;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #bbb;
+    background-color: #ffe121;
+}
+
+.flipswitch-state {
+    .transition(~"margin 0.3s ease-in 0s");
+    width: 200%;
+    position: relative;
+    margin-left: 0%;
+    &:after,
+    &:before {
+        float: left;
+        width: 50%;
+        line-height: @baseControlsHeight - 4;
+        height: @baseControlsHeight - 6;
+        color: #000;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    &:before{
+        content: "";
+        padding: 0 0 0 10px;
+        background: url(../images/sprite-ui.png) 0% -91px;
+        background-color: #ddd;
+
+    }
+    &:after{
+        content: "";
+        padding: 0 10px 0 0;
+        text-align: right;
+        background: url(../images/sprite-ui.png) 100% -91px;
+        background-color: #ffe121;
+
+    }
+
+    &.flipswitch-question {
+        &:before {
+            background: url(../images/sprite-ui.png) 0% -114px;
+            background-color: #ddd;
+        }
+        &:after {
+            background: url(../images/sprite-ui.png) 100% -114px;
+            background-color: #ffe121;
+        }
+    }
+}
+
+.flipswitch-handler {
+    .transition(~"all 0.3s ease-in 0s");
+    .border-radius(3px);
+
+    width: 50%;
+    border: 1px solid #000;
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    right: 2px;
+    background: @white;
+
+}
+
+.checkbox {
+    .inline-block;
+
+    min-height: 14px;
+    margin: 0 0 @baseLineHeight/2 0;
+    padding: 0 0 0 20px;
+    position: relative;
+
+    &:before {
+        content: '';
+        width: 13px;
+        height: 13px;
+        margin: 2px 0 0 0;
+        background: @white;
+        border: 1px solid #ddd;
+        left: 0;
+        position: absolute;
+    }
+
+    .modal &{
+        color:@black;
+        font-size:11px;
+
+        &:before{
+            margin-top: 0;
+            border: 1px solid @black;
+            background-color: @mainYellow;
+        }
+        &.checked:before{
+            background-color: @black;
+
+            #sprites > .position(2, 2, 16px);
+        }
+    }
+
+    cursor: pointer;
+
+    &.checked {
+        &:before {
+            #sprites > .sprite("ui");
+            #sprites > .position(3, 0, 16px);
+            background-color: @mainYellow;
+            width: 14px;
+            height: 14px;
+            border: none;
+        }
+
+        &.red:before            {background-color: #d93b3b}
+        &.blue-light:before     {background-color: #03aeef}
+        &.green-light:before    {background-color: #79c421}
+        &.yellow:before         {background-color: #f4da2c}
+        &.indian-red:before     {background-color: #d05589}
+        &.blue:before           {background-color: #234bb0}
+        &.orange:before         {background-color: #ee720e}
+        &.celadon:before        {background-color: #3ac1a6}
+        &.violet:before         {background-color: #7f4fa1}
+        &.gray:before           {background-color: #999999}
+        &.green:before          {background-color: #0c9736}
+    }
+
+    .dropdown-menu &:before {
+        margin: 0;
+    }
+
+    input {display: none !important;}
+
+
+}
+
+.search-box{
+    .border-radius(2px);
+    .inline-block();
+
+    background: @contentBtnBg ;
+    color: @gray ;
+    border: 1px solid @contentBorderDark;
+    height:@baseControlsHeight;
+    margin-bottom:@baseLineHeight/2;
+    margin-right:5px;
+    padding:0 24px 0 @baseLineHeight/2;
+    overflow: hidden;
+    position:relative;
+
+    a.remove,
+    .items-table & a.remove{
+        .box-shadow(~"-10px 0px 4px -3px rgba(227,227,227,1)");
+
+        position: absolute;
+        right: 0px;
+        top: 1px;
+        width: 16px;
+        bottom:1px;
+        height: @baseControlsHeight;
+        background:@contentBtnBg;
+        margin:0;
+
+        &:before{
+            content:'';
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin:-4px 0 0 -8px;
+            width:8px;
+            height:8px;
+
+            #sprites > .sprite('icons');
+            #sprites > .position(36, 1, 8px)
+        }
+    }
+}
+
+.input-creative {
+    opacity: 1 !important;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: @contentBtnBg ;
+    color: @gray ;
+    border: 1px solid @contentBorderDark;
+    height:@baseControlsHeight;
+    margin-bottom:@baseLineHeight/2;
+
+
+    &[class^="creative-"],
+    &[class*=" creative-"]{
+        &:before{
+            #sprites > .set-size(16px);
+            #sprites > .sprite('icons');
+
+            position: absolute;
+            top:7px;
+            left:8px;
+        }
+
+        .value{ padding: 0 0 0 28px;}
+    }
+
+    &.creative-graphic {
+        &:before              {#sprites > .position(0,2,16px);}
+    }
+
+    &.creative-html {
+        &:before              {#sprites > .position(0,3,16px);}
+    }
+
+    &.creative-facebook {
+        &:before              {#sprites > .position(0,4,16px);}
+    }
+
+    &.creative-site {
+        &:before              {#sprites > .position(0,5,16px);}
+    }
+
+    &.creative-trigger {
+        &:before              {#sprites > .position(0,6,16px);}
+    }
+
+    &.placeholder{
+        .box-shadow(none);
+
+        background: @bodyBackground;
+        border: 1px dashed @contentBtnBorder;
+        color:@grayLight;
+    }
+
+    &.empty{
+        padding:0 0 2px 0;
+
+        &:before{
+            left:50%;
+            margin:0 0 0 -8px;
+            #sprites > .position(3,7,16px);
+
+        }
+
+        a.remove{ display:none;}
+    }
+
+    .value {
+        .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+
+        padding: 0 0 0 6px;
+        display: block;
+    }
+}
+
+.input-creative,
+.input-remove{
+    position:relative;
+    margin:0 0 @baseLineHeight/2 0;
+
+    &.placeholder{
+        a.remove{
+            .box-shadow(~"-10px 0px 4px -3px rgba(251,251,251,1)");
+            background: @bodyBackground;
+        }
+    }
+
+    a.remove {
+        .box-shadow(~"-10px 0px 4px -3px rgba(227,227,227,1)");
+
+        position: absolute;
+        right: 0px;
+        top: 1px !important;
+        width: 28px !important;
+        height: @baseControlsHeight !important;
+        background:@contentBtnBg;
+
+        &:before{
+            content:'';
+            position: absolute;
+            top:50%;
+            left:50%;
+
+            margin:-3px 0 0 -5px;
+            width:8px;
+            height:8px;
+
+            #sprites > .sprite('icons');
+            #sprites > .position(36, 1, 8px)
+        }
+    }
+}
+.input-creative  a.remove {        margin-top: -1px !important;}
+.input-remove a.remove{right:1px;}

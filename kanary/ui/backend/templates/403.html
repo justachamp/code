@@ -1,0 +1,15 @@
+{% extends 'base_error.html' %}
+
+{% block code %}403{% endblock %}
+
+{% block content %}
+    <h3>
+        You are not authorized<br/>
+        to view this page.
+        {% if error %}
+        <br/>Reason: {{error}}
+        {% endif %}
+    </h3>
+
+    <p>Please use the links below to go elsewhere.</p>
+{% endblock %}

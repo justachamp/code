@@ -1,0 +1,67 @@
+<div class="content-container">
+
+    <h2 class="-t-title">Conversion tracker</h2>
+
+    <form class="form-horizontal">
+
+        <div class="control-group row-fluid">
+            <label class="control-label" for="conversionName">Name</label>
+
+            <div class="controls">
+                <input type="text" class="input-block-level span6 -t-input-conversion-name" id="conversionName"
+                data-bind="value: fields().conversion_name, displayError: errors.conversion_name" />
+            </div>
+
+        </div>
+
+        <div class="control-group row-fluid">
+            <label class="control-label" for="conversionValue">Conversion value</label>
+
+            <div class="controls">
+                <div class="input-prepend">
+                    <input type="text" data-bind="formatBudget: fields().conversion_value,
+                                   displayError: errors.conversion_value" class="input-block-level span6 -t-input-conversion-value" id="conversionValue"/>
+                    <span class="add-on">$</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid">
+            <div class="controls">
+                <p class="text-upper"><strong>Tracking code</strong></p>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid">
+            <div class="controls">
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="conversion_pixel">
+
+                        <!-- ko if: mode() === 'new' -->
+                        <pre>Tracking code will be available right after saving this campaign.</pre>
+                        <!-- /ko -->
+
+                        <!-- ko if: mode() === 'edit' -->
+                        <pre id="-t-conversion-pixel-code" data-bind="text: fields().conversion_code"></pre>
+                        <a class="btn" data-bind="copyToClipboard: {source: '-t-conversion-pixel-code'}">
+                            Copy to clipboard
+                        </a>
+                        <!-- /ko -->
+
+                    </div>
+                </div>
+
+
+        </div>
+    </div>
+    <div class="control-group row-fluid">
+        <div class="controls">
+            <a class="btn btn-next -t-button-next" href="#" data-bind="click: function(){ visitStep('capping') }">
+                Next step
+            </a>
+        </div>
+    </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,369 @@
+@import "compass/css3/border-radius";
+@import "compass/css3/text-shadow";
+@import "compass/css3/box-shadow";
+@import "compass/css3/transition";
+
+$logo-image: 'logo.png';
+//NOTE: It'll be icon for Gravity4 apps menu
+// $watermark-image: 'watermark.png';
+$header-image: 'header.png';
+//NOTE: This logo isn't approved yet
+// $footer-image: 'footer.png';
+
+$break-height: 1px;
+
+$alert-color-error: #a95e72;
+$alert-color-success: #9dcab6;
+$input-border-color-grey: #e1e1e1;
+$input-border-color-black: #000000;
+$text-color-dark: #111111;
+$text-color-light: #4c4c4c;
+$code-background-color: #231f20;
+$code-placeholder-color: #f0f2f2;
+$blue: #1f5ddb;
+$grey: #979999;
+
+$number-font: 17px;
+$step-size: 40px;
+
+@import "font";
+
+body {
+    background-color: #ffffff;
+    font-family: 'markproregular';
+}
+
+.alert {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+
+    &.alert-success {
+        color: $alert-color-success;
+    }
+
+    &.alert-error {
+        color: $alert-color-error;
+    }
+}
+
+.container {
+    max-width: 1070px;
+}
+
+/* Forms */
+form {
+    &.sign-in, &.sign-up, &.password-reset {
+        input {
+            max-width: 500px;
+            margin: auto;
+        }
+    }
+
+    /* Password reset */
+    &.password-reset label.control-label{
+        display: none;
+    }
+
+    input.form-control {
+        border: 5px $input-border-color-grey solid;
+        @include border-radius();
+        height: 200%;
+        line-height: 2;
+        @include transition(border-color, 1s, linear, 10s);
+
+        &:focus {
+            border-color: $input-border-color-black;
+            @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(0,0,0,.6));
+        }
+    }
+
+    &.big {
+        input.form-control {
+            border-color: $input-border-color-black;
+            width: 100%;
+            max-width: 600px;
+            font-size: 20px;
+        }
+    }
+
+    .has-success input.form-control {
+        border-color: $alert-color-success;
+    }
+
+    .has-error input.form-control {
+        border-color: $alert-color-error;
+    }
+}
+
+a.logo {
+    display: block;
+    background-image: image-url($logo-image);
+    width: image-width($logo-image);
+    height: image-height($logo-image);
+}
+
+.header {
+    margin-top: 100px;
+    min-width: max(image-width($header-image), image-width($logo-image));
+    height: image-height($header-image) + image-height($logo-image);
+
+    .break {
+        position: relative;
+        top: (image-height($header-image) - $break-height) / 2;
+
+        .header-logo {
+            background-image: image-url($header-image);
+            background-repeat: no-repeat;
+            background-position: center center;
+            min-width: image-width($header-image);
+            min-height: image-height($header-image);
+            position: relative;
+            top: -(image-height($header-image) - $break-height) / 2;
+        }
+    }
+}
+
+.break {
+    background-color: #d2d3d3;
+    height: $break-height;
+}
+
+.layout-header {
+    margin-top: 45px;
+    margin-bottom: 85px;
+    font-family: 'mark_probold';
+
+    h1 {
+        font-size: 31px;
+        margin-bottom: 22px;
+        color: $text-color-dark;
+    }
+
+    h4 {
+        font-family: 'markproregular';
+        font-size: 15px;
+        color: $text-color-light;
+    }
+}
+
+.domain {
+    font-size: 21px;
+    color: $text-color-light;
+}
+
+#domain-carousel {
+    .domain {
+        font-family: 'mark_probold';
+        line-height: 3;
+        font-size: 21px;
+        text-align: center;
+        border: solid 5px $blue;
+        display: inline-block;
+        width: 360px;
+    }
+}
+
+#style-carousel {
+    .preview {
+        margin: 0 auto;
+    }
+}
+
+.carousel {
+    margin: 10px 0;
+}
+
+.carousel-control {
+    &.right, &.left {
+        background: none;
+        color: #cccccc;
+        font-size: 36px;
+        @include text-shadow(none);
+
+        &:hover {
+            color: $blue;
+        }
+    }
+}
+
+.item, .code-container {
+    text-align: center;
+}
+
+pre {
+    text-align: left;
+    display: inline-block;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
+
+.layout-footer {
+    margin-top: 90px;
+    margin-bottom: 10px;
+
+    .nav {
+        margin-top: 25px;
+
+        a {
+            color: $text-color-light;
+            font-size: 12px;
+            margin-left: 25px;
+
+            &.footer {
+                float: left;
+                font-family: 'mark_probold';
+                margin: 0;
+                // background-image: image-url($footer-image);
+                // width: image-width($footer-image);
+                // height: image-height($footer-image);
+            }
+        }
+    }
+}
+
+.btn {
+    min-width: 165px;
+    margin-top: 30px;
+    @include border-radius(40px);
+    font-family: 'mark_probold';
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 7px 23px;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.btn-an {
+    background-color: $blue;
+
+    &:hover {
+        background-color: #2b66b2;
+    }
+}
+
+.btn-primary {
+    background-color: $grey;
+}
+
+.btn-link {
+    font-family: 'markproregular';
+    text-transform: none;
+    background-color: transparent;
+    color: $blue;
+
+    &:hover {
+        color: $blue;
+    }
+}
+
+.step {
+    margin: 0 0 20px 0;
+    display: inline-block;
+    max-width: 570px;
+}
+
+.step-number {
+    font-family: 'mark_probold';
+    font-size: $number-font;
+    @include border-radius($step-size);
+    width: $step-size;
+    height: $step-size;
+    display: inline-block;
+    line-height: $step-size - 1px;
+    background-color: $text-color-dark;
+    color: #fff;
+}
+
+.step-label {
+    font-family: 'mark_probold';
+    font-size: 21px;
+    color: $text-color-dark;
+}
+
+.step-description {
+    font-family: 'markproregular';
+    font-size: 17px;
+    color: $text-color-light;
+}
+
+/* DSP Pixel */
+.get-code-flow {
+    .break {
+        margin: 70px 0;
+    }
+
+    .code-placeholder {
+        background-color: $code-placeholder-color;
+        display: inline-block;
+        margin: 20px 0;
+        padding: 20px 50px;
+
+        a {
+            color: $blue;
+        }
+    }
+
+    #id_dsp_pixel_url{
+        width: 590px;
+    }
+
+    form.dsp-pixel{
+        padding-top: 20px;
+        display: inline-block;
+
+        .btn-primary {
+            width: 100px;
+            padding: 8px 0;
+            background-color: $blue;
+        }
+
+        .btn-default {
+            background-color: $grey;
+        }
+    }
+}
+
+.error {
+    color: #B00000;
+    font-size: 12px;
+    text-align: left;
+}
+
+.control-group.error{
+    text-align: center;
+}
+
+/* Static pages */
+.benefits li {
+    line-height: 26px;
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.add-domain-container {
+    .error {
+        margin: 10px 0 0;
+        text-align: center;
+    }
+}
+
+.sign-label {
+    margin: 10px 0 0;
+    color: #4f575d;
+    font-size: 12px;
+}
+.sign-label a {
+    color: #4f575d;
+}
+
+.terms-container div{
+    padding-bottom: 20px;
+}
+
+.terms-container > div{
+}

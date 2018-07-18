@@ -1,0 +1,146 @@
+<div class="modal-container widget-config-modal showing">
+
+    <div class="the-modal panel clearfix">
+        <div class="modal-header">
+            <h2>"Thank You for Sharing" pop-up</h2>
+            <a class="close-modal x-button" ng-click="cancel()">×</a>
+        </div>
+        <form name="form" class="row" novalidate ng-submit="submit()">
+
+            <div class="advert-preview">
+                <h3>Live Preview</h3>
+                <div class="preview-pane">
+                    <popup-preview popup="thankYouData"></popup-preview>
+                    <div class="thank-you-image-container">
+                        <a ng-if="thankYouData.advertImageUrl" ng-href="{{ thankYouData.advertUrl }}" title="{{ thankYouData.advertTitle }}">
+                            <img ng-src="{{ thankYouData.advertImageUrl }}"/>
+                        </a>
+                        <p>{{ thankYouData.message }}</p>
+                        <div class="addnow-thankyou-box">
+                            <ul>
+                                <li ng-repeat="socialNetwork in thankYouData.socialNetworks | filter: hasUrl">
+                                    <a target="_blank"
+                                       title="{{ socialNetwork.service }}"
+                                       class="follow-{{socialNetwork.service}}"
+                                       ng-href="{{ socialNetwork.url }}"><span class="addnow-service-icon"></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="half widget-attributes">
+                <h3>Options</h3>
+
+                <p>Want to drive more traffic to your content? Spice up your 'thank you for sharing' popup messages with ad images and links to follow your properties on social media.</p>
+
+                <div class="form-group"
+                     ng-class="{error: form.thank_you_message.$invalid && form.$submitted, success: form.thank_you_message.$valid && form.$submitted}">
+                    <div class="addsite-sharing-message-field">
+                        <label for="thank_you_message">Thank You Message</label>
+                        <textarea rows="3" name="thank_you_message"
+                                  class="sharing-message"
+                                  placeholder="Enter a message here"
+                                  ng-model="thankYouData.message"></textarea>
+                    </div>
+                    <div class="msg-error" ng-class="{notSubmitted: !form.$submitted}"
+                         ng-messages="form.thank_you_message.$error" ng-messages-multiple
+                         ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{error: form.thank_you_advert_image_url.$invalid && form.$submitted, success: form.thank_you_advert_image_url.$valid && form.$submitted}">
+                    <div>
+                        <div class="label-container">
+                            <label for="thank_you_advert_image_url">Media URL</label>
+                            <div class="tooltip-container">
+                                <span class="tooltip-button"></span>
+                                <div class="tooltip-content">
+                                    <div class="arrow"></div>
+                                    <p>URL of the image shown in the thank you message</p>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="url" name="thank_you_advert_image_url"
+                               class="form-control domain" placeholder="Enter image ad URL here"
+                               ng-model="thankYouData.advertImageUrl"/>
+                    </div>
+                    <div class="msg-error" ng-class="{notSubmitted: !form.$submitted}"
+                         ng-if="form.thank_you_advert_image_url.$dirty || form.$submitted"
+                         ng-messages="form.thank_you_advert_image_url.$error" ng-messages-multiple
+                         ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{error: form.thank_you_advert_url.$invalid && form.$submitted, success: form.thank_you_advert_url.$valid && form.$submitted}">
+                    <div>
+                        <div class="label-container">
+                            <label for="thank_you_advert_url">Advertisement URL</label>
+                            <div class="tooltip-container">
+                                <span class="tooltip-button"></span>
+                                <div class="tooltip-content">
+                                    <div class="arrow"></div>
+                                    <p>Destination URL when clicking on the image in the thank you message</p>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="url" name="thank_you_advert_url" class="form-control domain" placeholder="Enter website URL here"
+                               ng-model="thankYouData.advertUrl" ng-required="thankYouData.advertImageUrl"/>
+                    </div>
+                    <div class="msg-error" ng-class="{notSubmitted: !form.$submitted}" ng-if="form.thank_you_advert_url.$dirty || form.$submitted"
+                         ng-messages="form.thank_you_advert_url.$error" ng-messages-multiple
+                         ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+                    </div>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{error: form.thank_you_advert_title.$invalid && form.$submitted, success: form.thank_you_advert_title.$valid && form.$submitted}">
+                    <div>
+                        <div class="label-container">
+                            <label for="thank_you_advert_title">Advertisement Title</label>
+                            <div class="tooltip-container">
+                                <span class="tooltip-button"></span>
+                                <div class="tooltip-content">
+                                    <div class="arrow"></div>
+                                    <p>Tooltip shown when hovering over the image in the thank you message</p>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" name="thank_you_advert_title"
+                               class="form-control domain"
+                               placeholder="Enter website title..." maxlength="150"
+                               ng-model="thankYouData.advertTitle"/>
+                    </div>
+                    <div class="msg-error" ng-class="{notSubmitted: !form.$submitted}"
+                         ng-if="form.thank_you_advert_title.$dirty || form.$submitted"
+                         ng-messages="form.thank_you_advert_title.$error" ng-messages-multiple
+                         ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="half follow-details widget-available-services">
+                <h3>Follow Details</h3>
+
+                <p>Enter the URLs of your social media accounts. After users share your content, they will see these links to your social properties in the 'thank you for sharing' message.</p>
+
+                <div class="social-services-list">
+                    <div class="form-group " ng-repeat="socialNetwork in thankYouData.socialNetworks">
+                        <social-input class="social-input" placeholder="{{socialNetwork.placeholder}}"
+                                      icon="{{socialNetwork.service}}" url="socialNetwork.url"></social-input>
+                    </div>
+                </div>
+            </div>
+
+            <section class="modal-footer save-bar settings-section clearfix">
+                <a ng-click="cancel()" class="close-modal g4-button outline-button grey-button"><span>Cancel</span></a>
+                <button class="g4-button" type="submit"><span>SAVE</span></button>
+            </section>
+        </form>
+    </div>
+
+</div>

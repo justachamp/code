@@ -1,0 +1,8 @@
+[
+	{ "name": "Pepsi Summer 2012", "slug": "Pepsi_Summer_2012", "status": "reviewApproved", "active": true},
+	{ "name": "Pepsi Spring 2011", "slug": "Pepsi_Spring_2011", "status": "reviewRejected", "active": true},
+	{ "name": "Mirinda Winter 2013", "slug": "Mirinda_Winter_2013", "status": "outOfBudget", "active": false},
+	{ "name": "Mountain Dew Autumn 2012", "slug": "Mountain_Dew_Autumn_2012", "status": "scheduled", "active": true},
+	{ "name": "Lipton Green Tea Winter 2013", "slug": "Lipton_Green_Tea_Winter_2013", "status": "reviewApproved", "active": false},
+	{ "name": "Diet Pepsi Spring 2013", "slug": "Diet_Pepsi_Spring_2013", "status": "finished", "active": false}
+]

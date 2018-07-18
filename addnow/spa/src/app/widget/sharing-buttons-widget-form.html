@@ -1,0 +1,116 @@
+<div class="half widget-attributes">
+    <h3>Options</h3>
+
+    <div class="form-group">
+        <errors data="errors"></errors>
+    </div>
+    <div class="form-group widget-name-field" ng-class="{error: form.name.$invalid && form.$submitted, success: form.name.$valid && form.$submitted}">
+        <div>
+            <div class="label-container">
+                <label for="name">Name</label>
+            </div>
+            <input class="form-control domain" type="text" ng-model="widget.name" name="name"
+                   placeholder="give me a descriptive name, please..." required validate-server/>
+        </div>
+
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-if="form.name.$dirty || form.$submitted" ng-messages="form.name.$error" ng-messages-multiple
+             class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages></div>
+    </div>
+
+    <div class="form-group" ng-class="{error: form.vanity_domain.$invalid && form.$submitted, success: form.vanity_domain.$valid && form.$submitted}">
+        <div>
+            <label for="vanity_domain">Vanity Domain</label>
+            <select name="vanity_domain" ng-model="widget.vanityDomain"
+                    class="form-control domain">
+                <option value="" >Default vanity domain</option>
+                <option ng-selected="{{item === widget.vanityDomain}}" ng-repeat="item in domains" value="{{item}}">
+                    {{item}}
+                </option>
+            </select>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.button_style.$error" ng-messages-multiple
+             class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{error: form.orientation.$invalid && form.$submitted, success: form.orientation.$valid && form.$submitted}">
+        <div>
+            <div class="label-container">
+                <label for="orientation">Button Orientation</label>
+            </div>
+            <select name="orientation" ng-model="widget.orientation"
+                class="form-control domain">
+                <option value="vertical">Vertical</option>
+                <option value="horizontal">Horizontal</option>
+            </select>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.orientation.$error" ng-messages-multiple
+            class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+
+    <div class="form-group has-radio-switch">
+        <div>
+            <div class="label-container">
+                <label for="extra_button_animation">Extra button animation</label>
+            </div>
+            <toggle-switch class="form-group" name="extraButtonAnimation" ng-model="widget.extraButtonAnimation"></toggle-switch>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{error: form.size.$invalid && form.$submitted, success: form.size.$valid && form.$submitted}">
+        <div class="button-size-slider" widget-buttons-size button-size="widget.buttonSize"></div>
+    </div>
+
+    <div class="form-group" ng-class="{error: form.button_style.$invalid && form.$submitted, success: form.button_style.$valid && form.$submitted}" ng-if="showTypeOptions()">
+        <div>
+            <div class="label-container">
+                <label for="button_style">Button Style</label>
+            </div>
+            <select name="button_style" ng-model="widget.buttonStyle"
+                class="form-control domain">
+                <option value="icon">Icon only</option>
+                <option value="label">Icon and Label</option>
+                <option value="counter">Icon and Counter</option>
+            </select>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.button_style.$error" ng-messages-multiple
+            class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+
+    <div class="form-group has-radio-switch">
+        <div>
+            <div class="label-container">
+                <label>Link Share Button</label>
+            </div>
+            <toggle-switch class="form-group" ng-model="widget.hasLinkShareButton"></toggle-switch>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{error: form.counter_position.$invalid && form.$submitted, success: form.counter_position.$valid && form.$submitted}" ng-if="widget.buttonStyle === 'counter'">
+        <div>
+            <div class="label-container">
+                <label for="counter_position">Counter Position</label>
+            </div>
+            <select name="counter_position" ng-model="widget.counterPosition"
+                class="form-control domain">
+                <option value="top">Top</option>
+                <option value="right">Right</option>
+            </select>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.counter_position.$error" ng-messages-multiple
+            class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+</div>
+
+
+<div class="half widget-available-services">
+    <extendable-buttons name="buttons" ng-model="widget.buttons" not-empty-array></extendable-buttons>
+
+    <div ng-class="{notSubmitted: !form.$submitted}" ng-if="form.buttons.$dirty || form.$submitted" ng-messages="form.buttons.$error" ng-messages-multiple
+         class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        <div ng-message="notEmptyArray">Widget has no buttons.</div>
+    </div>
+</div>

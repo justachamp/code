@@ -1,0 +1,56 @@
+<div class="content-container">
+    <!-- ko if: fields.id -->
+    <h2 class="-t-title" data-bind="text: fields.name"></h2>
+    <!-- /ko -->
+    <!-- ko ifnot: fields.id -->
+    <h2 class="-t-title">New audience</h2>
+    <!-- /ko -->
+
+    <form class="form-horizontal">
+
+        <div class="control-group row-fluid -t-input-audience">
+            <label class="control-label">Name</label>
+
+            <div class="controls">
+                <input class="input-block-level -t-input-audience-name" type="text" data-bind="value: fields.name"/>
+            </div>
+        </div>
+        <!-- ko if: fields.id -->
+        <div class="control-group row-fluid">
+            <div class="controls">
+                <p class="text-upper"><strong>Tracking code</strong></p>
+            </div>
+        </div>
+        <div class="control-group row-fluid">
+            <div class="controls">
+                <p>Paste the corresponding code to your webpage that tracks audience.</p>
+                <pre data-bind="text: fields.tracking_code" id="-t-audience-tracking-code"></pre>
+                <a class="btn" data-bind="copyToClipboard: {source: '-t-audience-tracking-code'}">
+                    Copy to clipboard
+                </a>
+            </div>
+        </div>
+        <div class="control-group row-fluid">
+            <div class="controls">
+                <p>Piggyback Pixel URL. Replace ${REDIR_URL} with a url-encoded destination.</p>
+                <pre data-bind="text: fields.piggyback_url" id="-t-piggyback-url"></pre>
+                <a class="btn" data-bind="copyToClipboard: {source: '-t-piggyback-url'}">
+                    Copy to clipboard
+                </a>
+            </div>
+        </div>
+        <!-- /ko -->
+        <div class="control-group row-fluid">
+            <div class="controls">
+
+                <!-- ko if: fields.id -->
+                <button class="-t-button-save btn" data-bind="click: save">Save</button>
+                <button class="-t-button-delete btn" data-bind="click: removeAndShowList">Delete</button>
+                <!-- /ko -->
+                <!-- ko ifnot: fields.id -->
+                <button class="-t-button-save btn" data-bind="click: createAndShowDetails">Create</button>
+                <!-- /ko -->
+            </div>
+        </div>
+    </form>
+</div>

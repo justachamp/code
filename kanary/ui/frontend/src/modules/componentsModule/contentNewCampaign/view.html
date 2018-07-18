@@ -1,0 +1,88 @@
+<div class="content-container">
+
+  <h2 class="-t-title">Overall information</h2>
+
+  <form class="form-horizontal ">
+    <div class="control-group row-fluid -t-campaign-name">
+      <label class="control-label" for="campaignName">Name</label>
+
+      <div class="controls">
+        <input type="text" class="input-block-level span10 -t-input-campaign-name" id="campaignName"
+               data-bind="value: fields().name, displayError: errors.name"/>
+      </div>
+    </div>
+
+    <div class="control-group row-fluid -t-start-date">
+      <label class="control-label" for="inputStartDate">Start date</label>
+
+      <div class="controls -t-controls-start-date">
+        <div class="datepicker-input span6 input-append date" data-bind="datepicker: fields().start">
+          <input type="text" id="inputStartDate" size="16" type="text"
+                 data-bind="value: startVerboseDatepicker(), displayError: errors.start" class="input-block-level input-dark -t-input-start-date" disabled="disabled"/>
+          <i class="icon-calendar add-on"></i>
+        </div>
+
+        <span class="input-inline-text span1 text-center">at</span>
+
+        <div class="timepicker-input input-append span3" data-bind="timepicker: fields().start_hour">
+          <input type="text" class="input-block-level input-dark -t-input-start-hour"
+                 data-bind="value: fields().start_hour, displayError: errors.start_hour">
+          <i class="icon-clock add-on"></i>
+        </div>
+
+        <span class="input-inline-text span1 text-center">o'clock</span>
+
+      </div>
+    </div>
+    <div class="control-group row-fluid -t-end-date">
+      <label class="control-label" for="inputEndDate">End date</label>
+
+      <div class="controls -t-controls-end-date">
+        <div class="row-fluid">
+          <div class="datepicker-input span6 input-append date" data-bind="datepicker: fields().end">
+            <input type="text" id="inputEndDate" size="16" type="text"
+                   data-bind="value: endVerboseDatepicker(), displayError: errors.end" class="input-block-level input-dark -t-input-end-date" disabled="disabled"/>
+            <i class="icon-calendar add-on"></i>
+          </div>
+
+          <span class="input-inline-text span1 text-center">at</span>
+
+          <div class="timepicker-input input-append span3" data-bind="timepicker: fields().end_hour">
+            <input type="text" class="input-block-level input-dark -t-input-end-hour"
+                   data-bind="value: fields().end_hour, displayError: errors.end_hour">
+            <i class="icon-clock add-on"></i>
+          </div>
+
+          <span class="input-inline-text span1 text-center">o'clock</span>
+        </div>
+        <p>
+          <strong>Timezone</strong>: <span data-bind="text: fields().account_timezone"></span> <!-- (<a href="#">change</a>) -->
+        </p>
+      </div>
+    </div>
+
+    <div class="control-group row-fluid -t-landing-page">
+      <label class="control-label">Default landing page</label>
+
+      <div class="controls">
+        <div class="row-fluid">
+
+          <div class="input-prepend span6">
+            <input type="text" class="input-block-level -t-input-default-landing-page" data-bind="value: fields().default_landing_page_url, valueUpdate: 'afterkeydown',displayError: errors.default_landing_page_url, typeahead: {cache_key: 'landing_page', target: fields().default_landing_page_url, value: 'url', resource_name: 'site'}"/>
+            <span class="add-on icon-planet"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group row-fluid">
+        <div class="controls">
+          <a class="btn btn-next -t-button-next" href="#" data-bind="click: function() { $root.visitStep('budget') }">
+            Next step
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+</div>

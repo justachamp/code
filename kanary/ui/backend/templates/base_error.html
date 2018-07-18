@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Gravity4</title>
+    <link rel="stylesheet" type="text/css" href="{% url 'error_page_static' 'error.css' %}">
+</head>
+
+<body class="error">
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <i class="icon info"></i>
+            <h1>
+                {% block code %}
+                {% endblock %}
+            </h1>
+
+            {% block content %}
+            {% endblock %}
+
+            <p class="bottom-nav">
+                <a href="{% url 'main' %}">Dashboard</a>
+            </p>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

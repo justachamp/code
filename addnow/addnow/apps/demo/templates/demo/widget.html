@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    var _addnow = _addnow || [];
+
+    _addnow.push(['set', 'siteId', {{ site.id }}]);
+    _addnow.push(['set', 'hash_id', '{{ site.hash_id }}']);
+
+    _addnow.push(['domain', 'cdn', 'cdn.{{ frontend }}']);
+    _addnow.push(['domain', 'addnow', '{{ backend }}']);
+
+    (function() {
+        var addnow = document.createElement('script'); addnow.type = 'text/javascript'; addnow.async = true;
+        addnow.src = (document.location.protocol == 'https:' ? 'https://' : 'http://') + 'cdn.{{ frontend }}/widget/addnow.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(addnow, s);
+    })();
+</script>

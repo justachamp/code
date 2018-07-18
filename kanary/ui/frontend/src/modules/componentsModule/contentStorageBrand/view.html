@@ -1,0 +1,102 @@
+<div class="content-container">
+    <!-- ko if: fields.id -->
+    <h2 class="-t-title" data-bind="text: fields.page_name"></h2>
+    <!-- /ko -->
+    <!-- ko ifnot: fields.id -->
+    <h2 class="-t-title">New Facebook Page</h2>
+    <!-- /ko -->
+
+    <form class="form-horizontal">
+
+       <div class="control-group row-fluid">
+
+            <div class="controls">
+                <strong class="input-inline-text text-small -t-brand-status"
+                        data-bind="css: 'status-brand-' + fields.appnexus_access_status(), text: ' REVIEW ' + fields.appnexus_access_status()"></strong>
+                <!-- ko if: fields.appnexus_access_status() == 'rejected' -->
+                    <button class="-t-force-access-request btn" data-bind="click: save">Send access request</button>
+                <!-- /ko -->
+            </div>
+        </div>
+        
+        <div class="control-group row-fluid">
+            <label class="control-label">Page name</label>
+            <div class="controls">
+                <input class="input-block-level -t-input-facebook-page-name" type="text" data-bind="value: fields.page_name, disable: fields.id"/>
+            </div>
+        </div>
+        
+        <div class="control-group row-fluid">
+            <label class="control-label">Page ID</label>
+            <div class="controls">
+                <input class="input-block-level -t-input-facebook-page-id" type="text" maxlength="32" data-bind="value: fields.facebook_page_id, disable: fields.id"/>
+            </div>
+        </div>
+       
+        <div class="control-group row-fluid">
+            <label class="control-label">AppNexus Brand ID</label>
+            <div class="controls">
+                <input class="input-block-level -t-input-brand-id" type="text" data-bind="value: fields.brand_id, disable: fields.id"/>
+            </div>
+        </div>
+        
+        <div class="control-group row-fluid">
+            <div class="controls">
+                <!-- ko ifnot: fields.id -->
+                <button class="-t-button-save btn" data-bind="click: save">Save</button>
+                <!-- /ko -->
+                <!-- ko if: fields.id -->
+                <button class="-t-button-delete btn" data-bind="click: removeAndShowList">Delete</button>
+                <!-- /ko -->
+            </div>
+        </div>
+    </form>
+    
+    <!-- ko if: fields.appnexus_access_status() == 'pending' 
+            && fields.check_access_status() == false -->
+        <div class="confirm-request-instruction">
+            <a href="#" class="confirm-request-instruction__toggle" data-bind="click: toggle_instruction">How to confirm the request on the brand facebook page?</a>
+            <div class="confirm-request-instruction__container" data-bind="visible: instruction_visible">
+                <ol class="confirm-request-instruction__list">
+                  <li>
+                      <p>Ask the advertiser to go to their Facebook page and navigate to Settings > Page Roles:</p>
+                      <img class="confirm-request-instruction__img" data-bind="staticImg: 'assets/images/fb-instuctions1.jpg'">
+                      <p>The advertiser should see a pending request from the AppNexus Business Manager for access to the Advertiser page role like this:</p>
+                      <img class="confirm-request-instruction__img" data-bind="staticImg: 'assets/images/fb-instuctions2.jpg'">
+                      <div>
+                          <div class="confirm-request-instruction__warning-icon"></div>
+                          <p class="confirm-request-instruction__warning">
+                              Why does AppNexus require the "Advertiser" page role?<br>
+                          The "Advertiser" page role provides AppNexus a page access token that lets us create unpublished posts to the advertiser's page and view FBX metrics such as impressions, clicks, and conversions. This page role does not give AppNexus permission to do anything else. Please do not give AppNexus any other role besides "Advertiser". You can read more about Facebook Page Roles here. Note that the permissions granted at to the "Analyst" role are a subset of the permissions granted to the "Advertiser" role and granting "Analyst" separately is not necessary. 
+                          </p>
+                      </div>
+                  </li>
+                  <li>
+                      <p>If the advertiser happens to be on Facebook at the moment that AppNexus submits a request for access, they will notice the following alert on the bottom left-hand corner of the page:</p>
+                      <img class="confirm-request-instruction__img" data-bind="staticImg: 'assets/images/fb-instuctions3.jpg'">
+                      <p>The advertiser should then click on Respond to Request, which will open this dialog:</p>
+                      <img class="confirm-request-instruction__img" data-bind="staticImg: 'assets/images/fb-instuctions4.jpg'">
+                  </li>
+                  <li>
+                      <p>The advertiser should then click on Give AppNexus access to my Page, which will open this confirmation:</p>
+                      <img class="confirm-request-instruction__img" data-bind="staticImg: 'assets/images/fb-instuctions5.jpg'">    
+                  </li>
+                  <li>
+                      <p>After clicking Approve Request, the advertiser must save the changes that have been made. The advertiser may be prompted to re-enter their Facebook password.</p>
+                      <img class="confirm-request-instruction__img" data-bind="staticImg: 'assets/images/fb-instuctions6.jpg'">
+                  </li>
+                  <li>
+                      <p>After access has been granted, AppNexus will be listed amongst the various admins and employees of the advertiser that have been given a page role.</p>
+                      <img class="confirm-request-instruction__img" data-bind="staticImg: 'assets/images/fb-instuctions7.jpg'">
+                      <div>
+                          <div class="confirm-request-instruction__warning-icon"></div>
+                          <p class="confirm-request-instruction__warning">
+                              Please tell the advertiser that the page must not have any country, language, or other restrictions; it must be visible to all Facebook users. Otherwise, News Feed creatives will be rejected by Facebook. 
+                          </p>
+                      </div>
+                  </li>
+                </ol>
+            </div>
+        </div>
+    <!-- /ko -->
+</div>

@@ -1,0 +1,36 @@
+<section class="sidebar settings has-back">
+    <header>
+        <a data-bind="linkTo: 'back', tooltip: {title: 'Back', placement: 'right'}" class="back"></a>
+
+        <nav>
+            <a>settings</a>
+        </nav>
+    </header>
+
+    <div class="sidebar-viewport">
+        <div class="sidebar-content">
+
+            <h2>Account Settings</h2>
+
+            <p>
+                This page gathers global settings for G4 Trader.
+            </p>
+
+            <article>
+                <header>
+                    Categories
+                </header>
+                <ul class="items-list tab-pane active">
+                    <li data-bind="linkTo: 'account', css: {selected: step() === 'account'}">
+                        <a>Account Information</a>
+                    </li>
+                    <li class="-t-billing-page" data-bind="linkTo: 'billing', css: {selected: step() === 'billing'}">
+                        <a>Billing & Transactions</a>
+                    </li>
+                </ul>
+            </article>
+
+        </div>
+    </div>
+
+</section>

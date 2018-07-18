@@ -1,0 +1,23 @@
+{% extends 'emails/base_banner.html' %}
+{% block title %}
+    <span style="
+        font-size: 24px;
+        letter-spacing: 6px;
+    ">Gravity4 segments usage report for {{ period|date:"Y, m"}}</span>
+{% endblock %}
+{% block message %}
+    <p>Hi</p>
+    <p>
+    This is our auto generated report of Lotame segments usage in {{ period|date:"m/Y"}}.
+    {% if not has_csv %}
+        <br>In this month we had not used any of Lotame segments.
+    {% endif %}
+    </p>
+    <p>
+    Regards<br>
+    Gravity4 Team
+    </p>
+{% endblock %}
+
+{% block button %}
+{% endblock %}

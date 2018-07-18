@@ -1,0 +1,68 @@
+.twitter-typeahead {
+    display: block !important;
+    height: @baseControlsHeight + 2;
+
+    input:focus{ border: 1px solid @contentBorder !important;}
+
+    .target-block &{
+
+        height:38px;
+        margin:0 0 @baseLineHeight/2;
+
+        &:after {
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            margin: -8px 0 0 0;
+            width: 16px;
+            height: 16px;
+
+            #sprites > .sprite('icons');
+            #sprites > .position(20, 0, 16px)
+        }
+
+        .tt-hint{
+            height: 38px;
+            font-weight: bold;
+        }
+
+        .tt-query {
+            color: @contentBlackLight !important;
+            font-weight: bold;
+        }
+        .tt-suggestion{
+            line-height: 16px;
+        }
+        .tt-value{
+            font-weight: normal;
+        }
+    }
+
+}
+
+
+
+.tt-hint {
+    .input-block-level();
+
+    color: @grayLight !important;
+}
+
+.tt-helper {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 11px;
+}
+
+.tt-dropdown-menu {
+    margin: 2px 0 0 0;
+    right: 0 !important;
+}
+.tt-suggestion{
+    line-height: 12px;
+}
+.tt-value{
+    font-weight: bold;
+}

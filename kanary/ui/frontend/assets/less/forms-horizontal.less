@@ -1,0 +1,171 @@
+// HORIZONTAL FORMS
+// ---------------------------
+
+.form-horizontal {
+
+    input,
+    textarea,
+    select,
+    .help-inline,
+    .uneditable-input,
+    .input-prepend,
+    .input-append {
+        display: inline-block;
+        .ie7-inline-block();
+        vertical-align: top;
+    }
+    .hide {
+        display: none;
+    }
+
+    &.width-100 {
+        max-width: 100%;
+    }
+}
+
+.help-text {
+    margin-left: @horizontalComponentOffset;
+    padding: 5px 0;
+}
+
+.label-inline {
+    .inline-block;
+
+    padding: 0 @baseLineHeight / 2;
+    margin-bottom: @baseLineHeight / 2;
+
+    &:first-child {
+        padding: 0 @baseLineHeight / 2 0 0;
+    }
+
+    &[class^="span"],
+    &[class*=" span"] {
+        padding: 0;
+        line-height: @baseLineHeight + 10;
+    }
+}
+
+.control-group {
+    margin-bottom: @baseLineHeight / 2;
+}
+
+legend + .control-group {
+    margin-top: @baseLineHeight;
+    -webkit-margin-top-collapse: separate;
+}
+
+.form-horizontal {
+    .control-group {
+        margin-bottom: @baseLineHeight/2;
+        .clearfix();
+    }
+    .control-label {
+        float: left;
+        width: @horizontalComponentOffset - 18;
+        padding-top: 5px;
+        text-align: right;
+    }
+    .controls {
+        .clearfix;
+
+        position: relative;
+        *display: inline-block;
+        *padding-left: 20px;
+        margin-left: @horizontalComponentOffset;
+        *margin-left: 0;
+
+        &:first-child {
+            *padding-left: @horizontalComponentOffset;
+        }
+        p:first-child {
+            padding: 0 0 10px 0;
+        }
+
+        &.with-remove,
+        &.append-remove{
+            padding-right: 30px;
+            line-height: 30px;
+        }
+
+        .input-inline-text{
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        h4{
+            font:bold 12px Arial;
+            text-transform: uppercase;
+            color: @black;
+        }
+
+        & > input + a.remove {
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            margin:-15px 0 0 ;
+            text-align: center;
+            width:30px;
+            height:30px;
+
+            &:before{
+                .inline-block();
+                #sprites > .sprite('icons');
+                #sprites > .position(36, 1, 8px);
+
+                content:'';
+                vertical-align: middle;
+                width:8px;
+                height:8px;
+            }
+        }
+
+    }
+    .help-block {
+        margin-bottom: 0;
+    }
+    input,
+    select,
+    textarea {
+        + .help-block {
+            margin-top: @baseLineHeight / 2;
+        }
+    }
+    input,
+    select,
+    {
+        & +  textarea {
+            margin-top: @baseLineHeight / 2;
+        }
+    }
+
+    .form-actions {
+        padding-left: @horizontalComponentOffset;
+    }
+}
+
+.controls {
+    &.inputs-box {
+        padding: 10px 15px;
+    }
+
+    .span4:nth-child(3n + 4)
+    {margin-left: 0}
+}
+
+.control-with-hint {
+    position: relative;
+}
+
+.fb-hint {
+    .control-with-hint & {
+        position: absolute;
+        right: -20px;
+        top: 3px;
+        z-index: 2;
+    }
+    .tray & {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}

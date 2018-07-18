@@ -1,0 +1,38 @@
+<section class="sidebar reports has-back">
+    <header>
+        <a data-bind="linkTo: 'back', tooltip: {title: 'Back', placement: 'right'}" class="back"></a>
+
+        <nav>
+            <a>reports</a>
+        </nav>
+
+    </header>
+
+    <div class="sidebar-viewport">
+        <div class="sidebar-content">
+
+            <h2 class="-t-title">Reports</h2>
+
+            <p>You have created <strong data-bind="text: reportsCount"></strong> in total.</p>
+            <a data-bind="linkTo: 'new_report'" class="btn btn-block icon-plus">create report</a>
+
+            <article>
+                <header>reports list</header>
+
+                <ul class="items-list tab-pane active" id="all" data-bind="foreach: reports">
+                    <li>
+                        <a class="-t-report" data-bind="linkTo: {route: 'report', args: {slug: slug()}}, text: name"></a>
+
+                        <span class="inline-buttons">
+                            <a data-bind="linkTo: {route: 'report_edit', args: {slug: slug()}}"
+                               class="btn btn-small fade icon-pencil"></a>
+                            <a href="#" data-bind="click: function(data) { $data.remove(data)}"
+                               class="btn btn-small fade icon-delete"></a>
+                        </span>
+                    </li>
+                </ul>
+            </article>
+        </div> <!-- .sidebar-content -->
+    </div> <!-- .sidebar-viewport -->
+
+</section>

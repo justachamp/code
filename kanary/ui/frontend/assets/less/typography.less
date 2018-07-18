@@ -1,0 +1,138 @@
+/* 10px = 0.7692em * 10px */
+/* 11px = 0.8462em * 11px */
+/* 12px = 0.9231em * 12px */
+/* 14px = 1.0769em * 14px */
+
+body{
+    font-size: 0.8125em;
+    -webkit-text-size-adjust: 0.8125em;
+    -ms-text-size-adjust: 0.8125em;
+    font-family: Arial;
+    line-height: @baseLineHeight;
+}
+
+h2,h3{
+    padding: 0 0 @baseLineHeight;
+}
+
+a{
+    color:@mainYellow;
+}
+
+#content{
+    font:1em Arial;
+    color:@contentTextColor;
+
+    h1,h2,h3,h4,h5{
+        color:@contentBlack;
+    }
+    h2 {
+        font: 2.7692em Ciutadella;
+    }
+
+    h3{
+        font:bold 1.3846em Arial;
+        padding:0 0 @baseLineHeight 0;
+    }
+
+    h5 {
+        font: bold 0.9231em Arial;
+        color: @black;
+        text-transform: uppercase;
+    }
+
+    .selection-container,
+    .selection-container td{
+        font: 11px 'Arial';
+        line-height: @baseLineHeight;
+        color: @white;
+        text-align: left;
+    }
+}
+
+.sidebar{
+    h2                                  {font: 300 2.7692em Ciutadella}
+    & > header nav > a                  {font: bold 1.0769em Ciutadella; line-height: @headerHeight + 2}
+    & > header nav ul li a              {font: 0.9231em Arial; line-height: @baseControlsHeight}
+    .tabs-nav a                         {font: bold 1em Arial; line-height: @baseControlsHeight - 2}
+
+    article{
+        header                          {font: bold 0.9231em Arial; line-height: @baseControlsHeight - 2;}
+    }
+
+}
+
+
+
+.modal{
+    h2                                  {font: 2.7692em Ciutadella}
+    p                                   {line-height: @baseLineHeight + 2}
+}
+
+.toast-message                          {font:600 1.1538em Ciutadella}
+
+.btn{
+    font: bold 0.9231em Arial;
+    word-break:break-all;
+    white-space:auto;
+
+    .modal &                            {font-size:0.8462em}
+    #sidebar &                          {font-size:0.7692em}
+}
+
+.dropdown,
+.dropdown-menu{
+
+    white-space:nowrap;
+
+    a,
+    label                               {font: bold 12px 'Arial'}
+
+    .sidebar &{
+        .dropdown-toggle                {font-size:0.7692em}
+    }
+}
+.datepicker-input,
+.timepicker-input{
+    .sidebar &{
+        input                           {font: bold 0.7692em Arial; line-height: @baseControlsHeight + 2}
+    }
+}
+
+.daterangepicker{
+    .ranges li                          {font: bold 0.9231em Arial; line-height: @baseControlsHeight + 2}
+    h4                                  {font: bold 0.9231em Arial}
+    label                               {font: bold 0.8462em Arial; line-height: @baseControlsHeight + 2}
+}
+
+select                                  {font: bold 0.9231em Arial}
+
+select,
+.input-dark,
+.input-error                            {font-weight: bold;}
+
+.checkbox                               {font: 1em "Arial"; line-height: @baseLineHeight;}
+.input-creative,
+.search-box                             {font: bold 0.9231em Arial; line-height: @baseControlsHeight + 2}
+
+.controls,
+label,
+input,
+button,
+select,
+textarea,
+.help-text                              {font: @baseFontSize @baseFontFamily;line-height: @baseLineHeight + 2}
+
+
+
+
+// Word-break
+.btn,
+h2,h3,h4,
+form label,
+.items-list > li,
+.sidebar-content p,
+.jqtree-tree li > div,
+.sidebar .sidebar-content article header,
+.sidebar-stage .sidebar-content article header{
+}

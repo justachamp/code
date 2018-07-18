@@ -1,0 +1,27 @@
+<div class="top-panel">
+	<div class="top-panel panel">
+		<div class='addnow-logo2'>
+			<a href="/" ng-if="!$root.token"><img src="assets/images/logo-white-big.png" alt=""></a>
+            <a href="/addnow/apps/dashboard/" ng-if="$root.token"><img src="assets/images/logo-white-big.png" alt=""></a>
+		</div>
+		<div class="right-box" ng-if="!$root.token">
+			<a class="sign" href="/signup">
+				<div class="sign up">
+					SIGN UP
+				</div>
+			</a>
+			<a class="sign" href="/signin">
+				<div class="sign in">
+					LOGIN
+				</div>
+			</a>
+		</div>
+        <div class="right-box" ng-if="$root.token">
+			<a class="sign" href="/addnow/apps/dashboard">
+				<div class="sign up">
+					Return to your sites
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

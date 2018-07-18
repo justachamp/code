@@ -1,0 +1,356 @@
+.controls,
+label,
+input,
+button,
+select,
+textarea,
+.help-text {
+    .placeholder();
+
+    color: @gray;
+}
+
+input,
+textarea,
+select,
+{
+    width: @baseInputWidth;
+
+    .modal &{
+        width: 100%;
+    }
+}
+
+select,
+input[type="file"] {
+    height: @baseControlsHeight + 2;
+    *margin-top: 4px;
+    line-height: @baseControlsHeight + 2;
+}
+
+select{
+    font-weight: bold;
+}
+
+label {
+    .noselect();
+}
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+{
+    .border-radius(@inputBorderRadius);
+    .transition(~"border linear .2s, box-shadow linear .2s");
+
+    display: inline-block;
+    height: @baseLineHeight + 5;
+    padding: 3px 6px 2px;
+    margin-bottom: @baseLineHeight / 2;
+    color: @gray;
+    vertical-align: middle;
+    background-color: @inputBackground;
+    border: 1px solid @inputBorder;
+
+    &:focus,
+    &.input-focused {
+        border: 1px solid @contentBlack;
+        outline: 0;
+        outline: thin dotted            \9;
+
+        &+i {
+            border-color: @contentBlack !important;
+        }
+        & ~ .add-on {
+            border-color: @contentBlack;
+            color: @contentBlack;
+        }
+    }
+
+    &.input-dark {
+        background: @contentBtnBg !important;
+        color: @gray !important;
+        border: 1px solid @contentBorderDark;
+
+        &:focus {
+            border: 1px solid @contentBlack;
+            outline: 0;
+            outline: thin dotted            \9;
+        }
+    }
+
+    &.input-big{
+        height: 38px;
+    }
+
+    .modal & {
+        .transition(~"border linear .2s, box-shadow linear .2s, background linear .4s");
+        border: 1px solid @black;
+        color: @black;
+
+        &:focus,
+        &:hover {
+            background: @white;
+        }
+    }
+
+    &.mobile-block-level{
+        min-height: 30px;
+    }
+}
+
+textarea,
+select[multiple],
+select[size] {
+    height: auto;
+}
+
+select,
+textarea,
+{
+    .inline-block();
+    .border-radius(@inputBorderRadius);
+
+    padding: 6px 6px 5px;
+    margin-bottom: @baseLineHeight / 2;
+    line-height: @baseLineHeight;
+    color: @gray;
+    vertical-align: middle;
+    color: @gray;
+    border: 1px solid @contentBtnBorder;
+    background-color: @contentBtnBg;
+
+    .modal & {
+        .transition(~"border linear .2s, box-shadow linear .2s, background linear .4s");
+        border: 1px solid @black;
+        background: @white;
+        color: @black;
+        font-weight:normal;
+
+        &:focus,
+        &:hover {
+            background: @white;
+        }
+    }
+}
+
+textarea{
+    background-color: @white;
+    color: @black;
+    border: 1px solid @contentBorder;
+
+}
+
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin: 4px 0 0;
+    *margin-top: 0;
+    margin-top: 1px;
+    line-height: normal;
+    cursor: pointer;
+}
+
+[data-toggle=buttons] > .btn-radio {
+    > input[type=radio],
+    > input[type=checkbox] {
+        display: none;
+    }
+}
+
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+}
+.input-prepend,
+.input-append {
+    position: relative;
+    width:100%;
+
+    .add-on {
+        .transition(~"border linear .2s, box-shadow linear .2s");
+
+        border-color: @contentBorder;
+        border-style: solid;
+        position: absolute;
+        height: @baseControlsHeight;
+        top: 1px;
+        text-align: center;
+        line-height: @baseControlsHeight ;
+        width: 30px;
+    }
+
+    & + .btn-mini {
+        margin: 0 0 0 5px;
+    }
+}
+
+.input-prepend {
+    .add-on {
+        border-width: 0 1px 0 0;
+        left: 1px;
+    }
+
+    input {
+        padding-left: 40px;
+    }
+    &.input-prepend-big {
+        .add-on {
+            height: 36px;
+            line-height: 36px;
+            width: 38px;
+        }
+
+        input {
+            padding-left: 50px;
+        }
+    }
+}
+
+.input-append {
+    .add-on {
+        border-width: 0 0 0 1px;
+        right: 1px;
+    }
+
+    input {
+        padding-right: 40px;
+    }
+}
+
+.input-file {
+    overflow: hidden;
+
+    .add-on {
+        .border-radius(2px);
+
+        border: 1px solid @contentBtnBorder;
+
+        input {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            font-family: Arial;
+            font-size: 118px;
+            margin: 0px;
+            cursor: pointer;
+            padding: 0px;
+            opacity: 0;
+        }
+    }
+
+    &.with-storage{
+        padding:0 40px 0 0;
+        width: 89%;
+        margin-left: 4.5%;
+
+        .add-on{
+            right:40px;
+            top:0;
+        }
+        .btn.icon-storage{
+            position: absolute;
+            right:0;
+            top:0;
+        }
+    }
+
+}
+
+.input-inline-text {
+    .inline-block;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 30px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align:top;
+
+    &.checkbox:before {
+        margin-top: 7px;
+    }
+    &[class^="span"],
+    &[class*=" span"] {
+        padding: 0;
+    }
+}
+.switcher-inline-text {
+    .inline-block;
+    line-height: 24px;
+    padding-left: 10px;
+}
+
+.input-error {
+    background: lighten(@red, 50%) !important;
+    color: @red !important;
+    border: 1px solid @red !important;
+
+    & ~ .add-on,
+    & ~  [class^="icon"]{
+        border-color: @red !important;
+        color: @red !important;
+    }
+}
+
+.input-mini {
+    width: 16px;
+}
+
+.input-small {
+    width: 56px;
+}
+
+.input-medium {
+    width: 100px;
+}
+
+.input-large {
+    width: 210px;
+}
+
+.input-xlarge {
+    width: 270px;
+}
+
+.input-xxlarge {
+    width: 530px;
+}
+
+.input-code {
+    font: 10px/14px Monaco;
+}
+
+.img-placeholder{
+    min-height: 60px;
+    max-width: 100%;
+    position: relative;
+    text-align: center;
+    border: 1px solid #bbb;
+    background-color: #e3e3e3;
+    margin: 0 0 @baseLineHeight/2 0;
+    padding: 10px 10px 5px 10px;
+    display: inline-block;
+    box-sizing: border-box;
+  
+    img, object {
+        max-width: 100%;
+    }
+}

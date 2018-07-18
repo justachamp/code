@@ -1,0 +1,90 @@
+<section class="sidebar strategies has-back">
+    <header>
+        <a data-bind="linkTo: 'back', tooltip: {title: 'Back', placement: 'right'}" class="back"></a>
+
+        <nav>
+            <!-- ko if: mode() === 'new' -->
+            <a>New campaign</a>
+            <!-- /ko -->
+
+            <!-- ko if: mode() === 'edit' -->
+            <a>Edit campaign</a>
+            <!-- /ko -->
+
+        </nav>
+    </header>
+    <div class="sidebar-viewport">
+        <div class="sidebar-content">
+            <table border="0">
+                <tr>
+                    <td><h2 class="-t-title" data-bind="text: fields().name() ? fields().name :'New campaign'"> </h2></td>
+                    <td><img src="/static/assets/images/appn.png" style="position:relative; top: 20px; width:100px; height:auto;"></td>
+                </tr>
+            </table>
+
+            <nav class="sidebar-submenu">
+                <ul>
+                    <li class="-t-overall" data-bind="css: {current: step() === 'overall', error: errorOverall},
+                                   click: function(){ visitStep('overall') }">
+                        <a href="#">Overall information</a>
+                    </li>
+                    <li class="-t-budget" data-bind="css: {current: step() === 'budget', error: errorBudget},
+                                   click: function(){ visitStep('budget') }">
+                        <a href="#">budget</a>
+                    </li>
+                    <li class="-t-conversion" data-bind="css: {current: step() === 'conversion', error: errorConversion},
+                                   click: function(){ visitStep('conversion') }">
+                        <a href="#">conversion tracker</a>
+                    </li>
+                    <li class="-t-capping" data-bind="css: {current: step() === 'capping', error: errorCapping},
+                                   click: function(){ visitStep('capping') }">
+                        <a href="#">capping</a>
+                    </li>
+                </ul>
+            </nav>
+
+             <!-- ko if: mode() === 'new' -->
+            <a href="#" data-bind="click: submit" class="btn icon-ok -t-button-activate">Activate AppNexus campaign</a>
+            <!-- /ko -->
+
+            <!-- ko if: mode() === 'edit' -->
+            <a href="#" data-bind="click: submit" class="btn icon-ok -t-save-campaign">Save changes</a>
+            <!-- /ko -->
+
+            <table>
+                <tr>
+                    <td><h2 class="-t-title">Additional Exchanges</h2></td>
+                    <td><img src="/static/assets/images/adx.png" style="position:relative; top: 20px; width:100px; height:auto;"></td>
+                </tr>
+            </table>
+
+            <nav class="sidebar-submenu">
+                <ul>
+                    <li class="-t-overall" data-bind="css: {current: step() === 'adx_setup_campaign', error: errorOverall},
+                                   click: function(){ visitStep('adx_setup_campaign') }">
+                        <a href="#" title="Create a a campaign for bidding using this." >Setup ADX Campaign</a>
+                    </li>
+                    <li class="-t-overall" data-bind="css: {current: step() === 'adx_pretargeting', error: errorOverall},
+                                   click: function(){ visitStep('adx_pretargeting') }">
+                        <a href="#" >Pretargeting</a>
+                    </li>
+                    <li class="-t-overall" data-bind="css: {current: step() === 'adx_ad_serving_setup', error: errorOverall},
+                                   click: function(){ visitStep('adx_ad_serving_setup') }">
+                        <a href="#" >Ad serving setup</a>
+                    </li>
+                    <li class="-t-overall">
+                        <a target="_blank" href="https://ddm.google.com/analytics/dfa/" >DDM Reporting <img src="/static/assets/images/outbound.png" style="position:relative; top: 00px; width:15px; height:15px;"></a>
+                    </li>
+                    <li class="-t-overall" data-bind="css: {current: step() === 'adx_rtb_reporting', error: errorOverall},
+                                   click: function(){ visitStep('adx_rtb_reporting') }">
+                        <a target="_blank" href="https://www.google.com/adx/Main.html?#PRETARGETING">RTB Reporting</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <a href="#" data-bind="click: adxopen" class="btn icon-ok -t-button-activate">Open DCM in new tab</a>
+
+
+        </div> <!-- .sidebar-content -->
+    </div> <!-- .sidebar-viewport -->
+</section>

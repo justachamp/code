@@ -1,0 +1,83 @@
+{% extends "demo/base.html" %}
+
+{% block container %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Lorem Ipsum</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu odio eget arcu tempor mollis. Vestibulum et rhoncus erat, id maximus purus. Mauris et felis sit amet velit lobortis vulputate eget nec est. Praesent nec erat et tellus aliquam dignissim. Donec non quam ut odio pellentesque fermentum. Sed massa ante, vestibulum id porttitor nec, viverra et nisl. Aliquam pharetra molestie est et egestas. Fusce commodo urna elit, vehicula maximus ex fermentum eu. Nam malesuada interdum metus. Quisque vehicula est maximus efficitur molestie. In at velit sed leo semper egestas.</p>
+
+            <p>Nullam gravida ac ex eget dignissim. Maecenas varius malesuada sapien. Cras ex nunc, pharetra sit amet nibh eu, maximus interdum tortor. Nam eget arcu sit amet justo pulvinar auctor. Curabitur cursus gravida mi, vitae mattis orci mollis vitae. Aenean odio lacus, accumsan eu diam et, blandit sollicitudin ligula. Phasellus magna velit, maximus quis nunc quis, accumsan consectetur urna. Mauris rutrum enim odio, eget tincidunt nisl posuere nec. Cras et mattis metus, sit amet aliquet lectus. Nulla pretium enim vel volutpat lacinia. Proin vel dui vel metus cursus suscipit.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="http://placehold.it/300" alt="Image">
+        </div>
+    </div>
+  <br/>STATIC<br/>
+    {% for style in styles %}
+        <div class="row">
+            <div class="col-md-12">
+                <p>{{style}}
+                    <div class="addnow" data-layout="{{ style }}" data-media="http://placehold.it/300" data-text="Lorem Ipsum"></div>
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+
+  <br/>DYNAMIC<br/>
+    {% for config in widgets %}
+        <div class="row">
+            <div class="col-md-12">
+                <p>{{config.name}}
+                    <div class="addnow" data-id="{{ config.id }}"></div>
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Share Wikipedia</h1>
+            <div class="addnow" data-title="Wikipedia" data-layout="icon-big-horizontal-shares" data-url="http://en.wikipedia.org/" data-media="http://placehold.it/300" data-text="Lorem Ipsum"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Preview</h1>
+            <div class="addnow" data-preview=""></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Share Non Javascript</h1>
+
+            <a href="http://{{ backend }}/tracker/share/facebook?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/facebook.png" border="0" alt="facebook"/></a>
+            <a href="http://{{ backend }}/tracker/share/googlePlus?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/google-plus.png" border="0" alt="googlePlus"/></a>
+            <a href="http://{{ backend }}/tracker/share/linkedin?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/linkedin.png" border="0" alt="linkedin"/></a>
+            <a href="http://{{ backend }}/tracker/share/pinterest?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/pinterest.png" border="0" alt="pinterest"/></a>
+            <a href="http://{{ backend }}/tracker/share/twitter?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/twitter.png" border="0" alt="twitter"/></a>
+            <a href="http://{{ backend }}/tracker/share/digg?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/digg.png" border="0" alt="digg"/></a>
+            <a href="http://{{ backend }}/tracker/share/delicious?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/delicious.png" border="0" alt="delicious"/></a>
+            <a href="http://{{ backend }}/tracker/share/stumbleupon?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/stumbleupon.png" border="0" alt="stumbleupon"/></a>
+            <a href="http://{{ backend }}/tracker/share/gmail?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/gmail.png" border="0" alt="gmail"/></a>
+            <a href="http://{{ backend }}/tracker/share/reddit?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/reddit.png" border="0" alt="reddit"/></a>
+            <a href="http://{{ backend }}/tracker/share/tumblr?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/tumblr.png" border="0" alt="tumblr"/></a>
+            <a href="http://{{ backend }}/tracker/share/weibo?url=addnow.local&site_id=1&message=test%20sharing%20message" target="_blank"><img src="http://cdn.{{ frontend }}/widget/images/icons/medium-icons/weibo.png" border="0" alt="weibo"/></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <br /><br /><br /><br />
+        </div>
+    </div>
+
+
+    {% include "demo/widget.html" %}
+</div> <!-- /container -->
+{% endblock %}

@@ -1,0 +1,4 @@
+{ 
+	"name": "Pepsi Summer 2012",
+	"slug": "Pepsi_Summer_2012"
+}

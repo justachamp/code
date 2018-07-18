@@ -1,0 +1,18 @@
+{% extends 'signup/base_signup.html' %}
+
+{% block title %}G4 Trader - processing payment{% endblock %}
+
+{% block content %}
+<div class="teaser fixed payments">
+        <h2>Processing payment</h2>
+
+        <p>
+            We currently process payments manually. If the transfer was succesfull you will<br>
+            see your deposit on your account in next 24 hours.
+        </p>
+
+        <p>
+            <a class="btn btn-yellow" href="{% url 'setup_complete' %}">Continue</a>
+        </p>
+    </div>
+{% endblock %}

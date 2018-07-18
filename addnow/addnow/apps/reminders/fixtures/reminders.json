@@ -1,0 +1,38 @@
+[
+{
+  "fields": {
+    "name": "2d",
+    "email_template": 1,
+    "created_at": "2015-09-10T15:17:40.317Z",
+    "is_active": false,
+    "updated_at": "2015-09-10T15:17:40.317Z",
+    "dimension": 2
+  },
+  "model": "reminders.reminderrule",
+  "pk": 1
+},
+{
+  "fields": {
+    "name": "7d",
+    "email_template": 1,
+    "created_at": "2015-09-10T15:17:53.540Z",
+    "is_active": false,
+    "updated_at": "2015-09-10T15:18:02.777Z",
+    "dimension": 7
+  },
+  "model": "reminders.reminderrule",
+  "pk": 2
+},
+{
+  "fields": {
+    "name": "14d",
+    "email_template": 1,
+    "created_at": "2015-09-10T15:18:07.146Z",
+    "is_active": false,
+    "updated_at": "2015-09-10T15:18:14.660Z",
+    "dimension": 14
+  },
+  "model": "reminders.reminderrule",
+  "pk": 3
+}
+]

@@ -1,0 +1,3 @@
+{{ object.url }}
+
+{{ object.owner_id }}

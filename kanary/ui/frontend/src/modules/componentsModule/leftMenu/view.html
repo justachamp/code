@@ -1,0 +1,23 @@
+<div id="menu">
+    <a data-bind="linkTo: 'dashboard'">
+        <img data-bind="staticImg: 'assets/images/logo.png'" />
+    </a>
+
+    <nav>
+        <ul>
+            <li id="dashboard" data-bind="css: {current: leftMenuHilight() === 'dashboard'}"><a data-bind="linkTo: 'dashboard'" data-toggle="tooltip" class="-t-menu-dashboard"  data-trigger="hover" data-placement="right" data-original-title="Dashboard"><span data-bind="text: events.not_yet_read, visible: events.not_yet_read"></span></a></li>
+            <li id="campaigns" data-bind="css: {current: leftMenuHilight() === 'campaigns'}"><a class="-t-menu-campaigns"data-bind="linkTo: 'campaigns'" data-toggle="tooltip" class="-t-menu-campaigns" data-trigger="hover" data-placement="right" data-original-title="Campaigns"></a></li>
+            <li id="storage" data-bind="css: {current: leftMenuHilight() === 'storage'}"><a class="-t-menu-storage" data-bind="linkTo: 'storage'" data-toggle="tooltip" data-trigger="hover" data-placement="right" data-original-title="Storage"></a></li>
+            <li id="appsettings" class="-t-menu-account" data-bind="css: {current: leftMenuHilight() === 'appsettings'}"><a class="-t-menu-account" data-bind="linkTo: 'account'" data-toggle="tooltip" data-trigger="hover" data-placement="right" data-original-title="Settings"></a></li>
+        </ul>
+    </nav>
+
+
+    <nav>
+        <ul>
+            <li id="appstore" data-bind="css: {current: leftMenuHilight() === 'appstore'}"><a data-bind="linkTo: 'appstore'"></a></li>
+           <!--  <li class="add-new" data-bind="css: {current: leftMenuHilight() === 'add-new'}"><a data-bind="click: function(){}"></a></li> -->
+        </ul>
+    </nav>
+
+</div>

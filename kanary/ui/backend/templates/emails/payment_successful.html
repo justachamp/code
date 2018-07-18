@@ -1,0 +1,7 @@
+{% extends 'emails/base_banner.html' %}
+{% block title %}Account credited{% endblock %}
+{% block message %}
+    <p>
+        We have received your payment of ${{ payment_amount|floatformat:2 }} which brings your balance to ${{ account_balance|floatformat:2 }}. Thank you.
+    </p>
+{% endblock %}

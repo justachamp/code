@@ -1,0 +1,361 @@
+<div class="content-container -t-targeting-container">
+    <a href="#" class="close"></a>
+
+    <h2>Targeting </h2>
+
+    <table class="table-statistics">
+        <tbody>
+            <tr>
+                <td class="-t-additional-data-costs" data-bind="text: targetingWidgetsAdditionalCosts">-</td>
+            </tr>
+            <tr>
+                <th>Maximum Additional Data Costs Added To ECPM</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="items-table">
+        <div class="row-fluid">
+            <h5>Include</h5>
+        </div>
+        <div class="row-fluid  -t-include-widgets">
+            <!-- ko if: targetingIncludeWidgets().length === 0 -->
+                <p class="section-title">There are no targets set up yet.</p>
+            <!-- /ko -->
+            <!-- ko foreach: targetingIncludeWidgets -->
+                <div data-bind="template: { name: $data.template, data: $data, afterRender: $parent.targetingWidgetPostRender }"></div>
+            <!-- /ko -->
+        </div>
+        <div class="row-fluid">
+            <!-- ko if: targetingIncludeWidgets().length !== targetingWidgets.length -->
+            <div class="dropdown -t-include-dropdown">
+                <a class="dropdown-toggle -t-include-target" data-toggle="dropdown" href="#"><i class="icon-plus-big"></i> Add new target</a>
+                <ul class="dropdown-menu wide" role="menu" aria-labelledby="dLabel" data-bind="template: { name: 'targeting-widgets', foreach: targetingIncludeWidgetsList }">
+                </ul>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+
+    <div class="items-table">
+        <div class="row-fluid">
+            <h5>Exclude</h5>
+        </div>
+        <div class="row-fluid -t-exclude-widgets">
+            <!-- ko if: targetingExcludeWidgets().length === 0 -->
+                <p class="section-title">There are no targets set up yet.</p>
+            <!-- /ko -->
+            <!-- ko foreach: targetingExcludeWidgets -->
+                <div data-bind="template: { name: $data.template, data: $data, afterRender: $parent.targetingWidgetPostRender }"></div>
+            <!-- /ko -->
+        </div>
+        <div class="row-fluid">
+            <!-- ko if: targetingExcludeWidgets().length !== targetingWidgets.length -->
+            <div class="dropdown -t-exclude-dropdown">
+                <a class="dropdown-toggle -t-exclude-target" data-toggle="dropdown" href="#"><i class="icon-plus-big"></i> Add new target</a>
+                <ul class="dropdown-menu wide" role="menu" aria-labelledby="dLabel" data-bind="template: { name: 'targeting-widgets', foreach: targetingExcludeWidgetsList }">
+                </ul>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+
+
+    <!-- TEMPLATES -->
+
+    <!-- Menu items -->
+    <script type='text/html' id='targeting-widgets'>
+        <!-- ko if: $data.visible -->
+          <!-- ko ifnot: $data.name === 'Device' && $root.fields().type() === 'Web' -->
+          <li><a href="#" data-bind="text: ' ' + $data.name, attr: { class: 'icon-' + $data.class + ' -t-' + $data.section + '-' + $data.type }, click: $parent.targetingInsertWidget"></a></li>
+          <!-- /ko -->
+        <!-- /ko -->
+    </script>
+
+    <!-- Brand protection -->
+    <script type='text/html' id='targeting-widget-brand-protection'>
+        <div data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + ' target-block', 'data-widget': $data.type, 'data-section': $data.section, 'data-api': $data.api }">
+          <div class="target-block-header">
+            <i data-bind="attr: { class: 'icon-' + $data.class }"></i>
+
+            <div class="controls">
+                <span data-toggle="collapse" data-bind="attr: { 'data-target': '#targeting-' + $data.section + '-' + $data.type }">
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-collapse' + ' icon-ok-big collapsed-hidden'}, click: function(){ return false }"></a>
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-expand' + ' icon-edit-big'}, click: function(){ return false }"></a>
+                </span>
+
+              <a href="#" data-bind="click: $root.targetingRemoveWidget, attr: {class: '-t-widget-' + $data.section + '-' + $data.type + '-remove' + ' icon-trash-big'}"></a>
+            </div>
+
+            <h4>
+                <strong data-bind="text: $data.name"></strong>
+                <span data-bind="template: { name:'targeting-additional-cost', data: $data }"></span>
+            <!-- ko foreach: $data.target -->
+              <!-- ko foreach: $root[$data.rows] -->
+                <span data-bind="visible: $root.targetingGetCheckboxState($data, $parents[1], $parent.type)">
+                  <span class='-t-tag' data-bind="text: name"></span>,
+                </span>
+              <!-- /ko -->
+            <!-- /ko -->
+            </h4>
+          </div>
+          <div data-bind="attr: { id: 'targeting-' + $data.section + '-' + $data.type }" class="target-block-content collapse in">
+
+            <div class="row-fluid" data-bind="foreach: $data.target">
+
+              <!-- ko if: $data.type == 'ProximicMaturityRating' -->
+              <div class="span6 protection-container">
+                <h5 data-bind="text: $data.name"></h5>
+                <div data-toggle="buttons">
+                    <!-- ko foreach: $root[$data.rows] -->
+                        <div data-bind="click: function(data, ev) { $root.targetingChangeCheckboxState($data, $parents[1], $parent.type); $(ev.currentTarget).toggleClass('active'); }, attr: { 'class': 'btn-radio protection-box -t-protection-' + $data.name }, css: { 'active': $root.targetingGetCheckboxState($data, $parents[2], $parent.type) }">
+                            <input type="checkbox">
+                            <div class="maturity" data-bind="text: $data.name, css: { 'small': $data.name.length > 2 }"></div>
+                            <div class="protection-content">
+                              <strong data-bind="text: $data.description"></strong>
+                            </div>
+                        </div>
+                    <!-- /ko -->
+                </div>
+              </div>
+              <!-- /ko -->
+
+              <!-- ko if: $data.type == 'SafetyLevel' -->
+              <div class="span6 protection-container">
+                <h5 data-bind="text: $data.name"></h5>
+                <!-- ko foreach: $root[$data.rows] -->
+                <label class="checkbox -t-checkbox input-block-level">
+                  <input type="checkbox" data-bind="fancyCheckbox: { value: $root.targetingGetCheckboxState($data, $parents[1], $parent.type), onclick: function() { $root.targetingChangeCheckboxState($data, $parents[1], $parent.type) } }"> <span data-bind="text: $data.name"></span>
+                </label>
+                <!-- /ko -->
+              </div>
+              <!-- /ko -->
+
+            </div><!-- end row-fluid -->
+
+          </div>
+        </div>
+    </script>
+
+    <!-- Locations / Devices / Os / Carrier -->
+    <script type='text/html' id='targeting-widget-simple-search'>
+        <div data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + ' target-block', 'data-widget': $data.type, 'data-section': $data.section, 'data-api': $data.api }">
+          <div class="target-block-header">
+            <i data-bind="attr: { class: 'icon-' + $data.class }"></i>
+
+            <div class="controls">
+                <span data-toggle="collapse" data-bind="attr: { 'data-target': '#targeting-' + $data.section + '-' + $data.type }">
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-collapse' + ' icon-ok-big collapsed-hidden'}, click: function(){ return false }"></a>
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-expand' + ' icon-edit-big'}, click: function(){ return false }"></a>
+                </span>
+
+              <a href="#" data-bind="click: $root.targetingRemoveWidget, attr: {class: '-t-widget-' + $data.section + '-' + $data.type + '-remove' + ' icon-trash-big'}"></a>
+            </div>
+            <h4><strong data-bind="text: $data.name"></strong> <!-- ko foreach: $data.target --><span class="-t-tag" data-bind="text: $data.name"></span>, <!-- /ko --></h4>
+          </div>
+          <div data-bind="attr: { id: 'targeting-' + $data.section + '-' + $data.type }" class="target-block-content collapse in">
+
+            <!-- ko foreach: $data.target -->
+                <div class="search-box">
+                   <span class="-t-box" data-bind="text: $data.name"></span>
+                   <a class="remove" href="#" data-bind="click: function() { $parent.target.remove($data) }"></a>
+                </div>
+            <!-- /ko -->
+
+            <input data-bind="css: '-t-input-' + $data.section + '-' + $data.type" type="text" class="-t-search-input input-block-level input-big typeahead"/>
+          </div>
+        </div>
+    </script>
+
+    <!-- Checkbox groups -->
+    <script type='text/html' id='targeting-widget-checkbox-groups'>
+        <div data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + ' target-block', 'data-widget': $data.type, 'data-section': $data.section, 'data-api': $data.api }">
+          <div class="target-block-header">
+            <i data-bind="attr: { class: 'icon-' + $data.class }"></i>
+
+            <div class="controls">
+                <span data-toggle="collapse" data-bind="attr: { 'data-target': '#targeting-' + $data.section + '-' + $data.type }">
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-collapse' + ' icon-ok-big collapsed-hidden'}, click: function(){ return false }"></a>
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-expand' + ' icon-edit-big'}, click: function(){ return false }"></a>
+                </span>
+
+              <a href="#" data-bind="click: $root.targetingRemoveWidget, attr: {class: '-t-widget-' + $data.section + '-' + $data.type + '-remove' + ' icon-trash-big'}"></a>
+            </div>
+
+            <h4>
+                <strong data-bind="text: $data.name"></strong>
+                <span data-bind="template: { name:'targeting-additional-cost', data: $data }"></span>
+            <!-- ko foreach: $data.target -->
+              <!-- ko foreach: $root[$data.rows] -->
+                <span data-bind="visible: $root.targetingGetCheckboxState($data, $parents[1], $parent.type)">
+                  <span class='-t-tag' data-bind="text: name"></span>,
+                </span>
+              <!-- /ko -->
+            <!-- /ko -->
+            </h4>
+          </div>
+          <div data-bind="attr: { id: 'targeting-' + $data.section + '-' + $data.type }" class="target-block-content collapse in">
+
+            <div class="row-fluid" data-bind="foreach: $data.target">
+
+              <div data-bind="{css: 'span' + ($parent.columns || 5) }" class="inputs-box -t-group">
+                <!-- ko if: $data.name != '' -->
+                    <h5 data-bind="text: $data.name"></h5>
+                <!-- /ko -->
+                <!-- ko foreach: $root[$data.rows] -->
+                <label class="checkbox -t-checkbox input-block-level">
+                  <input type="checkbox" data-bind="fancyCheckbox: { value: $root.targetingGetCheckboxState($data, $parents[1], $parent.type), onclick: function() { $root.targetingChangeCheckboxState($data, $parents[1], $parent.type) } }"> <span data-bind="text: $data.name"></span>
+                </label>
+                <!-- /ko -->
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+    </script>
+
+    <!-- Keywords -->
+    <script type='text/html' id='targeting-widget-simple-input'>
+        <div data-bind="attr: {class: '-t-widget-' + $data.section + '-' + $data.type + ' target-block', 'data-widget': $data.type, 'data-section': $data.section, 'data-api': $data.api }">
+          <div class="target-block-header">
+            <i data-bind="attr: { class: 'icon-' + $data.class }"></i>
+
+            <div class="controls">
+                <span data-toggle="collapse" data-bind="attr: { 'data-target': '#targeting-' + $data.section + '-' + $data.type }">
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-collapse' + ' icon-ok-big collapsed-hidden'}, click: function(){ return false }"></a>
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-expand' + ' icon-edit-big'}, click: function(){ return false }"></a>
+                </span>
+
+              <a href="#" data-bind="attr: {class: '-t-widget-' + $data.section + '-' + $data.type + '-remove' + ' icon-trash-big'}, click: $root.targetingRemoveWidget"></a>
+            </div>
+            <h4><strong data-bind="text: $data.name"></strong> <!-- ko foreach: $data.target --><span data-bind="text: $data"></span>, <!-- /ko --></h4>
+          </div>
+          <div data-bind="attr: { id: 'targeting-' + $data.section + '-' + $data.type }" class="target-block-content collapse in">
+
+            <!-- ko foreach: $data.target -->
+                <div class="search-box">
+                   <span data-bind="text: $data"></span>
+                   <a class="remove" href="#" data-bind="click: function() { $parent.target.remove($data) }"></a>
+                </div>
+            <!-- /ko -->
+
+            <input type="text" placeholder="To add new keyword, type and hit enter" class="input-block-level input-big" />
+
+          </div>
+        </div>
+    </script>
+
+    <!-- Audiences -->
+    <script type='text/html' id='targeting-widget-tray'>
+        <div class="target-block" data-bind="attr: {class: '-t-widget-' + $data.section + '-' + $data.type + ' target-block', 'data-widget': $data.type, 'data-section': $data.section, 'data-api': $data.api }">
+          <div class="target-block-header">
+            <i data-bind="attr: { class: 'icon-' + $data.class }"></i>
+
+            <div class="controls">
+                <span data-toggle="collapse" data-bind="attr: { 'data-target': '#targeting-' + $data.section + '-' + $data.type }">
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-collapse' + ' icon-ok-big collapsed-hidden'}, click: function(){ return false }"></a>
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-expand' + ' icon-edit-big'}, click: function(){ return false }"></a>
+                </span>
+
+                <a href="#" data-bind="attr: {class: '-t-widget-' + $data.section + '-' + $data.type + '-remove' + ' icon-trash-big'}, click: $root.targetingRemoveWidget"></a>
+            </div>
+            <h4><strong data-bind="text: $data.name"></strong> <!-- ko foreach: $data.target --><span data-bind="text: $data.name"></span>, <!-- /ko --></h4>
+          </div>
+          <div data-bind="attr: { id: 'targeting-' + $data.section + '-' + $data.type }" class="target-block-content collapse in">
+
+            <ul class="-t-audience-list row-fluid">
+              <!-- ko foreach: $data.target -->
+                  <li class="search-box">
+                     <span data-bind="text: $data.name"></span>
+                     <a class="remove" href="#" data-bind="click: function() { $parent.target.remove($data) }"></a>
+                  </li>
+              <!-- /ko -->
+            </ul>
+
+            <a class="-t-add-audience btn btn-yellow" href="#">Add new audience</a>
+
+          </div>
+        </div>
+    </script>
+
+    <!-- Content / Page noticeability / Page placement -->
+    <script type='text/html' id='targeting-widget-tree'>
+        <div class="target-block" data-bind="attr: {class: '-t-widget-' + $data.section + '-' + $data.type + ' target-block', 'data-widget': $data.type, 'data-section': $data.section, 'data-api': $data.api }">
+          <div class="target-block-header">
+            <i data-bind="attr: { class: 'icon-' + $data.class }"></i>
+
+            <div class="controls">
+                <span data-toggle="collapse" data-bind="attr: { 'data-target': '#targeting-' + $data.section + '-' + $data.type }">
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-collapse' + ' icon-ok-big collapsed-hidden'}, click: function(){ return false }"></a>
+                  <a href="#" data-bind="attr: { class: '-t-widget-' + $data.section + '-' + $data.type + '-expand' + ' icon-edit-big'}, click: function(){ return false }"></a>
+                </span>
+
+              <a href="#" data-bind="click: $root.targetingRemoveWidget, attr: {class: '-t-widget-' + $data.section + '-' + $data.type + '-remove' + ' icon-trash-big'}"></a>
+            </div>
+
+            <h4>
+                <strong data-bind="text: $data.name"></strong>
+                <span data-bind="template: { name:'targeting-additional-cost', data: $data }"></span>
+                <!-- ko foreach: $data.target -->
+                    <!-- ko foreach: $root.targetingGetCheckedElements($parent, $parent.type) -->
+                          <span class='-t-tag' data-bind="text: name"></span>,
+                    <!-- /ko -->
+                <!-- /ko -->
+            </h4>
+
+          </div>
+          <div data-bind="attr: { id: 'targeting-' + $data.section + '-' + $data.type }" class="target-block-content collapse in">
+
+            <div class="row-fluid" data-bind="foreach: $data.target">
+
+              <div class="inputs-box span12 -t-tree-node">
+                <h5 data-bind="text: $data.name"></h5>
+                <div data-bind="template: { name: 'targeting-widget-subtree', data: { looper: $root[$data.rows], level: 1}}"></div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+    </script>
+
+    <script type='text/html' id='targeting-widget-subtree'>
+        <!-- ko foreach: $data.looper -->
+            <!-- ko if: ($data.children == null) -->
+                 <div class="-t-tree-main">
+                    <span class="tree-handle"></span>
+                    <label class="checkbox -t-checkbox">
+                      <input type="checkbox" data-bind="fancyCheckbox: { value: $root.targetingGetCheckboxState($data, $parents[$parents.length - 2], $parents[$parents.length - 2].type), onclick: function() { $root.targetingChangeCheckboxState($data, $parents[$parents.length - 2], $parents[$parents.length - 2].type) } }">
+                      <span data-bind="text: $data.name"></span>
+                    </label>
+                </div>
+            <!-- /ko -->
+            <!-- ko if: ($data.children != null) -->
+                <div class="-t-tree-main">
+                    <span class="tree-handle collapse-handle collapsed" data-bind="collapseHandle: {}, attr: {'data-target': '#tree-details-' + $parents[$parents.length - 2].section + '-' + $parents[$parents.length - 2].type + $data.id}"></span>
+                    <label class="checkbox -t-checkbox">
+                      <input type="checkbox" data-bind="fancyCheckbox: { value: $root.targetingGetTreeCheckboxState($data, $parents[$parents.length - 2], $parents[$parents.length - 2].type), onclick: function() { $root.targetingChangeTreeCheckboxState($data, $parents[$parents.length - 2], $parents[$parents.length - 2].type) } }">
+                      <span data-bind="text: $data.name"></span>
+                    </label>
+                </div>
+                <ul class="collapse hide" class="-t-tree-sub" data-bind="attr: {id: 'tree-details-' + $parents[$parents.length - 2].section + '-' + $parents[$parents.length - 2].type + $data.id}">
+                    <div data-bind="template: { name: 'targeting-widget-subtree', data: { looper: $data.children, level: $parent.level + 1}}"></div>
+                </ul>
+            <!-- /ko -->
+        <!-- /ko -->
+    </script>
+
+    <script type='text/html' id='targeting-additional-cost'>
+        <!-- ko if: ($data.additional_costs) -->
+                (Maximum additional $<span data-bind="text: $data.additional_costs.value"></span>/CPM)
+        <!-- /ko -->
+    </script>
+
+    <div class="control-group row-fluid">
+            <a class="btn -t-button-next" href="#" data-bind="click: function(){ visitStep('publishers') }">
+                Next step
+            </a>
+    </div>
+
+</div>

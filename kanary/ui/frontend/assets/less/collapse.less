@@ -1,0 +1,19 @@
+.collapse {
+    position: relative;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+
+    &.hide {
+        display: none;
+    }
+
+    &.in {
+        height: auto;
+        overflow: visible;
+    }
+
+    &.hide.in  {
+        display: block;
+    }
+}

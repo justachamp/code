@@ -1,0 +1,146 @@
+@border-section-help: #ccc;
+@border-section-help-main: #bfbfbf;
+@background-section-help: #e6e6e6;
+@background2-section-help: #f3f3f3; 
+@active-color-section-help: #1c1e1e;
+.section-help-container {
+    max-width: 100% !important;
+    overflow: hidden;
+    margin: -32px 0px 0 0px;
+    .transition(~"max-height .5s ease-in-out"); 
+    max-height: 0;
+    &.visible {
+        max-height: 1000px;
+    }
+}
+.section-help {
+    background: @background-section-help;
+    max-width: 100% !important;
+    margin-bottom: 40px;
+    border-bottom: 1px solid @border-section-help-main;
+    background-color: @background2-section-help;
+    .box-shadow(~"0 1px 2px rgba(0,0,0,.1)"); 
+    border-right: 1px solid @border-section-help-main;
+    border-left: 1px solid @border-section-help-main;
+    position: relative;
+    border-top: 1px solid @border-section-help-main;
+    &:before {
+        background: @background-section-help;
+        position: absolute;
+        width: 30%;
+        max-width: 240px;
+        top: 0;
+        left: 0;
+        height: 100%;
+        content: '';
+        z-index:0;
+        border-right: 1px solid  @border-section-help;
+    }
+
+    .clearfix;
+    .title {
+        font: 600 1.387em Ciutadella;
+        color: @contentBlack;
+        text-transform: uppercase;
+        border-bottom: 1px solid @border-section-help;
+        padding: 25px 20px;
+        border-right: 1px solid @border-section-help; 
+        position: relative;
+        z-index: 1;
+        left: 1px;
+    }
+    ul.sections {
+        list-style: none;
+        position: relative;
+        z-index: 1;
+        left: 1px;
+        a {
+            color: @sidebarGray;
+            font: 500 0.92em Arial; 
+            display: block;
+            padding: 16px 20px;
+            border-right: 1px solid  @border-section-help;
+            &.active {
+                font-weight: bold;
+                color: @active-color-section-help;
+                background: @background2-section-help;
+                border-right-color: @background2-section-help;
+            }
+        }
+        li {
+            border-bottom: 1px solid @border-section-help;
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+    .section-help-left, .section-help-right {
+       display: inline-block;
+       float: left;
+       .content {
+        background: @background2-section-help;
+        padding: 40px;
+        font-size: 13px;
+        line-height: 19px;
+        p {
+            margin-bottom: 20px;
+        }
+       }
+
+    }
+    .section-help-right {
+        width: 70%;
+
+    }
+    .section-help-left {
+        width: 30%;
+        max-width: 240px;
+        background: @background-section-help;
+    }
+}
+
+/* Instruction for confirm request on the brand fb page */
+
+.confirm-request-instruction {
+    margin-top: 1em;
+  
+    &__toggle {
+        padding-bottom: 1px;
+        border-bottom: 1px dotted;
+      
+        &:focus {
+            outline: none;
+        }
+    }
+  
+    &__container {
+        background: #f3f3f3;
+        padding: 1.25em 0;
+        margin-top: 1em;
+        line-height: 1.5;
+    }
+  
+    &__list {
+        padding: 0 1.75em 0 2.75em;
+        li {
+            margin-bottom: 1.5em;
+        }
+    }
+  
+    &__img {
+        padding: 1em 0;
+        max-width: 500px;
+    }
+  
+    &__warning-icon {
+        width: 25px;
+        height: 25px;
+        float: left;
+        margin-right: 1em;
+        background: url("../images/sprite-icons.png") -128px -64px no-repeat;
+    }
+  
+    &__warning {
+        overflow: hidden;
+    }
+}

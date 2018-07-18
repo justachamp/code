@@ -1,0 +1,16 @@
+<div class="panel">
+    <div class="panel-header">
+        <h3 class="panel-title">Geo</h3>
+        <nav class="panel-toggle-buttons">
+            <a ng-class="{active: showRange}" href="#" ng-click="showRange=true"> {{dateRange.startDate.toString() | limitTo:15}} - {{ dateRange.endDate.toString() | limitTo:15 }}</a>
+            <a ng-class="{active: !showRange}" href="#" ng-click="showRange=false">REAL TIME</a>
+        </nav>
+    </div>
+    <div class="panel-content" ng-if="showRange">
+        <range-map class="g4-chart" data-config="charts.topCountries" data-provider="topCountriesMapData"
+                   data-top-countries="topCountries"></range-map>
+    </div>
+    <div class="panel-content" ng-if="!showRange">
+        <visitors-map class="g4-chart" site-id="site.id"></visitors-map>
+    </div>
+</div>

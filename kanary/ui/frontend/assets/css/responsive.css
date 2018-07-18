@@ -1,0 +1,111 @@
+@media (max-width: 1100px) {
+  .row-fluid [class*="span"],
+  .mobile-block-level {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 5px 0 !important;
+  }
+  .row-fluid [class*="span"] input,
+  .mobile-block-level input {
+    margin-bottom: 0 !important;
+  }
+  .row-fluid.append-remove > .add-on,
+  .row-fluid.append-icon > .add-on {
+    margin: 0 !important;
+  }
+  .form-horizontal .control-label {
+    width: 100%;
+    text-align: left;
+    float: none;
+  }
+  .form-horizontal .controls {
+    margin: 0;
+  }
+  .form-horizontal .help-text {
+    margin: 0;
+  }
+  .tray p {
+    font-size: 10px;
+  }
+  #content .has-tray {
+    padding: 0 150px 40px 0;
+  }
+  .input-inline-text {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 5px 0 !important;
+    text-align: left;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .input-inline-text input {
+    margin-bottom: 0 !important;
+  }
+  .row-fluid .pull-right[class*="span"]:first-child {
+    margin-left: 0 !important;
+  }
+  .dropdown-menu,
+  .tt-dropdown-menu {
+    margin: 2px 0 0 0 !important;
+  }
+  header.body .btn {
+    margin: 0;
+    padding: 0 10px;
+  }
+}
+@media (max-width: 1300px) {
+  .app-block {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 5px 0 !important;
+  }
+}
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+.visible-phone {
+  display: none !important;
+}
+.visible-tablet {
+  display: none !important;
+}
+.hidden-desktop {
+  display: none !important;
+}
+.visible-desktop {
+  display: inherit !important;
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  .hidden-desktop {
+    display: inherit !important;
+  }
+  .visible-desktop {
+    display: none !important ;
+  }
+  .visible-tablet {
+    display: inherit !important;
+  }
+  .hidden-tablet {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .hidden-desktop {
+    display: inherit !important;
+  }
+  .visible-desktop {
+    display: none !important;
+  }
+  .visible-phone {
+    display: inherit !important;
+  }
+  .hidden-phone {
+    display: none !important;
+  }
+}
+
+/*# sourceMappingURL=responsive.css.map */

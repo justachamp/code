@@ -1,0 +1,34 @@
+<div class="modal in" id="http-error" style="display:none;z-index:9999;left:0px">
+    <div class="row">
+        <div class="span12">
+            <i class="icon info"></i>
+
+            <h1 data-bind="text: HttpError.status">404</h1><br>
+            <h3 data-bind="text: HttpError.statusText"></h3>
+
+            <!-- ko if: HttpError.status() === 404 -->
+
+            <h3>
+                We’re sorry.<br/>
+                We can't find that page!
+            </h3>
+
+            <p><strong>Maybe you spelled the URL wrong. Make sure that you typed it all in lower case.
+            </strong></p>
+
+            <!-- /ko  -->
+
+            <!-- ko if: HttpError.status() === 500 -->
+
+            <h3>
+                We’re sorry.<br/>
+                Something wrong happened on this page!
+            </h3>
+
+            <p><strong>Our programmers are just solving this problem. Do not forget to visit us a bit later!</strong></p>
+
+            <!-- /ko  -->
+
+        </div>
+    </div>
+</div>

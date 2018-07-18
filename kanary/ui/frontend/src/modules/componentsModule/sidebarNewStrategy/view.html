@@ -1,0 +1,67 @@
+<section class="sidebar strategies has-back">
+	<header>
+		<a data-bind="linkTo: 'back', tooltip: {title: 'Back', placement: 'right'}" class="back"></a>
+	</header>
+
+	<div class="sidebar-viewport">
+        <div class="sidebar-content">
+	        <h2 class='-t-name' data-bind="text: strategy.fields().name() || 'New Strategy'"></h2>
+
+			<nav class="sidebar-submenu">
+				<ul class="-t-sidebar-steps">
+					<li class="-t-sidebar-overall" data-bind="css: {current: strategy.step() === 'newStrategy' || strategy.step() === 'edit', error: strategy.errorOverall}">
+						<a href="#" data-bind="click: function() {strategy.visitStep('newStrategy')}">Overall information</a>
+					</li>
+					<li class="-t-sidebar-targeting" data-bind="css: {current: strategy.step() === 'targeting', error: strategy.errorTargeting}">
+						<a href="#" data-bind="click: function() {strategy.visitStep('targeting')}">Targeting</a>
+					</li>
+					<li class="-t-sidebar-publishers" data-bind="css: {current: strategy.step() === 'publishers', error: strategy.errorPublishers}">
+						<a href="#" data-bind="click: function() {strategy.visitStep('publishers')}">Publishers</a>
+					</li>
+					<li class="-t-sidebar-landing" data-bind="css: {current: strategy.step() === 'landing_pages', error: strategy.errorLandingPages}">
+						<a href="#" data-bind="click: function() {strategy.visitStep('landing_pages')}">Landing pages</a>
+					</li>
+					<li class="-t-sidebar-creatives" data-bind="css: {current: strategy.step() === 'creatives', error: strategy.errorCreatives, error: strategy.isExistRejectedFbPage}">
+						<a href="#" data-bind="click: function() {strategy.visitStep('creatives')}">Creatives</a>
+					</li>
+					<li class="-t-sidebar-bidding" data-bind="css: {current: strategy.step() === 'bidding', error: strategy.errorBidding}">
+						<a href="#" data-bind="click: function() {strategy.visitStep('bidding')}">Bidding</a>
+					</li>
+	                <!--
+	                <li data-bind="attr: {class: strategy.stepRetargeting}, css: {current: strategy.step() === 'retargeting'}">
+	                    <a href="#" data-bind="click: function() {strategy.linkTo('startegy_retargeting')}">Retargeting</a>
+	                </li>
+	                //-->
+				</ul>
+			</nav>
+
+			<a href="#" class="btn icon-ok -t-button-save-changes" data-bind="click: strategy.save"> Save changes</a>
+			<a href="#" class="btn icon-cancel" data-bind="linkTo: {route: 'campaign', args: {campaignName: strategy.campaign_slug()}}"> Cancel</a>
+
+	        <!--
+			<article>
+
+			<header>applications<a href="#" class="edit">Edit</a></header>
+
+			<ul class="items-list app-list">
+
+					<li>
+						<div class="controls">
+							<span class="switcher on"></span>
+						</div>
+						<span>
+							<img data-bind="staticImg: 'assets/images/thumb-1.png'" />
+							<h5>optimizely ab testing</h5>
+							Add a new test from external app
+						</span>
+
+
+					</li>
+
+				</ul>
+
+			</article>
+	        //-->
+		</div> <!-- .sidebar-content -->
+    </div> <!-- .sidebar-viewport -->
+</section>

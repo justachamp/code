@@ -1,0 +1,106 @@
+.progress-bar-container {
+
+    .spent{
+        position: relative;
+        font: bold 13px Arial;
+
+        &:after{
+            left:0;
+            content: 'SPENT';
+            position: absolute;
+            font: bold 10px Arial;
+            margin: 15px 0 -15px 0;
+        }
+    }
+
+   #content &{
+       margin:0 0 @baseLineHeight/2;
+
+       .spent {
+           float: left;
+           margin: 0;
+
+       }
+       strong,
+       .spent span{
+           color: #161616;
+       }
+   }
+
+    #sidebar &{
+        margin: 0 21px 30px 21px;
+
+        strong,
+        .spent       {color: @sidebarTextColor;}
+        .spent:after {color: #666b6b;}
+
+        .perc {
+            float: right;
+            font-weight: bold;
+        }
+    }
+}
+
+.progress {
+
+    &.horizontal{
+        .border-radius(3px);
+
+        display: block;
+        height: 6px;
+
+        .bar{
+            .border-radius(2px);
+
+            max-width: 99% !important;
+            display: block;
+        }
+
+        & + .small{
+            font:bold 11px Arial;
+            color:#161616;
+            float:left;
+        }
+    }
+
+    #content &{
+
+        overflow: hidden;
+        margin: @baseLineHeight / 2 0;
+
+        &.horizontal {
+            .box-shadow(~"inset 0 0 3px #aaa");
+
+            padding: 2px;
+            background-color: #dcdcdc;
+
+            .bar {
+                .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.1)");
+                .gradient(~"linear-gradient(bottom, #1e2020 0%, #252727 100%)");
+
+                height: 4px;
+                border: 1px solid #000101;
+                background-color: #000;
+            }
+        }
+    }
+
+    #sidebar &{
+
+        &.horizontal{
+            .box-shadow(~"inset 0 0 3px #0d0d0d");
+
+            margin: 12px 0 10px;
+            padding: 2px 0;
+            background-color: #111313;
+
+            .bar {
+                .gradient(~"linear-gradient(bottom, #0A2652 0%, #5072a8 95.24%, #a1b7da 100%)");
+
+                margin: 0 2px;
+                height: 6px;
+                background-color: #ffcd05;
+            }
+        }
+    }
+}

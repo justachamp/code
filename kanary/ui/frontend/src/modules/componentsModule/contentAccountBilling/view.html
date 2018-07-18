@@ -1,0 +1,84 @@
+<div class="content-container full-width">
+
+    <div class="row-fluid">
+      <h2>Billing & Transactions</h2>
+    </div>
+
+    <table class="table-statistics">
+      <tr>
+        <td class="-t-balance" data-bind="text: account_balance"></td>
+        <td class="-t-payment" data-bind="text: last_payment"></td>
+      </tr>
+
+      <tr>
+        <th>Account balance</th>
+        <th>Last payment</th>
+      </tr>
+    </table>
+
+<div class="table-responsive-wrapper">
+    <div class="table-responsive-scroll">
+        <table class="table-responsive">
+            <thead>
+                <tr data-level="0" class="parent">
+                  <th class="hidden-col header"></th>
+                  <th class="header">Date</th>
+                  <th class="header">Invoice number</th>
+                  <th class="header">Event</th>
+                  <th class="header">Status</th>
+                  <th class="header">Amount</th>
+                  <th class="header">Actions</th>
+                </tr>
+            </thead>
+              <tbody>
+                <!-- ko foreach: transactions -->
+                <tr class="-t-transaction-row" data-level="0" class="parent">
+                    <td class="hidden-col"></td>
+                    <td class="-t-date" data-bind="text: date"></td>
+                    <td class="-t-number" data-bind="text: number"></td>
+                    <td class="-t-event" data-bind="text: event"></td>
+                    <td class="-t-status" data-bind="text: status"></td>
+                    <td class="-t-amount" data-bind="text: amount"></td>
+                    <td>
+                      <!-- ko if: download_url -->
+                      <a class="btn btn" data-bind="attr: {href: download_url}">Download PDF</a>
+                      <!-- /ko -->
+
+                      <!-- ko ifnot: download_url -->
+                      -
+                      <!-- /ko -->
+                    </td>
+              </tr>
+              <!-- /ko -->
+              <!-- ko ifnot: transactions.length > 0 -->
+              <tr>
+                <td class="hidden-col"></td>
+                <td colspan="6">No data available</td>
+              </tr>
+              <!-- /ko -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+  <div class="row-fluid new-section">
+    <h2>Deposit funds</h2>
+  </div>
+
+  <div class="table-like">
+    <figure>
+      <img data-bind="staticImg: 'assets/images/paypal-logo.png'">
+    </figure>
+
+    <div>
+      <p>
+        You currently can charge your campaign founds only with PayPal. We currently process payments<br>
+        manually. If the transfer was succesfull you will see your deposit on your account in next 24 hours.
+      </p>
+      <p>
+        <a class="btn -t-deposit-with-paypal" data-bind="attr: { href: Urls.deposit_funds() }">Deposit with PayPal</a>
+      </p>
+    </div>
+  </div>
+
+</div>

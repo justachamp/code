@@ -1,0 +1,298 @@
+
+.gradient(@gradient) {
+	background-image: -moz-linear-gradient(@gradient);
+	background-image: -o-linear-gradient(@gradient);
+	background-image: -webkit-linear-gradient(@gradient);
+	background-image: linear-gradient(@gradient);
+}
+
+.transition-all(@duration) {
+	-webkit-transition: all @duration ease-in-out;
+	-moz-transition: all @duration ease-in-out;
+	-o-transition: all @duration ease-in-out;
+	transition: all @duration ease-in-out;
+}
+
+.transition(@argument) {
+	-webkit-transition: @argument;
+	-moz-transition: @argument;
+	-o-transition: @argument;
+	transition: @argument;
+}
+
+.animation(@name, @duration, @state){
+	-webkit-animation: @name @duration ease both;
+	-webkit-animation-play-state: @state;
+	-webkit-transform-origin: 0% 50%;
+	-moz-animation: @name @duration ease both;
+	-moz-animation-play-state: @state;
+	-moz-transform-origin: 0% 50%;
+	-o-animation: @name @duration ease both;
+	-o-animation-play-state: @state;
+	-o-transform-origin: 0% 50%;
+	animation: @name @duration ease both;
+	animation-play-state: @state;
+}
+
+.opacity(@opacity) {
+	filter: e(%("alpha(opacity=%d)", @opacity));
+	-khtml-opacity: @opacity / 100;
+	-moz-opacity: @opacity / 100;
+	opacity: @opacity / 100;
+}
+
+// CSS3 PROPERTIES
+// --------------------------------------------------
+
+// Single side border-radius
+.border-top-radius(@radius) {
+  border-top-right-radius: @radius;
+   border-top-left-radius: @radius;
+}
+.border-right-radius(@radius) {
+  border-bottom-right-radius: @radius;
+	 border-top-right-radius: @radius;
+}
+.border-bottom-radius(@radius) {
+  border-bottom-right-radius: @radius;
+   border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius) {
+  border-bottom-left-radius: @radius;
+	 border-top-left-radius: @radius;
+}
+
+.border-radius(@radius: 5px) {
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.box-shadow (...)
+{
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+
+.padding-box-background-clip() {
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+}
+
+.triangle-down(@size: 10px, @color: #fff) {
+	width: 0;
+	height: 0;
+	border-left: @size solid transparent;
+	border-right: @size solid transparent;
+	border-top: @size solid @color;
+	border-bottom: none;
+}
+
+.triangle-up(@size: 10px, @color: #fff) {
+	width: 0;
+	height: 0;
+	border-left: @size solid transparent;
+	border-right: @size solid transparent;
+	border-bottom: @size solid @color;
+	border-top: none;
+}
+
+.triangle-left(@size: 10px, @color: #fff) {
+	width: 0;
+	height: 0;
+	border-top: @size solid transparent;
+	border-right: @size solid @color;
+	border-bottom: @size solid transparent;
+	border-left: none;
+}
+
+.triangle-right(@size: 10px, @color: #fff) {
+	width: 0;
+	height: 0;
+	border-top: @size solid transparent;
+	border-left: @size solid @color;
+	border-bottom: @size solid transparent;
+	border-right: none;
+}
+
+.inline-block {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	*display: inline;
+}
+
+.box-sizing(@boxmodel) {
+	-webkit-box-sizing: @boxmodel;
+	-moz-box-sizing: @boxmodel;
+	box-sizing: @boxmodel;
+}
+
+.placeholder(@color: @black) {
+	&:-moz-placeholder {
+		color: @color;
+	}
+	&:-ms-input-placeholder {
+		color: @color;
+	}
+	&::-webkit-input-placeholder {
+		color: @color;
+	}
+}
+
+.ie7-inline-block() {
+	*display: inline;
+	*zoom: 1;
+}
+
+.input-block-level{
+	display: block;
+	width: 100%;
+	min-height: @baseControlsHeight + 2 !important;
+	.box-sizing(border-box);
+}
+
+
+#grid {
+
+	.core(@gridColumnWidth, @gridGutterWidth) {
+
+		.spanX(@index) when (@index > 0) {
+			.span@{index} { .span(@index); }
+			.spanX(@index - 1);
+		}
+		.spanX(0) {
+		}
+
+		.offsetX(@index) when (@index > 0) {
+			.offset@{index} { .offset(@index); }
+			.offsetX(@index - 1);
+		}
+		.offsetX(0) {
+		}
+
+		.offset(@columns) {
+			margin-left: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns + 1));
+		}
+
+		.span(@columns) {
+			width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
+		}
+
+		[class*="span"] {
+			float: left;
+			min-height: 1px; // prevent collapsing columns
+			margin-left: @gridGutterWidth;
+		}
+
+		.container,
+		.navbar-static-top .container,
+		.navbar-fixed-top .container,
+		.navbar-fixed-bottom .container { .span(@gridColumns);
+		}
+
+		.spanX (@gridColumns);
+		.offsetX (@gridColumns);
+
+	}
+
+	.fluid(@fluidGridColumnWidth, @fluidGridGutterWidth) {
+
+		.spanX(@index) when (@index > 0) {
+			.span@{index} { .span(@index); }
+			.spanX(@index - 1);
+		}
+		.spanX(0) {
+		}
+
+		.offsetX(@index)when (@index > 0) {
+			.offset@{index} { .offset(@index); }
+			.offset@{index}:first-child { .offsetFirstChild(@index); }
+			.offsetX(@index - 1);
+		}
+		.offsetX(0) {
+		}
+
+		.offset(@columns) {
+			margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) + (@fluidGridGutterWidth*2);
+			*margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%) + (@fluidGridGutterWidth*2) - (.5 / @gridRowWidth * 100 * 1%);
+		}
+
+		.offsetFirstChild(@columns) {
+			margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) + (@fluidGridGutterWidth);
+			*margin-left: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%) + @fluidGridGutterWidth - (.5 / @gridRowWidth * 100 * 1%);
+		}
+
+		.span(@columns) {
+			width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1));
+			*width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%);
+		}
+
+		.row-fluid,
+		.row{
+			width: 100%;
+			[class*="span"] {
+				.input-block-level();
+				float: left;
+				margin-left: @fluidGridGutterWidth;
+				*margin-left: @fluidGridGutterWidth - (.5 / @gridRowWidth * 100 * 1%);
+			}
+			[class*="span"]:first-child {
+				margin-left: 0;
+
+				&.pull-right{
+					margin-left: @fluidGridGutterWidth;
+				}
+			}
+
+			[class*="span"]:last-child{
+				&.pull-right{
+					margin-left: 0;
+				}
+
+			}
+
+			.controls-row [class*="span"] + [class*="span"] {
+				margin-left: @fluidGridGutterWidth;
+			}
+
+			.spanX (@gridColumns);
+			.offsetX (@gridColumns);
+
+			.span0 {
+				width: auto;
+			}
+		}
+
+	}
+
+	.input(@gridColumnWidth, @gridGutterWidth) {
+
+		.spanX(@index)when (@index > 0) {
+			input.span@{index}, textarea.span@{index}, .uneditable-input.span@{index} { .span(@index); }
+			.spanX(@index - 1);
+		}
+		.spanX(0) {
+		}
+
+		.span(@columns) {
+			width: ((@gridColumnWidth) * @columns) + (@gridGutterWidth * (@columns - 1)) - 14;
+		}
+
+		input,
+		textarea,
+		.uneditable-input {
+			margin-left: 0; // override margin-left from core grid system
+		}
+
+		.controls-row [class*="span"] + [class*="span"] {
+			margin-left: @gridGutterWidth;
+		}
+
+		.spanX (@gridColumns);
+
+	}
+
+}

@@ -1,0 +1,19 @@
+<div class="label-container">
+    <label for="size">Button Size</label>
+</div>
+<span slider ng-if="sliderReady"
+      class="the-slider"
+      name="size"
+      ng-model="buttonSizeIndex"
+      value="buttonSizeIndex"
+      handle="round"
+      step="1"
+      ticks-labels="::buttonSizes"
+      on-start-slide="buttonSizeDelegate(value)"
+      on-slide="buttonSizeDelegate(value)"
+      on-stop-slide="buttonSizeDelegate(value)">
+</span>
+
+<div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.size.$error" ng-messages-multiple
+     class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+</div>

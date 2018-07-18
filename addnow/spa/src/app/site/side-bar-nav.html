@@ -1,0 +1,41 @@
+<nav class="graphs-nav">
+    <a class="expand-sidebar-button" ng-click="toggleSideBar()" ng-class="{'sidebar-expanded': showSideBar}"></a>
+    <ul ng-show="edit || dashboard" class="nav">
+        <li data-scrollspy-listen="overview">
+            <a href="#" scroll-to="overview" ng-show="dashboard" offset="60">Overview</a>
+            <a href="/site/dashboard/{{ site.id }}#overview" ng-show="!dashboard">Overview</a>
+        </li>
+        <li data-scrollspy-listen="summary">
+            <a href="#" scroll-to="summary" ng-show="dashboard" offset="60">Share and Clicks Summary</a>
+            <a href="/site/dashboard/{{ site.id }}#summary" ng-show="!dashboard">Share and Clicks Summary</a>
+        </li>
+        <li data-scrollspy-listen="summary">
+            <a href="#" scroll-to="summary" ng-show="dashboard" offset="60">Top Social Channels</a>
+            <a href="/site/dashboard/{{ site.id }}#summary" ng-show="!dashboard">Top Social Channels</a>
+        </li>
+        <li data-scrollspy-listen="external-shares">
+            <a href="#" scroll-to="external-shares" ng-show="dashboard" offset="60">External Shares</a>
+            <a href="/site/dashboard/{{ site.id }}#external-shares" ng-show="!dashboard">External Shares</a>
+        </li>
+        <li data-scrollspy-listen="top-content">
+            <a href="#" scroll-to="top-content" ng-show="dashboard" offset="60">Top Content</a>
+            <a href="/site/dashboard/{{ site.id }}#top-content" ng-show="!dashboard">Top Content</a>
+        </li>
+        <li data-scrollspy-listen="keywords">
+            <a href="#" scroll-to="keywords" ng-show="dashboard" offset="60">Keywords</a>
+            <a href="/site/dashboard/{{ site.id }}#keywords" ng-show="!dashboard">Keywords</a>
+        </li>
+        <li data-scrollspy-listen="keywords">
+            <a href="#" scroll-to="keywords" ng-show="dashboard" offset="60">Referring Domains</a>
+            <a href="/site/dashboard/{{ site.id }}#keywords" ng-show="!dashboard">Referring Domains</a>
+        </li>
+        <li data-scrollspy-listen="geo">
+            <a href="#" scroll-to="geo" ng-show="dashboard" offset="60">GEO</a>
+            <a href="/site/dashboard/{{ site.id }}#geo" ng-show="!dashboard">GEO</a>
+        </li>
+        <!--<li data-scrollspy-listen="followers">
+            <a href="#" scroll-to="followers" ng-show="dashboard" offset="60">Followers</a>
+            <a href="/site/dashboard/{{ site.id }}#followers" ng-show="!dashboard">Followers</a>
+        </li>-->
+    </ul>
+</nav>

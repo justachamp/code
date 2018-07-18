@@ -1,0 +1,280 @@
+<div class="content-container -t-publisher-set-container">
+
+    <div class="control-group row-fluid">
+        <h2 class="span6">Publishers</h2>
+        <div class="span6 text-right">
+
+            <!-- ko if: selectedPublishers.isSaved() -->
+                <a class="btn -t-button-save-set" href="#" data-bind="css: {'btn-yellow': selectedPublishers.saveBtnEnabled}, click: selectedPublishers.saveDialog.bind($data, 'Save publisher set', true)">Save</a>
+            <!-- /ko -->
+            <a class="btn -t-button-save-set-as" href="#" data-bind="css: {'btn-yellow': selectedPublishers.saveAsBtnEnabled }, click: selectedPublishers.saveDialog.bind($data, 'Save publisher with new name', null)">Save as</a>
+            <a class="btn -t-button-publishers-reset" href="#" data-bind="click: selectedPublishers.reset.bind($data, null)">Clear</a>
+            <a class="btn -t-button-publishers-open" href="#" data-bind="click: showPublishersTray.bind($data, selectedPublishers, type.inventory())">Open</a>
+        </div>
+    </div>
+
+    <ul class="nav switcher-tabs">
+        <li data-bind="css: {active: !blacklist()}, click: function() { blacklist(false) }"><span class="switcher-inline-text">White List</span></li>
+        <li data-bind="css: {active: blacklist()}, click: function() { blacklist(true) }"><span class="switcher-inline-text">Black List</span></li>
+    </ul>
+
+    <div class="row-fluid">
+        <div class="span0">
+            <span class="switcher" data-bind="click: selectedPublishers.togglerunOnNetwork, css: {on: type.is_network}" data-original-title="" title=""></span>
+        </div>
+        <div class="input-inline-text span0 switcher-inline-text">
+                Run on network
+        </div>
+    </div>
+    <br/>
+    <ul class="nav nav-tabs tabs-flat">
+        <li class="-t-search-results active">
+            <a href="#publisher_search" data-toggle="tab">Publishers available</a></li>
+        <li class="-t-selected-publishers" >
+            <a href="#selected_publishers" data-toggle="tab">Selected publishers</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="publisher_search">
+            <br/>
+            <div class="row-fluid">
+                <div class="input-prepend input-prepend-big span9">
+                    <input type="text" class="input-block-level input-big"
+                        placeholder="Search Publishers/Inventory"
+                        data-bind="value: searchResults.search, valueUpdate: 'keyup'">
+                    <span class="add-on"><span class="icon-search"></span></span>
+                </div>
+                 <select class="span3" data-bind="
+                    options: searchResults.filters,
+                    optionsText: 'label',
+                    value: searchResults.selectedFilter">
+                </select>
+            </div>
+            <table class="simple-table" id="publisher-search-table">
+                <thead>
+                    <tr data-bind="template: {
+                    name: type.template().header,
+                    data: {
+                        vm: searchResults,
+                        buttons:[
+                            {text: 'All', method: 'selectAll'},
+                            {text: 'None', method: 'unselectAll'}
+                            ]
+                        }
+                    }"></tr>
+                </thead>
+                <!-- ko if: ! searchResults.isEmpty() -->
+                <tbody data-bind="template: { name: type.template().row, foreach: searchResults.fields.items }">
+
+                </tbody>
+                <!-- /ko -->
+                <!-- ko if: searchResults.isEmpty() -->
+                    <tbody>
+                        <tr>
+                            <td colspan="5">
+                                No publishers found
+                            </td>
+                        </tr>
+                    </tbody>
+                <!-- /ko -->
+
+            </table>
+            <ul class="pagination" data-bind="
+                visible: searchResults.meta().total_count > 2
+            ">
+                <li>
+                    <a class="prev" href="#" data-bind="
+                        visible: searchResults.page() > 1,
+                        click: searchResults.prevPage
+                    ">Previous</a>
+                </li>
+                <!-- ko foreach: new Array(searchResults.pagerCount()) -->
+                    <li>
+                        <a href="#" data-bind='
+                                text: $index()+ $parent.searchResults.pagerStart(),
+                                css: {active: $parent.searchResults.page() == $index() + $parent.searchResults.pagerStart()},
+                                click: $parent.searchResults.changePage.bind($data, $index() + $parent.searchResults.pagerStart())
+                        '></a>
+                    </li>
+                <!-- /ko -->
+                <li>
+                    <a class="next" href="#" data-bind="
+                    visible: searchResults.page() < searchResults.pageCount(),
+                    click: searchResults.nextPage
+                    ">Next</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-pane fade" id="selected_publishers">
+            <div class="row-fluid text-right">
+                <br/>
+
+            </div>
+            <table class="simple-table" id="selected-publishers-table">
+                <thead>
+                    <tr data-bind="template: {
+                        name: type.template().header,
+                        data: {
+                            vm: selectedPublishers,
+                            buttons:[
+                                {text: 'None', method: 'unselectAll'}
+                            ]
+                        }
+                    }"></tr>
+                </thead>
+
+                <!-- ko if: ! selectedPublishers.isEmpty() -->
+                <tbody data-bind="template: { name: type.template().row, foreach: selectedPublishers.fields.items }">
+
+                </tbody>
+                <!-- /ko -->
+                <!-- ko if: selectedPublishers.isEmpty() -->
+                    <tbody>
+                        <tr>
+                            <td colspan="5">
+                                No publishers selected
+                            </td>
+                        </tr>
+                    </tbody>
+                <!-- /ko -->
+            </table>
+        </div>
+    </div>
+
+    <br/>
+
+    <a class="btn btn-next -t-button-next" href="#" data-bind="click: function(){ strategy.visitStep('landing_pages') }">
+        Next step
+    </a>
+
+    <script type="text/html" id="publisherSetNotification">
+        <form class="form-horizontal modal-form">
+            <div class="control-group row-fluid">
+                <input type="text" class="input-block-level span12 -t-input-publisher-set-name" data-bind="
+                    value: fields.name,
+                    attr: {disabled: fields.isEditingDisabled()}
+                ">
+                <!-- ko if: fields.name_validation() -->
+                    <span data-bind="text: fields.name_validation()"></span>
+                <!-- /ko -->
+            </div>
+            <p data-bind="visible: fields.isEditingDisabled()">Saving will change all strategies assigned to this publisher set.</p>
+            <a href="#" class="btn -t-button-modal-save" data-bind="click: save">Save</a>
+            <a href="#" class="btn -t-button-modal-cancel" data-bind="click: $parent.modalVM.reject">Cancel</a>
+        </form>
+    </script>
+
+    <script id="publisherRow" type="text/html">
+        <tr class="publisher-row">
+            <td class="text-center">
+                <label class="checkbox" data-bind="css: {checked: selected}">
+                    <input type="checkbox" data-bind="click: toggleSelected">
+                </label>
+
+            </td>
+            <td><span data-bind="text: publisher_id"></span></td>
+            <td class="name"><span data-bind="text: name"></span></td>
+            <td class="network"><span data-bind="text: network"></span></td>
+            <td class="expand" data-bind="click: toggleExpanded">
+                <span class="arrow-down"></span>
+            </td>
+        </tr>
+        <tr data-bind="visible: expanded">
+            <td colspan="5" class="row-details">
+                <div class="row">
+                    <div data-bind="visible: sizes().length > 0" class="span4">
+                        <p class="text-upper title">Ad units available</p>
+                        <ul data-bind="foreach: sizes">
+                            <li data-bind="text: $data"></li>
+                        </ul>
+                    </div>
+                    <div data-bind="visible: positions().length > 0" class="span4">
+                        <p class="text-upper title">Positions</p>
+                        <ul data-bind="foreach: positions">
+                            <li data-bind="text: $data"></li>
+                        </ul>
+                    </div>
+                    <div data-bind="visible: segments().length > 0" class="span4">
+                        <p class="text-upper title">Denied advertisements</p>
+                        <ul data-bind="foreach: segments">
+                            <li data-bind="text: $data"></li>
+                        </ul>
+                    </span></div>
+                </div>
+            </td>
+        </tr>
+    </script>
+    <script id="mobileHeader" type="text/html">
+        <th></th>
+        <th>
+            Publisher ID
+        </th>
+        <th>
+            App name
+        </th>
+        <th>
+            Network
+        </th>
+        <th class="expand">
+        </th>
+    </script>
+    <script id="webHeader" type="text/html">
+        <th class="checkbox-column">
+            <div class="dropdown inset">
+                <a class="dropdown-toggle arrow-down" data-toggle="dropdown" href="#">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                </a>
+                <ul class="dropdown-menu" role="menu" data-bind="foreach: buttons">
+                    <li><a href="#" data-bind="click: $parent.vm[method], text: text"></a></li>
+                </ul>
+            </div>
+        </th>
+        <th>
+            Publisher ID
+        </th>
+        <th>
+            Domain
+        </th>
+        <th>
+            Network
+        </th>
+        <th class="expand">
+        </th>
+    </script>
+    <script id="networkRow" type="text/html">
+        <tr class="publisher-row">
+            <td class="text-center">
+                <label class="checkbox" data-bind="css: {checked: selected}">
+                    <input type="checkbox" data-bind="click: toggleSelected">
+                </label>
+
+            </td>
+            <td><span data-bind="text: network_id"></span></td>
+            <td class="name network"><span data-bind="text: network"></span></td>
+        </tr>
+    </script>
+    <script id="networkHeader" type="text/html">
+        <th class="checkbox-column">
+            <div class="dropdown inset">
+                <a class="dropdown-toggle arrow-down" data-toggle="dropdown" href="#">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                    </label>
+                </a>
+                <ul class="dropdown-menu" role="menu" data-bind="foreach: buttons">
+                    <li><a href="#" data-bind="click: $parent.vm[method], text: text"></a></li>
+                </ul>
+            </div>
+        </th>
+        <th>
+            Network ID
+        </th>
+        <th>
+            Name
+        </th>
+    </script>
+
+</div>

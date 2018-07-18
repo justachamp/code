@@ -1,0 +1,64 @@
+.modal {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    z-index: 1050;
+    width: 370px;
+    margin-left: -185px;
+    outline:none;
+    &.hide {
+        display:none;
+    }
+
+    i.icon.info {
+        margin-bottom: 20px;
+    }
+
+    .modal-header {
+        text-align:center;
+        position: relative;
+
+        .close {
+            background: url('../img/icon-exit.png');
+            width: 28px;
+            height: 28px;
+            position: absolute;
+            top:15px;
+            right:0px;
+            border:0px;
+            cursor:pointer;
+        }
+        
+        h3 {
+            .ciutadella();
+            font-weight: 300;
+            font-size: 32px;
+            line-height: 43px;
+            padding: 0 30px;
+        }
+
+        p {
+            .defaultfont();
+            margin: 20px 0;
+            font-size:13px;
+        }
+    }
+
+    .button {
+        width:100%;
+        .box-sizing();
+        padding: 10px 0;
+        margin-top:20px;
+    }
+}
+
+.modal-backdrop {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: @yellow;
+}

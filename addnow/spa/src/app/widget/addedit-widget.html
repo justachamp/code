@@ -1,0 +1,57 @@
+<div class="modal-container widget-config-modal showing">
+    <div class="the-modal panel clearfix">
+        <div class="modal-header">
+            <h2 >{{widgetTitle()}}</h2>
+            <a class="close-modal x-button" ng-click="cancel()">×</a>
+        </div>
+        <form name="form" novalidate class="row" ng-submit="submitAddPage()">
+
+            <div class="widget-preview">
+                <h3>Live Preview</h3>
+                <div class="preview-pane">
+                    <widget-preview widget="widgetConfig"></widget-preview>
+                </div>
+            </div>
+
+            <div origin-buttons-widget-form ng-if="isOriginButtonsWidget()" widget="widgetConfig" trim-key="trimKey" errors="errors.nonFieldServerErrors"></div>
+            <div sharing-buttons-widget-form ng-if="isSharingButtonsWidget()" widget="widgetConfig" trim-key="trimKey" errors="errors.nonFieldServerErrors"></div>
+            <div follow-buttons-widget-form ng-if="isFollowWidget()" widget="widgetConfig" socials="socialNetworks" errors="errors.nonFieldServerErrors"></div>
+            <div vertical-float-widget-form ng-if="isVerticalFloatWidget()" widget="widgetConfig" trim-key="trimKey" errors="errors.nonFieldServerErrors"></div>
+            <div copy-paste-widget-form ng-if="isCopyPasteWidget()" widget="widgetConfig" trim-key="trimKey" errors="errors.nonFieldServerErrors"></div>
+            <div newsletter-widget-form ng-if="isNewsletterWidget()" widget="widgetConfig" trim-key="trimKey" errors="errors.nonFieldServerErrors"></div>
+            <div mobile-widget-form ng-if="isMobileWidget()" widget="widgetConfig" trim-key="trimKey" errors="errors.nonFieldServerErrors"></div>
+            <div circular-mobile-widget-form ng-if="isCircularMobileWidget()" widget="widgetConfig" trim-key="trimKey" errors="errors.nonFieldServerErrors"></div>
+
+            <section ng-if="widgetConfig.id && !isCopyPasteWidget()" class="settings-section widget-codes-container clearfix flex-section">
+                <div class="half" ng-if="!isNewsletterWidget()">
+                    <h3>Widget Code</h3>
+                    <p>Place the widget code on your site where you would like the addnow buttons to show up.</p>
+                    <pre class="widgetCodeAdd widget-code ng-binding">{{widgetCode()}}</pre>
+                    <a clip-copy="widgetCode('.widgetCodeAdd')" clip-click="codeCopied('.widgetCodeAdd')" class="g4-button outline-button ng-isolate-scope"><span>Copy to clipboard</span></a>
+                </div>
+                <div class="half" ng-if="!isNewsletterWidget()">
+                    <h3>Tracking Code</h3>
+                    <div>
+                        <p>Place the tracking code on every page of <strong class="ng-binding">mysite.com</strong> you would like the addnow widget to be visible. Add it just before the closing <code>&lt;body&gt;</code> tag.</p>
+                        <pre class="trackingCodeAdd widget-code">{{trackingCode()}}</pre>
+                        <a clip-copy="trackingCode('.trackingCodeAdd')" clip-click="codeCopied('.trackingCodeAdd')" class="g4-button outline-button"><span>Copy to clipboard</span></a>
+                    </div>
+                </div>
+                <div ng-if="isNewsletterWidget()">
+                    <h3>Newsletter Tracking Code</h3>
+                    <div>
+                        <p>Grab your tracking code below and paste it to newsletter template.</p>
+                        <pre class="trackingCodeAdd widget-code">{{trackingCode()}}</pre>
+                        <a clip-copy="trackingCode('.trackingCodeAdd')" clip-click="codeCopied('.trackingCodeAdd')" class="g4-button outline-button"><span>Copy to clipboard</span></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="modal-footer save-bar settings-section clearfix">
+                <a ng-click="cancel()" class="close-modal g4-button outline-button grey-button"><span>Cancel</span></a>
+                <button ng-if="!isEdit()" class="g4-button add-widget" type="submit"><span>SAVE &amp; ENABLE</span></button>
+                <button ng-if="isEdit()" class="g4-button add-widget" type="submit"><span>SAVE</span></button>
+            </section>
+        </form>
+    </div>
+</div>

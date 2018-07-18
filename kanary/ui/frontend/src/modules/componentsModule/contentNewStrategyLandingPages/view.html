@@ -1,0 +1,53 @@
+<div class="content-container -t-lpages-container">
+
+  <h2>Landing pages</h2>
+
+  <div class="items-table">
+    <div class="row-fluid">
+      <h5 class="span9" data-bind="text: strategy.isStrategyType('Facebook') ? 'Website' : 'Websites'"></h5>
+      <!-- ko ifnot: strategy.isStrategyType('Facebook') -->
+      <h5 class="span3">
+        Traffic ratio &nbsp;
+        <i class="icon-help"
+           data-bind="tooltip: {title: 'Direct the percentage of traffic to this landing page', placement: 'left'}"></i>
+      </h5>
+      <!-- /ko -->
+    </div>
+
+    <div class="foreach-container -t-landing-pages-widget" data-bind="foreach: strategy.fields().landing_sites">
+      <div class="row-fluid append-remove -t-landing-page-row" data-bind="style: { border: $parent.strategy.isStrategyType('Facebook') ? 'none' : ''}">
+
+        <div class="input-prepend" data-bind="if: $parent.strategy.site_validation_ready(), css: { span9:  !$parent.strategy.isStrategyType('Facebook')}">
+          <input type="text" class="input-block-level -t-input-landing-page" id="typeahead-website" data-bind="value: url, valueUpdate: 'afterkeydown', displayError: errors.url, typeahead: {cache_key: 'landing_page', target: url, value: 'url', resource_name: 'site'}"/>
+          <span class="add-on icon-planet"></span>
+        </div>
+        <!-- ko ifnot: $parent.strategy.isStrategyType('Facebook') -->
+        <div class="span3">
+          <span class="span4"><span class="text-left">Weight</span></span>
+          <input type="text" class="-t-input-weight span8 mobile-block-level text-center" data-bind="formatBudget: weight"/>
+        </div>
+        <!-- /ko -->
+        <a class="remove" href="#" data-bind="click: $parent.strategy.removeLandingPage"></a>
+      </div>
+
+    </div>
+
+    <div class="row-fluid" data-bind="style: { border: strategy.isStrategyType('Facebook') ? 'none' : ''}">
+      <!-- ko if: !strategy.isStrategyType('Facebook')||(strategy.isStrategyType('Facebook')&&strategy.fields().landing_sites().length < 1) -->
+        <a href="#" class="btn btn-yellow -t-button-add" id="add-site-from-storage" data-bind="click: strategy.addLandingPage">
+          Add website
+        </a>
+      <!-- /ko -->
+      <span class="pull-right input-inline-text">
+        <input type="checkbox" data-bind="fancyCheckbox: strategy.fields().utm_tags"/> Turn on UTM tags &nbsp;
+        <i class="icon-help"
+           data-bind="tooltip: {title: 'The Urchin Tracking Module is a tag, or marker, that you can append to a Web address, that is then recognized by Google Analytics.', placement: 'left'}"></i>
+      </span>
+    </div>
+
+      <a class="btn btn-next -t-button-next" href="#" data-bind="click: function(){ strategy.visitStep('creatives') }">
+        Next step
+      </a>
+  </div>
+
+</div>

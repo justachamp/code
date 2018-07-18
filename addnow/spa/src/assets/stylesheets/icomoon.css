@@ -1,0 +1,64 @@
+@font-face {
+    font-family: Icomoon;
+    src: url('/assets/fonts/icomoon/icomoon.woff');
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-calendar:before {
+	content: "\e600";
+}
+.icon-globe:before {
+	content: "\e601";
+}
+.icon-share:before {
+	content: "\e602";
+}
+.icon-calendar2:before {
+	content: "\e604";
+}
+.icon-arrow_right:before {
+	content: "\e605";
+}
+.icon-arrow_left:before {
+	content: "\e606";
+}
+.icon-circle_delete:before {
+	content: "\e607";
+}
+.icon-linkedin:before {
+	content: "\e608";
+}
+.icon-pinterest:before {
+	content: "\e609";
+}
+.icon-twitter:before {
+	content: "\e60a";
+}
+.icon-cog:before {
+	content: "\e60b";
+}
+.icon-arrow_down:before {
+	content: "\e60c";
+}
+.icon-arrow_up:before {
+	content: "\e60d";
+}
+.icon-googlePlus:before {
+	content: "\e60e";
+}
+.icon-facebook:before {
+	content: "\e60f";
+}

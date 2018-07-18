@@ -1,0 +1,167 @@
+<div class="scrollViewport" data-bind="niceScroll: true">
+    <a href="#" data-bind="click: function(){ storage.hideTray(); newCreativeVisibillity(false); }" class="close-tray"></a>
+<!-- ko template: creative!=null&&newCreativeVisibillity() ? 'newCreative' : 'creatives' --><!-- /ko -->
+
+<script id="creatives" type="text/html">
+    <h2 class="icon-storage"> Storage</h2>
+    <h4>Creatives</h4>
+    <p>
+        <ul class="nav nav-stacked items-list -creatives-list" data-bind="foreach: creatives">
+        <!-- ko if: fields.strategy()=='' -->
+            <li data-bind="text: fields.name, click: $parent.storage.clickTrayElement.bind($data), css: 'creative-' + fields.type().toLowerCase()"></li>
+        <!-- /ko -->
+        <!-- ko if: fields.strategy()!='' -->
+            <li data-bind="text: fields.name, css: 'creative-' + fields.type().toLowerCase() + ' creative-disabled', tooltip: {title: 'This creative already used in '+fields.strategy(), placement: 'left'}"></li>
+        <!-- /ko -->
+        </ul>
+    </p>
+    <p>
+        <a class='btn' data-bind="click: addNewCreative">
+            Create New Creative
+        </a>
+    </p>
+</script>
+
+<script id="newCreative" type="text/html">
+    <h2>New creative</h2>
+
+    <form>
+        <div class="control-group row-fluid">
+            <label class="control-label">Creative name</label>
+
+            <div class="controls">
+                <input class="input-block-level -t-input-creative-name" type="text" data-bind="value: creative().fields.name"/>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid" data-bind="if: creative().fields.type() === 'Html'">
+
+            <label class="control-label">HTML code</label>
+
+            <div class="controls">
+                <textarea rows="10" disabled class="input-block-level" data-bind="value: creative().fields.api_data">
+                </textarea>
+            </div>
+
+        </div>
+        <div class="control-group row-fluid">
+            <label class="control-label">Creative type</label>
+
+            <div class="controls" data-bind="if: storage.creativesDestination=='default'">
+                <select name="creative-type" data-bind="value: creative().fields.destination" disabled>
+                    <option selected value="default">Default</option>
+                </select>
+            </div>
+            <div class="controls" data-bind="if: storage.creativesDestination!='default'">
+                <select name="creative-type" data-bind="value: creative().fields.destination, click: creative().destinationChange">
+                    <option value="facebook_sidebar">Facebook sidebar</option>
+                    <option value="facebook_newsfeed">Facebook news feed</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid" data-bind="if: _.contains(['Image', 'Flash'], creative().fields.type())">
+            <label class="control-label">Choose file</label>
+
+            <div class="controls ">
+                <!-- ko if: creative().isCreativeTypeFB() -->
+                    <div class="btn -t-creative-upload"
+                         data-bind="imageUploader: {callback: creative().setImageFromqqUploader}">Upload file
+                    </div>
+                <!-- /ko -->
+                <!-- ko ifnot: creative().isCreativeTypeFB() -->
+                    <div class="btn -t-creative-upload"
+                         data-bind="fileUploader: {callback: creative().setImageFromqqUploader}">Upload file
+                    </div>
+                <!-- /ko -->
+            </div>
+        </div>
+
+        <div class="control-group row-fluid control-with-hint" data-bind="visible: creative().fields.destination()=='facebook_newsfeed'">
+            <i class="icon-help fb-hint" data-bind="tooltip: {title: 'You may choose only FB page with confirmed access status', placement: 'left'}"></i>
+            <label class="control-label">Facebook page</label>
+            <div class="controls ">
+                <select name="fb-page" data-bind="value: creative().fields.fb_brand_page, foreach: creative().available_brands">
+                    <option data-bind="text: fields.page_name, attr: {value: fields.id}"></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid control-with-hint" data-bind="visible: creative().isCreativeTypeFB()">
+            <i class="icon-help fb-hint" data-bind="tooltip: {title: 'These fields can not contain the following characters:<br>\ ^ ~ _ = { } [ ] | < ><br>International Phonetic Alphabet (IPA) Symbols, e.g., θ, ð, ʃ, ʒ, etc.<br>Superscript and subscript characters with the exception of TM and SM', html: true, placement: 'left'}"></i>
+            <label class="control-label">Title</label>
+            <div class="controls ">
+                <input class="input-block-level" type="text"
+                       data-bind="value: creative().fields.fb_title, 
+                       attr: {maxlength: (creative().fields.destination()=='facebook_sidebar')?'25':'90'}"/>
+            </div>
+        </div>
+        
+        <div class="control-group row-fluid" data-bind="visible: creative().isCreativeTypeFB()">
+            <label class="control-label">Body</label>
+            <div class="controls ">
+                <textarea class="input-block-level" rows="2" data-bind="value: creative().fields.fb_body,
+                          attr: {maxlength: (creative().fields.destination()=='facebook_sidebar')?'90':'145'}">
+                </textarea>
+            </div>
+        </div>
+        
+        <div class="control-group row-fluid" data-bind="visible: creative().fields.destination()=='facebook_newsfeed'">
+            <label class="control-label">Message</label>
+            <div class="controls ">
+                <textarea class="input-block-level" rows="3" data-bind="value: creative().fields.fb_message" maxlength="500"></textarea>
+            </div>
+        </div>
+        
+        <div class="control-group row-fluid" data-bind="visible: creative().fields.destination()=='facebook_newsfeed'">
+            <label class="control-label">Domain</label>
+            <div class="controls ">
+                <input class="input-block-level" type="text" data-bind="value: creative().fields.fb_domain">
+            </div>
+        </div>
+
+        <!-- ko if: creative().is_preview_visible -->
+        <div class="control-group row-fluid">
+            <label class="control-label">Preview: </label>
+
+            <div class="controls">
+                <div data-bind="template: { name: 'display-' + creative().fields.type(), data: $data }"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+        <div class="control-group row-fluid">
+            <div class="controls">
+                <button class="-t-button-save btn" data-bind="click: save">Save</button>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/html" id="display-Image">
+        <div class="img-placeholder"><img class="-creative-preview" data-bind="attr: { src: creative().fields.api_data }"/></div>
+    </script>
+
+    <script type="text/html" id="display-Flash">
+        <div class="img-placeholder" data-bind="style: {width: creative().fields.width() + 'px'}">
+            <object type="application/x-shockwave-flash" width="0" height="0"
+                    data-bind="attr: { data: creative().fields.api_data, width: creative().fields.width, height: creative().fields.height}">
+                <param name="movie" data-bind="value: creative().fields.api_data"/>
+                <param name="quality" value="high"/>
+            </object>
+        </div>
+    </script>
+
+    <script type="text/html" id="display-Video">
+        <video id="video-preview" class="-vast-preview video-js vjs-default-skin" autoplay controls preload="auto"
+            poster="/static/assets/images/logo.png"
+            data-setup='{}'
+            width='640'
+            height='480'
+            >
+            <source data-bind="staticImg: 'assets/video/g4branding.mp4'" type="video/mp4">
+            <source data-bind="staticImg: 'assets/video/g4branding.webm'" type="video/webm">
+            <source data-bind="staticImg: 'assets/video/g4branding.ogv'" type="video/ogg">
+        </video>
+    </script>
+</script>
+
+</div>

@@ -1,0 +1,122 @@
+//
+// Tooltips
+// --------------------------------------------------
+
+
+.tooltip {
+	.opacity(0);
+
+	transition:none;
+	position: absolute;
+	display: block;
+	visibility: visible;
+	padding: 5px;
+	font: 11px Arial;
+	z-index: 2;
+    white-space: normal;
+
+  	&.in     { .opacity(80); }
+	&.top    { margin-top:  -3px; }
+	&.right  { margin-left:  3px; }
+	&.bottom { margin-top:   3px; }
+	&.left   { margin-left: -3px; }
+}
+
+.tooltip-inner {
+	max-width: 200px;
+	padding: 7px 14px;
+	color: @white;
+	text-align: center;
+	text-decoration: none;
+	background-color: @tooltipBackground;
+
+}
+
+.tooltip-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+}
+.tooltip {
+	&.top .tooltip-arrow {
+	bottom: 0;
+    left: 50%;
+    margin-left: -@tooltipArrowWidth;
+    border-width: @tooltipArrowWidth @tooltipArrowWidth 0;
+    border-top-color: @tooltipArrowColor;
+  }
+  &.right .tooltip-arrow {
+    top: 50%;
+    left: 0;
+    margin-top: -@tooltipArrowWidth;
+    border-width: @tooltipArrowWidth @tooltipArrowWidth @tooltipArrowWidth 0;
+    border-right-color: @tooltipArrowColor;
+  }
+  &.left .tooltip-arrow {
+    top: 50%;
+    right: 0;
+    margin-top: -@tooltipArrowWidth;
+    border-width: @tooltipArrowWidth 0 @tooltipArrowWidth @tooltipArrowWidth;
+    border-left-color: @tooltipArrowColor;
+  }
+  &.bottom .tooltip-arrow {
+    top: 0;
+    left: 50%;
+    margin-left: -@tooltipArrowWidth !important;
+    border-width: 0 @tooltipArrowWidth @tooltipArrowWidth;
+    border-bottom-color: @tooltipArrowColor;
+  }
+}
+
+.input-error + .tooltip{
+    .tooltip-inner{
+        background: @contentError !important;
+        color:#fff;
+    }
+
+    &.top .tooltip-arrow{
+        border-top-color: @contentError !important;
+    }
+
+    &.bottom .tooltip-arrow{
+        border-bottom-color: @contentError !important;
+    }
+}
+
+.table-subheader .tooltip,
+#menu .tooltip,
+.sidebar header .tooltip,{
+    background: @mainYellow;
+    left: 60px;
+    top: 12px;
+    white-space: nowrap;
+    padding: 10px 10px 8px;
+    font: bold 12px/12px Arial;
+
+    .tooltip-inner{
+        background: @mainYellow;
+        padding: 0;
+        text-transform: none;
+        color: @white;
+    }
+
+    .tooltip-arrow{display: none;}
+
+    &:after {
+        right: 100%;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border: solid transparent;
+        border-color: rgba(0, 0, 0, 0);
+        border-right-color: @mainYellow;
+        border-width: 6px;
+        top: 50%;
+        margin-top: -6px;
+    }
+}
+

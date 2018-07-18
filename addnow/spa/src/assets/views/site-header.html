@@ -1,0 +1,9 @@
+<div class="site-header clearfix">
+    <a href="/" class="website-logo" ng-if="!$root.token"></a>
+    <a href="/addnow/apps/dashboard/" class="website-logo" ng-if="$root.token"></a>
+    <div class="sign-login-actions">
+        <a href="/signin" class="g4-button outline-button no-line" ng-if="!$root.token"><span>Sign In</span></a>
+        <a href="/signup" class="g4-button outline-button" ng-if="!$root.token"><span>Sign Up</span></a>
+        <a href="/dashboard" class="g4-button outline-button" ng-if="$root.token"><span>Dashboard</span></a>
+    </div>
+</div>

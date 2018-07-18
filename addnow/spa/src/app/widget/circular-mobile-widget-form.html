@@ -1,0 +1,78 @@
+<div class="half widget-attributes">
+    <h3>Options</h3>
+
+    <div class="form-group">
+        <errors data="errors"></errors>
+    </div>
+    <div class="form-group widget-name-field" ng-class="{error: form.name.$invalid && form.$submitted, success: form.name.$valid && form.$submitted}">
+        <div>
+            <div class="label-container">
+                <label for="name">Name</label>
+            </div>
+            <input ng-model="widget.name" name="name" placeholder="give me a descriptive name please..."
+                   class="form-control domain" type="text"
+                   required validate-server/>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-if="form.name.$dirty || form.$submitted" ng-messages="form.name.$error" ng-messages-multiple
+             class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{error: form.min_width.$invalid && form.$submitted, success: form.min_width.$valid && form.$submitted}">
+        <div>
+            <div class="label-container">
+                <label for="min_width">Minimal Screen Width</label>
+            </div>
+            <input ng-model="widget.minWidth" name="min_width" placeholder="type minimal device screen width to display widget..."
+                   class="form-control domain" type="number" min="1"
+                   required validate-server/>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.min_width.$error" ng-messages-multiple
+             class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+            <div ng-message="min">Screen width should be positive.</div>
+            <div ng-message="number">Screen width must be a number.</div>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{error: form.vanity_domain.$invalid && form.$submitted, success: form.vanity_domain.$valid && form.$submitted}">
+        <div>
+            <label for="vanity_domain">Vanity Domain</label>
+            <select name="vanity_domain" ng-model="widget.vanityDomain"
+                    class="form-control domain">
+                <option value="" >Default vanity domain</option>
+                <option ng-selected="{{item === widget.vanityDomain}}" ng-repeat="item in domains" value="{{item}}">
+                    {{item}}
+                </option>
+            </select>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.vanity_domain.$error" ng-messages-multiple
+             class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{error: form.position.$invalid && form.$submitted, success: form.position.$valid && form.$submitted}">
+        <div>
+            <div class="label-container">
+                <label for="position">Initial Position</label>
+            </div>
+            <select name="position" ng-model="widget.position"
+                    class="form-control domain ng-pristine ng-untouched ng-valid">
+                <option value="top-left">Top Left</option>
+                <option value="top-right">Top Right</option>
+                <option value="bottom-left">Bottom Left</option>
+                <option value="bottom-right">Bottom Right</option>
+            </select>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.position.$error" ng-messages-multiple
+             class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+</div>
+
+<div class="half widget-available-services">
+    <extendable-buttons name="buttons" ng-model="widget.buttons" max-main-items="{{maxMainItems}}" min-main-items="{{minMainItems}}"></extendable-buttons>
+
+    <div ng-class="{notSubmitted: !form.$submitted}" ng-if="form.buttons.$dirty || form.$submitted" ng-messages="form.buttons.$error" ng-messages-multiple
+         class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+{% extends 'signup/base_signup.html' %}
+
+{% block title %}G4 Trader - account setup complete{% endblock %}
+
+{% block content %}
+<div class="teaser fixed campaigns">
+    <h2>Create your first campaign</h2>
+
+    <p>
+        Your'e all set to create your first campaign. Start now with a<br>
+        help of our help guide.
+    </p>
+
+    <p>
+        <a class="btn btn-yellow span3" href="/#/campaigns-create/overall">Start a new campaign</a>
+        <a class="btn span2 -t-go-to-main" href="{% url 'main' %}">Maybe later</a>
+    </p>
+</div>
+
+<div class="footnotes">
+    <h4>Did you know?</h4>
+
+    <figure>
+        <img src="/static/assets/images/help-system.png">
+    </figure>
+
+    <div class="content">
+        <h3>Help system</h3>
+        <p>
+            If you're lost or don't understand what G4 Trader want's
+            from yoy you can turn on our help tips, with a switch
+            placed in top right corner. It's on by default.
+        </p>
+    </div>
+</div>
+{% endblock %}

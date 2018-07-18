@@ -1,0 +1,32 @@
+<div class="app-header" ng-controller="NavbarCtrl">
+    <div class="addnow-logo">
+        <a href="/addnow/apps/dashboard"></a>
+    </div>
+
+    <div class="site-name" ng-show="selectedSite">
+        <h1>{{ selectedSite.domain }}</h1>
+        <a ng-href="/site/edit/{{ selectedSite.id }}" class="site-config-button" ng-if="showEdit"></a>
+        <a ng-href="/site/dashboard/{{ selectedSite.id }}" class="back-to-dashboard-button" ng-if="showDashboard"></a>
+    </div>
+    <div class="user-actions">
+        <select class="jump-to-site" ng-model="selectedSite" ng-options="site.domain for site in sites"
+                ng-change="siteChange(selectedSite.id)">
+            <option disabled value="">Quick jump to site</option>
+        </select>
+
+        <a ng-href="/site/add" class="g4-button add-site-button"><span>+ Add Site</span></a>
+
+        <div class="user-menu">
+            <a ng-click="toggleUserMenu()" class="user-menu-button">
+                <span class="user-avatar"><img gravatar-src="'{{ $storage.email }}'" gravatar-size="36"></span>
+                <span class="caret" ng-show="links.userMenu.length > 0"></span>
+            </a>
+            <div class="user-menu-options {{ showUserMenu ? 'active' : '' }}">
+                <div class="arrow"></div>
+                <nav>
+                    <a ng-repeat="link in links.userMenu" ng-href="{{ link.href }}">{{ link.label }}</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

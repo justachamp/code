@@ -1,0 +1,18 @@
+{% extends 'emails/base_banner.html' %}
+{% block title %}
+    <span style="
+        font-size: 24px;
+        letter-spacing: 6px;
+        line-height: 2;
+    ">Your Ad has been rejected</span>
+{% endblock %}
+{% block message %}
+    <p>Your Ad from
+        <span style="color: #64696B;">{{ strategies|join:", " }}</span>
+        strateg{{ strategies|length|pluralize:"y,ies"}} has been rejected.
+        {% if creative.appnexus_feedback %}
+        <br/>Rejection reason is: <i>"{{ creative.appnexus_feedback }}"</i>
+        {% endif %}
+    </p>
+
+{% endblock %}

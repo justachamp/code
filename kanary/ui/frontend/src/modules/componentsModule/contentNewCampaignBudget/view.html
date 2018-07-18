@@ -1,0 +1,46 @@
+<div class="content-container">
+
+    <h2 class="-t-title">Budget</h2>
+
+    <form class="form-horizontal">
+
+        <div class="control-group row-fluid">
+            <label class="control-label" for="budgetTotal">Total budget</label>
+
+            <div class="controls">
+                <div class="input-prepend">
+                    <input type="text" data-bind="formatBudget: fields().budget_total, displayError: errors.budget_total" class="input-block-level -t-input-budget-total" id="budgetTotal"
+                           data-placement="top" data-toggle="tooltip" data-original-title="Total budget allocation for campaign"/>
+                    <span class="add-on">$</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="control-group row-fluid">
+            <div class="controls" data-bind="if: mode() === 'edit'">
+                <div class="progress-bar-container horizontal span12">
+                    Total campaign budget is <strong data-bind="text: '$' + budgetTotalFormatted()"></strong>
+
+                    <div class="progress horizontal">
+                        <div class="bar" data-bind="style: { width: budgetSpentPercent()+'%' }"></div>
+                    </div>
+
+                    <span class="spent"> $<span data-bind="text: budgetSpentFormatted"></span>&nbsp;</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid">
+            <div class="controls">
+                <a class="btn btn-next -t-button-next" href="#" data-bind="click: function(){ visitStep('conversion') }">
+                    Next step
+                </a>
+            </div>
+        </div>
+
+    </form>
+
+
+
+</div>

@@ -1,0 +1,29 @@
+{% extends 'auth/base_landing.html' %}
+
+{% block main_section %}
+<div class="container login-form">
+  <div class="row">
+    <div class="span4 offset4 center">
+      <h1>Sign up</h1>
+
+      <form action="" method="POST" class="-t-signup-form">
+        {% csrf_token %}
+        <input name="email" type="text" placeholder="E-mail" class="input-block-level -t-input-email"
+               value="{{ form.data.email }}">
+        <span class="form__error">{{ form.email.errors }}</span>
+        <input name="password" type="password" placeholder="Password" class="input-block-level -t-input-password">
+        <span class="form__error">{{ form.password.errors }}</span>
+        <input name="repeat_password" type="password" placeholder="Repeat password"
+               class="input-block-level -t-input-repeat-password">
+        <span class="form__error">{{ form.repeat_password.errors }}</span>
+
+        <button type="submit" class="-t-submit">Create new account</button>
+
+        <p>
+          <a href="{% url 'auth-login' %}">Have an account? Log in</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,167 @@
+// Common colors
+// -------------------------
+
+@black:                 #000;
+@blackLighter:          #161616;
+@grayDark:              #333;
+@gray:                  #777b7e;
+@grayLight:             #E0E0E0;
+@grayLighter:           #fbfbfb;
+@grayLightest:          #fdfdfd;
+@white:                 #fff;
+@red:                   #dd0c14;
+@mainAccent:            #5072a8;
+@mainAccentLighter:     #a1b7da;
+@mainYellow:            @mainAccent;
+
+
+
+@contentGray:           #e3e3e3;
+@contentGrayLight:      #fbfbfb;
+@contentBlack:          #4f575d;
+@contentBlackLight:     #272929;
+@contentTextColor:      #64696b;
+@contentError:          #dd0c14;
+
+@trayBg:                #f4f4f4;
+@bodyBackground:        @white;
+
+@linkColor:             @mainYellow;
+@sidebarLinkColor:		#afb6b6;
+
+@contentBtnRadius:		2px;
+@contentBtnBg:          #e9ebee;
+@contentBtnHover:       #f5f5f5;
+@contentBtnBorder:      #b2b6bd;
+@contentBtnYellowBg:    @mainYellow;
+@contentBtnYellowText:  #6d600b;
+@contentBorder:         #e6e6e6;
+@contentBorderDark:     #bbb;
+
+@sidebarBg:             #3a404d;
+@sidebarBgLight:        #2e3030;
+@sidebarBgDark:         #1f2121;
+@sidebarBgDarker:       #1c1c1c;
+@sidebarBgArticle:      #23272f;
+@sidebarTextColor:      #cccfd3;
+@sidebarTextLight:      @white;
+@sidebarBlack:          #000101;
+@sidebarBlackLight:     #131414;
+@sidebarGray:           #434a59;
+@sidebarGrayDark:       #303740;
+@menuBg:                #272c33;
+
+@tableAccent:			#f1f1f1;
+
+
+// Palette
+
+@pGrey:                 #999999;
+@pYellow:               #f4da2c;
+@pOrange:               #ee720e;
+@pRed:                  #d93b3b;
+@pVioletDark:           #7f4fa1;
+@pVioletLight:          #d05589;
+@pBlueDark:             #234bb0;
+@pBlueLight:            #00aeef;
+@pGreenDark:            #0c9736;
+@pGreenLight:           #79c421;
+
+
+// Layout size
+// -------------------------
+
+@headerHeight:          40px;
+@sidebarWidth:          400px;
+@menuWidth:             80px;
+@trayWidth:             280px;
+@dropdownWidth:         200px;
+@sidebarPadding:        21px;
+
+// Tooltips and popovers
+// -------------------------
+
+@tooltipColor:            @white;
+@tooltipBackground:       #000;
+@tooltipArrowWidth:       5px;
+@tooltipArrowColor:       @tooltipBackground;
+
+@popoverBackground:       #fff;
+@popoverArrowWidth:       8px;
+@popoverArrowColor:       #e3e3e3;
+@popoverTitleBackground:  darken(@popoverBackground, 3%);
+
+// Special enhancement for popovers
+@popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+@popoverArrowOuterColor:  rgba(0,0,0,.25);
+
+
+
+// Typography
+// -------------------------
+
+@baseFontSize:          1em;
+@baseFontFamily:        "Arial";
+
+
+// Basic sizes
+// -----------------------------
+
+@baseLineHeight:		18px;
+@baseControlsHeight:    28px;
+@baseInputWidth:        200px;
+
+// Forms
+// -------------------------
+@inputBackground:               @white;
+@inputBorder:                   @contentBorder;
+@inputBorderRadius:             0;
+@inputDisabledBackground:       @grayLighter;
+@formActionsBackground:         #f5f5f5;
+
+
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       150px;
+@horizontalFormMaxWidth:          650px;
+
+// Dropdowns
+// -------------------------
+@zindexDropdown:                99999;
+@dropdownBackground:            @white;
+@dropdownBorder:                rgba(0,0,0,.2);
+@dropdownDividerTop:            #e5e5e5;
+@dropdownDividerBottom:         @white;
+
+@dropdownLinkColor:             @grayDark;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkColorActive:       @dropdownLinkColor;
+
+@dropdownLinkBackgroundActive:  @linkColor;
+@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
+
+// GRID
+// --------------------------------------------------
+
+// Default 940px grid
+// -------------------------
+@gridColumns:             12;
+@gridColumnWidth:         60px;
+@gridGutterWidth:         20px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+
+// Fluid grid
+// -------------------------
+@fluidGridColumnWidth:    percentage(@gridColumnWidth/@gridRowWidth);
+@fluidGridGutterWidth:    percentage(@gridGutterWidth/@gridRowWidth);
+
+// Variables for bootstrap-select
+// ------------------------------------
+@color-red-error: rgb(185, 74, 72);
+@color-blue-hover: rgb(100, 177, 216);
+@color-grey-arrow: rgb(204, 204, 204);
+
+@width-default: 220px; // 3 960px-grid columns
+
+@zindex-select-dropdown: 1035; // must be lower than a modal background (1040) but higher than the fixed navbar (1030)

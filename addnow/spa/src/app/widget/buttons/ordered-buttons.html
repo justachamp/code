@@ -1,0 +1,14 @@
+<div class="clearfix">
+    <h3 class="half">Select social icons</h3>
+    <span class="drag-drop-instructions half">Move items to reorder</span>
+</div>
+
+<div class="services-pool selected-icons" style="width: 100%;">
+    <ul class="sortable-row clearfix" ui-sortable="sortableOptions" ng-model="buttons">
+        <li class="sortable-item" ng-repeat="item in buttons">
+            <span class="addnow-icon-{{item.service}}">
+                <span class="addnow-service-icon _show-label ng-binding">{{item.text}}</span>
+            </span>
+        </li>
+    </ul>
+ </div>

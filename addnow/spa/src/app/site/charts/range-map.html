@@ -1,0 +1,31 @@
+<div>
+    <div id="rangemap" style="min-width: 300px; margin: 0 auto"></div>
+    <div class="g4-table">
+        <table ng-table="topCountriesTableParams" class="table table-striped" export-csv="topCountriesCSV">
+            <thead>
+            <tr>
+                <th data-title="Country">Country</th>
+                <th data-title="Shares" class="cell-right">Shares</th>
+                <th data-title="Clicks" class="cell-right">Clicks</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="topCountriesItem in topCountries | orderBy:'-shares' | limitTo:10">
+                <td><span class="flag-icon {{ topCountriesItem.country | lowercase }}"></span>{{ topCountriesItem.country | isoCountry | capitalize:all }}</td>
+                <td class="cell-right">{{ topCountriesItem.shares | number }}</td>
+                <td class="cell-right">{{ topCountriesItem.clicks | number }}</td>
+            </tr>
+            <tr ng-show="topCountries.length === 0" class="ng-table-filters">
+                <td class="no-data-msg" colspan="3">No countries activity tracked.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="panel-footer" ng-if="topCountries.length > 0">
+        <a class="export-graph-button g4-button outline-button"
+           ng-mousedown="topCountriesCSV.generate()"
+           ng-href="{{ topCountriesCSV.link() }}"
+           download="top-countries.csv"><span>export csv</span></a>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+{% extends 'emails/base.html' %}
+
+{% block content %}
+  <div style="height: 260px;border-bottom: 1px solid  #686B6B;background: #898a8a; background-image: url(bg_keyb.jpg);border-top-left-radius: 2px; border-top-right-radius: 2px;">
+    <p class="info" style="padding: 105px 40px 40px 40px;margin:0;line-height: 1.6;text-align: center;color: #fff;text-transform: uppercase;font-size: 32px;letter-spacing: 8px;">{% block title %}{% endblock %}</p>
+       </div>
+
+  <div class="msg" style="padding: 40px 50px 40px 50px;font-family: Arial;text-align: center; font-weight: 400; font-size: 15px !important;">
+    {% block message %}
+    {% endblock %}
+    {% block button %}
+    <a href="{{ kanary_url }}" style="font-weight: 700;line-height: 1.375;text-decoration: none;margin-top: 37px; margin-left: auto; margin-right: auto; border-radius: 100px; width: 210px; font-size: 13px; color: white; background: #495264; padding: 15px 10px; cursor: pointer;  border: none; outline: none;display: block;">Go to Gravity4</a>
+    {% endblock %}
+  </div>
+{% endblock %}

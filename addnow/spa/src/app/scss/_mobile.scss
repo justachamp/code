@@ -1,0 +1,31 @@
+/*
+http://davidwalsh.name/write-media-queries-sass
+usage:
+p {
+  font-size: 16px;
+
+  @include tablet {
+    font-size: 18px;
+  }
+
+  @include phone {
+    font-size: 20px;
+  }
+}
+*/
+
+$tablet-width: 960px;
+$phone-width: 600px;
+
+@mixin tablet {
+	@media screen and (max-width: #{$tablet-width}) {
+		@content;
+	}
+}
+
+@mixin phone {
+	@media screen and (max-width: #{$phone-width}) {
+		@content;
+	}
+}
+

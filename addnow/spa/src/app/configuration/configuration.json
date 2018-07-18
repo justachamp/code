@@ -1,0 +1,37 @@
+{
+    "local-e2e": {
+        "AppSettings": {"backendApi": "//localhost:8765/api/v1/"},
+        "TrackerSettings": {"backendApi": "//localhost:8765/"},
+        "CdnSettings": {"host": "cdn.addnow.dev:8081"}
+    },
+    "vagrant-e2e": {
+        "AppSettings": {"backendApi": "//addnow.dev:8765/api/v1/"},
+        "TrackerSettings": {"backendApi": "//addnow.dev:8765/"},
+        "CdnSettings": {"host": "cdn.addnow.dev:8081"}
+    },
+    "vagrant": {
+        "AppSettings": {"backendApi": "//api.addnow.dev:8081/api/v1/"},
+        "TrackerSettings": {"backendApi": "//api.addnow.dev:8081/tracker/"},
+        "CdnSettings": {"host": "cdn.addnow.dev:8081"}
+    },
+    "dev": {
+        "AppSettings": {"backendApi": "//api.addnow.dev/api/v1/"},
+        "TrackerSettings": {"backendApi": "//api.addnow.dev/tracker/"},
+        "CdnSettings": {"host": "cdn.addnow.dev"}
+    },
+    "staging": {
+        "AppSettings": {"backendApi": "//api.staging.addnow.com/api/v1/"},
+        "TrackerSettings": {"backendApi": "//api.staging.addnow.com/tracker/"},
+        "CdnSettings": {"host": "cdn.staging.addnow.com"}
+    },
+    "testing": {
+        "AppSettings": {"backendApi": "//api.testing.addnow.com/api/v1/"},
+        "TrackerSettings": {"backendApi": "//api.testing.addnow.com/tracker/"},
+        "CdnSettings": {"host": "cdn.testing.addnow.com"}
+    },
+    "production": {
+        "AppSettings": {"backendApi": "//api.addnow.com/api/v1/"},
+        "TrackerSettings": {"backendApi": "//api.addnow.com/tracker/"},
+        "CdnSettings": {"host": "cdn.addnow.com"}
+    }
+}

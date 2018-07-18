@@ -1,0 +1,88 @@
+<div class="content-container">
+
+    <h2>Overall information</h2>
+
+    <form class="form-horizontal -t-form-overall">
+
+        <div class="control-group row-fluid">
+            <label class="control-label">Strategy name</label>
+
+            <div class="controls">
+                <input type="text" class="input-block-level span8 -t-input-name" data-bind="value: strategy.fields().name, displayError: strategy.errors.name" />
+            </div>
+        </div>
+
+        <div class="control-group row-fluid">
+            <label class="control-label">Strategy type</label>
+            <div class="controls">
+                <select class="span4 -t-type" data-bind="options: strategy.strategyTypes, value: strategy.fields().type"></select>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid">
+            <label class="control-label">Total strategy budget</label>
+
+            <div class="controls">
+                <div class="input-prepend span8">
+                    <input type="text" data-bind="formatBudget: strategy.fields().budget_total, displayError: strategy.errors.budget_total" class="input-block-level -t-input-budget">
+                    <span class="add-on">$</span>
+                </div>
+                <div class="span4">
+                    <label class="checkbox -t-distribute-evenly input-inline-text">
+                        <input type="checkbox" data-bind="fancyCheckbox: { value: strategy.fields().distributed_evenly }">
+                        <span class="">Distribute evenly</span>
+                     </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid">
+            <div class="controls">
+                <p>
+                    Total campaign budget is
+                    <strong>$<span data-bind="text: strategy.campaignTotalBudgetFormatted"></span></strong>,
+                    <strong>$<span data-bind="text: strategy.campaignBudgetLeftFormatted"></span></strong> left
+                    (<span data-bind="text: strategy.campaignBudgetPercentage"></span>%).
+                </p>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid">
+            <label class="control-label">Strategy daily budget</label>
+
+            <div class="controls">
+                <div class="input-prepend span4">
+                    <input type="text" data-bind="formatBudget: strategy.fields().budget_daily" class="input-block-level -t-input-budget-daily" data-allowzero="false">
+                    <span class="add-on">$</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group row-fluid" style="display: none;">
+            <label class="control-label">Total impression limit</label>
+
+            <div class="controls">
+                <input type="text" class="input-block-level span4" data-bind="value: strategy.fields().capping_total, displayError: strategy.errors.capping_total" />
+            </div>
+        </div>
+
+        <div class="control-group row-fluid" style="display: none;">
+            <label class="control-label">Daily impression limit</label>
+
+            <div class="controls">
+                <input type="text" class="input-block-level span4" data-bind="value: strategy.fields().capping_day, displayError: strategy.errors.capping_day" />
+            </div>
+        </div>
+
+
+    <div class="control-group row-fluid">
+      <div class="controls">
+            <a class="btn -t-button-next" href="#" data-bind="click: function(){ strategy.visitStep('targeting') }">
+                Next step
+            </a>
+        </div>
+    </div>
+
+    </form>
+
+</div>

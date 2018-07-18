@@ -1,0 +1,19 @@
+[
+{
+  "fields": {
+    "email_is_verified": true,
+    "is_active": true,
+    "dsp_pixel_url": "",
+    "last_login": "2014-12-09T14:21:29.981Z",
+    "is_reminders_muted": false,
+    "offset": 0,
+    "is_admin": true,
+    "password": "pbkdf2_sha256$20000$LaBvmHGNKTrZ$wNn+LtYk0rAStiNpkF72ECZb1zPJ+L/9LPSthje3VBc=",
+    "email": "vagrant@vagrant.com",
+    "has_analytics": false,
+    "date_joined": "2016-02-08T12:43:35.417Z"
+  },
+  "model": "accounts.user",
+  "pk": 1
+}
+]

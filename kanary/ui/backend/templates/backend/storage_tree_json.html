@@ -1,0 +1,7 @@
+{% load mptt_tags %}
+{% full_tree_for_model front.creative as nodes %}
+
+var json =  {% for genre,structure in nodes|tree_info %}{% if structure.new_level %} [{ {% else %} },{ {% endif %}
+id: "{{ genre.id }}",
+children: {% if genre.is_leaf_node %}[]{% endif %}
+{% for level in structure.closed_levels %}}]{% endfor %}{% endfor %}

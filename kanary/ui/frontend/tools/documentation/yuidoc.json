@@ -1,0 +1,14 @@
+{
+    "name": "Canary",
+    "description": "Canary documentation for UI developers",
+    "version": "0.0.1",
+    "url": "http://clearcode.cc/",
+    "options": {
+        "linkNatives": "true",        
+        "attributesEmit": "false",
+        "selleck": "false",
+        "ignorePaths": [ "modules" ],
+        "paths": "*/js",
+        "outdir": "../api-js"
+    }
+}

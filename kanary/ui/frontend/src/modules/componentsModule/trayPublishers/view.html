@@ -1,0 +1,9 @@
+<div class="scrollViewport" data-bind="niceScroll: true">
+
+    <a href="#" data-bind="click: storage.hideTray" class="close-tray -t-button-close"></a>
+    <h2 class="icon-storage"> Storage</h2>
+    <h4>Publisher sets</h4>
+    <ul class="nav nav-stacked items-list -publisher-set-list" data-bind="foreach: publisher_sets">
+        <li class="publishers" data-bind="text: name, click: $parent.storage.clickTrayElement.bind($data)"></li>
+    </ul>
+</div>

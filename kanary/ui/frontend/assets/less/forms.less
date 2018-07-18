@@ -1,0 +1,64 @@
+form {
+    &.form-modal{
+        width: 40%;
+        margin: 0 auto @baseLineHeight;
+        display: block;
+        label {
+            text-align: left;
+            color: black;
+        }
+
+        .btn[class^="span"], .btn[class*=" span"] {
+            height: auto;
+        }
+
+        .footer {
+            margin-top: 15px;
+        }
+    }
+}
+
+fieldset {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+form hr {
+	border: none !important;
+	display: block;
+	background: @sidebarTextLight;
+	margin: 5px 0 20px !important;
+	height: 1px;
+}
+
+.controls {
+	p {
+		padding: @baseLineHeight / 2 0 0;
+        margin:0 0 -5px 0;
+
+		a,
+		strong {
+			color:@blackLighter;
+		}
+		a {
+			text-decoration: underline;
+		}
+	}
+}
+
+pre {
+    .border-radius(2px);
+
+    font:11px/21px Monaco;
+    background: #333;
+    padding: 10px 20px;
+    color: @white;
+    margin-bottom: @baseLineHeight;
+
+}

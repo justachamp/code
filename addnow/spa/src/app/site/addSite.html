@@ -1,0 +1,224 @@
+<div ng-include="'app/navbar/navbar.html'"></div>
+
+<div class="app-body addsite-view">
+    <div class="app-content">
+        <section class="settings-view">
+            <h1 class="settings-section-title" ng-bind-html="!edit && 'Add new site' || 'You are editing <strong>' + site.domain + '</strong>‘s site settings'"></h1>
+            <form name="form" novalidate class="clearfix" ng-submit="submitAddPage()">
+                <div class="panel">
+                    <section class="settings-section clearfix flex-section">
+                        <div class="half site-details">
+                            <h3>Site Details</h3>
+
+                            <errors data="errors.nonFieldServerErrors"></errors>
+
+                            <div class="form-group"
+                                 ng-class="{error: form.domain.$invalid && form.$submitted, success: form.domain.$valid && form.$submitted}">
+                                <div class="addsite-domain-field">
+                                    <label>Domain Name</label>
+                                    <input type="text" value="" name="domain" ng-model="site.domain" placeholder="Enter your website URL"
+                                           ng-model-options="{ debounce: { 'default': 750, 'blur': 0 }}"
+                                           required validate-server ng-pattern="/^(https?\:\/\/)?([a-z0-9][a-z0-9\-]*\.)+[a-z0-9][a-z0-9\-]*\/*$/">
+                                </div>
+                                <div ng-class="{notSubmitted: !form.$submitted}" ng-if="form.domain.$dirty || form.$submitted" ng-messages="form.domain.$error" ng-messages-multiple
+                                     class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+                                    <div ng-message="pattern">Please enter correct URL.</div>
+                                </div>
+                            </div>
+
+                            <h3>Enable Features</h3>
+
+                            <div class="form-group has-radio-switch"
+                                 ng-class="{error: form.addressBarSharing.$invalid && form.$submitted, success: form.addressBarSharing.$valid && form.$submitted}">
+                                <div>
+                                    <label>Address Bar Sharing</label>
+                                    <toggle-switch class="form-group" name="addressBarSharing"
+                                                   ng-model="site.addressBarSharing"></toggle-switch>
+                                </div>
+                            </div>
+                            <div class="form-group has-radio-switch"
+                                 ng-class="{error: form.copyPasteSharing.$invalid && form.$submitted, success: form.copyPasteSharing.$valid && form.$submitted}">
+                                <div>
+                                    <label>Copy &amp; Paste Sharing</label>
+                                    <toggle-switch class="form-group" name="copyPasteSharing"
+                                                   ng-model="site.copyPasteSharing"></toggle-switch>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="half site-details">
+                            <h3>Extended Options</h3>
+
+                            <div class="form-group" ng-class="{error: form.trimKey.$invalid && form.$submitted, success: form.trimKey.$valid && form.$submitted}">
+                                <div class="addsite-domain-field">
+                                    <label>TRIM API key</label>
+                                    <input type="text"
+                                           value="" name="trimKey"
+                                           ng-model="site.trimApiKey"
+                                           ng-change="getVanityDomains(true)"
+                                           ng-model-options="{updateOn: 'blur'}"
+                                           placeholder="Enter your TRIM API key"
+                                           ng-model-options="{ debounce: { 'default': 750, 'blur': 0 }}" validate-server trim-key-validator>
+
+                                    <div ng-if="form.trimKey.$pending" class="loader">verifying...</div>
+
+                                </div>
+                                <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.trimKey.$error" ng-messages-multiple
+                                     class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+                                    <div ng-message="trimKey">Invalid TRIM API key.</div>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-class="{error: form.vanityDomain.$invalid && form.$submitted, success: form.vanityDomain.$valid && form.$submitted}">
+                                <div class="label-container label-with-tooltip">
+                                    <label>Vanity Domain</label>
+                                    <div class="tooltip-container"><span class="tooltip-button"></span><div class="tooltip-content"><div class="arrow"></div><p>Only used in the read more link for copy & paste sharing.</p></div></div>
+                                </div>
+                                <select name="vanityDomain" ng-model="site.vanityDomain"
+                                        class="form-control domain">
+                                    <option value="" >Default vanity domain</option>
+                                    <option ng-selected="{{item === site.vanityDomain}}" ng-repeat="item in domains" value="{{item}}">
+                                        {{item}}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <h3 ng-if="hasAnalytics">Google Analytics configuration</h3>
+                            <div ng-if="hasAnalytics" class="form-group"
+                                 ng-class="{error: form.analytic_account.$invalid && form.$submitted, success: form.analytic_account.$valid && form.$submitted}">
+                                <div class="addsite-sharing-message-field">
+                                    <label>Google Analytics Account</label>
+
+                                    <select name="analytic_account" ng-model="site.analyticsAccount" class="form-control domain"
+                                            ng-options="account.id as account.name for account in accounts" >
+                                        <option value="">--Select Account--</option>
+                                    </select>
+                                </div>
+                                <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.analytic_account.$error" ng-messages-multiple
+                                     class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+                                </div>
+                            </div>
+
+                            <div ng-if="hasAnalytics" class="form-group"
+                                 ng-class="{error: form.analytic_view_profile.$invalid && form.$submitted, success: form.analytic_view_profile.$valid && form.$submitted}">
+                                <div class="addsite-sharing-message-field">
+                                    <label>Google Analytics Profile</label>
+
+                                    <select name="analytic_view_profile" class="form-control domain"
+                                        ng-options="item.name group by item.propName for item in analyticsView.all"  ng-model="analyticsView.selected" ng-change="test()">
+                                        <option value="">--Select Profile--</option>
+                                    </select>
+                                </div>
+                                <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.analytic_view_profile.$error" ng-messages-multiple
+                                     class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+                                </div>
+                            </div>
+
+                            <br/><br/>
+                            <a class="g4-button outline-button add-popup-image-button"
+                               ng-click="openThankYouPopup()"
+                               ng-show="edit && allSelectedWidgets.length > 0">
+                                <span>Customise "thank you for sharing" pop-up</span>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- save-->
+                    <section ng-if="!form.$pending" class="save-bar settings-section">
+                        <div ng-if="edit" class="">
+                            <a href="/addnow/apps/dashboard" class="g4-button outline-button"><span>Cancel</span></a>
+                            <button class="g4-button" type="submit"><span>SAVE SETTINGS</span></button>
+                        </div>
+                        <div ng-if="!edit">
+                            <button class="g4-button" type="submit"><span>SAVE PAGE</span></button>
+                        </div>
+                    </section>
+
+                    <section class="_half settings-section style-chooser" ng-show="edit">
+                        <div>
+                            <h3>Choose Widget Type</h3>
+                            <p>Select a type and click create button</p>
+                            <div class="carousel-container">
+                                <ul>
+                                    <li ng-repeat="wType in ::widgetTypes">
+                                        <div class="layer carSlide clearfix _preview-pane">
+                                            <div class="img-type-container">
+                                                <img ng-src="{{wType.image}}" class="widget-type-image" />
+                                            </div>
+                                            <h4 class="widget-type-name">{{wType.label}}</h4>
+                                            <a class="g4-button outline-button add-widget create-widget-button" ng-if="isCreateButtonExists(wType.value)" ng-click="openWidget(null, wType.value)"><span>CREATE</span></a>
+                                            <p class="widget-type-description" ng-if="!isCreateButtonExists(wType.value)">You can’t create another <strong>{{wType.label}} widget</strong>, only one <strong>{{wType.label}} widget</strong> is available per site.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="myWidgets" class="settings-section clearfix _flex-section" ng-show="edit">
+                        <div>
+                            <h3>My Widgets</h3>
+                            <div class="my-widgets-container clearfix">
+                                <div ng-repeat="widget in allSelectedWidgets" class="my-widget" ng-class="(widget.isActive === true) ? '' : 'is-disabled'">
+                                    <h4>{{widget.name}}</h4>
+                                    <ul ng-if="isSharingButtons(widget)">
+                                        <li><strong>Type</strong> Sharing Buttons</li>
+                                        <li><strong>Button Size</strong> {{widget.buttonSize}}</li>
+                                        <li><strong>Button Orientation</strong> {{widget.orientation}}</li>
+                                        <li><strong>Button Style</strong> {{widget.buttonStyle}}</li>
+                                        <li ng-if="widget.counterPosition"><strong>Counter Position</strong> {{widget.counterPosition}}</li>
+                                        <li><strong>Vanity Domain</strong> {{vanityDomainFormatter(widget.vanityDomain)}}</li>
+                                    </ul>
+                                    <ul ng-if="isNewsletter(widget)">
+                                        <li><strong>Type</strong> Newsletter</li>
+                                        <li><strong>Page URL</strong> <span title="{{widget.pageUrl}}">{{widget.pageUrl | limitTo:16}}{{widget.pageUrl.length > 16 ? '&hellip;' : ''}}</span></li>
+                                        <li><strong>Page Title</strong> {{widget.pageTitle}}</li>
+                                        <li><strong>Media URL</strong> <span title="{{widget.mediaUrl}}">{{widget.mediaUrl | limitTo:16}}{{widget.mediaUrl.length > 16 ? '&hellip;' : ''}}</span></li>
+                                        <li><strong>Vanity Domain</strong> {{vanityDomainFormatter(widget.vanityDomain)}}</li>
+                                    </ul>
+                                    <ul ng-if="isMobile(widget)">
+                                        <li><strong>Type</strong> Mobile</li>
+                                        <li><strong>Minimum Width</strong> {{widget.minWidth}}px</li>
+                                        <li><strong>Vanity Domain</strong> {{vanityDomainFormatter(widget.vanityDomain)}}</li>
+                                        <li><strong>Position</strong> {{widget.position}}</li>
+                                    </ul>
+                                    <ul ng-if="isCircularMobile(widget)">
+                                        <li><strong>Type</strong> Circular Mobile</li>
+                                        <li><strong>Vanity Domain</strong> {{vanityDomainFormatter(widget.vanity_domain)}}</li>
+                                        <li><strong>Initial Position</strong> {{widget.position}}</li>
+                                    </ul>
+                                    <ul ng-if="isCopyPaste(widget)">
+                                        <li><strong>Type</strong> Copy/Paste</li>
+                                        <li><strong>Vanity Domain</strong> {{vanityDomainFormatter(widget.vanityDomain)}}</li>
+                                    </ul>
+                                    <ul ng-if="isFollow(widget)">
+                                        <li><strong>Type</strong> Follow</li>
+                                        <li><strong>Button Orientation</strong> {{widget.orientation}}</li>
+                                    </ul>
+                                    <ul ng-if="isVerticalFloat(widget)">
+                                        <li><strong>Type</strong> Vertical Float</li>
+                                        <li><strong>Position</strong> {{widget.position}}</li>
+                                        <li><strong>Button Style</strong> {{widget.buttonStyle}}</li>
+                                        <li><strong>Vanity Domain</strong> {{vanityDomainFormatter(widget.vanityDomain)}}</li>
+                                    </ul>
+                                    <ul ng-if="isOriginButtons(widget)">
+                                        <li><strong>Type</strong> Original Buttons</li>
+                                        <li><strong>Button Orientation</strong> {{widget.orientation}}</li>
+                                        <li><strong>Vanity Domain</strong> {{vanityDomainFormatter(widget.vanityDomain)}}</li>
+                                    </ul>
+                                    <div class="card-actions">
+                                        <a ng-if="!widget.isActive" ng-click="updateWidgetState(widget, true)" class="g4-button outline-button enable-widget"><span>Enable</span></a>
+                                        <a ng-if="widget.isActive" ng-click="updateWidgetState(widget, false)" class="g4-button outline-button disable-widget"><span>Disable</span></a>
+                                        <a ng-if="widget.isActive" ng-click="openWidget(widget, widget.type)" class="g4-button outline-button"><span>Edit Widget</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+<div ng-include="'assets/views/footer.html'"></div>

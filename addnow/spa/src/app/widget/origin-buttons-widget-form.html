@@ -1,0 +1,62 @@
+<div class="half widget-attributes">
+    <h3>Options</h3>
+
+    <div class="form-group">
+        <errors data="errors"></errors>
+    </div>
+    <div class="form-group widget-name-field" ng-class="{error: form.name.$invalid && form.$submitted, success: form.name.$valid && form.$submitted}">
+        <div>
+            <div class="label-container">
+                <label for="name">Name</label>
+            </div>
+            <input ng-model="widget.name" name="name" placeholder="give me a descriptive name, please..."
+                   class="form-control domain" type="text"
+                   required validate-server/>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-if="form.name.$dirty || form.$submitted" ng-messages="form.name.$error" ng-messages-multiple
+             class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{error: form.orientation.$invalid && form.$submitted, success: form.orientation.$valid && form.$submitted}">
+        <div>
+            <div class="label-container">
+                <label for="orientation">Button Orientation</label>
+            </div>
+            <select name="orientation" ng-model="widget.orientation"
+                    class="form-control domain">
+                <option value="vertical">Vertical</option>
+                <option value="horizontal">Horizontal</option>
+            </select>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.orientation.$error" ng-messages-multiple
+             class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{error: form.vanity_domain.$invalid && form.$submitted, success: form.vanity_domain.$valid && form.$submitted}">
+        <div>
+            <label for="vanity_domain">Vanity Domain</label>
+            <select name="vanity_domain" ng-model="widget.vanityDomain"
+                    class="form-control domain">
+                <option value="">Default vanity domain</option>
+                <option ng-selected="{{item === widget.vanityDomain}}" ng-repeat="item in domains" value="{{item}}">
+                    {{item}}
+                </option>
+            </select>
+        </div>
+        <div ng-class="{notSubmitted: !form.$submitted}" ng-messages="form.vanity_domain.$error" ng-messages-multiple
+             class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        </div>
+    </div>
+
+</div>
+
+<div class="half widget-available-services">
+    <selectable-buttons name="buttons" ng-model="widget.buttons" available-buttons="availableButtons" not-empty-array></selectable-buttons>
+
+    <div ng-class="{notSubmitted: !form.$submitted}" ng-if="form.buttons.$dirty || form.$submitted" ng-messages="form.buttons.$error" ng-messages-multiple
+         class="msg-error" ng-messages-include="app/common/validation/default-messages.html" cc-server-messages>
+        <div ng-message="notEmptyArray">Widget has no buttons.</div>
+    </div>
+</div>

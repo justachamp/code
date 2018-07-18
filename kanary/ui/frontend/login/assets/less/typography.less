@@ -1,0 +1,178 @@
+h1 {
+    .ciutadella();
+    color: @h1Color;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size:33px;
+}
+
+
+.button {
+    border: 2px solid @black;
+    display:inline-block;
+    background: @yellow;
+    text-transform: uppercase;
+    color: @black;
+    .ciutadella();
+    font-weight:700;
+    padding: 19px 67px 16px;
+    font-size: 14px;
+    .transition(all 200ms ease);
+    cursor: pointer;
+    &:hover {
+        background: @black;
+        color: @yellow;
+        text-decoration: none;
+    }
+}
+
+
+a {
+    text-decoration:none;
+    color: @yellow;
+    outline:none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.center {
+    text-align:center;
+}
+
+.icon {
+    display:inline-block;
+    background: no-repeat url('../img/icons-sprite.png');
+    background-position: 0 0;
+    &.info {
+        width: 59px;
+        height: 59px;
+    }
+
+    &.heart{
+        width: 18px;
+        background-position: -64px -20px;
+        height: 17px;
+        position: relative;
+        top: 3px;
+    }
+}
+
+.logos {
+    display:inline-block;
+    background: no-repeat url('../img/logos-sprite.png');
+    background-position: 0 0;
+    &.nexage {
+        width: 72px;
+        height: 80px;
+        background-position: -15px 0px;
+    }
+
+    &.appnexus {
+        width: 47px;
+        height: 80px;
+        background-position: -106px 0px;
+    }
+
+    &.msadv {
+        width: 100px;
+        height: 80px;
+        background-position: -168px 0px;
+    }
+
+    &.fbexchange {
+        width: 97px;
+        height: 80px;
+        background-position: -290px 0px;
+    }
+
+    &.doubleclick {
+        width: 112px;
+        height: 80px;
+        background-position: -395px 0px;
+    }
+}
+
+
+
+
+.checkbox {
+    width: 14px;
+    height: 14px;
+    display:inline-block;
+    background: no-repeat url('../img/icon-checkbox.png');
+    cursor: pointer; 
+    background-position: -14px 0;
+    &.checked {
+        background-position: 0px 0;
+    }
+}
+
+.styled {
+    display: block;
+    float: left;
+    margin-right: 10px;
+
+}
+
+.placeholderWrap {
+    position:relative;
+    display: block;
+    label {
+        position:absolute;
+        top:13px;
+        left:10px;
+        .defaultfont();
+        font-size:13px;
+        font-weight:700;
+    }
+
+    &.placeholder-changed {
+        label {
+            display:none;
+        }
+    }
+}
+
+textarea {
+    height: 100px;
+    margin-top:3px;
+}
+
+label.for-checkbox {
+    margin:10px;
+    display: block;
+    span.label {
+        display:block;
+        .defaultfont();
+        font-size:11px;
+        line-height: 15px;
+    }
+}
+
+.message {
+    position:fixed;
+    width:100%;
+    background: @yellow;
+    text-align:center;
+    top:0px;
+    .ciutadella();
+    padding: 10px 0;
+    font-size:14px;
+    .transition(all 200ms ease);
+
+    .exit {
+        background: url('../img/icon-exit.png');
+        width:8px;
+        height: 8px;
+        background-size: 100%;
+        display: inline-block;
+        cursor: pointer;
+        margin: 0 10px;
+    }
+}
+
+
+
+

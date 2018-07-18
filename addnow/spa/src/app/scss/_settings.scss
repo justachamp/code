@@ -1,0 +1,353 @@
+.addsite-view{
+    padding: 60px 0 0 0;
+	.app-content{
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+    @include tablet{padding: 60px 0 0 0}
+    ~ div > .app-footer{
+        padding-left: 0;
+    }
+}
+
+.settings-view{
+    @include tablet{padding-top: 45px}
+    h3{
+        margin: 0 0 30px 0;
+        padding: 0;
+        color: #777A89;
+        font-size: 14px;
+        font-weight: 600;
+    }
+	.panel{
+		padding: 0;
+	}
+}
+
+.settings-section-title{
+    display: inline-block;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #4E585C;
+    line-height: 22px;
+}
+
+.settings-section{
+    +.settings-section{
+        //margin-top: 30px;
+	    border-top: 1px solid #CECECE;
+    }
+    &.panel{
+        padding: 0;
+    }
+    > div{
+        padding: 30px;
+    }
+    .half + .half{
+        margin: 0;
+        border-left: 1px solid #CECECE;
+        flex-grow: 2;
+    }
+}
+
+.site-details{
+    .addsite-sharing-message-field,
+    .addsite-domain-field{
+        display: block !important;
+    }
+    .form-group:not(.has-radio-switch){
+        label,
+        input[type="text"],
+        textarea{
+            width: 100%;
+            float: none;
+        }
+        label{
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+    }
+    label{
+        font-weight: 600;
+        color: #4E585C;
+        text-transform: uppercase;
+    }
+    .msg-error{
+        padding-left: 0;
+    }
+    textarea{
+        padding: 12px 16px;
+    }
+}
+
+.addsite-sharing-message-field{
+    margin-top: 15px;
+    align-items: flex-start !important;
+}
+
+.has-radio-switch{
+    label{
+        width: 40%;
+    }
+    > div{
+        justify-content: flex-start !important;
+    }
+    .toggle-switch{
+        width: auto !important;
+    }
+}
+
+.form-group.has-radio-switch{
+    & > div:not(.msg-error){
+        justify-content: flex-start;
+    }
+    .toggle-switch{
+        width: auto;
+    }
+}
+
+.sharing-message{
+    height: 120px;
+    display: inline-block;
+    padding: 12px 16px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.21);
+    border-radius: $borderRadius;
+    margin-bottom: 8px;
+}
+
+.social-services-list{
+    margin-top: 25px;
+}
+
+.social_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    [class^="addnow-icon"]{
+        position: relative;
+        margin-right: 8px;
+    }
+    input{
+        flex-grow: 5;
+    }
+}
+
+.follow-details{
+    .social-input{
+        display: block;
+        width: 100%;
+    }
+    @include tablet{margin-top: 30px}
+}
+
+.widget-codes-container{
+    p{
+        max-width: 75%;
+    }
+    .outline-button{
+        border-color: #BEBEBE;
+        span{
+            color: #9B9BA7;
+        }
+        &:hover {
+            border-color: $blueBrand;
+        }
+        &.g4-button-hover{
+            background-color: $blueBrand;
+            border-color: $blueBrand;
+            span{
+                color: #fff;
+            }
+        }
+    }
+}
+
+.widget-code{
+    background: #fff;
+    padding: 15px;
+    border:1px dashed $blueBrand;
+    border-radius:$borderRadius;
+    white-space: pre-line;
+    color: #0069BF;
+    font-size: 12px;
+    font-family: monospace, monaco, 'Open Sans', sans-serif;
+    margin-bottom: 15px;
+}
+
+.style-chooser{
+    h3{
+        margin-bottom: 20px;
+    }
+}
+
+.carousel-container{
+    text-align: left;
+    position: relative;
+    ul{
+        width: 100%;//92%;
+        margin: 0;
+		padding: 0;
+        background: #fff;
+        border-radius: $borderRadius;
+		display: flex;
+		flex-direction: row;
+		flex-flow: wrap;
+		align-items: stretch;
+		list-style: none;
+    }
+    li{
+		vertical-align: top;
+		width: 25% !important;
+		padding: 30px 15px !important;
+		@include tablet{
+			width: 50% !important;
+		}
+		@include phone{
+			width: 100% !important;
+			padding: 0 0 30px 0 !important;
+		}
+    }
+    .carSlide{
+        height: 420px;
+		border: 1px solid #CECECE;
+		background: #fff;
+		position: relative;
+		@include phone{
+			height: auto;
+		}
+    }
+    .prev-button{
+        cursor: pointer;
+        position: absolute;
+        left: -15px;
+        top: 50%;
+        margin-top: -20px;
+        width: 15px;
+        height: 24px;
+        display: inline-block;
+        background: url(../assets/images/arrow-left.svg) 50% 50% no-repeat;
+        opacity: .75;
+        &:hover{
+            opacity: 1;
+        }
+    }
+    .next-button{
+        cursor: pointer;
+        position: absolute;
+        right: -15px;
+        top: 50%;
+        margin-top: -20px;
+        width: 15px;
+        height: 24px;
+        display: inline-block;
+        background: url(../assets/images/arrow-right.svg) 50% 50% no-repeat;
+        opacity: .75;
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+
+.carousel-bullets{
+    text-align: center;
+    .active {
+        color: #0075D6 !important;
+    }
+    span {
+        color: #D8D8D8 !important;
+        font-size: 20px !important;
+        margin: 0 2px;
+    }
+}
+
+.img-type-container{
+	text-align: center;
+	@include phone{
+		width: 50%;
+		float: left;
+		padding: 0 15px;
+		margin-right: 15px;
+		position: absolute;
+		bottom: 0;
+		left:0;
+	}
+}
+
+.widget-type-image{
+	margin: 0;
+	max-width: 100%;
+	height: auto;
+	max-height: 230px;
+}
+
+.widget-type-name{
+	color: #0075D6;
+	width: 100%;
+	padding:30px;
+	font-size: 14px;
+	margin: 0;
+	border-top: 1px solid #CECECE;
+	max-height: 280px;
+	@include phone{
+		border-top: 0;
+		padding: 45px 0 15px 0;
+		width: 50%;
+		float: left;
+		margin-left: 50%;
+	}
+}
+
+.widget-type-description{
+	padding: 0 30px 15px 30px;
+	color: #777777;
+	font-size: 13px;
+	line-height: 1.4;
+	@include phone{
+		padding: 0 15px 0 0;
+		width: 50%;
+		float: left;
+		margin-left: 50%;
+	}
+}
+
+.create-widget-button{
+	margin: 15px 30px 30px 30px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	@include phone{
+		position: static;
+		margin-left: 50%;
+		margin-right: 15px;
+	}
+}
+
+
+.save-bar{
+    padding-top: 0;
+    margin-top: 0 !important;
+    text-align: right;
+    > div{
+        padding-right: 30px;
+    }
+    .g4-button{
+        margin: 0 0 0 15px;
+    }
+}
+
+.forgot-password{
+    margin-top: 30px;
+    padding-left: 30%;
+    a{
+        color: $blueBrand;
+    }
+}
+
+.account-verification-button{
+    padding-top: 30px;
+}
+

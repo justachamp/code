@@ -1,0 +1,114 @@
+<div id="content-container" class="content-container row-fluid full-width">
+  <div class="row-fluid">
+    <h2 data-bind="text: name" class="span5 -t-title"></h2>
+
+    <div class="span7 pull-right">
+      <div class="row-fluid">
+        <div class="datepicker-input span6 pull-right input-append -t-datepicker" data-range="true"
+             data-bind="daterangepicker: {value: dateRangePicker.range, limitation: reportDateRange}">
+          <input type="text" readonly="readonly" class="input-block-level input-dark"/>
+          <i class="icon-calendar add-on"></i>
+        </div>
+
+        <div class="dropdown span3 pull-right">
+          <a href="#" data-toggle="dropdown" class="dropdown-toggle arrow-down">Metrics</a>
+          <ul class="dropdown-menu" data-bind="foreach: {data: table.headers.elements, as: 'metricsItem'}">
+            <li>
+              <input type="checkbox"
+                     data-bind="attr: {disabled: metricsItem.disabled}, fancyCheckbox: metricsItem.checked"/>
+              <span data-bind="text: metricsItem.name"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table-statistics">
+      <tbody>
+          <tr data-bind="foreach: {data: table.headers.elements, as: 'metric'}">
+              <!-- ko if: metric.checked -->
+              <td data-bind="
+                  trimFloat: {value: $parent.overview()[metric.slug()], precision: CONFIG.REPORT_FLOAT_PRECISION, policy: 'trimmed'},
+                  click: function() { $parent.chart.metric(metric.slug()); },
+                  css: { selected: $parent.chart.metric() == metric.slug() }">
+              </td>
+              <!-- /ko -->
+          </tr>
+          <tr data-bind="foreach: {data: table.headers.elements, as: 'metric'}">
+              <!-- ko if: metric.checked -->
+                  <th data-bind="
+                      text: metric.name, click: function() { $parent.chart.metric(metric.slug()); },
+                      css: { selected: $parent.chart.metric() == metric.slug() }">
+                  </th>
+              <!-- /ko -->
+          </tr>
+      </tbody>
+  </table>
+
+   <!-- ko if: show_chart -->
+       <div class="chart" data-bind="chart: chart"></div>
+   <!-- /ko -->
+
+    <div class="table-responsive-wrapper">
+        <table class="table-responsive sort-col toggle-col collapse-col -t-reports-table">
+            <thead><tr>
+                <th class="persist no-sort">
+                  <select data-bind="options: reportDimensions, selectpicker: dimension, optionsText: 'name', optionsValue: 'slug', value: dimension" class="-t-dimensions"><select>
+                </th>
+                <th class="placeholder persist -t-reports-table-header"></th>
+                <!-- ko foreach: {data: table.headers.elements, as: 'metric'} -->
+                  <!-- ko if: metric.checked -->
+                    <th class="-t-sortable-clickable" data-bind="text: metric.short_name, tooltip: {title: metric.name, container: 'table.-t-reports-table'}, sortBy: {value: $parent.table.sort_column, item: metric.slug}, css: 'column' + $index(), click: function(){ $parent.reload() }"></th>
+                  <!-- /ko -->
+                <!-- /ko -->
+            </tr></thead>
+            <!-- empty row -->
+            <!-- ko ifnot: table.rows.elements().length > 0 -->
+            <tbody>
+              <tr>
+                <td></td>
+                <td class="placeholder"></td>
+                <td data-bind="attr: {colspan: table.headers.elements().length}">No data available</td>
+              </tr>
+            </tbody>
+            <!-- /ko -->
+            <tbody data-bind="foreach: {data: table.rows.elements, as: 'tableBodyItem'}">
+                <tr data-bind="css: 'row' + $index() + ' -t-row' + (!tableBodyItem.checked() ? ' unselected' : '') + (!tableBodyItem.is_running ? ' muted' : '')">
+                    <td><div>
+                        <input type="checkbox" data-bind="
+                            attr: {disabled: $parent.table.checkboxes_disabled() && !tableBodyItem.checked()},
+                            coloredCheckbox: {
+                                checked: tableBodyItem.checked,
+                                color: tableBodyItem.color,
+                                onclick: tableBodyItem.set_checked
+                            }"/>
+                        <h4 data-bind="text: tableBodyItem.label" class="-t-col-name"></h4>
+                        <!-- ko if: tableBodyItem.whitelist_blacklist -->
+                                <a href="#" data-bind="
+                                    text: tableBodyItem.blacklist() ? 'whitelist' : 'blacklist',
+                                    click: tableBodyItem.whitelist_blacklist_click
+                                " class="btn round pull-right"></a>
+                        <!-- /ko -->
+                    </div></td>
+                    <td class="placeholder"></td>
+                    <!-- ko foreach: {data: tableBodyItem.cells.elements, as: 'tableDataItem'} -->
+                        <!-- ko if: tableDataItem.header.checked -->
+                            <td class="-t-sortable-value" data-bind="trimFloat: {
+                              value: tableDataItem.value, precision: CONFIG.REPORT_FLOAT_PRECISION, policy: 'fixed_float'
+                            }, css: 'column' + $index() + ' -t-col-' + $data.slug()"></td>
+                        <!-- /ko -->
+                    <!-- /ko -->
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ko if: hasMoreItems -->
+        <div class="load-more">
+          <div class="rounded-block -t-load-more">
+            <a href="#" data-bind="click: loadMore">Load more items</a>
+          </div>
+        </div>
+        <!-- /ko -->
+    </div>
+</div>

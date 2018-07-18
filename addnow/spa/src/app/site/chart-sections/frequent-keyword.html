@@ -1,0 +1,62 @@
+<div class="panel half">
+    <div class="panel-header">
+        <h3 class="panel-title">Most Frequently Copied Keywords</h3>
+    </div>
+    <div class="panel-content">
+        <div class="g4-table">
+            <table ng-table="copiedKeywordsTableParams" class="table table-striped" export-csv="copiedKeywordsCSV">
+                <thead>
+                <tr>
+                    <th data-title="'Keyword'">Keyword</th>
+                    <th data-title="'Count'">Count</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="copiedKeywordsItem in copiedKeywords | limitTo:10">
+                    <td>{{ copiedKeywordsItem.keyword }}</td>
+                    <td class="text-right">{{ copiedKeywordsItem.copies | number }}</td>
+                </tr>
+                <tr ng-show="!copiedKeywords || copiedKeywords.length === 0" class="ng-table-filters">
+                    <td class="no-data-msg" colspan="2">No copied keywords tracked.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer" ng-if="copiedKeywords.length > 0">
+        <a class="export-graph-button g4-button outline-button" ng-mousedown="copiedKeywordsCSV.generate()"
+           ng-href="{{ copiedKeywordsCSV.link() }}"
+           download="copied-keyword.csv"><span>export csv</span></a>
+    </div>
+</div>
+<div class="panel half">
+    <div class="panel-header">
+        <h3 class="panel-title">Referring Domains</h3>
+    </div>
+    <div class="panel-content">
+        <div class="g4-table">
+            <table ng-table="referringDomainsTableParams" class="table table-striped" export-csv="referringDomainsCSV">
+                <thead>
+                <tr>
+                    <th data-title="'Domain'">Domain</th>
+                    <th data-title="'Count'">Count</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="referringDomainsItem in referringDomains | limitTo:10">
+                    <td>{{ referringDomainsItem.domain | limitTo: 60 }}{{ referringDomainsItem.domain.length > 60 ? '...' : '' }}</td>
+                    <td class="text-right">{{ referringDomainsItem.count | number }}</td>
+                </tr>
+                <tr ng-show="!referringDomains || referringDomains.length === 0" class="ng-table-filters">
+                    <td class="no-data-msg" colspan="2">No referring domains tracked.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer" ng-if="referringDomains.length > 0">
+        <a class="export-graph-button g4-button outline-button" ng-mousedown="referringDomainsCSV.generate()"
+           ng-href="{{ referringDomainsCSV.link() }}"
+           download="referring-domains.csv"><span>export csv</span></a>
+    </div>
+</div>

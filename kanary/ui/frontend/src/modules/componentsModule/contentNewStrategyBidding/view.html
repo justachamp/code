@@ -1,0 +1,139 @@
+<div class="content-container -t-bidding-container">
+
+    <h2>Bidding</h2>
+
+    <form class="form-horizontal ">
+
+        <div class="control-group row-fluid">
+            <h5>
+                <span class="switcher -t-automatic-bid-price" data-bind="click: toggle_is_automatically_bidded, css: {on: fields().is_automatically_bidded}"></span>
+                <span class="switcher-inline-text">Automatic bid price</span>
+            </h5>
+        </div>
+        <!-- ko if: fields().is_automatically_bidded() -->
+        <div class="-t-metrics" data-bind="foreach: {data: optimizedMetrics, as: 'metric'}">
+            <div class="target-block">
+                <div class="target-block-header">
+                    <i data-bind="css: 'icon-metric-' + metric.short_name.toLowerCase()"></i>
+                        <div class="controls" data-bind="css: '-controls-' + metric.short_name.toLowerCase()">
+                            <span class="switcher" data-bind="click: $parent.toggle_optimized_metric.bind($data, metric.short_name), css: {'on': $parent.fields().optimized_metric() == metric.short_name}"></span>
+                        </div>
+                    <h4 data-bind="css: '-metric-description-' + metric.short_name.toLowerCase()"><strong data-bind="text: metric.short_name"></strong> <span data-bind="text: metric.full"></span> optimized</h4>
+                </div>
+            </div>
+        </div>
+        <!-- /ko -->
+
+        <!-- ko ifnot: fields().is_automatically_bidded() -->
+            <div class="control-group row-fluid">
+                <label class="control-label">Default CPM bid</label>
+
+                <div class="controls">
+                    <div class="input-prepend span6">
+                        <input type="text" data-bind="formatBudget: fields().budget_bid_CPM, displayError: errors.budget_bid_CPM" class="input-block-level -t-input-bid">
+                        <span class="add-on">$</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">Enable day parting <i class="icon-help" data-bind="tooltip: {title: 'Concentrate bids during set times', placement: 'right'}"></i>
+                </label>
+                <div class="controls">
+                    <label class="checkbox -t-enable-dayparting input-inline-text">
+                        <input type="checkbox" data-bind="fancyCheckbox: { value: fields().day_parted, onclick: toggleDayParting }">
+                     </label>
+
+                </div>
+            </div>
+
+            <div class="control-group row-fluid" data-bind="visible: fields().day_parted">
+                <label class="control-label"><strong>Chosen time periods</strong></label>
+                <div class="controls multirow" data-bind="foreach: fields().bidding_periods">
+                    <div class="-t-bidding-period input-remove span4">
+                        <input type="text" class="-t-period-value input-block-level input-dark" data-bind="value: from()+' - '+to()"/>
+                        <a href class="remove -t-remove-period" data-bind="click: function() { $parent.removeBiddingPeriods($data)}"></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="control-group row-fluid" data-bind="visible: fields().day_parted">
+                <label class="control-label">New time period: </label>
+
+                <div class="controls">
+
+                    <div class="timepicker-input input-append span3" data-bind="timepicker: bid_period_from">
+                        <input type="text" class="-t-input-from input-block-level input-dark time-from" data-bind="value: bid_period_from">
+                        <i class="icon-clock add-on"></i>
+                    </div>
+
+                    <div class="timepicker-input input-append span3" data-bind="timepicker: bid_period_to">
+                        <input type="text" class="-t-input-to input-block-level input-dark time-to" data-bind="value: bid_period_to">
+                        <i class="icon-clock add-on"></i>
+                    </div>
+
+                    <a href="#" class="-t-add-period btn btn-yellow span4" data-bind="click: addBidDayParting">Add time period</a>
+                </div>
+            </div>
+            
+            <!-- ko if: isStrategyType('Facebook') -->
+            <div class="control-group row-fluid">
+                <label class="control-label">Bid on unknown users</label>
+                <div class="controls">
+                    <label class="checkbox -t-bid-unknown-users input-inline-text">
+                        <input type="checkbox" data-bind="fancyCheckbox: { value: fields().bid_on_unknown_users }">
+                     </label>
+                </div>
+            </div>
+            <!-- /ko -->
+            
+            <div class="items-table">
+                <div class="row-fluid">
+                    <h5 class="span3">Creative name</h5>
+                    <h5 class="span9">Creative bid</h5>
+                </div>
+                <div class="control-group row-fluid" data-bind="foreach: fields().adverts">
+                    <div class="-t-advert-box row-fluid">
+                        <label class="-t-name control-label" data-bind="text: creative_name">New time period: </label>
+                        <div class="controls">
+                            <select class="-t-select span6" data-bind="value: bid_type">
+                                <option value='default' data-bind="text: $parent.defaultBidText()"></option>
+                                <option value='custom'>Custom bid</option>
+                                <option value='day_parting' data-bind="visible: $parent.fields().day_parted">Custom bid with day parting</option>
+                            </select>
+                            <!-- ko if: bid_type() == 'custom' -->
+                            <div class="span6 input-prepend-dollar">
+                                <div class="input-prepend span5">
+                                    <input type="text" class="-t-input-custom-val input-block-level input" data-bind="formatBudget: bid_custom">
+                                    <span class="add-on">$</span>
+                                </div>
+                            </div>
+                            <!-- /ko -->
+
+                            <!-- ko if: bid_type() == 'day_parting' -->
+                            <div class="span6" data-bind="foreach: bid_day_parting">
+
+                                <div class="row-fluid">
+                                    <div class="input-prepend span5">
+                                        <input type="text" class="-t-day-parted-val input-block-level input" data-bind="formatBudget: bid_custom">
+                                        <span class="add-on">$</span>
+                                    </div>
+                                    <div class="span5 offset1 input-inline-text text-left">
+                                        <span data-bind="text: from"></span>-<span data-bind="text: to"></span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- /ko --> <!-- Manual bid price -->
+    </form>
+    <br>
+    <a class="btn icon-ok -t-button-save" href="#" data-bind="click: save">Save changes</a>
+</div>
+

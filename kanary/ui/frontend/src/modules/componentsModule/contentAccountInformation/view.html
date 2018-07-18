@@ -1,0 +1,60 @@
+<div>
+
+    <div class="section-block">
+        <div class="row-fluid">
+            <h2 data-bind="text: 'Welcome, ' + fields().username()" ></h2>
+        </div>
+
+        <form class="form-horizontal">
+            <div class="control-group row-fluid">
+                <label class="control-label">Account Number</label>
+
+                <div class="controls">
+                    <p class="input-inline-text -t-account-number"><strong data-bind="text: fields().account_number"></strong></p>
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">Username / email</label>
+
+                <div class="controls">
+                    <input type="text" data-bind="value: fields().email" class="input-block-level -t-input-email" disabled>
+                    <!-- ko ifnot: showPassForm -->
+                    <a data-bind="click: togglePassForm" class="btn pull-right -t-change-password" href="#">Change password</a>
+                    <!-- /ko -->
+                </div>
+            </div>
+
+            <!-- ko if: showPassForm -->
+
+            <div class="control-group row-fluid">
+                <label class="control-label">Password</label>
+
+                <div class="controls">
+                    <input data-bind="value: password" type="password" class="input-block-level -t-input-password">
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">New Password</label>
+
+                <div class="controls">
+                    <input data-bind="value: new_password" type="password" class="input-block-level -t-input-new-password">
+                </div>
+            </div>
+
+            <div class="control-group row-fluid">
+                <label class="control-label">Repeat New Password</label>
+
+                <div class="controls">
+                    <input data-bind="value: repeat_password" type="password" class="input-block-level -t-input-repeat-password">
+                    <a data-bind="click: saveChanges" class="btn -t-btn-save-changes" href="#">Save changes</a>
+                </div>
+            </div>
+
+            <!-- /ko -->
+
+        </form>
+    </div>
+
+</div>

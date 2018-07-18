@@ -1,0 +1,317 @@
+.sidebar, .sidebar-stage {
+
+	background: @sidebarBg;
+	color: @sidebarTextColor;
+    z-index: 4;
+
+	&.has-back {
+
+		& > header {
+
+			&:after {
+				content: '';
+				position: absolute;
+				height: 1px;
+				background: @sidebarGrayDark;
+				bottom: -2px;
+				left: 0;
+				width: 100%;
+			}
+
+			nav {
+				float: right;
+				margin: 0;
+
+				ul,
+				ul:before {
+					left: auto;
+					right: 15px;
+				}
+			}
+            a.back {display: block;}
+		}
+	}
+
+	&.no-header {
+		padding-top: 40px;
+	}
+
+	& > header {
+		// .box-shadow(~"0 15px 9px rgba(39,41,41,.93)");
+
+		height: @headerHeight - 1;
+		z-index: 1;
+		position: relative;
+		background: @sidebarBgArticle;
+		border-bottom: 1px solid @sidebarBlackLight;
+
+		a.back {
+			display: none;
+			float: left;
+			width: 76px;
+			height: @headerHeight - 1;
+			border-right: 1px solid @sidebarBlackLight;
+			background: @blackLighter;
+			position: relative;
+			text-align: center;
+			line-height: @headerHeight + 10;
+            outline:none;
+
+			&:before {
+                #sprites > .sprite("ui");
+
+				content: "";
+				display: inline-block;
+				width: 20px;
+				height: 18px;
+			}
+
+			&:hover {
+				background: #1b1b1b;
+				&:before { #sprites > .position(0, 1, 32px)}
+			}
+
+			&:active {
+				background: @mainYellow;
+                &:before { #sprites > .position(0, 2, 32px)}
+			}
+		}
+
+		nav {
+			position: relative;
+			float: left;
+			margin: 0 0 0 45px;
+            z-index: 20;
+
+			& > a {
+				color: @grayLight;
+				text-decoration: none;
+				text-transform: uppercase;
+				position: relative;
+                white-space: nowrap;
+				margin: 0 14px 0 0;
+
+				&:before {
+                    #sprites > .sprite;
+
+					position: absolute;
+					content: '';
+					height: 16px;
+					width: 16px;
+					left: -24px;
+					top: -2px;
+                    background-position: 16px 16px;
+				}
+
+                &:hover{color:@white;}
+			}
+
+			&:hover {
+				ul {
+					display: block;
+                    .opacity(100);
+				}
+			}
+
+			ul {
+				.box-shadow(~"0 0 7px rgba(0,0,0,.4)");
+
+				width: 200px;
+				z-index: 3;
+				position: absolute;
+				left: -15px;
+				border: 1px solid @black;
+				margin: 8px 0 0 0;
+				background: @sidebarBgDarker;
+				padding: 0;
+
+				&:before {
+					position: absolute;
+					content: "";
+					width: 30px;
+					height: 15px;
+					left: 15px;
+					margin: -15px 0 0 0;
+					background: url(../images/sprite-icons.png) -256px -130px no-repeat;
+				}
+
+				li {
+					border-bottom: 1px solid @black;
+
+					&:last-child { border: none }
+
+					a {
+						padding: 7px 10px 3px;
+						display: block;
+						color: @white;
+						text-decoration: none;
+
+						&:hover {background: @sidebarBgLight;}
+
+						&:active {
+							background: @mainYellow;
+							color: @sidebarBgDarker;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.sidebar-viewport {
+		position: absolute;
+		top: 41px;
+		bottom: 0;
+		width: 100%;
+		overflow: hidden;
+	}
+	.sidebar-content {
+		padding: 0 @sidebarPadding 50px;
+		width: 100%;
+		.box-sizing(border-box);
+
+		.sub-header {
+			line-height: 24px;
+            margin: 0 0 @baseLineHeight/2;
+
+			label {
+				margin: 0 0 @baseLineHeight/2;
+                font-weight: bold;
+				color: @white;
+				text-transform: uppercase;
+
+                .switcher{
+                    margin: -2px 5px 0 0;
+                }
+			}
+
+            .tooltip{
+                text-transform: none;
+                max-width: 80px;
+            }
+
+            [class^="status-"],
+            [class*=" status-"] {
+                display: block;
+                font-weight: bold;
+                font-size: 0.7692em;
+				text-transform: uppercase;
+
+                &:last-of-type{
+                    margin: 0 0 @baseLineHeight/2;
+                }
+                &:before{margin:-5px 3px 0 0;}
+			}
+
+            dl {
+                padding: 0 0 @baseLineHeight/2 0;
+
+                dt {float: left;}
+
+                dd {
+                    font-weight: bold;
+                    color: @sidebarTextLight;
+
+                }
+            }
+		}
+
+		p {
+            padding:0 0 @baseLineHeight/2;
+			a,
+			strong {
+				font-weight: bold;
+                color:@sidebarTextLight;
+			}
+
+			a:hover {text-decoration: underline;}
+		}
+
+		h2 {
+			display: block;
+			padding: 56px 0 21px 0;
+			color: @sidebarTextLight;
+			position: relative;
+
+			.label {
+				left: 0;
+				top: 20px;
+				position: absolute;
+			}
+		}
+
+		article {
+
+			margin: 0 -@sidebarPadding 20px;
+
+			&:first-of-type {margin: 22px -@sidebarPadding 20px;}
+
+			header {
+				color: @sidebarTextLight;
+				text-transform: uppercase;
+				background: @sidebarBgArticle;
+				border: 1px solid transparent;
+				padding: 2px @sidebarPadding 0;
+				margin: 0 0 15px 0;
+				position: relative;
+
+				&:before {
+					content: '';
+					background: #232424;
+					height: 2px;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+				}
+
+				&:hover {a { .opacity(50);}}
+
+				a {
+					.transition-all(.2s);
+
+					float: right;
+					font-size:10px;
+					text-transform: uppercase;
+					color: @sidebarGray;
+					position: relative;
+                    .opacity(0);
+
+					&:before {
+						content: '';
+						position: absolute;
+						width: 10px;
+						height: 10px;
+						left: -15px;
+						top: 6px;
+					}
+
+					&:hover { .opacity(1);}
+					&.edit:before {
+                        #sprites > .sprite('icons');
+                        #sprites > .set-size(16px);
+                        #sprites > .position(5, 0, 16px);
+                    }
+				}
+			}
+		}
+      
+        .link-logout {
+            float: right;
+            z-index: 2;
+        }
+	}
+
+    &.dashboard > header nav  > a {&:before         { #sprites > .position(6, 0, 16px) }    &:hover:before  { #sprites > .position(7, 0, 16px) } }
+	&.campaigns > header nav  > a {&:before         { #sprites > .position(6, 0, 16px) }    &:hover:before  { #sprites > .position(7, 0, 16px) } }
+	&.strategies > header nav  > a {&:before        { #sprites > .position(6, 1, 16px) }    &:hover:before  { #sprites > .position(7, 1, 16px) } }
+	&.livefeed > header nav  > a {&:before          { #sprites > .position(6, 2, 16px) }    &:hover:before  { #sprites > .position(7, 2, 16px) } }
+	&.reports > header nav  > a {&:before           { #sprites > .position(6, 3, 16px) }    &:hover:before  { #sprites > .position(7, 3, 16px) } }
+	&.storage > header nav  > a {&:before           { #sprites > .position(6, 4, 16px) }    &:hover:before  { #sprites > .position(7, 4, 16px) } }
+	&.settings > header nav  > a {&:before          { #sprites > .position(6, 5, 16px) }    &:hover:before  { #sprites > .position(7, 5, 16px) } }
+	&.appstore > header nav  > a {&:before          { #sprites > .position(6, 6, 16px) }    &:hover:before  { #sprites > .position(7, 6, 16px) } }
+	&.signup {
+		.items-list { margin-top: 25px; }
+		.items-list a { text-transform: uppercase; font-weight: bold; }
+	}
+}

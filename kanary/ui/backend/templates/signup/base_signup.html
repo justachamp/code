@@ -1,0 +1,34 @@
+{% extends 'backend/base.html' %}
+
+{% block left_menu %}
+<div id="menu">
+    <img src="{{ STATIC_URL }}assets/images/logo.png" />
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<section class="sidebar signup no-header">
+    <div class="sidebar-content">
+        <a class="btn icon-logout -t-logout link-logout" href="{% url 'auth-logout' %}">log out</a>
+        <h2>Welcome to Gravity4</h2>
+        <p>
+            Before we can begin, we need just a few more bits of information
+            from you in order to setup your account.
+        </p>
+
+        <article>
+            <ul class="items-list">
+                <li {% if step == 'create_profile' %}class="selected"{% endif %}>
+                    <a>Create your profile</a>
+                </li>
+                <li {% if step == 'charge_account' %}class="selected"{% endif %}>
+                    <a>Charge your account</a>
+                </li>
+                <li {% if step == 'setup_complete' %}class="selected"{% endif %}>
+                    <a>Setup complete</a>
+                </li>
+            </ul>
+        </article>
+    </div>
+</section>
+{% endblock %}

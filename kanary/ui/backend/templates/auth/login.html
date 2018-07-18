@@ -1,0 +1,28 @@
+{% extends 'auth/base_landing.html' %}
+
+{% block main_section %}
+<div class="container login-form">
+  <div class="row">
+    <div class="span4 offset4 center">
+        <a href="http://gravity4.com/"><img class="logo" src="{{ STATIC_URL }}login/assets/img/logo_long.png"/></a>
+
+      <form action="" method="POST" class="-t-login-form">
+        {% csrf_token %}
+        <p class="error">{{ error|default:"" }}</p>
+        <input name="username" type="text" placeholder="Username/E-mail" class="input-block-level -t-username" value="{{ login }}">
+        <input name="password" type="password" placeholder="Password" class="input-block-level -t-password">
+
+        <button type="submit" class="-t-submit">Login</button>
+
+        <p>
+            {% if SIGNUP_ENABLED %}
+                <a href="{% url 'signup' %}" class="-t-signup-link">Don't have an account yet? Sign up!</a> &nbsp;&nbsp;&nbsp;
+            {% endif %}
+          <a href="{% url 'reset_password' %}">Forgot your password?</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,97 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    outline: 0;
+}
+
+body{
+    font-smoothing: antialiased;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+
+    position: relative;
+    color: $textColor;
+    font-size: 12px;
+    line-height: 1;
+	@extend .opensans;
+    font-weight: 400;
+}
+
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after{
+    content: "";
+    display: table;
+}
+
+.clearfix:after,
+.row:after{
+    clear: both;
+}
+
+.clearfix,
+.row{
+    *zoom: 1;
+}
+
+.half{
+    width: calc(50% - 15px);//e("calc(50% - 15px)");
+    float: left;
+    + .half{
+        margin-left: 30px;
+    }
+}
+
+.third{
+    width: 33.3333333%;
+    float: left;
+}
+
+.two-thirds{
+    width: 66.6666666%;
+    float: left;
+}
+
+.quarter{
+    width: 25%;
+    float: left;
+}
+
+.three-quarters{
+    width: 75%;
+    float: left;
+}
+
+.show-on-mobile{
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .half,
+    .third,
+    .two-thirds,
+    .quarter {
+        width: 100% !important;
+        float: none !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .show-on-mobile {
+        display: block;
+    }
+}
+
+a{
+    color:$blueBrand;
+}

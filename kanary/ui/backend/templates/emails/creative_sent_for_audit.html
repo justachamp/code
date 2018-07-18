@@ -1,0 +1,21 @@
+{% extends 'emails/base_banner.html' %}
+{% block title %}
+    <span style="
+        font-size: 24px;
+        letter-spacing: 6px;
+    ">Your Ads have been sent for audit</span>
+{% endblock %}
+{% block message %}
+    <p>
+        Your ad{{ creatives|length|pluralize }} from
+        <span style="color: #64696B;">{{ strategies|join:", " }}</span>
+        strateg{{ strategies|length|pluralize:"y ,ies "}}
+        {{ creatives|length|pluralize:"has,have"}} been sent for audit.
+
+        {% if estimated_audit_time %}
+        Estimated audit time is <span style="color: #64696B;">{{ estimated_audit_time|date:'DATETIME_FORMAT' }}</span> UTC.
+        {% else %}
+        Audit takes 1-2 working days.
+        {% endif %}
+    </p>
+{% endblock %}

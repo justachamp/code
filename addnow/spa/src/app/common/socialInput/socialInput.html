@@ -1,0 +1,12 @@
+<div class="form-group">
+    <div class="social_div">
+        <span class="addnow-icon-{{icon }}">
+            <span class="addnow-service-icon _show-label">{{ icon }}</span>
+        </span>
+        <input type="url" name="{{ icon }}" placeholder="{{placeholder}}" ng-model="url" ng-model-options="{ debounce: { 'default': 750, 'blur': 0 }}" validate-server>
+    </div>
+
+    <div ng-class="{notSubmitted: !form.$submitted}" class="msg-error ng-active" ng-if="form[icon].$error.url" >
+        Please enter correct URL.
+    </div>
+</div>

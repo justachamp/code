@@ -1,0 +1,8 @@
+.settings/*
+.project
+.usertools/optimizer/build
+tools/optimizer/build
+tools/documentation/docs
+.idea/*
+.DS_Store
+etc/.dl_cache/

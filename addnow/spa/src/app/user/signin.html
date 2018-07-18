@@ -1,0 +1,45 @@
+<div class="website signin">
+    <div ng-include="'assets/views/site-header.html'"></div>
+    <div class="site-container">
+        <div class="half center-me">
+            <h2>Sign In</h2>
+            <form class="signin-form panel" name="forms.form" novalidate ng-submit="submitSignIn(forms.form.$valid)">
+                <div class="form-group">
+                    <errors data="errors.nonFieldServerErrors"></errors>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="domain">Email</label>
+                        <input type="email" class="form-control domain" name="email" ng-model="registration.email"
+                               ng-model-options="{ debounce: { 'default': 750, 'blur': 0 }}" required validate-server/>
+                    </div>
+                    <div ng-class="{notSubmitted: !forms.form.$submitted}" ng-if="forms.form.email.$dirty || forms.form.$submitted" ng-messages="forms.form.email.$error" ng-messages-multiple
+                         class="msg-error" ng-messages-include="app/common/validation/default-messages.html"
+                         cc-server-messages></div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="domain">Password</label>
+                        <input type="password" class="form-control domain" name="password" ng-model="registration.password" required validate-server/>
+                    </div>
+                    <div ng-class="{notSubmitted: !forms.form.$submitted}" ng-if="forms.form.password.$dirty || forms.form.$submitted" ng-messages="forms.form.password.$error" ng-messages-multiple
+                         class="msg-error" ng-messages-include="app/common/validation/default-messages.html"
+                         cc-server-messages></div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="g4-button" type="submit"><span>Sign In</span></button>
+                </div>
+            </form>
+
+            <div class="signup-links">
+                <a href="/passforgot">Forgot your password?</a><br/>
+                Not a member yet? <a class="gray-links" href="/signup">Sign up!</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="site-footer" ng-include="'assets/views/site-footer.html'"></div>
+</div>
